@@ -1,0 +1,1159 @@
+{
+ "status": "success",
+ "data": {
+  "breadcrumbs": {
+   "items": [
+    {
+     "title": "О компании"
+    }
+   ]
+  },
+  "seo": {
+   "title": "О компании"
+  },
+  "content": [
+   {
+    "uuid": "hero-uuid",
+    "type": "view",
+    "data": {
+     "title": "О компании",
+     "description": "«Инфосистемы Джет» — один из крупнейших ИТ-интеграторов России с командой 2000+ специалистов. Мы реализуем 1000+ проектов в год для ведущих компаний страны.",
+     "background": {
+      "type": "mixed",
+      "src": "/static/video/view/bg.mp4"
+     }
+    }
+   },
+   {
+    "uuid": "valuation-uuid",
+    "type": "valuation",
+    "data": {
+     "hash": "#valuation",
+     "navTitle": "Ценности",
+     "title": "Технологии оживают там, где есть люди, идеи и партнёрство. Решаем задачи, поддерживаем друг друга и всегда отвечаем за результат",
+     "items": [
+      {
+       "suptitle": "JET",
+       "title": "Мы — инженеры",
+       "description": "<span>Инженеры, энтузиасты, хулиганы.</span> Любим сложные задачи, ищем нестандартные решения, первыми разбираемся в новых технологиях"
+      },
+      {
+       "suptitle": "JET",
+       "title": "Мы — команда",
+       "description": "<span>Нам не всё равно.</span> Обязательства выше обстоятельств: если нужно решить проблему — мы делаем это вместе"
+      },
+      {
+       "suptitle": "JET",
+       "title": "Наш клиент — наш партнёр",
+       "description": "<span>Всегда поможем друг другу.</span> У нас принято помогать, делиться знаниями и быть рядом, когда это нужно"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "expertise-uuid",
+    "type": "expertise",
+    "data": {
+     "navTitle": "Компания в цифрах",
+     "hash": "#expertise",
+     "tag": "Экспертиза",
+     "title": "Наш опыт подтверждён <br/>лидерами индустрии",
+     "items": [
+      {
+       "title": "Проекты",
+       "items": [
+        {
+         "title": "1000+",
+         "description": "Проектов в год. Комплексные внедрения для крупных российских и международных заказчиков"
+        },
+        {
+         "title": "40+",
+         "description": "Отраслей в портфеле решений. Опыт в банках, ритейле, промышленности, госсекторе и других направлениях",
+         "link": {
+          "title": "RAEX Analitics",
+          "url": "/"
+         }
+        },
+        {
+         "title": "60%",
+         "description": "Клиентов возвращаются. Стратегическое партнёрство вместо разовых решений",
+         "link": {
+          "title": "RAEX Analitics",
+          "url": "/"
+         }
+        }
+       ]
+      },
+      {
+       "title": "Команда",
+       "items": [
+        {
+         "title": "60%",
+         "description": "Клиентов возвращаются. Стратегическое партнёрство вместо разовых решений"
+        },
+        {
+         "title": "40+",
+         "description": "Отраслей в портфеле решений. Опыт в банках, ритейле, промышленности, госсекторе и других направлениях",
+         "link": {
+          "title": "RAEX Analitics",
+          "url": "/"
+         }
+        }
+       ]
+      },
+      {
+       "title": "Рынок",
+       "items": [
+        {
+         "title": "40+",
+         "description": "Отраслей в портфеле решений. Опыт в банках, ритейле, промышленности, госсекторе и других направлениях",
+         "link": {
+          "title": "RAEX Analitics",
+          "url": "/"
+         }
+        },
+        {
+         "title": "60%",
+         "description": "Клиентов возвращаются. Стратегическое партнёрство вместо разовых решений"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "awards-uuid",
+    "type": "award",
+    "data": {
+     "hash": "#awards",
+     "navTitle": "Награды",
+     "tag": "Награды",
+     "title": "Лидерство и инновации, признанные в отрасли",
+     "background": {
+      "src": "/static/video/award/bg.mp4",
+      "type": "mixed"
+     },
+     "items": [
+      {
+       "img": {
+        "alt": "Изображение награды 1",
+        "src": "/static/images/award/img-1.jpg"
+       },
+       "title": "Data Award",
+       "description": "2024",
+       "url": "/"
+      },
+      {
+       "img": {
+        "alt": "Изображение награды 2",
+        "src": "/static/images/award/img-2.jpg"
+       },
+       "title": "ITSM-проект года",
+       "description": "2025",
+       "url": "/"
+      },
+      {
+       "img": {
+        "alt": "Изображение награды 3",
+        "src": "/static/images/award/img-1.jpg"
+       },
+       "title": "Премия «Событие года»",
+       "description": "2024",
+       "url": "/"
+      },
+      {
+       "img": {
+        "alt": "Изображение награды 4",
+        "src": "/static/images/award/img-1.jpg"
+       },
+       "title": "Data Award",
+       "description": "2024",
+       "url": "/"
+      },
+      {
+       "img": {
+        "alt": "Изображение награды 5",
+        "src": "/static/images/award/img-2.jpg"
+       },
+       "title": "Премия RuPoR ",
+       "description": "2024",
+       "url": "/"
+      },
+      {
+       "img": {
+        "alt": "Изображение награды 6",
+        "src": "/static/images/award/img-2.jpg"
+       },
+       "title": "ITSM-проект года",
+       "description": "2024",
+       "url": "/"
+      },
+      {
+       "img": {
+        "alt": "Изображение награды 7",
+        "src": "/static/images/award/img-1.jpg"
+       },
+       "title": "Премия «Событие года»",
+       "description": "2024",
+       "url": "/"
+      },
+      {
+       "img": {
+        "alt": "Изображение награды 8",
+        "src": "/static/images/award/img-2.jpg"
+       },
+       "title": "Премия RuPoR",
+       "description": "2024",
+       "url": "/"
+      },
+      {
+       "img": {
+        "alt": "Изображение награды 9",
+        "src": "/static/images/award/img-2.jpg"
+       },
+       "title": "Премия RuPoR",
+       "description": "2024",
+       "url": "/"
+      },
+      {
+       "img": {
+        "alt": "Изображение награды 10",
+        "src": "/static/images/award/img-2.jpg"
+       },
+       "title": "ITSM-проект года",
+       "description": "2024",
+       "url": "/"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "team-uuid",
+    "type": "team",
+    "data": {
+     "hash": "#team",
+     "navTitle": "Руководители",
+     "title": "Мы не просто набираем команду — мы создаём среду, где хочется быть",
+     "items": [
+      {
+       "img": {
+        "src": "/static/images/team/team-1.jpg",
+        "alt": "person"
+       },
+       "title": "«Здесь тебе никто не мешает расти, даже наоборот: хочешь взять какой-то проект, который никто никогда не делал или научиться новому — тебе дадут такую возможность»",
+       "name": "Владимир Елисеев, <span>генеральный директор компании</span>"
+      },
+      {
+       "img": {
+        "src": "/static/images/team/team-2.jpg",
+        "alt": "person"
+       },
+       "title": "«Твоя амбиция — это главный ресурс. Берись за сложные задачи, в которых не уверен: рядом всегда будут коллеги, которые помогут и подстрахуют. Ошибка — не провал, а просто шаг, который здесь замечают и ценят.»",
+       "name": "Владимир Елисеев1, <span>генеральный директор компании</span>"
+      },
+      {
+       "img": {
+        "src": "/static/images/team/team-3.jpg",
+        "alt": "person"
+       },
+       "title": "«Здесь тебе никто не мешает расти, даже наоборот: хочешь взять какой-то проект, который никто никогда не делал или научиться новому — тебе дадут такую возможность»",
+       "name": "Владимир Елисеев2, <span>генеральный директор компании</span>"
+      },
+      {
+       "img": {
+        "src": "/static/images/team/team-4.jpg",
+        "alt": "person"
+       },
+       "title": "«Здесь тебе никто не мешает расти, даже наоборот: хочешь взять какой-то проект, который никто никогда не делал или научиться новому — тебе дадут такую возможность»",
+       "name": "Владимир Елисеев3, <span>генеральный директор компании</span>"
+      },
+      {
+       "img": {
+        "src": "/static/images/team/team-5.jpg",
+        "alt": "person"
+       },
+       "title": "«Здесь тебе никто не мешает расти, даже наоборот: хочешь взять какой-то проект, который никто никогда не делал или научиться новому — тебе дадут такую возможность»",
+       "name": "Владимир Елисеев4, <span>генеральный директор компании</span>"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "history-company-uuid",
+    "type": "historyCompany",
+    "data": {
+     "hash": "#history-company",
+     "navTitle": "История",
+     "tag": "История компании",
+     "description": "30 лет мы изучали новые технологии, обретали опыт, боролись с кризисами и пожарами, выстраивали крепкие отношения с партнерами. Узнайте, как это было!",
+     "btn": {
+      "title": "История компании",
+      "url": "/"
+     }
+    }
+   },
+   {
+    "uuid": "vendors-uuid",
+    "type": "vendors",
+    "data": {
+     "hash": "#vendors",
+     "navTitle": "Вендоры",
+     "tag": "Партнёры",
+     "title": "Вендоры и партнёры",
+     "btn": {
+      "title": "Смотреть 50+ партнёров",
+      "url": "/"
+     },
+     "items": [
+      {
+       "src": "/static/images/vendors/agat-logo.png",
+       "alt": "photo-2",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/itbastion-logo.png",
+       "alt": "photo-9",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/indid-logo.png",
+       "alt": "photo-7",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/auvix-logo.png",
+       "alt": "photo-4",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/itbastion-logo.png",
+       "alt": "photo-9",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/aerodisk-logo.png",
+       "alt": "photo-1",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/ascon-logo.png",
+       "alt": "photo-3",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/cyberproject-logo.png",
+       "alt": "photo-5",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/gis-logo.png",
+       "alt": "photo-6",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/iskra-logo.png",
+       "alt": "photo-8",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/kvazar-logo.png",
+       "alt": "photo-10",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/webmonitor-logo.png",
+       "alt": "photo-11",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/ascon-logo.png",
+       "alt": "photo-3",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/cyberproject-logo.png",
+       "alt": "photo-5",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/gis-logo.png",
+       "alt": "photo-6",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/iskra-logo.png",
+       "alt": "photo-8",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/kvazar-logo.png",
+       "alt": "photo-10",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/webmonitor-logo.png",
+       "alt": "photo-11",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/ascon-logo.png",
+       "alt": "photo-3",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/cyberproject-logo.png",
+       "alt": "photo-5",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/gis-logo.png",
+       "alt": "photo-6",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/iskra-logo.png",
+       "alt": "photo-8",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/kvazar-logo.png",
+       "alt": "photo-10",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/webmonitor-logo.png",
+       "alt": "photo-11",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/ascon-logo.png",
+       "alt": "photo-3",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/cyberproject-logo.png",
+       "alt": "photo-5",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/gis-logo.png",
+       "alt": "photo-6",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/iskra-logo.png",
+       "alt": "photo-8",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/kvazar-logo.png",
+       "alt": "photo-10",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/webmonitor-logo.png",
+       "alt": "photo-11",
+       "url": "/"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "sectors-uuid",
+    "type": "sectors",
+    "data": {
+     "hash": "#sectors",
+     "navTitle": "Отрасли",
+     "items": [
+      {
+       "tag": "Отрасли компании",
+       "items": [
+        {
+         "title": "Промышленность",
+         "card": {
+          "title": "Об отрасли:",
+          "description": "0Масштабная отрасль, охватывающая органы власти, госучреждения и инфраструктуру, где ключевыми являются безопасность, надёжность и соответствие требованиям",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Изображение промышленности"
+          }
+         }
+        },
+        {
+         "title": "Энергетика",
+         "card": {
+          "title": "Об отрасли:",
+          "description": "1Масштабная отрасль, охватывающая органы власти, госучреждения и инфраструктуру, где ключевыми являются безопасность, надёжность и соответствие требованиям",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Изображение энергетики"
+          }
+         }
+        },
+        {
+         "title": "Финансы и страхование",
+         "card": {
+          "title": "Об отрасли:",
+          "description": "2Масштабная отрасль, охватывающая органы власти, госучреждения и инфраструктуру, где ключевыми являются безопасность, надёжность и соответствие требованиям",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Изображение финансов и страхования"
+          }
+         }
+        },
+        {
+         "title": "Строительство",
+         "card": {
+          "title": "Об отрасли:",
+          "description": "3Масштабная отрасль, охватывающая органы власти, госучреждения и инфраструктуру, где ключевыми являются безопасность, надёжность и соответствие требованиям",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Изображение строительства"
+          }
+         }
+        },
+        {
+         "title": "Телеком",
+         "card": {
+          "title": "Об отрасли:",
+          "description": "4Масштабная отрасль, охватывающая органы власти, госучреждения и инфраструктуру, где ключевыми являются безопасность, надёжность и соответствие требованиям",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Изображение телекома"
+          }
+         }
+        },
+        {
+         "title": "Транспорт",
+         "card": {
+          "title": "Об отрасли:",
+          "description": "5Масштабная отрасль, охватывающая органы власти, госучреждения и инфраструктуру, где ключевыми являются безопасность, надёжность и соответствие требованиям",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Изображение транспорта"
+          }
+         }
+        },
+        {
+         "title": "Ритейл",
+         "card": {
+          "title": "Об отрасли:",
+          "description": "6Масштабная отрасль, охватывающая органы власти, госучреждения и инфраструктуру, где ключевыми являются безопасность, надёжность и соответствие требованиям",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Изображение ритейла"
+          }
+         }
+        },
+        {
+         "title": "Нефтегаз",
+         "card": {
+          "title": "Об отрасли:",
+          "description": "7Масштабная отрасль, охватывающая органы власти, госучреждения и инфраструктуру, где ключевыми являются безопасность, надёжность и соответствие требованиям",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Изображение ритейла"
+          }
+         }
+        },
+        {
+         "title": "Государственные программы",
+         "card": {
+          "title": "Об отрасли:",
+          "description": "7.2Масштабная отрасль, охватывающая органы власти, госучреждения и инфраструктуру, где ключевыми являются безопасность, надёжность и соответствие требованиям",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Изображение государственных программ"
+          }
+         }
+        }
+       ]
+      },
+      {
+       "tag": "Направления компании",
+       "items": [
+        {
+         "title": "ИТ-инфраструктура",
+         "card": {
+          "title": "Об отрасли:",
+          "description": "8Масштабная отрасль, охватывающая органы власти, госучреждения и инфраструктуру, где ключевыми являются безопасность, надёжность и соответствие требованиям",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Изображение ИТ-инфраструктуры"
+          }
+         }
+        },
+        {
+         "title": "Информационная безопасность",
+         "card": {
+          "title": "Об отрасли:",
+          "description": "9Масштабная отрасль, охватывающая органы власти, госучреждения и инфраструктуру, где ключевыми являются безопасность, надёжность и соответствие требованиям",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Изображение информационной безопасности"
+          }
+         }
+        },
+        {
+         "title": "Сети и инженерная инфраструктура",
+         "card": {
+          "title": "Об отрасли:",
+          "description": "10Масштабная отрасль, охватывающая органы власти, госучреждения и инфраструктуру, где ключевыми являются безопасность, надёжность и соответствие требованиям",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Изображение сетей и инженерной инфраструктуры"
+          }
+         }
+        },
+        {
+         "title": "Машинное обучение и ИИ",
+         "card": {
+          "title": "Об отрасли:",
+          "description": "10Масштабная отрасль, охватывающая органы власти, госучреждения и инфраструктуру, где ключевыми являются безопасность, надёжность и соответствие требованиям",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Изображение машинного обучения и ИИ"
+          }
+         }
+        },
+        {
+         "title": "Разработка ПО и бизнес-приложения",
+         "card": {
+          "title": "Об отрасли:",
+          "description": "11Масштабная отрасль, охватывающая органы власти, госучреждения и инфраструктуру, где ключевыми являются безопасность, надёжность и соответствие требованиям",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Изображение разработки ПО и бизнес-приложений"
+          }
+         }
+        },
+        {
+         "title": "Сервис и аутсорсинг",
+         "card": {
+          "title": "Об отрасли:",
+          "description": "12Масштабная отрасль, охватывающая органы власти, госучреждения и инфраструктуру, где ключевыми являются безопасность, надёжность и соответствие требованиям",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Изображение сервиса и аутсорсинга"
+          }
+         }
+        },
+        {
+         "title": "Биометрия",
+         "card": {
+          "title": "Об отрасли:",
+          "description": "13Масштабная отрасль, охватывающая органы власти, госучреждения и инфраструктуру, где ключевыми являются безопасность, надёжность и соответствие требованиям",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Изображение биометрии"
+          }
+         }
+        },
+        {
+         "title": "Производственная безопасность",
+         "card": {
+          "title": "Об отрасли:",
+          "description": "14Масштабная отрасль, охватывающая органы власти, госучреждения и инфраструктуру, где ключевыми являются безопасность, надёжность и соответствие требованиям",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Изображение производственной безопасности"
+          }
+         }
+        },
+        {
+         "title": "Собственные продукты в реестре<br/> Российского ПО",
+         "card": {
+          "title": "Об отрасли:",
+          "description": "15Масштабная отрасль, охватывающая органы власти, госучреждения и инфраструктуру, где ключевыми являются безопасность, надёжность и соответствие требованиям",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Изображение собственных продуктов в реестре российского ПО"
+          }
+         }
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "contacts-uuid",
+    "type": "contacts",
+    "data": {
+     "hash": "#contacts",
+     "navTitle": "Контакты",
+     "tag": "Контакты",
+     "title": "Контактные данные<br/> и адреса офисов",
+     "items": [
+      {
+       "title": "Основной офис",
+       "items": [
+        {
+         "value": "Москва, ул. Большая Новодмитровская, д.14, стр. 1, 1-я и 2-я проходная, офисный центр «Новодмитровский»"
+        }
+       ]
+      },
+      {
+       "title": "Телефон",
+       "items": [
+        {
+         "value": "+7 999 200 20 20",
+         "link": "tel:+7 (495) 411-76-01"
+        },
+        {
+         "value": "+7 999 465 70 90",
+         "link": "tel:+7 (495) 411-76-01"
+        }
+       ]
+      },
+      {
+       "title": "Сервисный центр",
+       "items": [
+        {
+         "value": "+7 999 200 20 20",
+         "link": "tel:+7 (495) 411-76-01"
+        },
+        {
+         "value": "+7 999 465 70 90",
+         "link": "tel:+7 (495) 411-76-01"
+        }
+       ]
+      },
+      {
+       "title": "Почта",
+       "items": [
+        {
+         "value": "info@jet.su",
+         "link": "mailto:info@jet.su"
+        }
+       ]
+      }
+     ],
+     "btn": {
+      "title": "Все контакты",
+      "url": "/"
+     },
+     "offices": [
+      {
+       "title": "Россия",
+       "cities": [
+        {
+         "title": "Москва",
+         "description": "ул. Большая Новодмитровская, д.14, <br/>стр. 1, 1-я и 2-я проходная, офисный центр «Новодмитровский»",
+         "items": [
+          {
+           "title": "Телефон",
+           "items": [
+            {
+             "value": "+7 999 200 20 20",
+             "link": "tel:+7 (495) 411-76-01"
+            },
+            {
+             "value": "+7 999 465 70 90",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Сервисный центр",
+           "items": [
+            {
+             "value": "+7 999 200 20 20",
+             "link": "tel:+7 (495) 411-76-01"
+            },
+            {
+             "value": "+7 999 465 70 90",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Почта",
+           "items": [
+            {
+             "value": "info@jet.su",
+             "link": "mailto:info@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Владивосток",
+         "description": "Улица Суханова, дом 3-а, комната 509",
+         "items": [
+          {
+           "title": "Телефон",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Факс",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Почта",
+           "items": [
+            {
+             "value": "vladivostok@jet.su",
+             "link": "mailto:info@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Владивосток",
+         "description": "Улица Калинина, дом 326, этаж 3",
+         "items": [
+          {
+           "title": "Телефон",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Факс",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Почта",
+           "items": [
+            {
+             "value": "vladivostok@jet.su",
+             "link": "mailto:info@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Нижний Новгород",
+         "description": "Улица Калинина, дом 326, этаж 3",
+         "items": [
+          {
+           "title": "Телефон",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Факс",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Почта",
+           "items": [
+            {
+             "value": "vladivostok@jet.su",
+             "link": "mailto:info@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Нижний Новгород",
+         "description": "Улица Калинина, дом 326, этаж 3",
+         "items": [
+          {
+           "title": "Телефон",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Факс",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Почта",
+           "items": [
+            {
+             "value": "vladivostok@jet.su",
+             "link": "mailto:info@jet.su"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "СНГ",
+       "cities": [
+        {
+         "title": "Москва1",
+         "description": "ул. Большая Новодмитровская, д.14, <br/>стр. 1, 1-я и 2-я проходная, офисный центр «Новодмитровский»",
+         "items": [
+          {
+           "title": "Телефон",
+           "items": [
+            {
+             "value": "+7 999 200 20 20",
+             "link": "tel:+7 (495) 411-76-01"
+            },
+            {
+             "value": "+7 999 465 70 90",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Сервисный центр",
+           "items": [
+            {
+             "value": "+7 999 200 20 20",
+             "link": "tel:+7 (495) 411-76-01"
+            },
+            {
+             "value": "+7 999 465 70 90",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Почта",
+           "items": [
+            {
+             "value": "info@jet.su",
+             "link": "mailto:info@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Владивосток",
+         "description": "Улица Суханова, дом 3-а, комната 509",
+         "items": [
+          {
+           "title": "Телефон",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Факс",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Почта",
+           "items": [
+            {
+             "value": "vladivostok@jet.su",
+             "link": "mailto:info@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Владивосток1",
+         "description": "Улица Калинина, дом 326, этаж 3",
+         "items": [
+          {
+           "title": "Телефон",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Факс",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Почта",
+           "items": [
+            {
+             "value": "vladivostok@jet.su",
+             "link": "mailto:info@jet.su"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "topical-uuid",
+    "type": "topical",
+    "data": {
+     "hash": "#topical",
+     "tag": "Актуальное",
+     "title": "Последние новости, кейсы, релизы и экспертные материалы",
+     "navTitle": "Актуальное",
+     "items": [
+      {
+       "tag": "Новость",
+       "title": "Казахстанский мобильный оператор Kcell усилил защиту своей сигнальной сети при помощи решения DSR",
+       "tags": [
+        "Телекоммуникаци"
+       ],
+       "img": {
+        "src": "/static/images/topical/img-1.jpg"
+       },
+       "url": "https://jet.su/press-center/news/kazakhstanskiy-mobilnyy-operator-kcell-usilil-zashchitu-svoey-signalnoy-seti-pri-pomoshchi-resheniya/?ysclid=mhuew7qppz140029919"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "callback-uuid",
+    "type": "callback",
+    "data": {
+     "hash": "#callback",
+     "tag": "Остались вопросы?",
+     "title": "Расскажите о своей задаче — мы предложим решение",
+     "background": {
+      "type": "mixed",
+      "src": "/static/images/callback/img-1.jpg"
+     },
+     "form": {
+      "visible": [
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Имя*",
+           "name": "name",
+           "validations": [
+            "required"
+           ]
+          }
+         },
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Фамилия*",
+           "name": "lastName",
+           "validations": [
+            "required"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Email*",
+           "name": "email",
+           "validations": [
+            "required",
+            "email"
+           ]
+          }
+         },
+         {
+          "type": "phone",
+          "data": {
+           "placeholder": "Телефон",
+           "name": "phone",
+           "validations": [
+            "phone"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Компания*",
+           "name": "company",
+           "validations": [
+            "required"
+           ]
+          }
+         },
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Должность",
+           "name": "position"
+          }
+         }
+        ]
+       },
+       {
+        "type": "textarea",
+        "data": {
+         "placeholder": "Опишите задачу*",
+         "name": "task",
+         "validations": [
+          "required"
+         ]
+        }
+       }
+      ],
+      "btn": {
+       "title": "Отправить"
+      },
+      "action": "/form/callback"
+     }
+    }
+   }
+  ]
+ }
+}

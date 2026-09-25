@@ -1,0 +1,354 @@
+{
+ "status": "success",
+ "data": {
+  "header": {
+   "menu": [
+    {
+     "title": "Industries",
+     "url": "/industry",
+     "items": [
+      {
+       "title": "Directions",
+       "url": "/direction"
+      },
+      {
+       "title": "Public sector1",
+       "url": "/"
+      },
+      {
+       "title": "Public sector2",
+       "url": "/"
+      },
+      {
+       "title": "Public sector3",
+       "url": "/"
+      }
+     ]
+    },
+    {
+     "title": "Solutions",
+     "url": "/",
+     "items": [
+      {
+       "title": "IT infrastructure",
+       "url": "/",
+       "items": [
+        {
+         "title": "Desktop virtualization (VDI)",
+         "url": "/"
+        },
+        {
+         "title": "Частные, публичные и гибридные облака",
+         "url": "/"
+        },
+        {
+         "title": "Import substitution in IT infrastructure",
+         "url": "/"
+        }
+       ]
+      },
+      {
+       "title": "Service and outsourcing",
+       "url": "/"
+      },
+      {
+       "title": "Information security",
+       "url": "/"
+      },
+      {
+       "title": "Networks and engineering infrastructure",
+       "url": "/",
+       "items": [
+        {
+         "title": "Desktop virtualization (VDI)1",
+         "url": "/"
+        },
+        {
+         "title": "Private, public and hybrid clouds1",
+         "url": "/"
+        },
+        {
+         "title": "Import substitution in IT infrastructure1",
+         "url": "/"
+        }
+       ]
+      },
+      {
+       "title": "Machine learning and artificial intelligence",
+       "url": "/"
+      },
+      {
+       "title": "Own products in the Russian software registry",
+       "url": "/"
+      },
+      {
+       "title": "Industrial safety",
+       "url": "/"
+      },
+      {
+       "title": "Biometrics",
+       "url": "/"
+      }
+     ]
+    },
+    {
+     "title": "Center of expertise",
+     "url": "/expertise"
+    },
+    {
+     "title": "Career",
+     "url": "/",
+     "items": [
+      {
+       "title": "Machine learning and artificial intelligence",
+       "url": "/"
+      },
+      {
+       "title": "Own products in the Russian software registry",
+       "url": "/",
+       "items": [
+        {
+         "title": "Private, public and hybrid clouds",
+         "url": "/"
+        },
+        {
+         "title": "Desktop virtualization (VDI)",
+         "url": "/"
+        },
+        {
+         "title": "Import substitution in IT infrastructure",
+         "url": "/"
+        },
+        {
+         "title": "Containers and DevSecOps",
+         "url": "/"
+        },
+        {
+         "title": "Implementation of monitoring systems",
+         "url": "/"
+        },
+        {
+         "title": "IT systems migration",
+         "url": "/"
+        },
+        {
+         "title": "Infrastructure for SAP applications",
+         "url": "/"
+        },
+        {
+         "title": "Hyperconverged solutions",
+         "url": "/"
+        },
+        {
+         "title": "Disaster recovery solutions",
+         "url": "/"
+        },
+        {
+         "title": "Oracle DBMS and Oracle Exadata systems",
+         "url": "/"
+        },
+        {
+         "title": "PostgreSQL in Enterprise",
+         "url": "/"
+        },
+        {
+         "title": "IT infrastructure audit",
+         "url": "/"
+        },
+        {
+         "title": "Data backup and recovery systems",
+         "url": "/"
+        },
+        {
+         "title": "Development of IT strategy for the enterprise",
+         "url": "/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "About the company",
+     "url": "/about"
+    },
+    {
+     "title": "Contacts",
+     "url": "/"
+    }
+   ],
+   "btnCall": {
+    "title": "Contact us"
+   },
+   "btn": {
+    "title": "Were you hacked?"
+   }
+  },
+  "footer": {
+   "background": {
+    "type": "mixed",
+    "src": "/static/images/footer/background.jpg",
+    "alt": "Footer background image"
+   },
+   "socials": [
+    {
+     "type": "telegram",
+     "url": "https://t.me/+DTFpOi9-ssxmYzRi"
+    },
+    {
+     "type": "rutube",
+     "url": "https://rutube.ru/channel/26045378/"
+    },
+    {
+     "type": "habr",
+     "url": "https://habr.com/ru/company/jetinfosystems/profile/"
+    },
+    {
+     "type": "hh",
+     "url": "https://hh.ru/employer/3095"
+    }
+   ],
+   "menu": [
+    {
+     "title": "Industries",
+     "url": "/industry",
+     "items": [
+      {
+       "title": "Industry",
+       "url": "/"
+      },
+      {
+       "title": "Energy",
+       "url": "/"
+      },
+      {
+       "title": "Finance and insurance",
+       "url": "/"
+      },
+      {
+       "title": "Construction",
+       "url": "/"
+      },
+      {
+       "title": "Telecommunications",
+       "url": "/"
+      },
+      {
+       "title": "Transport",
+       "url": "/"
+      },
+      {
+       "title": "Retail",
+       "url": "/"
+      },
+      {
+       "title": "Oil and gas",
+       "url": "/"
+      },
+      {
+       "title": "Government programs",
+       "url": "/"
+      }
+     ]
+    },
+    {
+     "title": "Directions",
+     "url": "/direction",
+     "items": [
+      {
+       "title": "Service and outsourcing",
+       "url": "/"
+      },
+      {
+       "title": "Infrastructure 3.0 and hybrid clouds",
+       "url": "/"
+      },
+      {
+       "title": "Information security",
+       "url": "/"
+      },
+      {
+       "title": "Industrial safety and IoT",
+       "url": "/"
+      },
+      {
+       "title": "Intelligent networks and engineering infrastructure",
+       "url": "/"
+      },
+      {
+       "title": "Digital transformation and DevSecOps",
+       "url": "/"
+      },
+      {
+       "title": "Software development and business applications",
+       "url": "/"
+      },
+      {
+       "title": "Machine learning and artificial intelligence",
+       "url": "/"
+      },
+      {
+       "title": "Data management",
+       "url": "/"
+      },
+      {
+       "title": "Consulting and auditing",
+       "url": "/"
+      },
+      {
+       "title": "Training and cyber training",
+       "url": "/"
+      },
+      {
+       "title": "Digital Workplace",
+       "url": "/"
+      },
+      {
+       "title": "Own solutions and products",
+       "url": "/"
+      }
+     ]
+    },
+    {
+     "title": "Career",
+     "url": "/",
+     "items": [
+      {
+       "title": "Vacancies",
+       "url": "/vacancies"
+      },
+      {
+       "title": "Internships",
+       "url": "/internships"
+      }
+     ]
+    },
+    {
+     "title": "Company",
+     "url": "/about",
+     "items": [
+      {
+       "title": "About the company",
+       "url": "/"
+      },
+      {
+       "title": "Company history",
+       "url": "/"
+      },
+      {
+       "title": "Partners",
+       "url": "/"
+      }
+     ]
+    },
+    {
+     "title": "Contacts",
+     "url": "/"
+    },
+    {
+     "title": "Details",
+     "url": "/"
+    }
+   ]
+  }
+ }
+}

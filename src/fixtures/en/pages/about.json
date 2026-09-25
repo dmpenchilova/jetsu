@@ -1,0 +1,1151 @@
+{
+ "status": "success",
+ "data": {
+  "breadcrumbs": {
+   "items": [
+    {
+     "title": "About the company"
+    }
+   ]
+  },
+  "seo": {
+   "title": "About the company"
+  },
+  "content": [
+   {
+    "uuid": "hero-uuid",
+    "type": "view",
+    "data": {
+     "title": "About the company",
+     "description": "Infosystems Jet is one of Russia's largest IT integrators, with a team of over 2,000 specialists. We implement over 1,000 projects annually for the country's leading companies.",
+     "background": {
+      "type": "mixed",
+      "src": "/static/video/view/bg.mp4"
+     }
+    }
+   },
+   {
+    "uuid": "valuation-uuid",
+    "type": "valuation",
+    "data": {
+     "hash": "#valuation",
+     "navTitle": "Values",
+     "title": "Technology thrives where people, ideas, and partnerships exist. We solve problems, support each other, and always hold ourselves accountable for results.",
+     "items": [
+      {
+       "suptitle": "JET",
+       "title": "We are engineers",
+       "description": "<span>Engineers, enthusiasts, rebels.</span> We love complex tasks, seek unconventional solutions, and are the first to understand new technologies"
+      },
+      {
+       "suptitle": "JET",
+       "title": "We are a team",
+       "description": "<span>We care.</span> Commitments come before circumstances: if a problem needs to be solved, we do it together"
+      },
+      {
+       "suptitle": "JET",
+       "title": "Our client is our partner",
+       "description": "<span>We always help each other.</span> We have a culture of helping, sharing knowledge, and being there when needed"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "expertise-uuid",
+    "type": "expertise",
+    "data": {
+     "navTitle": "Company in numbers",
+     "hash": "#expertise",
+     "tag": "Expertise",
+     "title": "Our experience is confirmed by <br/>industry leaders",
+     "items": [
+      {
+       "title": "Projects",
+       "items": [
+        {
+         "title": "1000+",
+         "description": "Projects per year. Comprehensive implementations for large Russian and international customers"
+        },
+        {
+         "title": "40+",
+         "description": "Industries in the solution portfolio. Experience in banking, retail, industry, public sector, and other areas",
+         "link": {
+          "title": "RAEX Analitics",
+          "url": "/"
+         }
+        },
+        {
+         "title": "60%",
+         "description": "Returning customers. Strategic partnerships instead of one-off solutions.",
+         "link": {
+          "title": "RAEX Analitics",
+          "url": "/"
+         }
+        }
+       ]
+      },
+      {
+       "title": "Team",
+       "items": [
+        {
+         "title": "60%",
+         "description": "Returning customers. Strategic partnerships instead of one-off solutions."
+        }
+       ]
+      },
+      {
+       "title": "Market",
+       "items": [
+        {
+         "title": "40+",
+         "description": "Industries in the solution portfolio. Experience in banking, retail, industry, the public sector, and other areas.",
+         "link": {
+          "title": "RAEX Analitics",
+          "url": "/"
+         }
+        },
+        {
+         "title": "60%",
+         "description": "Returning customers. Strategic partnerships instead of one-off solutions."
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "awards-uuid",
+    "type": "award",
+    "data": {
+     "hash": "#awards",
+     "navTitle": "Awards",
+     "tag": "Awards",
+     "title": "Leadership and innovation recognized in the industry",
+     "background": {
+      "src": "/static/video/award/bg.mp4",
+      "type": "mixed"
+     },
+     "items": [
+      {
+       "img": {
+        "alt": "Award image 1",
+        "src": "/static/images/award/img-1.jpg"
+       },
+       "title": "Data Award",
+       "description": "2024",
+       "url": "/"
+      },
+      {
+       "img": {
+        "alt": "Award image 2",
+        "src": "/static/images/award/img-2.jpg"
+       },
+       "title": "ITSM Project of the Year",
+       "description": "2025",
+       "url": "/"
+      },
+      {
+       "img": {
+        "alt": "Award image 3",
+        "src": "/static/images/award/img-1.jpg"
+       },
+       "title": "Event of the Year Award",
+       "description": "2024",
+       "url": "/"
+      },
+      {
+       "img": {
+        "alt": "Award image 4",
+        "src": "/static/images/award/img-1.jpg"
+       },
+       "title": "Data Award",
+       "description": "2024",
+       "url": "/"
+      },
+      {
+       "img": {
+        "alt": "Award image 5",
+        "src": "/static/images/award/img-2.jpg"
+       },
+       "title": "RuPoR Award",
+       "description": "2024",
+       "url": "/"
+      },
+      {
+       "img": {
+        "alt": "Award image 6",
+        "src": "/static/images/award/img-2.jpg"
+       },
+       "title": "ITSM - project of the year",
+       "description": "2024",
+       "url": "/"
+      },
+      {
+       "img": {
+        "alt": "Award image 7",
+        "src": "/static/images/award/img-1.jpg"
+       },
+       "title": "Event of the year Award",
+       "description": "2024",
+       "url": "/"
+      },
+      {
+       "img": {
+        "alt": "Award image 8",
+        "src": "/static/images/award/img-2.jpg"
+       },
+       "title": "RuPoR award",
+       "description": "2024",
+       "url": "/"
+      },
+      {
+       "img": {
+        "alt": "Award image 9",
+        "src": "/static/images/award/img-2.jpg"
+       },
+       "title": "RuPoR award",
+       "description": "2024",
+       "url": "/"
+      },
+      {
+       "img": {
+        "alt": "Award image 10",
+        "src": "/static/images/award/img-2.jpg"
+       },
+       "title": "ITSM Project of the year",
+       "description": "2024",
+       "url": "/"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "team-uuid",
+    "type": "team",
+    "data": {
+     "hash": "#team",
+     "navTitle": "Leaders",
+     "title": "We are not just building a team — we are creating an environment where you want to be",
+     "items": [
+      {
+       "img": {
+        "src": "/static/images/team/team-1.jpg",
+        "alt": "person"
+       },
+       "title": "«Here, no one stops you from growing, quite the opposite: if you want to take on a project that no one has ever done or learn something new, you will be given the opportunity.»",
+       "name": "Vladimir Eliseev, <span>CEO of the company</span>"
+      },
+      {
+       "img": {
+        "src": "/static/images/team/team-2.jpg",
+        "alt": "person"
+       },
+       "title": "«Your ambition is the main resource. Take on difficult tasks you are not sure about: there will always be colleagues nearby who will help and support you. A mistake is not a failure, but just a step that is noticed and appreciated here.»",
+       "name": "Vladimir Eliseev1, <span>CEO of the company</span>"
+      },
+      {
+       "img": {
+        "src": "/static/images/team/team-3.jpg",
+        "alt": "person"
+       },
+       "title": "«Here, no one stops you from growing, quite the opposite: if you want to take on a project that no one has ever done or learn something new, you will be given the opportunity.»",
+       "name": "Vladimir Eliseev2, <span>CEO of the company</span>"
+      },
+      {
+       "img": {
+        "src": "/static/images/team/team-4.jpg",
+        "alt": "person"
+       },
+       "title": "«Here, no one stops you from growing, quite the opposite: if you want to take on a project that no one has ever done or learn something new, you will be given the opportunity.»",
+       "name": "Vladimir Eliseev3, <span>CEO of the company</span>"
+      },
+      {
+       "img": {
+        "src": "/static/images/team/team-5.jpg",
+        "alt": "person"
+       },
+       "title": "«Here, no one stops you from growing, quite the opposite: if you want to take on a project that no one has ever done or learn something new, you will be given the opportunity.»",
+       "name": "Vladimir Eliseev4, <span>CEO of the company</span>"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "history-company-uuid",
+    "type": "historyCompany",
+    "data": {
+     "hash": "#history-company",
+     "navTitle": "History",
+     "tag": "Company history",
+     "description": "For 30 years, we have been exploring new technologies, gaining experience, overcoming crises and fires, and building strong relationships with partners. Find out how it all happened!",
+     "btn": {
+      "title": "Company history",
+      "url": "/"
+     }
+    }
+   },
+   {
+    "uuid": "vendors-uuid",
+    "type": "vendors",
+    "data": {
+     "hash": "#vendors",
+     "navTitle": "Vendors",
+     "tag": "Partners",
+     "title": "Vendors and partners",
+     "btn": {
+      "title": "View 50+ partners",
+      "url": "/"
+     },
+     "items": [
+      {
+       "src": "/static/images/vendors/agat-logo.png",
+       "alt": "photo-2",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/itbastion-logo.png",
+       "alt": "photo-9",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/indid-logo.png",
+       "alt": "photo-7",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/auvix-logo.png",
+       "alt": "photo-4",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/itbastion-logo.png",
+       "alt": "photo-9",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/aerodisk-logo.png",
+       "alt": "photo-1",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/ascon-logo.png",
+       "alt": "photo-3",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/cyberproject-logo.png",
+       "alt": "photo-5",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/gis-logo.png",
+       "alt": "photo-6",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/iskra-logo.png",
+       "alt": "photo-8",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/kvazar-logo.png",
+       "alt": "photo-10",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/webmonitor-logo.png",
+       "alt": "photo-11",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/ascon-logo.png",
+       "alt": "photo-3",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/cyberproject-logo.png",
+       "alt": "photo-5",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/gis-logo.png",
+       "alt": "photo-6",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/iskra-logo.png",
+       "alt": "photo-8",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/kvazar-logo.png",
+       "alt": "photo-10",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/webmonitor-logo.png",
+       "alt": "photo-11",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/ascon-logo.png",
+       "alt": "photo-3",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/cyberproject-logo.png",
+       "alt": "photo-5",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/gis-logo.png",
+       "alt": "photo-6",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/iskra-logo.png",
+       "alt": "photo-8",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/kvazar-logo.png",
+       "alt": "photo-10",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/webmonitor-logo.png",
+       "alt": "photo-11",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/ascon-logo.png",
+       "alt": "photo-3",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/cyberproject-logo.png",
+       "alt": "photo-5",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/gis-logo.png",
+       "alt": "photo-6",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/iskra-logo.png",
+       "alt": "photo-8",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/kvazar-logo.png",
+       "alt": "photo-10",
+       "url": "/"
+      },
+      {
+       "src": "/static/images/vendors/webmonitor-logo.png",
+       "alt": "photo-11",
+       "url": "/"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "sectors-uuid",
+    "type": "sectors",
+    "data": {
+     "hash": "#sectors",
+     "navTitle": "Sectors",
+     "items": [
+      {
+       "tag": "Company sectors",
+       "items": [
+        {
+         "title": "Industry",
+         "card": {
+          "title": "About the sector:",
+          "description": "0A large-scale sector covering government bodies, public institutions, and infrastructure, where security, reliability, and compliance with requirements are key",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Image of industry"
+          }
+         }
+        },
+        {
+         "title": "Energy",
+         "card": {
+          "title": "About the sector:",
+          "description": "1A large-scale sector covering government bodies, public institutions, and infrastructure, where security, reliability, and compliance with requirements are key",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Image of energy"
+          }
+         }
+        },
+        {
+         "title": "Finance and Insurance",
+         "card": {
+          "title": "About the sector:",
+          "description": "2A large-scale sector covering government bodies, public institutions, and infrastructure, where security, reliability, and compliance with requirements are key",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Image of finance and insurance"
+          }
+         }
+        },
+        {
+         "title": "Construction",
+         "card": {
+          "title": "About the sector:",
+          "description": "3A large-scale sector covering government bodies, public institutions, and infrastructure, where security, reliability, and compliance with requirements are key",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Image of construction"
+          }
+         }
+        },
+        {
+         "title": "Telecom",
+         "card": {
+          "title": "About the sector:",
+          "description": "4A large-scale sector covering government bodies, public institutions, and infrastructure, where security, reliability, and compliance with requirements are key",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Image of telecom"
+          }
+         }
+        },
+        {
+         "title": "Transport",
+         "card": {
+          "title": "About the sector:",
+          "description": "5A large-scale sector covering government bodies, public institutions, and infrastructure, where security, reliability, and compliance with requirements are key",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Image of transport"
+          }
+         }
+        },
+        {
+         "title": "Retail",
+         "card": {
+          "title": "About the sector:",
+          "description": "6A large-scale sector covering government bodies, public institutions, and infrastructure, where security, reliability, and compliance with requirements are key",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Image of retail"
+          }
+         }
+        },
+        {
+         "title": "Oil and Gas",
+         "card": {
+          "title": "About the sector:",
+          "description": "7A large-scale sector covering government bodies, public institutions, and infrastructure, where security, reliability, and compliance with requirements are key",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Image of oil and gas"
+          }
+         }
+        },
+        {
+         "title": "Government Programs",
+         "card": {
+          "title": "About the sector:",
+          "description": "7.2A large-scale sector covering government bodies, public institutions, and infrastructure, where security, reliability, and compliance with requirements are key",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Image of government programs"
+          }
+         }
+        }
+       ]
+      },
+      {
+       "tag": "Company Directions",
+       "items": [
+        {
+         "title": "IT Infrastructure",
+         "card": {
+          "title": "About the sector:",
+          "description": "8A large-scale sector covering government bodies, public institutions, and infrastructure, where security, reliability, and compliance with requirements are key",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Image of IT infrastructure"
+          }
+         }
+        },
+        {
+         "title": "Information Security",
+         "card": {
+          "title": "About the sector:",
+          "description": "9A large-scale sector covering government bodies, public institutions, and infrastructure, where security, reliability, and compliance with requirements are key",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Image of information security"
+          }
+         }
+        },
+        {
+         "title": "Networks and Engineering Infrastructure",
+         "card": {
+          "title": "About the sector:",
+          "description": "10A large-scale sector covering government bodies, public institutions, and infrastructure, where security, reliability, and compliance with requirements are key",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Image of networks and engineering infrastructure"
+          }
+         }
+        },
+        {
+         "title": "Machine Learning and AI",
+         "card": {
+          "title": "About the sector:",
+          "description": "10A large-scale sector covering government bodies, public institutions, and infrastructure, where security, reliability, and compliance with requirements are key",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Image of machine learning and AI"
+          }
+         }
+        },
+        {
+         "title": "Software Development and Business Applications",
+         "card": {
+          "title": "About the sector:",
+          "description": "11A large-scale sector covering government bodies, public institutions, and infrastructure, where security, reliability, and compliance with requirements are key",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Image of software development and business applications"
+          }
+         }
+        },
+        {
+         "title": "Service and Outsourcing",
+         "card": {
+          "title": "About the sector:",
+          "description": "12A large-scale sector covering government bodies, public institutions, and infrastructure, where security, reliability, and compliance with requirements are key",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Image of service and outsourcing"
+          }
+         }
+        },
+        {
+         "title": "Biometrics",
+         "card": {
+          "title": "About the sector:",
+          "description": "13A large-scale sector covering government bodies, public institutions, and infrastructure, where security, reliability, and compliance with requirements are key",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Image of biometrics"
+          }
+         }
+        },
+        {
+         "title": "Industrial Safety",
+         "card": {
+          "title": "About the sector:",
+          "description": "14A large-scale sector covering government bodies, public institutions, and infrastructure, where security, reliability, and compliance with requirements are key",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Image of industrial safety"
+          }
+         }
+        },
+        {
+         "title": "Own Products in the Russian Software Registry",
+         "card": {
+          "title": "About the sector:",
+          "description": "15A large-scale sector covering government bodies, public institutions, and infrastructure, where security, reliability, and compliance with requirements are key",
+          "img": {
+           "src": "/static/images/sectors/background.jpg",
+           "alt": "Image of own products in the Russian software registry"
+          }
+         }
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "contacts-uuid",
+    "type": "contacts",
+    "data": {
+     "hash": "#contacts",
+     "navTitle": "Contacts",
+     "tag": "Contacts",
+     "title": "Contact Details<br/> and Office Addresses",
+     "items": [
+      {
+       "title": "Main Office",
+       "items": [
+        {
+         "value": "Moscow, Bolshaya Novodmitrovskaya Street, Building 14, Building 1, 1st and 2nd entrance, Novodmitrovsky Office Center"
+        }
+       ]
+      },
+      {
+       "title": "Phone",
+       "items": [
+        {
+         "value": "+7 999 200 20 20",
+         "link": "tel:+7 (495) 411-76-01"
+        },
+        {
+         "value": "+7 999 465 70 90",
+         "link": "tel:+7 (495) 411-76-01"
+        }
+       ]
+      },
+      {
+       "title": "Service Center",
+       "items": [
+        {
+         "value": "+7 999 200 20 20",
+         "link": "tel:+7 (495) 411-76-01"
+        },
+        {
+         "value": "+7 999 465 70 90",
+         "link": "tel:+7 (495) 411-76-01"
+        }
+       ]
+      },
+      {
+       "title": "Email",
+       "items": [
+        {
+         "value": "info@jet.su",
+         "link": "mailto:info@jet.su"
+        }
+       ]
+      }
+     ],
+     "btn": {
+      "title": "All Contacts",
+      "url": "/"
+     },
+     "offices": [
+      {
+       "title": "Russia",
+       "cities": [
+        {
+         "title": "Moscow",
+         "description": "ul. Bolshaya Novodmitrovskaya, d.14, <br/>str. 1, 1st and 2nd checkpoint, office center \"Novodmitrovsky\"",
+         "items": [
+          {
+           "title": "Phone",
+           "items": [
+            {
+             "value": "+7 999 200 20 20",
+             "link": "tel:+7 (495) 411-76-01"
+            },
+            {
+             "value": "+7 999 465 70 90",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Service Center",
+           "items": [
+            {
+             "value": "+7 999 200 20 20",
+             "link": "tel:+7 (495) 411-76-01"
+            },
+            {
+             "value": "+7 999 465 70 90",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Email",
+           "items": [
+            {
+             "value": "info@jet.su",
+             "link": "mailto:info@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Vladivostok",
+         "description": "Sukhanova Street, building 3-a, room 509",
+         "items": [
+          {
+           "title": "Phone",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Fax",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Email",
+           "items": [
+            {
+             "value": "vladivostok@jet.su",
+             "link": "mailto:info@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Vladivostok",
+         "description": "Kalinina Street, building 326, floor 3",
+         "items": [
+          {
+           "title": "Phone",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Fax",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Email",
+           "items": [
+            {
+             "value": "vladivostok@jet.su",
+             "link": "mailto:info@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Nizhny Novgorod",
+         "description": "Kalinina Street, building 326, floor 3",
+         "items": [
+          {
+           "title": "Phone",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Fax",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Email",
+           "items": [
+            {
+             "value": "vladivostok@jet.su",
+             "link": "mailto:info@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Nizhny Novgorod",
+         "description": "Kalinina Street, building 326, floor 3",
+         "items": [
+          {
+           "title": "Phone",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Fax",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Email",
+           "items": [
+            {
+             "value": "vladivostok@jet.su",
+             "link": "mailto:info@jet.su"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "CIS Countries",
+       "cities": [
+        {
+         "title": "Moscow1",
+         "description": "Bolshaya Novodmitrovskaya St., 14, bldg. 1, 1st and 2nd checkpoint, Novodmitrovsky office center",
+         "items": [
+          {
+           "title": "Phone",
+           "items": [
+            {
+             "value": "+7 999 200 20 20",
+             "link": "tel:+7 (495) 411-76-01"
+            },
+            {
+             "value": "+7 999 465 70 90",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Service Center",
+           "items": [
+            {
+             "value": "+7 999 200 20 20",
+             "link": "tel:+7 (495) 411-76-01"
+            },
+            {
+             "value": "+7 999 465 70 90",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Email",
+           "items": [
+            {
+             "value": "info@jet.su",
+             "link": "mailto:info@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Vladivostok",
+         "description": "Sukhanova Street, building 3-a, room 509",
+         "items": [
+          {
+           "title": "Phone",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Fax",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Email",
+           "items": [
+            {
+             "value": "vladivostok@jet.su",
+             "link": "mailto:info@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Vladivostok1",
+         "description": "Kalinina Street, building 326, floor 3",
+         "items": [
+          {
+           "title": "Phone",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Fax",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Email",
+           "items": [
+            {
+             "value": "vladivostok@jet.su",
+             "link": "mailto:info@jet.su"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "topical-uuid",
+    "type": "topical",
+    "data": {
+     "hash": "#topical",
+     "tag": "Topical",
+     "title": "Latest news, cases, releases, and expert materials",
+     "navTitle": "Topical",
+     "items": [
+      {
+       "tag": "News",
+       "title": "Kazakh mobile operator Kcell strengthened the protection of its signaling network using the DSR solution",
+       "tags": [
+        "Telecommunications"
+       ],
+       "img": {
+        "src": "/static/images/topical/img-1.jpg"
+       },
+       "url": "https://jet.su/press-center/news/kazakhstanskiy-mobilnyy-operator-kcell-usilil-zashchitu-svoey-signalnoy-seti-pri-pomoshchi-resheniya/?ysclid=mhuew7qppz140029919"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "callback-uuid",
+    "type": "callback",
+    "data": {
+     "hash": "#callback",
+     "tag": "Still have questions?",
+     "title": "Tell us about your problem and we will offer a solution",
+     "background": {
+      "type": "mixed",
+      "src": "/static/images/callback/img-1.jpg"
+     },
+     "form": {
+      "visible": [
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Name*",
+           "name": "name",
+           "validations": [
+            "required"
+           ]
+          }
+         },
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Last Name*",
+           "name": "lastName",
+           "validations": [
+            "required"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Email*",
+           "name": "email",
+           "validations": [
+            "required",
+            "email"
+           ]
+          }
+         },
+         {
+          "type": "phone",
+          "data": {
+           "placeholder": "Phone",
+           "name": "phone",
+           "validations": [
+            "phone"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Company*",
+           "name": "company",
+           "validations": [
+            "required"
+           ]
+          }
+         },
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Position",
+           "name": "position"
+          }
+         }
+        ]
+       },
+       {
+        "type": "textarea",
+        "data": {
+         "placeholder": "Describe your task*",
+         "name": "task",
+         "validations": [
+          "required"
+         ]
+        }
+       }
+      ],
+      "btn": {
+       "title": "Send"
+      },
+      "action": "/form/callback"
+     }
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,107 @@
+{
+ "total": 5,
+ "items": [
+  {
+   "tag": "News",
+   "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+   "tags": [
+    "Energy",
+    "Industry"
+   ],
+   "slug": "news-1"
+  },
+  {
+   "tag": "Article",
+   "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+   "tags": [
+    "Energy",
+    "Industry"
+   ],
+   "slug": "news-1"
+  },
+  {
+   "tag": "News",
+   "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+   "tags": [
+    "Energy",
+    "Industry"
+   ],
+   "slug": "news-1"
+  },
+  {
+   "tag": "News",
+   "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+   "tags": [
+    "Energy",
+    "Industry"
+   ],
+   "slug": "news-1"
+  },
+  {
+   "tag": "Article",
+   "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+   "tags": [
+    "Energy",
+    "Industry"
+   ],
+   "slug": "news-1"
+  },
+  {
+   "tag": "Article",
+   "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+   "tags": [
+    "Energy",
+    "Industry"
+   ],
+   "slug": "news-1"
+  },
+  {
+   "tag": "Article",
+   "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+   "tags": [
+    "Energy",
+    "Industry"
+   ],
+   "slug": "news-1"
+  },
+  {
+   "tag": "Article",
+   "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+   "background": {
+    "src": "/static/images/bg-news.jpg",
+    "alt": "bg-news"
+   },
+   "tags": [
+    "Energy",
+    "Security",
+    "Industry"
+   ],
+   "slug": "news-1"
+  },
+  {
+   "type": "case",
+   "title": "Modernization of data center engineering infrastructure",
+   "supTag": "Case",
+   "tag": "Software development and business applications",
+   "secondTitle": "Task and solution",
+   "description": "Specialists from \"Infosystems Jet\" carried out the modernization of the infrastructure of four data centers of the company \"Nornickel\", as well as implemented an industrial dispatching and control system that united the entire engineering complex",
+   "company": {
+    "src": "/static/images/nornickel.png"
+   },
+   "stats": [
+    {
+     "title": "80",
+     "description": "The racks were installed as part of infrastructure modernization."
+    },
+    {
+     "title": "–55..+35 °C",
+     "description": "Temperature range of data center operation"
+    }
+   ],
+   "btn": {
+    "title": "More details",
+    "url": "/"
+   }
+  }
+ ]
+}

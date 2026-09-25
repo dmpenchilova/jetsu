@@ -1,0 +1,466 @@
+{
+ "status": "success",
+ "data": {
+  "seo": {
+   "title": "Company history"
+  },
+  "content": [
+   {
+    "uuid": "hero-uuid",
+    "type": "historyHero",
+    "data": {
+     "hash": "#hero",
+     "title": "Founded in 1991, Infosystems Jet has been one of the top ten largest IT companies in Russia for over 30 years, annually implementing more than 1000 complex projects",
+     "tag": "Company history"
+    }
+   },
+   {
+    "uuid": "item-1-uuid",
+    "type": "history",
+    "data": {
+     "hash": "#item-1",
+     "title": "2025",
+     "navTitle": "2025",
+     "variant": "history_rotate",
+     "items": [
+      {
+       "title": "Victory in the RuPoR Award",
+       "description": "The main online camp on practical cybersecurity CyberCamp 2024 took first place in the \"Digital Communications, AI, Future Technologies\" nomination of the XX PR RuPoR Award. The \"Infosystems Jet\" project demonstrated innovative use of digital tools and AI to solve cybersecurity challenges and engage a wide audience"
+      },
+      {
+       "title": "Creation of own information security community",
+       "description": "After CyberCamp 2024, which brought together 25 thousand viewers, 6 thousand individual participants, and 138 teams in cyber exercises, the organizers created a platform for continuous communication and community support. The \"Hello, CyberCamp\" community will allow participants to stay connected, share exclusive content in the field of information security, and jointly seek answers to complex questions",
+       "img": {
+        "src": "/static/images/history/img-1.jpg",
+        "alt": "Caption for the photo, no more than 100 characters"
+       },
+       "caption": "Caption for the photo, no more than 100 characters"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "item-2-uuid",
+    "type": "history",
+    "data": {
+     "hash": "#item-2",
+     "title": "2024",
+     "navTitle": "2024",
+     "items": [
+      {
+       "title": "Joint victories with customers",
+       "description": "Together with \"Rusagro Tech,\" the company received the prestigious Data Award for a project to create an intelligent fieldwork planning system. It took first place in the \"For Improving Business Efficiency\" nomination. The joint project of \"Infosystems Jet\" and \"Detsky Mir\" Group became the winner of the national TAdviser IT Prize 2024 in the \"IT Infrastructure Modernization in Retail: Project of the Year\" nomination. During this project, the IT company team managed to perform a deep and seamless upgrade of the server and network infrastructure"
+      },
+      {
+       "title": "Own research on the NGFW market",
+       "description": "The main goal of the project is to provide the most comprehensive overview of NGFW-class solutions available in Russia and their functional capabilities. Ten products have already been tested, such as Check Point R81.2, Ideco NGFW v16, InfoWatch ARMA Wall (NGFW), UserGate 7.1.0 RC, Continent 4.1.7 and 4.1.9, early version of PT NGFW, and others."
+      },
+      {
+       "title": "High company rating from the IT community",
+       "description": "In 2024, Infosystems Jet entered the top 5 employers according to Habr Career, the top 100 employers in the annual HeadHunter ranking, and also became the most attractive brand among IT integrators according to the ECOPSI and Habr survey"
+      },
+      {
+       "title": "First metrocluster on domestic",
+       "description": "The infrastructure team of \"Infosystems Jet\" successfully tested the first domestic metrocluster, built entirely on the basis of domestic solutions - from servers, arrays, and network switches to virtualization. The main failure scenarios were tested: power outage at one site for both individual components and the entire site, as well as network connectivity failure between sites. The metrocluster demonstrated its readiness to handle the main failure scenarios with minimal downtime for applications"
+      },
+      {
+       "title": "Development of an AI service together with TPP employees",
+       "description": "The company developed and implemented a digital service to optimize the operation of feedwater pumps (FWP) at a large metallurgical enterprise. The annual economic effect of the project exceeded the expectations of the development team and amounted to 19.6 million rubles"
+      },
+      {
+       "title": "Own platforms for exchanging experiences",
+       "description": "Events supported and organized by the company have grown and expanded: the IT Elements conference gathered more than 2.5 thousand participants on the Moscow venue and more than 6 thousand viewers online. Experts presented over fifty reports and participated in dozens of discussions, and the exhibition area showcased solutions from more than 30 Russian vendors and distributors. The annual online camp on practical cybersecurity CyberCamp 2024 attracted more than 25 thousand viewers, 6 thousand solo participants, and 138 cyber exercise teams"
+      },
+      {
+       "title": "Joining the Data Center Industry Association",
+       "description": "Infosystems Jet has been in the data center construction industry for over 25 years and has implemented more than 150 projects in Russia and the CIS. Each year, the company creates data centers of varying complexity and supports clients at all stages: from site selection to operation and service maintenance. In 2024, it officially joined the Data Center Industry Association"
+      },
+      {
+       "title": "Service partnership with M.Video-Eldorado",
+       "description": "For more than 15 years, the companies have grown together and implemented many different projects. Under the new contract, the Infosystems Jet team will provide service maintenance and outsourcing of critical business group systems, including e-commerce, logistics, warehouse management systems, and more.",
+       "img": {
+        "src": "/static/images/history/img-2.jpg",
+        "alt": "Caption for the photo, no more than 100 characters"
+       },
+       "caption": "Caption for the photo, no more than 100 characters"
+      },
+      {
+       "title": "Creating a high-tech office for Gazpromneft-Geo",
+       "description": "To ensure business continuity, a coworking concept was developed with a functional workspace for interaction between project teams and specialists without permanently assigned workstations. The Network Solutions Center \"Infosystems Jet\" installed five interactive complexes with video conferencing capabilities, as well as a multimedia system that allows comfortable work in a collaborative mode"
+      },
+      {
+       "title": "Opening centers of competence",
+       "description": "To help customers support foreign or Open Source software, the company opened specialized centers of competence for DBMS, Zabbix, and SAP Basis. Fruitful cooperation with foreign vendors has allowed the formation of a strong team with deep knowledge of database management systems, monitoring, and the SAP ecosystem"
+      },
+      {
+       "title": "Back on top",
+       "description": "According to Tadviser, Infosystems Jet has traditionally been №1 in the IT outsourcing market. The company also took third place in the ranking of the largest IT suppliers in the Russian industry according to TAdviser — its revenue from projects in this sector of the economy increased by 54% year-on-year"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "item-3-uuid",
+    "type": "history",
+    "data": {
+     "hash": "#item-3",
+     "title": "2023",
+     "navTitle": "2023",
+     "items": [
+      {
+       "title": "Modernization of the videoconferencing and unified communications showroom",
+       "description": "The multi-vendor video and voice solutions showroom, launched in 2021, has been updated. It now features leading domestic video conferencing solutions, corporate messengers, and telephony systems that are most relevant for the enterprise segment. Visitors to the showroom can test the functionality and compatibility of the presented solutions with equipment from Western manufacturers"
+      },
+      {
+       "title": "Cybersecurity projects",
+       "description": "In 2023, the cybersecurity industry faced the need to revise its strategies and priorities. Therefore, the year was rich in conducting cybersecurity audits and compliance assessments with the requirements of the Central Bank of the Russian Federation in large companies such as Renaissance Bank, Tinkoff Insurance, OSSP, Loko Bank, Sinara Bank, Irkutsk Oil Company, and others."
+      },
+      {
+       "title": "IT Competence Center in Samara",
+       "description": "The concept of the first regional office — the branch in Samara — has been changed. In addition to being a workspace for company employees, the office has become a platform for improving the qualifications of IT specialists in the region, as well as a competence center for working with universities that train specialized personnel."
+      },
+      {
+       "title": "Own events",
+       "description": "The first independent conference on networks and infrastructure IT Elements was held. The event is conceived as an open independent platform for the community of experts on network and infrastructure solutions, exchange of experience and best practices. The online cybersecurity camp CyberCamp gathered more than 10 thousand viewers and 100 teams of cyber exercises live: 66 participants of the corporate league and 34 of the student league."
+      },
+      {
+       "title": "Optimization of gas consumption at NLMK",
+       "description": "Based on machine learning, a service was developed to provide recommendations for the optimal distribution of energy resources (natural, blast furnace, and coke gases) for the equipment of NLMK's own power plant. The service allows for more accurate determination of proportions for mixing different types of fuel and saves several million rubles monthly.",
+       "img": {
+        "src": "/static/images/history/img-3.jpg",
+        "alt": "Caption for the photo, no more than 100 characters"
+       },
+       "caption": "Caption for the photo, no more than 100 characters"
+      },
+      {
+       "title": "Joint accelerator with Skolkovo",
+       "description": "Together with the Skolkovo Foundation, an acceleration program was conducted to search for digital solutions for industrial enterprise safety — Safety Digital Tech. The winners were 19 companies, 14 of which are already participants in the Skolkovo ecosystem. The accelerator format allowed for quickly finding and studying a large number of solutions in the field of industrial safety"
+      },
+      {
+       "title": "Unique project for IT infrastructure localization",
+       "description": "A comprehensive project was implemented to modernize the IT infrastructure of NPAO \"Svetogorsky Pulp and Paper Mill\". A large-scale and seamless migration of existing IT systems and services to a full stack of domestic solutions was carried out jointly. The \"Infosystems Jet\" team was required not only to meet the tightest deadlines but also to demonstrate an unconventional technical approach when selecting solutions for all subsystems"
+      },
+      {
+       "title": "Agile office for the franchise partner \"Vkusno — i tochka\"",
+       "description": "An audiovisual complex was created in the company's new office to improve the efficiency and speed of employee communication. The project utilized a variety of technologies: video panels, sound and audio amplification systems, a presentation system with wireless connectivity, and a room booking system"
+      },
+      {
+       "title": "High rankings",
+       "description": "In 2023, \"Infosystems Jet\" was included for the first time in the ranking of the largest IT companies according to RAEX, taking 5th place. In the ranking of the largest IT service providers by CNews, the company rose to 3rd place, and according to TAdviser, it became No. 1 in the IT outsourcing market"
+      },
+      {
+       "title": "Engineering laboratory",
+       "description": "An engineering laboratory was opened in the service center. It allows for incoming inspection of parts and even faster diagnosis of broken equipment, eliminating the cause and consequences of the breakdown. In addition, parts for repairs that are fully compatible with the equipment are produced in it. The engineering laboratory is equipped with professional equipment, and the staff includes experts in the field of reverse engineering"
+      },
+      {
+       "title": "Partnership with domestic manufacturers",
+       "description": "The service center is actively developing partnerships in the field of technical support with Russian vendors. Among them is OpenYard. Its product line consists of rack servers for classic data centers and servers based on the OCP (Open Compute Project) architecture, aimed at high-performance hyperscaler data centers. OpenYard has its own production, and its products are included in the register of industrial products of the Ministry of Industry and Trade of Russia"
+      },
+      {
+       "title": "Warehouse expansion",
+       "description": "Amid growing demand for components, their quantity in the \"Infosystems Jet\" warehouse increased more than threefold over the year. By the end of 2023, the number of parts exceeded 28 thousand units. This led to the expansion of warehouse facilities, where an address storage system operates. At the same time, a proprietary WMS was put into operation"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "item-4-uuid",
+    "type": "history",
+    "data": {
+     "hash": "#item-4",
+     "title": "2022",
+     "navTitle": "2022",
+     "variant": "history_rotate",
+     "items": [
+      {
+       "title": "Jet RuLab Opening",
+       "description": "Created a testing laboratory for Russian IT solutions <a href=\"https://jet.su/jetrulab/\" target=\"_blank\">Jet RuLab</a> to help companies select promising and compatible Russian IT solutions across 14 areas. The laboratory allows you to familiarize yourself with available domestic products and receive consultation on their integration from specialists at Infosystems Jet"
+      },
+      {
+       "title": "VDI Showroom Opening",
+       "description": "A showroom was opened with Russian virtualization systems and virtual desktops (VDI) available for implementation"
+      },
+      {
+       "title": "IT infrastructure for the Academician Roytberg Clinic",
+       "description": "Equipped the Institute of Nuclear Medicine of JSC \"Medicina\" in Khimki with a complex of IT solutions: data storage system, information security, Wi-Fi 6, multimedia. The project will enable high-quality diagnostics and effective treatment of oncological diseases in Russia"
+      },
+      {
+       "title": "LLC \"Russian Standard Credit Bureau\"",
+       "description": "Seamless migration of 17 databases with a total volume of 18 TB of the \"Russian Standard Credit Bureau\" (RSCB) to a new data center was implemented. During the migration of RSCB data to the new data center, the rapid transfer of MSSQL and PostgreSQL databases within the shortest possible time (no more than a week) was particularly important"
+      },
+      {
+       "title": "Almazergienbank JSC",
+       "description": "A comprehensive monitoring system was implemented to ensure operational reliability in accordance with the requirements of the Bank of Russia. As part of the monitoring system, specialists conduct IT infrastructure audits and develop recommendations to help prevent service failures"
+      },
+      {
+       "title": "Creation «Digital Labor Safety Laboratory»",
+       "description": "In partnership with the Russian Ministry of Labor, a Digital Labor Safety Laboratory has been opened in Skolkovo. The laboratory's work is aimed at identifying, testing, and validating technological solutions for industrial enterprises in the field of labor safety and industrial security.",
+       "img": {
+        "src": "/static/images/history/img-4.jpg",
+        "alt": "Photo caption, no more than 100 characters long"
+       },
+       "caption": "Photo caption, no more than 100 characters long"
+      },
+      {
+       "title": "Implementation of an omnichannel platform for Beeline in Kyrgyzstan",
+       "description": "An omnichannel platform was implemented at two data center sites for the contact center of Sky Mobile LLC (Beeline brand) in Kyrgyzstan. The project made the contact center more efficient: thanks to the implemented solutions, the telecom company can evaluate and improve the work of operators"
+      },
+      {
+       "title": "Launch of the new IT product \"Shturval\" — a Russian container management platform based on Kubernetes",
+       "description": "The functionality of \"Shturval\" includes the creation and management of container orchestration clusters based on Kubernetes, network access to application services, and access to cluster resources based on a role model. The platform also allows monitoring the state of system components of clusters and application services, configuring various settings taking into account information security requirements. The \"Shturval\" platform is included in the Register of Russian Software"
+      },
+      {
+       "title": "Information Security Development Strategy for Irkutsk Oil Company (INK)",
+       "description": "A comprehensive audit of the current state of information security at Irkutsk Oil Company was conducted: analysis of the effectiveness of information protection tools, personnel and methodological components, as well as an audit of the IT infrastructure. Testing simulating real hacker attacks for penetration was carried out: searching for vulnerabilities in the security of external and internal perimeters, wireless networks"
+      },
+      {
+       "title": "Projects for the «Rusagro» group of companies",
+       "description": "In collaboration with the «Rusagro» Group of Companies, a system for planning timely harvests was developed. The solution prevents crop spoilage by optimizing the schedule of agronomists and the use of expensive agricultural machinery"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "item-5-uuid",
+    "type": "history",
+    "data": {
+     "hash": "#item-5",
+     "title": "2021",
+     "navTitle": "2021",
+     "items": [
+      {
+       "title": "30 years of the company",
+       "description": "In honor of the anniversary, Infosystems Jet launched a website featuring archival photos from 1991, as well as video congratulations from key customers. Among those who congratulated: Rostelecom, Otkritie Bank, Russian Standard Bank, Post Bank, Absolut Bank, Detsky Mir, Prosveshchenie, NSPK JSC, Joint Institute for Nuclear Research."
+      },
+      {
+       "title": "Container management system for Sberbank in Kazakhstan",
+       "description": "The container management system was implemented at Sberbank in Kazakhstan. The transition to containerization technologies will help the bank improve remote service offerings. Currently, the solution supports online banking used by over 850 thousand people. ",
+       "img": {
+        "src": "/static/images/history/img-5.jpg",
+        "alt": "Photo caption, no more than 100 characters long"
+       },
+       "caption": "Photo caption, no more than 100 characters long"
+      },
+      {
+       "title": "IT strategy for the «Vologda regional energy company»",
+       "description": "«Infosystems Jet» conducted an audit and identified directions for the development of IT infrastructure and information security. The developed project map for IT infrastructure modernization will help the company reduce IT costs and increase the availability and reliability of critically important services. The proposed information security initiatives will help ensure the reliable protection of assets and processes."
+      },
+      {
+       "title": "A unified data center for the «Opening» financial group",
+       "description": "As part of the project, a transition was made from the fragmented infrastructure of the financial group to a single solution based on its own highly available and centralized data center. The consolidated data center accelerated the introduction of new financial services, reduced the cost of ownership of computing power, and increased the availability and reliability of existing applications. The data center is fully ready for rapid business growth and customer demand."
+      },
+      {
+       "title": "Private cloud for Rosbank",
+       "description": "Rosbank, together with the IT company «Infosystems Jet», is creating a private cloud. With its help, the bank will significantly accelerate the Time To Market indicator: developers will receive infrastructure services within minutes and will be able to create new products faster. In addition, Rosbank will accurately calculate resource consumption by different departments. The private cloud management platform is built on an open-source software stack, which will reduce the payback period of the IT solution to two years."
+      },
+      {
+       "title": "Smart analytics to improve school safety in Krasnodar",
+       "description": "«Infosystems Jet» implemented a hardware and software complex with video analytics in one of the schools in Krasnodar. This project will enhance the safety of the educational institution and prevent unauthorized access by outsiders."
+      },
+      {
+       "title": "Cyber ​​training for Rosbank employees",
+       "description": "Specialists from the Security Operation Center (SOC) of Rosbank underwent a two-day cyber training based on the Jet CyberCamp platform — Infosystems Jet’s own cyber range. In the simulated infrastructure, the bank’s information security specialists investigated a major attack. The cyber training was conducted under the guidance of instructor-practitioners: pentesters and analysts from the Jet CSIRT monitoring and response center."
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "item-6-uuid",
+    "type": "history",
+    "data": {
+     "hash": "#item-6",
+     "title": "2020–2019",
+     "navTitle": "2020–2019",
+     "variant": "history_rotate",
+     "quote": {
+      "speech": "«2019 was not only the most successful year in the company's history. Large-scale complex projects and the development of priority areas in outsourcing, infrastructure, and security laid the groundwork for a significant part of 2020. Of course, 2020 is unlike any other year, but the company is quickly mobilizing in this crisis situation. Over the past 30 years, we have gained experience in surviving several financial crises, sanctions, and even a fire, when we lost our entire office and data center in a single day. This time, we quickly adapted to working in new conditions. Having learned our lesson, we helped our customers implement the solutions necessary for survival, and are now discussing new ideas for future digital workplaces.»",
+      "name": "Vladimir Eliseev",
+      "position": "General Director of Infosystems Jet"
+     },
+     "items": [
+      {
+       "title": "Breakthrough Projects",
+       "description": "Based on the secure IT infrastructure from Infosystems Jet, a new OSAGO information system started operating in Russia. The company also jointly conducted the first tests of Non-IP Data Delivery technology in Russia with VimpelCom, which extends the lifespan of IoT devices. In the field of artificial intelligence, large-scale projects were implemented: a defect prediction system for Segezha Group, and a Data Lake for NLMK.<br><br>In the outsourcing market, the company executed over 1500 service contracts totaling 2.3 billion rubles, strengthening its position in the specialized segment. In one project for a telecom operator, specialists took on the maintenance of more than 3000 units of server equipment and 5000 UNIX and Windows operating systems, 150 virtualization systems, hundreds of data storage systems, local area networks, and engineering equipment.",
+       "img": {
+        "src": "/static/images/history/img-6.jpg",
+        "alt": "Photo caption, no more than 100 characters long"
+       },
+       "caption": "Photo caption, no more than 100 characters long"
+      },
+      {
+       "title": "Among the Largest Companies in Russia",
+       "description": "The company's revenue for 2019 grew by 25% and amounted to 31.1 billion rubles. The year was recognized as the most successful in the company's 30-year history. The financial results allowed the company to enter the rankings of the best companies in Russia according to RBC TOP-500 and RAEX TOP-600.<br><br>Infosystems Jet was also recognized by IDC as a leader in IT outsourcing in Russia and grew by 24% in this area over the year."
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "item-7-uuid",
+    "type": "history",
+    "data": {
+     "hash": "#item-7",
+     "title": "2018–2017",
+     "navTitle": "2018–2017",
+     "items": [
+      {
+       "title": "14,000 Virtual Workplaces",
+       "description": "An unparalleled project in the banking sector for virtualization — the transfer of 14,000 VTB Group employees to virtual workplaces using VDI technology. In addition, the organization's infrastructure was integrated with various business systems in accordance with corporate standards and security policies."
+      },
+      {
+       "title": "The First Russian Forum on Artificial Intelligence Systems RAIF",
+       "description": "Infosystems Jet held the first Russian forum on artificial intelligence systems RAIF, which became an annual event bringing together representatives of business and IT from large organizations. More than 300 participants took part in it.",
+       "img": {
+        "src": "/static/images/history/img-7.jpg",
+        "alt": "Photo caption, no more than 100 characters long"
+       },
+       "caption": "Photo caption, no more than 100 characters long"
+      },
+      {
+       "title": "Innovations in Information Security",
+       "description": "In the field of information security, the company developed several innovative systems: Jet Detective for fraud prevention based on machine learning, Jet Centurion for decision support, the Jet Pluton network intrusion detection complex, and the Jet Signal information security management system."
+      },
+      {
+       "title": "Modernization of Arctic Data Centers",
+       "description": "A unique project to modernize the infrastructure of four data centers for Norilsk Nickel in the Arctic branch and the Kola Mining and Metallurgical Company. Work was carried out in extreme weather conditions at temperatures down to −55°C."
+      },
+      {
+       "title": "Transformation of Own IT Infrastructure",
+       "description": "A landmark transformation of the company's own IT infrastructure: the company migrated to a new local and Wi-Fi network, built an additional data center, moved all systems to a private cloud, and also implemented a unified communications system. All projects were implemented seamlessly without stopping business processes."
+      },
+      {
+       "title": "Jet CSIRT and DevSecOps Laboratory",
+       "description": "As part of the development of the information security division, new areas were identified: the first Russian monitoring and incident response center Jet CSIRT and the DevSecOps laboratory, which combined the expertise of several company centers."
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "item-8-uuid",
+    "type": "history",
+    "data": {
+     "hash": "#item-8",
+     "title": "2016-2014",
+     "navTitle": "2016-2014",
+     "variant": "history_rotate",
+     "items": [
+      {
+       "title": "Payment System for the Entire \"Mir\"",
+       "description": "Implemented the largest and unique project — the company created an IT infrastructure for the national payment system \"Mir\" from scratch in 7 months across the entire country. Data centers based on Huawei products were created in two months, marking the beginning of a fruitful long-term cooperation with the Chinese vendor."
+      },
+      {
+       "title": "Wi-Fi at Domodedovo and Anti-Fraud for X5",
+       "description": "Infosystems Jet provided unlimited Wi-Fi to passengers at Domodedovo Airport from 360 access points, and also created the largest anti-fraud solution in Russian retail — a fraud prevention system for X5 Retail Group. The company staff grew to 1500 people, and Solar Security was also established — a subsidiary independent organization for outsourcing and product development in the field of information security.",
+       "img": {
+        "src": "/static/images/history/img-8.jpg",
+        "alt": "Photo caption, no more than 100 characters long"
+       },
+       "caption": "Photo caption, no more than 100 characters long"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "item-9-uuid",
+    "type": "history",
+    "data": {
+     "hash": "#item-9",
+     "title": "2013-2009",
+     "navTitle": "2013-2009",
+     "items": [
+      {
+       "title": "Bank from Scratch",
+       "description": "One of the largest outsourcing projects in the world — the launch of \"Leto Bank\" (now \"Pochta Bank\"). The work of Infosystems Jet specialists ensured business operation just three months after the start decision, and within a year, 260 infrastructures were built in new branches, 1200 sales points and 3200 workplaces were launched in more than 400 localities across the country."
+      },
+      {
+       "title": "Conquering Africa",
+       "description": "The company's activities expanded far beyond Russia: a payment system was created for the mobile operator Globacom in Nigeria. The organization held its first-ever Open Day for children, and a unified corporate portal for employees was launched. The creation of the Yota service model — a complex for managing the traffic of 1.5 million subscribers in real time.",
+       "img": {
+        "src": "/static/images/history/img-9.jpg",
+        "alt": "Photo caption, no more than 100 characters long"
+       },
+       "caption": "Photo caption, no more than 100 characters long"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "item-10-uuid",
+    "type": "history",
+    "data": {
+     "hash": "#item-10",
+     "title": "2008-2005",
+     "navTitle": "2008-2005",
+     "variant": "history_rotate",
+     "items": [
+      {
+       "title": "Unique Software for the Payment System",
+       "description": "The first project for the development of high-load software for \"VimpelCom\" for the subscriber payment acceptance system. As a result, a unique service Beepay XP was created, which allowed processing 500 transactions per second and replenishing subscriber accounts in three different ways. The system is still operational and maintained by our specialists. For the telecom operator, the largest post-disaster recovery and continuity program in the world was also created."
+      },
+      {
+       "title": "New Branches and Technical Directions",
+       "description": "The company's geography expanded significantly — branches appeared in Vladivostok, Kazan, Novosibirsk, Samara, Nizhny Novgorod, Kazakhstan, Azerbaijan, and Ukraine. New structural units were also formed: the Network Solutions Center and the Software Solutions Center.",
+       "img": {
+        "src": "/static/images/history/img-10.jpg",
+        "alt": "Photo caption, no more than 100 characters long"
+       },
+       "caption": "Photo caption, no more than 100 characters long"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "item-11-uuid",
+    "type": "history",
+    "data": {
+     "hash": "#item-11",
+     "title": "2004-2002",
+     "navTitle": "2004-2002",
+     "items": [
+      {
+       "title": "«Infosystems Jet» and the Big Three",
+       "description": "Collaboration with the largest telecom operators. A service contract was signed with MTS to support branches across Russia. For \"MegaFon,\" protection against downtime, failures, and financial losses was implemented, along with server maintenance and round-the-clock infrastructure support. Seventeen data centers were built in Russia, Kazakhstan, Georgia, Ukraine, and Uzbekistan for \"VimpelCom,\" and a disaster recovery and IT outsourcing program was also implemented."
+      },
+      {
+       "title": "Business Systems Implementation Center and Branch in Yekaterinburg",
+       "description": "The first projects for the implementation of CRM systems appeared: Siebel in UniCredit Bank, SAP in the Ural Bank for Reconstruction and Development. A branch of Infosistemy Jet was opened in Yekaterinburg. The company also received two unique statuses: Qualified Support Partner from Brocade Communications Systems and Platinum Partner of Hitachi Data Systems."
+      },
+      {
+       "title": "Opening of the Saint Petersburg Branch",
+       "description": "In October 2004, Infosistemy Jet opened a branch in the northern capital of Russia",
+       "img": {
+        "src": "/static/images/history/img-11.jpg",
+        "alt": "Photo caption, no more than 100 characters long"
+       },
+       "caption": "Photo caption, no more than 100 characters long"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "item-12-uuid",
+    "type": "history",
+    "data": {
+     "hash": "#item-12",
+     "title": "2001-1998",
+     "navTitle": "2001-1998",
+     "variant": "history_rotate",
+     "items": [
+      {
+       "title": "Digitalization of the Capital",
+       "description": "Large-scale projects for the Moscow government were implemented: a corporate network for 1,200 workstations with a Sun Enterprise 10000 superserver for processing tax information and the development of a unified Federal Migration Service system. During this period, one of the most important socially significant tasks was also completed: the automation of the \"01\" fire service dispatch center."
+      },
+      {
+       "title": "The First SANs in Russia",
+       "description": "For the MTS telecom operator, Infosistemy Jet built two data centers and implemented SAN technologies — the first storage area networks in Russia.",
+       "img": {
+        "src": "/static/images/history/img-12.jpg",
+        "alt": "Photo caption, no more than 100 characters long"
+       },
+       "caption": "Photo caption, no more than 100 characters long"
+      }
+     ]
+    }
+   }
+  ]
+ }
+}

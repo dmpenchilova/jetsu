@@ -1,0 +1,607 @@
+{
+ "status": "success",
+ "data": {
+  "breadcrumbs": {
+   "variant": "breadcrumbs_blue",
+   "items": [
+    {
+     "title": "Career"
+    }
+   ]
+  },
+  "seo": {
+   "title": "Career"
+  },
+  "content": [
+   {
+    "uuid": "hero-uuid",
+    "type": "careerHero",
+    "data": {
+     "hash": "#hero",
+     "tag": "Career",
+     "title": "<span style=\"color:#BBBBBB\">Newcomers in our team</span> <span style=\"color:#21252C\">grow quickly,</span><span style=\"color:#BBBBBB\"> and professionals </span><span style=\"color:#21252C\">implement large-scale projects.</span> <span style=\"color:#BBBBBB\">Here</span> <span style=\"color:#21252C\">your ideas change the future</span>",
+     "images": [
+      {
+       "src": "/static/images/team/team-1.jpg"
+      },
+      {
+       "src": "/static/images/team/team-2.jpg"
+      },
+      {
+       "src": "/static/images/team/team-3.jpg"
+      },
+      {
+       "src": "/static/images/team/team-7.jpg"
+      },
+      {
+       "src": "/static/images/team/team-6.jpg"
+      },
+      {
+       "src": "/static/images/team/team-4.jpg"
+      }
+     ],
+     "btn": {
+      "title": "Find a vacancy",
+      "url": "/vacancies"
+     },
+     "btnScroll": {
+      "title": "Send your resume"
+     },
+     "tags": [
+      {
+       "title": "Internships",
+       "url": "/internships"
+      },
+      {
+       "title": "All vacancies",
+       "url": "/vacancies"
+      },
+      {
+       "title": "Service and user support",
+       "url": "/vacancies/?type=service"
+      },
+      {
+       "title": "IT infrastructure",
+       "url": "/vacancies/?type=it"
+      },
+      {
+       "title": "Information security",
+       "url": "/vacancies/?type=security"
+      },
+      {
+       "title": "Networks and engineering infrastructure",
+       "url": "/vacancies/?type=networks"
+      },
+      {
+       "title": "Machine learning and AI",
+       "url": "/vacancies/?type=ai"
+      },
+      {
+       "title": "Software and business application development",
+       "url": "/vacancies/?type=development"
+      },
+      {
+       "title": "Project and product management",
+       "url": "/vacancies/?type=management"
+      },
+      {
+       "title": "Finance",
+       "url": "/vacancies/?type=finance"
+      },
+      {
+       "title": "Sales",
+       "url": "/vacancies/?type=sales"
+      },
+      {
+       "title": "Administrative staff",
+       "url": "/vacancies/?type=personal"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "video-uuid",
+    "type": "careerVideo",
+    "data": {
+     "hash": "#video",
+     "video": {
+      "url": "/static/video/career/jet.mp4"
+     }
+    }
+   },
+   {
+    "uuid": "about-uuid",
+    "type": "about",
+    "data": {
+     "hash": "#about",
+     "title": "«Infosystems Jet» is a major IT company with a 35-year history. We implement key projects for leading market players. We have strong expertise, challenging challenges, and a high-tech environment.",
+     "subtitle": "We are among the top five largest<br>ICT companies in Russia",
+     "link": {
+      "title": "RAEX, 2025",
+      "url": "/"
+     },
+     "items": [
+      {
+       "title": "Top 100",
+       "description": "Employer rating HH.ru for 2024",
+       "link": {
+        "title": "HH.ru",
+        "url": "/"
+       }
+      },
+      {
+       "title": "2 200+",
+       "description": "Highly qualified employees"
+      },
+      {
+       "title": "800+",
+       "description": "Unique projects implemented annually"
+      },
+      {
+       "title": "30+",
+       "description": "Demo laboratories (DevSecOps, Jet RuLab, Wi-Fi 6, information security solutions, etc.)"
+      },
+      {
+       "title": "Top 5",
+       "description": "Rating of IT employers \"Habr Career\" for 2024",
+       "link": {
+        "title": "HH.ru",
+        "url": "/"
+       }
+      }
+     ],
+     "companies": [
+      {
+       "src": "/static/images/career/about/img-1.png"
+      },
+      {
+       "src": "/static/images/career/about/img-2.png"
+      },
+      {
+       "src": "/static/images/career/about/img-3.png"
+      },
+      {
+       "src": "/static/images/career/about/img-4.png"
+      },
+      {
+       "src": "/static/images/career/about/img-5.png"
+      },
+      {
+       "src": "/static/images/career/about/img-6.png"
+      },
+      {
+       "src": "/static/images/career/about/img-7.png"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "stack-uuid",
+    "type": "stack",
+    "data": {
+     "hash": "#stack",
+     "tag": "Technological stack",
+     "title": "We work at the intersection of<br>modern technologies and sustainable engineering practices",
+     "items": [
+      {
+       "src": "/static/images/career/stack/img-1.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-2.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-3.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-4.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-5.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-6.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-7.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-8.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-9.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-10.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-11.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-12.png"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "benefits-uuid",
+    "type": "benefits",
+    "data": {
+     "hash": "#benefits",
+     "tag": "Advantages and opportunities",
+     "title": "Why choose us",
+     "items": [
+      {
+       "title": "Accredited IT company",
+       "description": "1 Large-scale outdoor events for employees and their families. Interest clubs: running, motorcycling and cycling, volleyball, basketball, yoga, downhill skiing, snowboarding, jiu-jitsu, ping-pong, soccer, or simply PlayStation, and even our own rock band, Jet Zeppelin. Plus: art workshops, e-sports tournaments, city tours. And, of course, the most spectacular corporate parties.",
+       "img": {
+        "src": "/static/images/career/benefits/img-1.jpg"
+       }
+      },
+      {
+       "title": "Flexible benefits package ",
+       "description": "2 Large-scale offsite events for employees and their families. Clubs offering a variety of interests: running, motorcycling, cycling, volleyball, basketball, yoga, alpine skiing, snowboarding, jiu-jitsu, ping-pong, football, PlayStation, and even our own rock band, Jet Zeppelin. We also offer art workshops, cyber tournaments, and tours of the sports city.",
+       "img": {
+        "src": "/static/images/topical/img-1.jpg"
+       }
+      },
+      {
+       "title": "Caring for you and your loved ones",
+       "description": "3 Large-scale outdoor events for employees and their families. Interest clubs: running, motorcycling and cycling, volleyball, basketball, yoga, downhill skiing, snowboarding, jiu-jitsu, ping-pong, soccer, or simply PlayStation, and even our own rock band, Jet Zeppelin. Plus: art workshops, e-sports tournaments, city tours. And, of course, the most spectacular corporate parties.",
+       "img": {
+        "src": "/static/images/career/benefits/img-1.jpg"
+       }
+      },
+      {
+       "title": "Learning and development",
+       "description": "4 Large-scale offsite events for employees and their families. Clubs offering a variety of interests: running, motorcycling, cycling, volleyball, basketball, yoga, alpine skiing, snowboarding, jiu-jitsu, ping-pong, football, PlayStation, and even our own rock band, Jet Zeppelin. We also offer art workshops, cyber tournaments, and tours of the sports city.",
+       "img": {
+        "src": "/static/images/topical/img-1.jpg"
+       }
+      },
+      {
+       "title": "Conferences and presentations",
+       "description": "5 Large-scale outdoor events for employees and their families. Interest clubs: running, motorcycling and cycling, volleyball, basketball, yoga, downhill skiing, snowboarding, jiu-jitsu, ping-pong, soccer, or simply PlayStation, and even our own rock band, Jet Zeppelin. Plus: art workshops, e-sports tournaments, city tours. And, of course, the most spectacular corporate parties.",
+       "img": {
+        "src": "/static/images/career/benefits/img-1.jpg"
+       }
+      },
+      {
+       "title": "Office and equipment",
+       "description": "6 Large-scale offsite events for employees and their families. Clubs offering a variety of interests: running, motorcycling, cycling, volleyball, basketball, yoga, alpine skiing, snowboarding, jiu-jitsu, ping-pong, football, PlayStation, and even our own rock band, Jet Zeppelin. We also offer art workshops, cyber tournaments, and tours of the sports city.",
+       "img": {
+        "src": "/static/images/topical/img-1.jpg"
+       }
+      },
+      {
+       "title": "Joint activities and leisure",
+       "description": "7 Large-scale outdoor events for employees and their families. Interest clubs: running, motorcycling and cycling, volleyball, basketball, yoga, downhill skiing, snowboarding, jiu-jitsu, ping-pong, soccer, or simply PlayStation, and even our own rock band, Jet Zeppelin. Plus: art workshops, e-sports tournaments, city tours. And, of course, the most spectacular corporate parties.",
+       "img": {
+        "src": "/static/images/career/benefits/img-1.jpg"
+       }
+      },
+      {
+       "title": "Corporate discounts",
+       "description": "8 Large-scale offsite events for employees and their families. Clubs offering a variety of interests: running, motorcycling, cycling, volleyball, basketball, yoga, alpine skiing, snowboarding, jiu-jitsu, ping-pong, football, PlayStation, and even our own rock band, Jet Zeppelin. We also offer art workshops, cyber tournaments, and tours of the sports city.",
+       "img": {
+        "src": "/static/images/topical/img-1.jpg"
+       }
+      },
+      {
+       "title": "Team and atmosphere",
+       "description": "9 Large-scale outdoor events for employees and their families. Interest clubs: running, motorcycling and cycling, volleyball, basketball, yoga, downhill skiing, snowboarding, jiu-jitsu, ping-pong, soccer, or simply PlayStation, and even our own rock band, Jet Zeppelin. Plus: art workshops, e-sports tournaments, city tours. And, of course, the most spectacular corporate parties.",
+       "img": {
+        "src": "/static/images/career/benefits/img-1.jpg"
+       }
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "offers-uuid",
+    "type": "offers",
+    "data": {
+     "hash": "#offers",
+     "tag": "Internships",
+     "title": "Start your career with us",
+     "subtitle": "What we offer",
+     "description": "We value your time and are passionate about our common cause! You will face real tasks, paid internships, cool mentors, and a powerful boost to start your career",
+     "btn": {
+      "title": "All internships",
+      "url": "/internships"
+     },
+     "items": [
+      {
+       "title": "A team of cool experts",
+       "description": "You will work on real projects with top specialists"
+      },
+      {
+       "title": "Skill development",
+       "description": "We provide access to our exclusive courses and materials. Learn and apply immediately in practice"
+      },
+      {
+       "title": "Schedule to your rhythm",
+       "description": "You can combine it with your studies without stress. Session, classes — we will approach this issue flexibly"
+      },
+      {
+       "title": "Networking and community",
+       "description": "Workshops, meetups, events — we immerse you in an atmosphere where people meet and grow together"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "gallery-uuid",
+    "type": "gallery",
+    "data": {
+     "hash": "#gallery",
+     "title": "Subscribe<br> to our platforms",
+     "items": [
+      {
+       "img": {
+        "src": "/static/images/career/gallery/img-1.jpg"
+       },
+       "caption": "Jet Stars Award Winners"
+      },
+      {
+       "img": {
+        "src": "/static/images/career/gallery/img-2.jpg"
+       },
+       "caption": "Creative atmosphere"
+      },
+      {
+       "img": {
+        "src": "/static/images/career/gallery/img-3.jpg"
+       },
+       "caption": "Work at your own pace"
+      },
+      {
+       "img": {
+        "src": "/static/images/career/gallery/img-4.jpg"
+       },
+       "caption": "Working on a project in the office"
+      }
+     ],
+     "socials": [
+      {
+       "title": "Telegram",
+       "icon": "telegram",
+       "url": "https://t.me/+DTFpOi9-ssxmYzRi"
+      },
+      {
+       "title": "Rutube",
+       "icon": "rutube",
+       "url": "https://rutube.ru/channel/26045378/"
+      },
+      {
+       "title": "Habr",
+       "icon": "habr",
+       "url": "https://habr.com/ru/company/jetinfosystems/profile/"
+      },
+      {
+       "title": "HeadHunter",
+       "icon": "hh",
+       "url": "https://hh.ru/employer/3095"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "banners-uuid",
+    "type": "banners",
+    "data": {
+     "hash": "#banners",
+     "items": [
+      {
+       "title": "Our vacancies",
+       "description": "Join us to work on large-scale projects",
+       "btn": {
+        "title": "All vacancies",
+        "url": "/vacancies"
+       }
+      },
+      {
+       "title": "Internship programs",
+       "description": "Start building your career at Jet —<br>choose a direction and write to us!",
+       "btn": {
+        "title": "All internships",
+        "url": "/internships"
+       }
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "topical-uuid",
+    "type": "topical",
+    "data": {
+     "hash": "#topical",
+     "tag": "Topical",
+     "title": "Latest news, cases, releases, and expert materials",
+     "items": [
+      {
+       "tag": "News",
+       "title": "Start IT Elements 2025 — the main IT conference of the autumn opened in Moscow",
+       "tags": [
+        "Cybersecurity",
+        "Security"
+       ],
+       "img": {
+        "src": "/static/images/topical/img-1.jpg"
+       },
+       "url": "https://jet.su/press-center/news/start-it-elements-2025-v-moskve-otkrylas-glavnaya-it-konferentsiya-oseni/"
+      },
+      {
+       "tag": "Article",
+       "title": "Registration is open for the main online camp on practical cybersecurity CyberCamp 2025",
+       "tags": [
+        "Cybersecurity",
+        "Security"
+       ],
+       "img": {
+        "src": "/static/images/topical/img-2.jpg"
+       },
+       "url": "https://jet.su/press-center/news/otkryta-registratsiya-na-glavnyy-onlayn-kemp-po-prakticheskoy-kiberbezopasnosti-cybercamp-2025/"
+      },
+      {
+       "tag": "News",
+       "title": "«Сетевое лето»: главные темы первой правктической ИТ-конференции о сетях и инженерной инфраструктуре",
+       "tags": [
+        "Cybersecurity",
+        "Security"
+       ],
+       "url": "https://jet.su/press-center/news/setevoe-leto-glavnye-temy-pervoy-prakticheskoy-it-konferentsii-o-setyakh-i-inzhenernoy-infrastruktur/"
+      },
+      {
+       "tag": "Article",
+       "title": "Why do businesses need private networks?",
+       "tags": [
+        "Cybersecurity",
+        "Security"
+       ],
+       "img": {
+        "src": "/static/images/topical/img-2.jpg"
+       },
+       "url": "https://jet.su/czentr-ekspertizy/all/zachem-biznesu-chastnye-seti/"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "callback-uuid",
+    "type": "callback",
+    "data": {
+     "hash": "#callback",
+     "tag": "Didn't find a suitable vacancy?",
+     "title": "Leave your contacts — we will write to you when a suitable position appears",
+     "background": {
+      "type": "mixed",
+      "src": "/static/images/callback/img-1.jpg"
+     },
+     "form": {
+      "visible": [
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "First name*",
+           "name": "name",
+           "validations": [
+            "required"
+           ]
+          }
+         },
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Last name*",
+           "name": "lastName",
+           "validations": [
+            "required"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Email*",
+           "name": "email",
+           "validations": [
+            "required",
+            "email"
+           ]
+          }
+         },
+         {
+          "type": "phone",
+          "data": {
+           "placeholder": "Phone*",
+           "name": "phone",
+           "validations": [
+            "required",
+            "phone"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Desired position*",
+         "name": "position",
+         "validations": [
+          "required"
+         ]
+        }
+       },
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Links to social networks and messengers",
+         "name": "socials"
+        }
+       },
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Link to resume",
+           "name": "rezume"
+          }
+         },
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Link to portfolio",
+           "name": "portfolio"
+          }
+         }
+        ]
+       },
+       {
+        "type": "textarea",
+        "data": {
+         "placeholder": "Cover letter*",
+         "name": "text",
+         "validations": [
+          "required"
+         ]
+        }
+       },
+       {
+        "type": "file",
+        "data": {
+         "name": "file",
+         "acceptedFileTypes": [
+          "application/pdf",
+          ".doc,",
+          ".docx",
+          "application/msword",
+          "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "application/rtf"
+         ],
+         "validations": [
+          "file"
+         ]
+        }
+       }
+      ],
+      "btn": {
+       "title": "Send response"
+      },
+      "action": "/form/callback"
+     }
+    }
+   }
+  ]
+ }
+}

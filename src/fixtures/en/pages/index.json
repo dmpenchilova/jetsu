@@ -1,0 +1,1053 @@
+{
+ "status": "success",
+ "data": {
+  "seo": {
+   "title": "Home"
+  },
+  "content": [
+   {
+    "uuid": "hero-uuid",
+    "type": "hero",
+    "data": {
+     "hash": "#hero",
+     "title": "Magic,<br>created by engineers",
+     "description": [
+      "Making the impossible real. Building truly antifragile IT systems: they not only withstand tests but become stronger and more perfect with each challenge."
+     ],
+     "btn": {
+      "title": "About the company",
+      "url": "/"
+     },
+     "background": {
+      "type": "mixed",
+      "src": "/static/images/hero/img-1.jpg",
+      "tablet": "/static/video/hero/bg3.mp4"
+     }
+    }
+   },
+   {
+    "uuid": "topical-uuid",
+    "type": "topical",
+    "data": {
+     "hash": "#topical",
+     "items": [
+      {
+       "tag": "Article",
+       "title": "CyberCamp participants shared how cyber exercises helped them in real life",
+       "tags": [
+        "Cybersecurity"
+       ],
+       "img": {
+        "src": "/static/images/topical/img-1.jpg"
+       },
+       "url": "https://jet.su/press-center/news/uchastniki-cybercamp-rasskazali-kak-kiberucheniya-pomogli-im-v-realnoy-zhizni/"
+      },
+      {
+       "tag": "Article",
+       "title": "«Do It Yourself»: how we launched mentoring from scratch for a company with 2000+ employees",
+       "tags": [
+        "Company News"
+       ],
+       "img": {
+        "src": "/static/images/topical/img-2.jpg"
+       },
+       "url": "https://habr.com/ru/companies/jetinfosystems/articles/955388/"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "events-uuid",
+    "type": "events",
+    "data": {
+     "hash": "#events",
+     "tag": "Events",
+     "background": {
+      "type": "mixed",
+      "src": "/static/video/events/bg.mp4"
+     },
+     "items": [
+      {
+       "title": "CyberCamp 2025",
+       "description": "The IV annual online conference on cybersecurity. Listen to reports from leading forensic experts, pentesters, analysts, and other specialists.",
+       "tags": [
+        "Cybersecurity"
+       ],
+       "type": "Conference",
+       "time": "October 20 - 25",
+       "format": "Online",
+       "btn": {
+        "title": "Register",
+        "url": "https://2025.cybercamp.su/"
+       }
+      },
+      {
+       "title": "Digital maturity of industrial enterprises",
+       "description": "We will analyze key areas of digitalization — from data analysis and protection to IT infrastructure import substitution, security, and IT and OT integration.",
+       "tags": [
+        "Industry"
+       ],
+       "type": "Webinar series",
+       "time": "October 23 - November 27",
+       "format": "Offline",
+       "btn": {
+        "title": "Register",
+        "url": "https://meetup.jet.su/digital-maturity"
+       }
+      }
+     ],
+     "companies": [
+      {
+       "src": "/static/images/events/img-1.png"
+      },
+      {
+       "src": "/static/images/events/img-2.png"
+      },
+      {
+       "src": "/static/images/events/img-3.png"
+      },
+      {
+       "src": "/static/images/events/img-4.png"
+      },
+      {
+       "src": "/static/images/events/img-5.png"
+      },
+      {
+       "src": "/static/images/events/img-6.png"
+      },
+      {
+       "src": "/static/images/events/img-7.png"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "ideas-uuid",
+    "type": "ideas",
+    "data": {
+     "hash": "#ideaToSupport",
+     "tag": "Solve problems with «Jet Infosystems»",
+     "title": "We create unique solutions",
+     "background": {
+      "type": "mixed",
+      "src": "/static/video/ideas/jet.mp4"
+     },
+     "description": "We help businesses adapt to changes, turning complex challenges into your achievements. Our clients are leading companies in the country who trust us with the most ambitious projects across Russia and the CIS",
+     "btn": {
+      "title": "Learn more about the company",
+      "url": "/"
+     },
+     "items": [
+      {
+       "title": "Building modular data centers",
+       "stats": {
+        "value": "4",
+        "label": "Months for designing and implementing modular data centers"
+       },
+       "description": "We assemble, deliver, and install ready-to-use modular data centers. The solution includes everything necessary: from Russian software to engineering systems — power supply, cooling, security. No major construction and with the possibility of rapid scaling"
+      },
+      {
+       "title": "Developing solutions based on ML and AI",
+       "stats": {
+        "value": "300",
+        "label": "projects launched each year"
+       },
+       "description": "Launched Jet & YandexGPT Lab – the first platform in Russia for developing and testing comprehensive GPT solutions for large businesses. We build complex projects in the fields of Big Data, analytics, and AI"
+      },
+      {
+       "title": "Saving large businesses from cyberattacks",
+       "stats": {
+        "value": "100+",
+        "label": "systems restored after cyberattacks"
+       },
+       "description": "We restore access to IT infrastructure. We connect immediately, assemble an operational team, and assist in emergency situations. We will bring key systems back online, even if there are no backup copies left. We will confirm or refute suspicions of hacking, conduct an information security audit"
+      },
+      {
+       "title": "Testing equipment and software in our laboratories",
+       "stats": {
+        "value": "850+",
+        "label": "solutions tested"
+       },
+       "description": "Choose Russian digital products at Jet RuLab and implement them in your company. Evaluate the capabilities of vulnerability management tools and NGFW-class firewalls in the information security solutions laboratories"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "1",
+    "type": "industries",
+    "data": {
+     "hash": "#industries",
+     "tag": "Industries",
+     "title": "We implement IT projects of any complexity, even those that seem impossible to others",
+     "items": [
+      {
+       "title": "Industry",
+       "description": "Construction of data centers, modernization of engineering infrastructure of data centers, development of recommendation systems based on ML, comprehensive audit of information security and IT infrastructure, process automation",
+       "content": {
+        "title": "Industry",
+        "description": "We create the foundation for production digitalization: from AI implementation to building a fault-tolerant infrastructure",
+        "items": [
+         {
+          "title": "15 years",
+          "description": "Experience working with industrial enterprises"
+         },
+         {
+          "title": "30%",
+          "description": "Increase in productivity when implementing our systems"
+         },
+         {
+          "title": "500+",
+          "description": "Projects implemented in the industrial sector"
+         }
+        ],
+        "company": [
+         {
+          "src": "/static/images/logo-2.svg",
+          "alt": "logo"
+         },
+         {
+          "src": "/static/images/logo-1.svg",
+          "alt": "logo"
+         },
+         {
+          "src": "/static/images/logo-3.svg",
+          "alt": "logo"
+         }
+        ],
+        "btn": {
+         "title": "Learn more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Energy",
+       "description": "Implementation of monitoring and analytics systems, development of IT and engineering infrastructure development strategies, comprehensive information security audit, protection of critical infrastructure",
+       "content": {
+        "title": "Energy",
+        "description": "Ensuring the reliability and security of critical infrastructure for energy companies",
+        "items": [
+         {
+          "title": "24/7",
+          "description": "Monitoring and support of energy facilities"
+         },
+         {
+          "title": "99.9%",
+          "description": "Availability of critical systems"
+         },
+         {
+          "title": "45+",
+          "description": "Projects on IT infrastructure modernization"
+         }
+        ],
+        "company": [
+         {
+          "src": "/static/images/logo-2.svg",
+          "alt": "logo"
+         },
+         {
+          "src": "/static/images/logo-1.svg",
+          "alt": "logo"
+         },
+         {
+          "src": "/static/images/logo-3.svg",
+          "alt": "logo"
+         }
+        ],
+        "btn": {
+         "title": "Find out more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Finance and Insurance",
+       "description": "Building and modernizing disaster-resistant IT infrastructure, comprehensive IT outsourcing, information security audits, cloud platform implementation, data center construction, and automation of operations",
+       "content": {
+        "title": "Finance and Insurance",
+        "description": "Building secure banking infrastructure and implementing fintech solutions",
+        "items": [
+         {
+          "title": "25%",
+          "description": "Reduction in IT infrastructure costs for financial companies"
+         },
+         {
+          "title": "46%",
+          "description": "Increase in process efficiency in banks"
+         },
+         {
+          "title": "1000+",
+          "description": "Automated workstations in banks"
+         }
+        ],
+        "company": [
+         {
+          "src": "/static/images/logo-2.svg",
+          "alt": "logo"
+         },
+         {
+          "src": "/static/images/logo-1.svg",
+          "alt": "logo"
+         },
+         {
+          "src": "/static/images/logo-3.svg",
+          "alt": "logo"
+         }
+        ],
+        "btn": {
+         "title": "Find out more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Construction",
+       "description": "Installation of modular and container data centers, building disaster-resistant IT infrastructure, implementation of network security analysis and monitoring systems",
+       "content": {
+        "title": "Construction",
+        "description": "We implement comprehensive solutions for the digitalization of the construction industry",
+        "items": [
+         {
+          "title": "200+",
+          "description": "Implemented projects for data center construction"
+         },
+         {
+          "title": "72 hours",
+          "description": "Average infrastructure deployment time"
+         },
+         {
+          "title": "15 years",
+          "description": "Experience working with construction companies"
+         }
+        ],
+        "company": [
+         {
+          "src": "/static/images/logo-2.svg",
+          "alt": "logo"
+         },
+         {
+          "src": "/static/images/logo-1.svg",
+          "alt": "logo"
+         },
+         {
+          "src": "/static/images/logo-3.svg",
+          "alt": "logo"
+         }
+        ],
+        "btn": {
+         "title": "Find out more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Telecommunications",
+       "description": "Network modernization, building a virtual operator (MVNO), comprehensive IT outsourcing, information security and IT infrastructure audit, implementation of monitoring and analytics systems",
+       "content": {
+        "title": "Telecommunications",
+        "description": "We create IT infrastructure for rapid service deployment and efficient resource management",
+        "items": [
+         {
+          "title": "10 million",
+          "description": "Users covered by our solutions"
+         },
+         {
+          "title": "8 years",
+          "description": "Experience working with virtual network operators"
+         },
+         {
+          "title": "40%",
+          "description": "Reduction in infrastructure operating costs"
+         }
+        ],
+        "company": [
+         {
+          "src": "/static/images/logo-2.svg",
+          "alt": "logo"
+         },
+         {
+          "src": "/static/images/logo-1.svg",
+          "alt": "logo"
+         },
+         {
+          "src": "/static/images/logo-3.svg",
+          "alt": "logo"
+         }
+        ],
+        "btn": {
+         "title": "Find out more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Transport",
+       "description": "Implementation of cloud solutions, deployment of data centers, creation of fault-tolerant IT architecture, implementation of monitoring and protection systems for network infrastructure",
+       "content": {
+        "title": "Transport",
+        "description": "We implement intelligent management and monitoring systems for the transport industry",
+        "items": [
+         {
+          "title": "2000+",
+          "description": "Units of equipment managed by our systems"
+         },
+         {
+          "title": "99.95%",
+          "description": "Availability of transport applications"
+         },
+         {
+          "title": "7 years",
+          "description": "Experience in digitalizing transport companies"
+         }
+        ],
+        "company": [
+         {
+          "src": "/static/images/logo-2.svg",
+          "alt": "logo"
+         },
+         {
+          "src": "/static/images/logo-1.svg",
+          "alt": "logo"
+         },
+         {
+          "src": "/static/images/logo-3.svg",
+          "alt": "logo"
+         }
+        ],
+        "btn": {
+         "title": "Find out more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Retail",
+       "description": "Construction of data centers, development and implementation of recommendation systems and forecasting systems, building IT infrastructure, implementation of video surveillance",
+       "content": {
+        "title": "Retail",
+        "description": "We develop AI solutions for automating retail operations and demand analysis",
+        "items": [
+         {
+          "title": "30%",
+          "description": "Increase in conversion after implementing recommendation systems"
+         },
+         {
+          "title": "500+",
+          "description": "Connected retail outlets"
+         },
+         {
+          "title": "3-5 days",
+          "description": "Implementation time for analytics systems"
+         }
+        ],
+        "company": [
+         {
+          "src": "/static/images/logo-2.svg",
+          "alt": "logo"
+         },
+         {
+          "src": "/static/images/logo-1.svg",
+          "alt": "logo"
+         },
+         {
+          "src": "/static/images/logo-3.svg",
+          "alt": "logo"
+         }
+        ],
+        "btn": {
+         "title": "Find out more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Oil and Gas",
+       "description": "Automation and ensuring process continuity, implementation of monitoring systems, comprehensive IT outsourcing, auditing and improving fault tolerance and performance of IT infrastructure",
+       "content": {
+        "title": "Oil and Gas",
+        "description": "Ensuring the continuity of technological processes at oil and gas enterprises",
+        "items": [
+         {
+          "title": "50+",
+          "description": "Implemented projects in the oil and gas industry"
+         },
+         {
+          "title": "99.99%",
+          "description": "Fault tolerance of critical systems"
+         },
+         {
+          "title": "-55°C",
+          "description": "Equipment operability in extreme conditions"
+         }
+        ],
+        "company": [
+         {
+          "src": "/static/images/logo-2.svg",
+          "alt": "logo"
+         },
+         {
+          "src": "/static/images/logo-1.svg",
+          "alt": "logo"
+         },
+         {
+          "src": "/static/images/logo-3.svg",
+          "alt": "logo"
+         }
+        ],
+        "btn": {
+         "title": "Find out more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Government Programs",
+       "description": "Implementation of video analytics systems, deployment of network infrastructure, implementation of monitoring systems, automation of IT operations",
+       "content": {
+        "title": "Government Programs",
+        "description": "We create a secure IT infrastructure for the digital transformation of the public sector",
+        "items": [
+         {
+          "title": "100+",
+          "description": "Implemented projects for government organizations"
+         },
+         {
+          "title": "1 hour",
+          "description": "Response time to information security incidents"
+         },
+         {
+          "title": "20+",
+          "description": "Implemented AI solutions for automating public services"
+         }
+        ],
+        "company": [
+         {
+          "src": "/static/images/logo-2.svg",
+          "alt": "logo"
+         },
+         {
+          "src": "/static/images/logo-1.svg",
+          "alt": "logo"
+         },
+         {
+          "src": "/static/images/logo-3.svg",
+          "alt": "logo"
+         }
+        ],
+        "btn": {
+         "title": "Find out more",
+         "url": "/"
+        }
+       }
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "directions-1",
+    "type": "directions",
+    "data": {
+     "hash": "#directions",
+     "tag": "Directions",
+     "items": [
+      {
+       "suptitle": "Service and Outsourcing",
+       "title": "Grow your business.<br>We provide support.",
+       "img": {
+        "src": "/static/images/directions/slide1.jpg",
+        "alt": "slide-1"
+       },
+       "description": [
+        "Free yourself from routine tasks and unforeseen expenses. Your infrastructure will operate reliably under the management of experts",
+        "Focus internal resources on business development, not on solving technical problems"
+       ],
+       "company": [
+        {
+         "src": "/static/images/logo-2.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-1.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-3.svg",
+         "alt": "logo"
+        }
+       ],
+       "btn": {
+        "title": "Find out more",
+        "url": "/"
+       }
+      },
+      {
+       "suptitle": "Infrastructure 3.0 and Hybrid Clouds",
+       "title": "Reliable foundation <br/>for your growth",
+       "img": {
+        "src": "/static/images/directions/slide2.jpg",
+        "alt": "slide-1"
+       },
+       "description": [
+        "Launch a scalable IT platform that instantly adapts to peak loads and new business challenges",
+        "Increase fault tolerance and optimize infrastructure costs using best practices"
+       ],
+       "company": [
+        {
+         "src": "/static/images/logo-2.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-1.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-3.svg",
+         "alt": "logo"
+        }
+       ],
+       "btn": {
+        "title": "Find out more",
+        "url": "/"
+       }
+      },
+      {
+       "suptitle": "Information Security",
+       "title": "Protection that<br>anticipates threats",
+       "img": {
+        "src": "/static/images/directions/slide3.jpg",
+        "alt": "slide-1"
+       },
+       "description": [
+        "Use effective security systems that learn from cyberattacks and prevent future incidents",
+        "Contact us if an incident has already occurred and you need to recover from it"
+       ],
+       "company": [
+        {
+         "src": "/static/images/logo-2.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-1.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-3.svg",
+         "alt": "logo"
+        }
+       ],
+       "btn": {
+        "title": "Find out more",
+        "url": "/"
+       }
+      },
+      {
+       "suptitle": "Production Safety and IoT",
+       "title": "Smart risk control<br>in production",
+       "img": {
+        "src": "/static/images/directions/slide4.jpg",
+        "alt": "slide-1"
+       },
+       "description": [
+        "Prevent accidents in production and automate occupational safety control",
+        "Reduce operational risks and create a safe environment for employees"
+       ],
+       "company": [
+        {
+         "src": "/static/images/logo-2.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-1.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-3.svg",
+         "alt": "logo"
+        }
+       ],
+       "btn": {
+        "title": "Find out more",
+        "url": "/"
+       }
+      },
+      {
+       "suptitle": "Intelligent Networks and Engineering Infrastructure",
+       "title": "Network solutions<br>for growing loads",
+       "img": {
+        "src": "/static/images/directions/slide5.jpg",
+        "alt": "slide-1"
+       },
+       "description": [
+        "Scale data center resources without downtime and capital expenditures using modular data centers",
+        "Ensure maximum data access speed with intelligent networks"
+       ],
+       "company": [
+        {
+         "src": "/static/images/logo-2.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-1.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-3.svg",
+         "alt": "logo"
+        }
+       ],
+       "btn": {
+        "title": "Find out more",
+        "url": "/"
+       }
+      },
+      {
+       "suptitle": "Digital Transformation and DevSecOps",
+       "title": "Fast and secure<br>application development",
+       "img": {
+        "src": "/static/images/directions/slide6.jpg",
+        "alt": "slide-1"
+       },
+       "description": [
+        "Accelerate time-to-market for new products through development process automation",
+        "Reduce risks of failures and leaks while saving resources"
+       ],
+       "company": [
+        {
+         "src": "/static/images/logo-2.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-1.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-3.svg",
+         "alt": "logo"
+        }
+       ],
+       "btn": {
+        "title": "Find out more",
+        "url": "/"
+       }
+      },
+      {
+       "suptitle": "Software Development and Business Applications",
+       "title": "Software solutions<br>for your business challenges",
+       "img": {
+        "src": "/static/images/directions/slide7.jpg",
+        "alt": "slide-1"
+       },
+       "description": [
+        "A unique digital asset tailored to your processes that addresses your specific business challenges",
+        "Optimize costs and strengthen customer loyalty with personalized services"
+       ],
+       "company": [
+        {
+         "src": "/static/images/logo-2.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-1.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-3.svg",
+         "alt": "logo"
+        }
+       ],
+       "btn": {
+        "title": "Find out more",
+        "url": "/"
+       }
+      },
+      {
+       "suptitle": "Machine Learning and Artificial Intelligence",
+       "title": "Intelligent systems<br>for complex projects",
+       "img": {
+        "src": "/static/images/directions/slide8.jpg",
+        "alt": "slide-1"
+       },
+       "description": [
+        "Predict trends and customer behavior, discover hidden market niches",
+        "Forecast demand and automate complex processes, transforming your business models"
+       ],
+       "company": [
+        {
+         "src": "/static/images/logo-2.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-1.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-3.svg",
+         "alt": "logo"
+        }
+       ],
+       "btn": {
+        "title": "Узнать больше",
+        "url": "/"
+       }
+      },
+      {
+       "suptitle": "Data Management",
+       "title": "Platforms for data analysis<br>and effective decision-making",
+       "img": {
+        "src": "/static/images/directions/slide9.jpg",
+        "alt": "slide-1"
+       },
+       "description": [
+        "Collect disparate data into a single system and make strategic decisions based on reliable information",
+        "Accurate analytics and forecasting for your business in any industry"
+       ],
+       "company": [
+        {
+         "src": "/static/images/logo-2.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-1.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-3.svg",
+         "alt": "logo"
+        }
+       ],
+       "btn": {
+        "title": "Find out more",
+        "url": "/"
+       }
+      },
+      {
+       "suptitle": "Consulting and Auditing",
+       "title": "Strategic plan<br>for confident growth",
+       "img": {
+        "src": "/static/images/directions/slide10.jpg",
+        "alt": "slide-1"
+       },
+       "description": [
+        "Build a clear and actionable digital development roadmap that eliminates ineffective IT investments",
+        "Invest in stability: choose domestic technologies with guaranteed support"
+       ],
+       "company": [
+        {
+         "src": "/static/images/logo-2.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-1.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-3.svg",
+         "alt": "logo"
+        }
+       ],
+       "btn": {
+        "title": "Узнать больше",
+        "url": "/"
+       }
+      },
+      {
+       "suptitle": "Training and Cyber Exercises",
+       "title": "Repelling cyberattacks<br>in exercises to be ready for reality",
+       "img": {
+        "src": "/static/images/directions/slide11.jpg",
+        "alt": "slide-1"
+       },
+       "description": [
+        "Repel attacks by malicious actors in realistic scenarios, increasing business resilience to real threats",
+        "Reduce potential damage from incidents"
+       ],
+       "company": [
+        {
+         "src": "/static/images/logo-2.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-1.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-3.svg",
+         "alt": "logo"
+        }
+       ],
+       "btn": {
+        "title": "Find out more",
+        "url": "/"
+       }
+      },
+      {
+       "suptitle": "Digital Workplace",
+       "title": "Productivity without borders<br>and compromises",
+       "img": {
+        "src": "/static/images/directions/slide12.jpg",
+        "alt": "slide-1"
+       },
+       "description": [
+        "Create secure and convenient digital offices that help attract top talent and ensure business continuity",
+        "Your team works equally effectively from the office, home, or another part of the country"
+       ],
+       "company": [
+        {
+         "src": "/static/images/logo-2.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-1.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-3.svg",
+         "alt": "logo"
+        }
+       ],
+       "btn": {
+        "title": "Find out more",
+        "url": "/"
+       }
+      },
+      {
+       "suptitle": "Proprietary Solutions and Products",
+       "title": "Ready-made technologies<br>for digital transformation",
+       "img": {
+        "src": "/static/images/directions/slide13.jpg",
+        "alt": "slide-1"
+       },
+       "description": [
+        "Proven and certified solutions fully adapted to your needs",
+        "Save time and money with a reliable technology partner and full support"
+       ],
+       "company": [
+        {
+         "src": "/static/images/logo-2.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-1.svg",
+         "alt": "logo"
+        },
+        {
+         "src": "/static/images/logo-3.svg",
+         "alt": "logo"
+        }
+       ],
+       "btn": {
+        "title": "Find out more",
+        "url": "/"
+       }
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "callback-uuid",
+    "type": "callback",
+    "data": {
+     "hash": "#callback",
+     "tag": "Have questions?",
+     "title": "Tell us about your task — we will offer a solution",
+     "background": {
+      "type": "mixed",
+      "src": "/static/images/callback/img-1.jpg"
+     },
+     "form": {
+      "visible": [
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Name*",
+           "name": "name",
+           "validations": [
+            "required"
+           ]
+          }
+         },
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Last Name*",
+           "name": "lastName",
+           "validations": [
+            "required"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Email*",
+           "name": "email",
+           "validations": [
+            "required",
+            "email"
+           ]
+          }
+         },
+         {
+          "type": "phone",
+          "data": {
+           "placeholder": "Phone",
+           "name": "phone",
+           "validations": [
+            "phone"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Company*",
+           "name": "company",
+           "validations": [
+            "required"
+           ]
+          }
+         },
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Job title",
+           "name": "position"
+          }
+         }
+        ]
+       },
+       {
+        "type": "textarea",
+        "data": {
+         "placeholder": "Describe the task*",
+         "name": "task",
+         "validations": [
+          "required"
+         ]
+        }
+       }
+      ],
+      "btn": {
+       "title": "Send"
+      },
+      "action": "/form/callback"
+     }
+    }
+   }
+  ]
+ }
+}

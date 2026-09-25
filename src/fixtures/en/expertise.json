@@ -1,0 +1,426 @@
+{
+ "status": "success",
+ "data": {
+  "breadcrumbs": {
+   "items": [
+    {
+     "title": "Center of expertise"
+    }
+   ]
+  },
+  "seo": {
+   "title": "About the company"
+  },
+  "callback": {
+   "hash": "#callback",
+   "tag": "Still have questions?",
+   "title": "Tell us about your problem and we will offer a solution",
+   "background": {
+    "type": "mixed",
+    "src": "/static/images/callback/img-1.jpg"
+   },
+   "form": {
+    "visible": [
+     {
+      "type": "row",
+      "data": [
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "First Name*",
+         "name": "name",
+         "validations": [
+          "required"
+         ]
+        }
+       },
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Last Name*",
+         "name": "lastName",
+         "validations": [
+          "required"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "type": "row",
+      "data": [
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Email*",
+         "name": "email",
+         "validations": [
+          "required",
+          "email"
+         ]
+        }
+       },
+       {
+        "type": "phone",
+        "data": {
+         "placeholder": "Phone*",
+         "name": "phone",
+         "validations": [
+          "phone"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "type": "row",
+      "data": [
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Company*",
+         "name": "company",
+         "validations": [
+          "required"
+         ]
+        }
+       },
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Position",
+         "name": "position"
+        }
+       }
+      ]
+     },
+     {
+      "type": "textarea",
+      "data": {
+       "placeholder": "Describe the task*",
+       "name": "task",
+       "validations": [
+        "required"
+       ]
+      }
+     }
+    ],
+    "btn": {
+     "title": "Send"
+    },
+    "action": "/form/callback"
+   }
+  },
+  "expertiseElector": {
+   "hash": "#expertiseElector",
+   "tag": "Center of expertise",
+   "title": "News, events, professional articles from the Infosystems Jet team - a knowledge base about the most interesting in IT",
+   "background": {
+    "type": "mixed",
+    "src": "/static/video/events/bg.mp4"
+   },
+   "form": {
+    "fields": [
+     {
+      "id": "sort",
+      "name": "sort",
+      "label": "Sort by:",
+      "type": "sorting",
+      "options": [
+       {
+        "title": "Novelty",
+        "value": "novelty"
+       },
+       {
+        "title": "Recommended first",
+        "value": "recommend"
+       }
+      ]
+     },
+     {
+      "id": "search",
+      "name": "search",
+      "type": "groupSearch",
+      "fields": [
+       {
+        "id": "text",
+        "name": "text",
+        "placeholder": "Search...",
+        "type": "inputSearch"
+       },
+       {
+        "id": "types",
+        "name": "types",
+        "type": "groupSearchSelect",
+        "fields": [
+         {
+          "id": "direction",
+          "name": "direction",
+          "placeholder": "Direction",
+          "type": "selectSearchItemMulti",
+          "items": [
+           {
+            "title": "IT Infrastructure",
+            "value": "it"
+           },
+           {
+            "title": "Service and Outsourcing",
+            "value": "services"
+           },
+           {
+            "title": "Information Security",
+            "value": "info"
+           }
+          ]
+         },
+         {
+          "id": "industry",
+          "name": "industry",
+          "placeholder": "Industry",
+          "type": "selectSearchItemMulti",
+          "items": [
+           {
+            "title": "IT Infrastructure",
+            "value": "it"
+           },
+           {
+            "title": "Service and Outsourcing",
+            "value": "services"
+           },
+           {
+            "title": "Information Security",
+            "value": "info"
+           },
+           {
+            "title": "Information Security",
+            "value": "info1"
+           },
+           {
+            "title": "Information Security",
+            "value": "info2"
+           }
+          ]
+         },
+         {
+          "id": "allPublications",
+          "name": "allPublications",
+          "placeholder": "All publications",
+          "type": "selectSearchItemMulti",
+          "items": [
+           {
+            "title": "News",
+            "value": "news"
+           },
+           {
+            "title": "Articles",
+            "value": "articles"
+           },
+           {
+            "title": "Cases",
+            "value": "case"
+           },
+           {
+            "title": "Projects",
+            "value": "projects"
+           },
+           {
+            "title": "JETINFO Magazine",
+            "value": "jurnal"
+           },
+           {
+            "title": "Events",
+            "value": "events"
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "total": 5,
+   "items": [
+    {
+     "tag": "News",
+     "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+     "tags": [
+      "Energy",
+      "Industry"
+     ],
+     "slug": "news-1"
+    },
+    {
+     "tag": "Article",
+     "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+     "tags": [
+      "Energy",
+      "Industry"
+     ],
+     "slug": "news-1"
+    },
+    {
+     "tag": "News",
+     "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+     "tags": [
+      "Energy",
+      "Industry"
+     ],
+     "slug": "news-1"
+    },
+    {
+     "type": "jet",
+     "tag": "Article from the magazine",
+     "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+     "description": "Среди систем для виртуализации ИТ-инфраструктуры предприятий можно выделить магистральные продуктовые сегменты: серверная и виртуализационная структура",
+     "slug": "news-1"
+    },
+    {
+     "tag": "News",
+     "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+     "tags": [
+      "Energy",
+      "Industry"
+     ],
+     "slug": "news-1"
+    },
+    {
+     "tag": "Article",
+     "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+     "background": {
+      "src": "/static/images/bg-news.jpg",
+      "alt": "bg-news"
+     },
+     "tags": [
+      "Energy",
+      "Security",
+      "Industry"
+     ],
+     "slug": "news-1"
+    },
+    {
+     "tag": "News",
+     "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+     "tags": [
+      "Energy",
+      "Industry"
+     ],
+     "slug": "news-1"
+    },
+    {
+     "tag": "Article",
+     "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+     "tags": [
+      "Energy",
+      "Industry"
+     ],
+     "slug": "news-1"
+    },
+    {
+     "tag": "Article",
+     "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+     "tags": [
+      "Energy",
+      "Industry"
+     ],
+     "slug": "news-1"
+    },
+    {
+     "tag": "Article",
+     "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+     "tags": [
+      "Energy",
+      "Industry"
+     ],
+     "slug": "news-1"
+    },
+    {
+     "tag": "Article",
+     "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+     "tags": [
+      "Energy",
+      "Industry"
+     ],
+     "slug": "news-1"
+    },
+    {
+     "tag": "Article",
+     "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+     "tags": [
+      "Energy",
+      "Industry"
+     ],
+     "slug": "news-1"
+    },
+    {
+     "type": "case",
+     "title": "Modernization of data center engineering infrastructurfe",
+     "supTag": "Case",
+     "tag": "Software development and business applications",
+     "secondTitle": "Task and solution",
+     "description": "Specialists from \"Infosystems Jet\" modernized the infrastructure of four data centers of the company \"Nornickel\", as well as implemented an industrial dispatching and control system that united the entire engineering complex",
+     "company": {
+      "src": "/static/images/nornickel.png"
+     },
+     "stats": [
+      {
+       "title": "80",
+       "description": "Racks installed as part of infrastructure modernization"
+      },
+      {
+       "title": "–55..+35 °C",
+       "description": "Temperature range of data center operation"
+      }
+     ],
+     "btn": {
+      "title": "Learn more",
+      "url": "/"
+     }
+    },
+    {
+     "type": "case",
+     "title": "Modernization of data center engineering infrastructure",
+     "supTag": "Case",
+     "tag": "Software development and business applications",
+     "secondTitle": "Task and solution",
+     "description": "Specialists from \"Infosystems Jet\" modernized the infrastructure of four data centers of the company \"Nornickel\", as well as implemented an industrial dispatching and control system that united the entire engineering complex",
+     "company": {
+      "src": "/static/images/nornickel.png"
+     },
+     "stats": [
+      {
+       "title": "80",
+       "description": "The racks were installed as part of infrastructure modernization."
+      },
+      {
+       "title": "–55..+35 °C",
+       "description": "Temperature range for data centers operation."
+      }
+     ],
+     "btn": {
+      "title": "More details",
+      "url": "/"
+     }
+    }
+   ]
+  },
+  "journal": {
+   "tag": "Journal",
+   "title": "About technologies, solutions and digital future — in the Jetinfo journal",
+   "btn": {
+    "title": "Go to journal",
+    "url": "/"
+   },
+   "img": {
+    "src": "/static/images/journal/img-1.jpg",
+    "alt": "Jetinfo journal"
+   },
+   "description": "Based on real experience and extensive knowledge of industry experts — specialists from Infosystems Jet, its customers, and partners.",
+   "background": {
+    "type": "mixed",
+    "src": "/static/images/journal/background.jpg",
+    "alt": "Background"
+   }
+  }
+ }
+}

@@ -1,0 +1,522 @@
+{
+ "status": "success",
+ "data": {
+  "breadcrumbs": {
+   "items": [
+    {
+     "title": "Center of expertise"
+    }
+   ]
+  },
+  "seo": {
+   "title": "Detailed news page",
+   "images": "/static/images/topical/img-1.jpg"
+  },
+  "newsDetail": {
+   "hash": "#news-detail",
+   "background": {
+    "type": "mixed",
+    "src": "/static/images/topical/img-1.jpg"
+   },
+   "tag": "News",
+   "tags": [
+    "IT Infrastructure"
+   ],
+   "date": "August 1, 2025",
+   "title": "Jet Infosystems is the first among gold partners to pass the attestation of the \"Cyberprotect\" demo stand",
+   "items": [
+    {
+     "type": "html",
+     "data": "<h3>IT company Infosystems Jet became the first in the Cyberprotect partner network to successfully pass official certification of the manufacturers solution demo stand. This confirms the high level of technical expertise of the team both in Cyberprotect products and in their integration with related IT systems</h3> <p>Cyberprotect is a Russian company specializing in the development of software for backup and data protection, as well as for building scalable infrastructures. The company solutions provide a high level of cybersecurity, fast data recovery in case of loss, and resilience of enterprise IT infrastructures.<br><br> The demo stand includes key Cyberprotect solutions such as Cyber Backup and Cyber Infrastructure, and also demonstrates integrations with various virtualization platforms and infrastructure services. The project was implemented on the basis of the existing import substituted Jet RuLab laboratory within a tight timeframe. In one and a half months, the integrator team engaged specialized experts, configured all components, and completed certification with support from Cyberprotect.<br><br> <b>Using the demo stand, customers can experience the solution capabilities live without deploying them in their own environment. The demonstration takes about 1 to 1.5 hours and covers the main scenarios:</b></p> <ul> <li>Backup using agents or at the hypervisor level without agents, as well as data recovery for foreign and domestic virtualization platforms and operating systems to file and block storage devices</li> <li>File backup and recovery, PostgreSQL DBMS including clustered deployments, Microsoft SQL DBMS, Kubernetes</li> <li>Integration with external monitoring and alerting systems including sending notifications to a syslog server and backup job messages to the RuPost mail system and Pult</li> </ul> <p>In the future, the demo stand is planned to be developed under the Demostand as a Service model, with an expanded number of supported platforms and use of the stand for testing and technical support tasks. In the near term plans are implementation of backup and disaster recovery to immutable object storage using the S3 protocol with ObjectLock functionality, as well as backup of mail systems.</p> <ol> <li>Backup using agents or at the hypervisor level without agents, as well as data recovery for foreign and domestic virtualization platforms and operating systems to file and block storage devices</li> <li>File backup and recovery, PostgreSQL DBMS including clustered deployments, Microsoft SQL DBMS, Kubernetes</li> <li>Integration with external monitoring and alerting systems including sending notifications to a syslog server and backup job messages to the RuPost mail system and Pult</li> </ol>"
+    },
+    {
+     "type": "quote",
+     "data": {
+      "variant": "newsDetailQuote_bgLime",
+      "items": [
+       {
+        "type": "speech",
+        "data": "«When developing the demo stand, we sought not only to meet certification requirements, but also to create an environment that was as close to reality as possible, in which we could show customers how Cyberprotect solutions work in typical and non-standard scenarios. We implemented integrations with various virtualization platforms and databases to ensure that the demonstrations were truly useful»"
+       },
+       {
+        "type": "person",
+        "data": {
+         "name": "notes Denis Yakovlev,",
+         "position": "Data Storage Systems Engineer at Infosystems Jet"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "quote",
+     "data": {
+      "items": [
+       {
+        "type": "speech",
+        "data": "«When developing the demo stand, we sought not only to meet certification requirements, but also to create an environment that was as close to reality as possible, in which we could show customers how Cyberprotect solutions work in typical and non-standard scenarios. We implemented integrations with various virtualization platforms and databases to ensure that the demonstrations were truly useful»"
+       },
+       {
+        "type": "person",
+        "data": {
+         "name": "notes Denis Yakovlev,",
+         "position": "Data Storage Systems Engineer at Infosystems Jet"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "quote",
+     "data": {
+      "items": [
+       {
+        "type": "speech",
+        "data": "\"Today, with the IT landscape of infrastructure solutions changing rapidly, it is critically important for customers to not only verify the performance and reliability of their chosen solutions, but also to test them in a real environment and simulate various scenarios. The demo stand prepared by the specialists at Infosystem Jet fully meets our recommendations and allows us to fully reveal the functional capabilities of Cyberprotect solutions in conditions that are as close to real life as possible,"
+       },
+       {
+        "type": "person",
+        "data": {
+         "name": "says Elena Litvinova,",
+         "position": "Head of the General Partner Relations Department at Cyberprotect"
+        }
+       },
+       {
+        "type": "speech",
+        "data": "\"This is an important step in the development of our cooperation and the promotion of Russian solutions in the field of backup, data protection, and infrastructure software, which, I am sure, will bring great benefits to our common customers\""
+       }
+      ]
+     }
+    },
+    {
+     "type": "quote",
+     "data": {
+      "variant": "newsDetailQuote_bgGray",
+      "items": [
+       {
+        "type": "speech",
+        "data": "\"When developing the demo stand, we sought not only to meet certification requirements, but also to create an environment that was as close to reality as possible, in which we could show customers how Cyberprotect solutions work in typical and non-standard scenarios. We implemented integrations with various virtualization platforms and databases to ensure that the demonstrations were truly useful\""
+       },
+       {
+        "type": "person",
+        "data": {
+         "name": "notes Denis Yakovlev,",
+         "position": "Data Storage Systems Engineer at Infosystems Jet"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "table",
+     "data": {
+      "columns": [
+       "Критерий",
+       "Публичное облако"
+      ],
+      "items": [
+       [
+        "Data control",
+        "Stored by the cloud provider"
+       ],
+       [
+        "Physical location",
+        "Unknown / worldwide"
+       ],
+       [
+        "Compliance",
+        "Not always compliant"
+       ],
+       [
+        "Guarantees (SLA)",
+        "High level of cybersecurity, rapid<br> data recovery in case of loss, and resilience<br> of the enterprise IT infrastructure"
+       ],
+       [
+        "Security",
+        "Shared protection measures from the provider"
+       ],
+       [
+        "Flexibility",
+        "Standard solutions, limited options"
+       ]
+      ]
+     }
+    },
+    {
+     "type": "table",
+     "data": {
+      "columns": [
+       "Criterion",
+       "Private/Hybrid Cloud",
+       "Public Cloud"
+      ],
+      "items": [
+       [
+        "Data control",
+        "Data fully controlled by the company",
+        "Stored by the cloud provider"
+       ],
+       [
+        "Physical location",
+        "In Jet data centers in Russia",
+        "Unknown / worldwide"
+       ],
+       [
+        "Compliance",
+        "Supports 152-FZ and industry standards",
+        "Not always compliant"
+       ],
+       [
+        "Guarantees (SLA)",
+        "Strictly fixed in the contract",
+        "High level of cybersecurity, rapid<br> data recovery in case of loss, and resilience<br> of the enterprise IT infrastructure"
+       ],
+       [
+        "Security",
+        "Managed according to internal information security policies",
+        "Shared protection measures from the provider"
+       ],
+       [
+        "Flexibility",
+        "Architecture and services tailored to specific tasks",
+        "Standard solutions, limited options"
+       ]
+      ]
+     }
+    },
+    {
+     "type": "table",
+     "data": {
+      "columns": [
+       "Criterion",
+       "Private/Hybrid Cloud",
+       "Public Cloud",
+       "Private/Hybrid Cloud",
+       "Public Cloud",
+       "Private/Hybrid Cloud"
+      ],
+      "items": [
+       [
+        "Data control",
+        "Data fully controlled by the company",
+        "Stored by the cloud provider",
+        "Data fully controlled by the company",
+        "Data fully controlled by the company",
+        "Stored by the cloud provider"
+       ],
+       [
+        "Physical location",
+        "In Jet data centers in Russia",
+        "Unknown / worldwide",
+        "In Jet data centers in Russia",
+        "Unknown / worldwide",
+        "In Jet data centers in Russia"
+       ],
+       [
+        "Compliance",
+        "Supports 152-FZ and industry standards",
+        "Not always compliant",
+        "Supports 152-FZ and industry standards",
+        "Not always compliant",
+        "Supports 152-FZ and industry standards"
+       ],
+       [
+        "Guarantees (SLA)",
+        "Strictly fixed in the contract",
+        "High level of cybersecurity, rapid<br> data recovery in case of loss, and resilience<br> of the enterprise IT infrastructure",
+        "Strictly fixed in the contract",
+        "High level of cybersecurity, rapid<br> data recovery in case of loss, and resilience<br> of the enterprise IT infrastructure",
+        "Strictly fixed in the contract"
+       ],
+       [
+        "Security",
+        "Managed according to internal information security policies",
+        "Shared protection measures from the provider",
+        "Managed according to internal information security policies",
+        "Shared protection measures from the provider",
+        "Managed according to internal information security policies"
+       ],
+       [
+        "Flexibility",
+        "Architecture and services tailored to specific tasks",
+        "Standard solutions, limited options",
+        "Architecture and services tailored to specific tasks",
+        "Standard solutions, limited options",
+        "Architecture and services tailored to specific tasks"
+       ]
+      ]
+     }
+    },
+    {
+     "type": "html",
+     "data": "<h2>Cyberprotect booth</h2> <h3>Cyberprotect is a Russian company specializing in the development of software for data backup and protection, as well as the creation of scalable infrastructures. The company solutions provide a high level of cybersecurity, rapid data recovery in case of data loss, and stability of enterprise IT infrastructure.</h3> <p> <span>Cyberprotect is a Russian company specializing in the development of software</span> for data backup and protection, as well as the creation of scalable infrastructures. The company solutions provide a high level of cybersecurity, rapid data recovery in case of data loss, and stability of enterprise IT infrastructures. <br><br> The demo stand includes key Cyberprotect solutions such as Cyber Backup and Cyber Infrastructure and also demonstrates integrations with various virtualization platforms and infrastructure services. The project was implemented on the basis of the existing import substituted Jet RuLab laboratory within a short timeframe. Within one and a half months, the integrator team engaged relevant specialists, configured all components, and completed certification with support from Cyberprotect. <br><br> Using the demo stand, customers can view the solution capabilities live without deploying them in their own environment. The demonstration takes approximately 1 to 1.5 hours and covers the main scenarios: </p>"
+    },
+    {
+     "type": "media",
+     "data": {
+      "img": {
+       "src": "/static/images/news-detail/img-1.jpg"
+      },
+      "caption": "The demo stand includes key Cyberprotect solutions such as Cyber Backup and Cyber Infrastructure and also demonstrates integrations with various virtualization platforms and infrastructure services"
+     }
+    },
+    {
+     "type": "html",
+     "data": "<p>In the future, it is planned to develop the stand according to the Demostand-as-a-Service model, expand the number of supported platforms, and use the stand for testing and technical support tasks. In the near future, the implementation of RKIVD in an object immutable storage via the S3 protocol with ObjectLock functionality, and backup of mail systems are planned.</p>"
+    },
+    {
+     "type": "html",
+     "data": "<p> Cyberprotect is a Russian company specializing in the development of software for data backup and protection, as well as the creation of scalable infrastructures. The company solutions provide a high level of cybersecurity, fast data recovery in case of data loss, and resilience of enterprise IT infrastructure. <br><br> The demo stand includes key Cyberprotect solutions such as Cyber Backup and Cyber Infrastructure and also demonstrates integrations with various virtualization platforms and infrastructure services. The project was implemented on the basis of the existing import substituted Jet RuLab laboratory within a compressed timeframe. Within one and a half months, the integrator team engaged specialized experts, configured all components, and completed certification with support from Cyberprotect. <br><br> Using the <a href=\"/\" target=\"_blank\">demo stand</a>, customers can explore the solution capabilities live without deploying them in their own environment. The demonstration takes approximately 1 to 1.5 hours and covers the main scenarios:</p>"
+    },
+    {
+     "type": "media",
+     "data": {
+      "img": {
+       "src": "/static/images/news-detail/img-2.jpg"
+      }
+     }
+    },
+    {
+     "type": "html",
+     "data": "<p>We plan to develop the demo-as-a-service model, expand the number of supported platforms, and use the demo for testing and technical support. Near-term plans include implementing the R&D system in immutable object storage via the S3 protocol with ObjectLock functionality, and backup of mail systems.</p>"
+    },
+    {
+     "type": "html",
+     "data": "<p> Cyberprotect is a Russian company specializing in the development of software for data backup and protection, as well as the creation of scalable infrastructures. The company solutions provide a high level of cybersecurity, fast data recovery in case of data loss, and resilience of enterprise IT infrastructure. <br><br> The demo stand includes key Cyberprotect solutions such as Cyber Backup and Cyber Infrastructure and also demonstrates integrations with various virtualization platforms and infrastructure services. The project was implemented on the basis of the existing import substituted Jet RuLab laboratory within a compressed timeframe. Within one and a half months, the integrator team engaged specialized experts, configured all components, and completed certification with support from Cyberprotect. <br><br> Using the <a href=\"/\" target=\"_blank\">demo stand</a>, customers can explore the solution capabilities live without deploying them in their own environment. The demonstration takes approximately 1 to 1.5 hours and covers the main scenarios:</p>"
+    },
+    {
+     "type": "media",
+     "data": {
+      "video": {
+       "url": "/static/video/events/bg.mp4",
+       "preview": {
+        "src": "/static/images/news-detail/img-1.jpg"
+       }
+      }
+     }
+    },
+    {
+     "type": "html",
+     "data": "<p>We plan to develop the demo-as-a-service model, expand the number of supported platforms, and use the demo for testing and technical support. Near-term plans include implementing the R&D system in immutable object storage via the S3 protocol with ObjectLock functionality, and backup of mail systems.</p>"
+    },
+    {
+     "type": "media",
+     "data": {
+      "video": {
+       "url": "/static/video/events/bg.mp4",
+       "preview": {
+        "src": "/static/images/news-detail/img-1.jpg"
+       }
+      },
+      "caption": "The demo stand includes key Cyberprotect solutions such as Cyber Backup and Cyber Infrastructure and also demonstrates integrations with various virtualization platforms and infrastructure services."
+     }
+    },
+    {
+     "type": "html",
+     "data": "<p>We plan to develop the demo-as-a-service model, expand the number of supported platforms, and use the demo for testing and technical support. Near-term plans include implementing the R&D system in immutable object storage via the S3 protocol with ObjectLock functionality, and backup of mail systems.</p>"
+    },
+    {
+     "type": "media",
+     "data": {
+      "variant": "fullscreen",
+      "img": {
+       "src": "/static/images/news-detail/img-1.jpg"
+      }
+     }
+    },
+    {
+     "type": "html",
+     "data": "<p> Cyberprotect is a Russian company specializing in the development of software for data backup and protection, as well as the creation of scalable infrastructures. The company solutions provide a high level of cybersecurity, fast data recovery in case of data loss, and resilience of enterprise IT infrastructure. <br><br> The demo stand includes key Cyberprotect solutions such as Cyber Backup and Cyber Infrastructure and also demonstrates integrations with various virtualization platforms and infrastructure services. The project was implemented on the basis of the existing import substituted Jet RuLab laboratory within a compressed timeframe. Within one and a half months, the integrator team engaged specialized experts, configured all components, and completed certification with support from Cyberprotect. <br><br> Using the <a href=\"/\" target=\"_blank\">demo stand</a>, customers can explore the solution capabilities live without deploying them in their own environment. The demonstration takes approximately 1 to 1.5 hours and covers the main scenarios:</p>"
+    },
+    {
+     "type": "media",
+     "data": {
+      "variant": "fullscreen",
+      "img": {
+       "src": "/static/images/news-detail/img-1.jpg"
+      },
+      "caption": "The demo stand includes key Cyberprotect solutions such as Cyber Backup and Cyber Infrastructure and also demonstrates integrations with various virtualization platforms and infrastructure services."
+     }
+    },
+    {
+     "type": "html",
+     "data": "<p> Cyberprotect is a Russian company specializing in the development of software for data backup and protection, as well as the creation of scalable infrastructures. The company solutions provide a high level of cybersecurity, fast data recovery in case of data loss, and resilience of enterprise IT infrastructure. <br><br> The demo stand includes key Cyberprotect solutions such as Cyber Backup and Cyber Infrastructure and also demonstrates integrations with various virtualization platforms and infrastructure services. The project was implemented on the basis of the existing import substituted Jet RuLab laboratory within a compressed timeframe. Within one and a half months, the integrator team engaged specialized experts, configured all components, and completed certification with support from Cyberprotect. <br><br> Using the <a href=\"/\" target=\"_blank\">demo stand</a>, customers can explore the solution capabilities live without deploying them in their own environment. The demonstration takes approximately 1 to 1.5 hours and covers the main scenarios:</p>"
+    }
+   ]
+  },
+  "services": {
+   "hash": "#services",
+   "title": "Related services",
+   "description": "Latest news, cases, releases, and expert materials",
+   "items": [
+    {
+     "title": "Support for the operability of information protection tools",
+     "description": "Design and implementation of cloud solutions adapted to business tasks, ensuring security and fault tolerance",
+     "slug": "service-1"
+    },
+    {
+     "title": "Search for traces of compromise",
+     "description": "Design and implementation of cloud solutions adapted to business tasks, ensuring security and fault tolerance",
+     "slug": "service-2"
+    },
+    {
+     "title": "Monitoring and response to cyberattacks (Jet CSIRT)",
+     "description": "Design and implementation of cloud solutions adapted to business tasks, ensuring security and fault tolerance",
+     "slug": "service-3"
+    },
+    {
+     "title": "SOC effectiveness assessment",
+     "description": "Design and implementation of cloud solutions adapted to business tasks, ensuring security and fault tolerance",
+     "slug": "service-4"
+    }
+   ]
+  },
+  "similar": {
+   "hash": "#similar",
+   "title": "Similar news",
+   "description": "Latest news, case studies, releases, and expert materials",
+   "btn": {
+    "title": "All news",
+    "url": "/"
+   },
+   "items": [
+    {
+     "tag": "News",
+     "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+     "tags": [
+      "Energy",
+      "Industry"
+     ],
+     "slug": "news-1"
+    },
+    {
+     "tag": "News",
+     "title": "Infosystems Jet announced the business program it will present at Positive Hack Days.",
+     "tags": [
+      "Cybersecurity",
+      "Conference"
+     ],
+     "slug": "news-2"
+    },
+    {
+     "tag": "News",
+     "title": "Artificial intelligence was used to optimize the operation of feedwater pumps in a thermal power plant workshop.",
+     "tags": [
+      "Energy",
+      "Industry"
+     ],
+     "slug": "news-3"
+    },
+    {
+     "tag": "News",
+     "title": "Infosystems Jet announced the business program it will present at Positive Hack Days.",
+     "tags": [
+      "Cybersecurity",
+      "Conference"
+     ],
+     "slug": "news-4"
+    }
+   ]
+  },
+  "callback": {
+   "hash": "#callback",
+   "tag": "Any questions left?",
+   "title": "Tell us about your task — we will offer a solution",
+   "background": {
+    "type": "mixed",
+    "src": "/static/images/callback/img-1.jpg"
+   },
+   "form": {
+    "visible": [
+     {
+      "type": "row",
+      "data": [
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Name*",
+         "name": "name",
+         "validations": [
+          "required"
+         ]
+        }
+       },
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Last Name*",
+         "name": "lastName",
+         "validations": [
+          "required"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "type": "row",
+      "data": [
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Email*",
+         "name": "email",
+         "validations": [
+          "required",
+          "email"
+         ]
+        }
+       },
+       {
+        "type": "phone",
+        "data": {
+         "placeholder": "Phone",
+         "name": "phone",
+         "validations": [
+          "phone"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "type": "row",
+      "data": [
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Company*",
+         "name": "company",
+         "validations": [
+          "required"
+         ]
+        }
+       },
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Job title",
+         "name": "position"
+        }
+       }
+      ]
+     },
+     {
+      "type": "textarea",
+      "data": {
+       "placeholder": "Describe the task*",
+       "name": "task",
+       "validations": [
+        "required"
+       ]
+      }
+     }
+    ],
+    "btn": {
+     "title": "Send"
+    },
+    "action": "/form/callback"
+   }
+  }
+ }
+}

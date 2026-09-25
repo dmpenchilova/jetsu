@@ -1,0 +1,169 @@
+{
+ "status": "success",
+ "data": {
+  "seo": {
+   "title": "Rules for processing personal data"
+  },
+  "content": [
+   {
+    "uuid": "hero-uuid",
+    "type": "policyHero",
+    "data": {
+     "hash": "#hero",
+     "title": "Rules for processing personal data",
+     "subtitle": "List of accepted abbreviations",
+     "items": [
+      {
+       "title": "ISPDn",
+       "description": "Information System of Personal Data"
+      },
+      {
+       "title": "PDn",
+       "description": "Personal Data of Jet Infosystems JSC"
+      },
+      {
+       "title": "Rules",
+       "description": "Rules for processing personal data collected by Infosystems Jet JSC using the official website <a href=\"https://jet.su/\" target=\"_blank\">https://jet.su/</a>"
+      },
+      {
+       "title": "FL",
+       "description": "Federal Law"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "item-1-uuid",
+    "type": "policyItem",
+    "data": {
+     "hash": "#item-1",
+     "title": "List of terms and definitions",
+     "text": "<h3>Processing of personal data</h3><p>Any action (operation) or set of actions (operations) performed with or without the use of automation tools on personal data, including collection, recording, systematization, accumulation, storage, clarification (updating, modification), extraction, use, transfer (distribution, provision, access), depersonalization, blocking, deletion, destruction of personal data. </p><h3>Operator</h3><p>A state body, municipal body, legal entity, or individual who, independently or jointly with other persons, organizes and/or carries out the processing of personal data, as well as determines the purposes of personal data processing, the composition of personal data to be processed, and the actions (operations) performed with personal data. </p><h3>Personal data</h3><p>Any information relating directly or indirectly to a specific or identifiable natural person (personal data subject). </p><h3>Personal data subject (PDS)</h3><p>A natural person who is directly or indirectly identified or identifiable by means of personal data. In this document, subjects are understood to be visitors to the website <a href=\"https://jet.su/\" target=\"_blank\">https://jet.su/</a>, candidates for vacant positions and internships at Infosystems Jet JSC."
+    }
+   },
+   {
+    "uuid": "item-2-uuid",
+    "type": "policyItem",
+    "data": {
+     "hash": "#item-2",
+     "navTitle": "General Provisions",
+     "title": "1. General Provisions",
+     "text": "<p>The protection of personal data of individuals is of great importance to Infosystems Jet JSC (hereinafter referred to as the Company). These Rules for processing personal data, which are collected by Infosystems Jet JSC using the official website <a href=\"https://jet.su/\" target=\"_blank\">https://jet.su/ </a>, describe the Company's approach to the processing of personal data of visitors to the website <a href=\"https://jet.su/\" target=\"_blank\">https://jet.su/</a>, candidates for vacant positions, and participants in the Company's internship program. </p><p>As a personal data operator, we have implemented all necessary measures to ensure the protection of your personal data.</p>"
+    }
+   },
+   {
+    "uuid": "item-3-uuid",
+    "type": "policyItem",
+    "data": {
+     "hash": "#item-3",
+     "navTitle": "Processing principles",
+     "title": "2. Processing principles",
+     "text": "<p>When processing personal data, the Company adheres to the following principles:</p><ul><li>Processes personal data only on a lawful and fair basis</li><li>Determines specific lawful purposes before starting the processing (including collection) of personal data</li><li>Collects only those personal data that are necessary and sufficient for the declared purpose of processing</li><li>Limits the processing of personal data upon achieving specific, pre-defined, and lawful purposes</li><li>Destroys personal data upon achieving the processing purposes or if the need to achieve the purposes is lost (unless otherwise provided by contract or other agreement with the data subject or by the legislation of the Russian Federation)</li></ul>"
+    }
+   },
+   {
+    "uuid": "item-4-uuid",
+    "type": "policyItem",
+    "data": {
+     "hash": "#item-4",
+     "navTitle": "Conditions and methods of processing",
+     "title": "3. Conditions and methods of processing personal data",
+     "text": "<p>Personal data processing is carried out by the Company only if there is a proper legal basis: with the consent of the personal data subject to the processing of his personal data.</p><p>The Company:</p><ul><li>Does not process biometric personal data and special categories of personal data of visitors to the website <a href=\"https://jet.su/\" target=\"_blank\">https://jet.su/</a>, candidates for vacant positions and participation in the Company's internship program, concerning racial, national origin, political views, religious or philosophical beliefs, health status, intimate life;</li><li>Does not use personal data of visitors to the website <a href=\"https://jet.su/\" target=\"_blank\">https://jet.su/</a>, candidates for vacant positions and participation in the Company's internship program for making decisions based solely on their automated processing, which entail legal consequences regarding candidates for participation in the internship program or otherwise affect their rights and legitimate interests;</li><li>Does not carry out cross-border transfer of personal data of visitors to the website <a href=\"https://jet.su/\" target=\"_blank\">https://jet.su/</a>, candidates for vacant positions and participation in the Company's internship program;</li><li>Does not place personal data of visitors to the website <a href=\"https://jet.su/\" target=\"_blank\">https://jet.su/</a>, candidates for vacant positions and participation in the Company's internship program in publicly available sources without separate prior written consent of the personal data subject;</li><li>Does not disclose, transfer to third parties, or distribute personal data of visitors to the website <a href=\"https://jet.su/\" target=\"_blank\">https://jet.su/</a>, candidates for vacant positions and participation in the Company's internship program without proper legal basis. The Company has the right to entrust the processing of personal data to third parties with the consent of the personal data subject, unless otherwise provided by the legislation of the Russian Federation, based on a contract concluded with these persons (hereinafter referred to as the operator's assignment). The Company processes personal data of personal data subjects by the following methods:</li><li>Using automation tools, including information technologies and technical means, including computing equipment, information and technical complexes and networks, means and systems of transmission, reception and processing of personal data, software (operating systems, database management systems, etc.), information protection means used in information systems;</li><li>Without using automation tools. The set of operations for processing personal data of personal data subjects carried out by the Company includes collection, recording, systematization, accumulation, storage, clarification (updating, modification), extraction, use, transfer (provision), blocking, deletion, destruction of personal data.</li></ul>"
+    }
+   },
+   {
+    "uuid": "item-5-uuid",
+    "type": "policyTable",
+    "data": {
+     "hash": "#item-5",
+     "navTitle": "Purposes and processing times",
+     "title": "4. Purposes and processing times of personal data processing",
+     "items": [
+      {
+       "purpose": "Purpose of processing",
+       "processedData": "Processed data",
+       "legalBasis": "Legal basis",
+       "storagePeriod": "Storage period"
+      },
+      {
+       "purpose": "<p>Consideration for a vacant position at the Company or participation in an internship program</p>",
+       "processedData": "<p>Candidates for vacant positions at the Company or participation in the internship program:</p><ul><li>Full name;</li><li>Email address;</li><li>Contact phone number;</li><li>Information about preferences in the field of activity;</li><li>Other data included by the candidate in his resume and/or application for participation in the internship</li></ul>",
+       "legalBasis": "<p>Candidate consent</p>",
+       "storagePeriod": "<p>During the period of consideration of the candidacy for vacant positions at the Company or participation in the internship program or until the withdrawal of consent to the processing of personal data, but not more than 3 months</p>"
+      },
+      {
+       "purpose": "<p>Familiarization of an unlimited number of persons with the information posted on the website <a href=\"https://jet.su/\" target=\"_blank\">https://jet.su/</a></p>",
+       "processedData": "<p>Visitors to the website <a href=\"https://jet.su/\" target=\"_blank\">https://jet.su/</a>:</p><ul><li>information contained in cookies;</li><li>information about the time of visiting the site;</li><li>information about the user device;</li><li>user identifier stored in cookies;</li><li>IP address;</li><li>source of entry to the site;</li><li>information about viewed web pages;</li><li>information about clicks on web page elements;</li><li>session parameters</li></ul>",
+       "legalBasis": "<p>Visitor consent</p>",
+       "storagePeriod": "<p>No more than 3 months</p>"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "item-6-uuid",
+    "type": "policyItem",
+    "data": {
+     "hash": "#item-6",
+     "navTitle": "Rights and responsibilities",
+     "title": "5. Rights and obligations of Infosystems Jet JSC as a personal data operator",
+     "text": "<p>The Company has the right to:</p> <ul> <li>provide personal data to state authorities and other authorized bodies if such disclosure is предусмотрено by the legislation of the Russian Federation, including tax and law enforcement authorities;</li> <li>refuse to provide personal data in cases stipulated by the legislation of the Russian Federation;</li> </ul> <p>The Company is obliged to:</p> <ul> <li>provide data subjects, upon their request, with information related to the processing of their personal data;</li> <li>explain to data subjects the legal consequences of their refusal to provide the Company with their personal data, provided that such provision is mandatory under the legislation of the Russian Federation;</li> <li>in the event that personal data is obtained not from the data subject, except for cases provided for in Part 4 of Article 18 of Federal Law No. 152 FZ dated 27 July 2007 On Personal Data, before starting the processing of such personal data, provide the data subject with the following information:</li> <li>the name or the surname, first name, patronymic, and address of the operator or its representative;</li> <li>the purpose of personal data processing and its legal basis;</li> <li>the intended users of personal data;</li> <li>the rights of the personal data subject established by Federal Law No. 152 FZ dated 27 July 2007 On Personal Data;</li> <li>the source of obtaining personal data;</li> <li>when collecting personal data, including via the Internet, ensure the recording, systematization, accumulation, storage, clarification including updating and modification, retrieval of personal data of citizens of the Russian Federation using databases located on the territory of the Russian Federation, except for cases specified in Clauses 2, 3, 4, and 8 of Part 1 of Article 6 of Federal Law No. 152 FZ dated 27 July 2007 On Personal Data.</li> </ul>"
+    }
+   },
+   {
+    "uuid": "item-7-uuid",
+    "type": "policyItem",
+    "data": {
+     "hash": "#item-7",
+     "title": "6. Rights of the personal data subject",
+     "text": "<ol> <li> <h3>6.1 Right to withdraw consent to the processing of personal data</h3> <p> You may withdraw your consent to the processing of personal data at any time. If you are unsure whether you should withdraw your consent to the processing of your personal data, please contact us at <a href=\"mailto:info@jet.su\">info@jet.su</a>, and you will be consulted on this matter. If you nevertheless decide to withdraw your consent, you must submit to the Company a written notice of withdrawal of consent to the processing of personal data bearing your handwritten signature. </p> <p> The template for withdrawal of consent to the processing of personal data is provided in the appendix to these Rules. </p> <p> In the event of withdrawal of consent, please send a scanned copy of the completed withdrawal notice to <a href=\"mailto:info@jet.su\">info@jet.su</a>. The paper original may be delivered to any Company office in person or sent by registered mail with delivery confirmation. As required by personal data protection legislation, within a period not exceeding 30 calendar days from the date of receipt of the written withdrawal, we will terminate the processing of your personal data. You will be sent a confirmation of termination of the processing of your personal data. </p> </li> <li> <h3>6.2 Right to obtain information</h3> <p> You, as a personal data subject, have the right to obtain from the Company: </p> <ul> <li>confirmation of the fact that the Company processes personal data;</li> <li>information on the legal grounds and purposes of personal data processing;</li> <li>information on the methods of personal data processing used by the Company;</li> <li>information on the name and location of the Company, as well as information on persons, excluding Company employees, who have access to personal data or to whom personal data may be disclosed on the basis of an agreement with the Company or on the basis of the legislation of the Russian Federation;</li> <li>a list of personal data being processed relating to you and information on the source of such data, unless another procedure for providing such data is stipulated by law;</li> <li>information on the periods of personal data processing, including storage periods;</li> <li>information on completed or planned cross border transfer of personal data;</li> <li>information on the procedure for exercising the rights of the personal data subject;</li> <li>the surname, first name, patronymic, or the name and address of the person responsible for personal data processing within the Company;</li> <li>other information provided for by legislative acts of the Russian Federation.</li> </ul> <p> In order to obtain such information, please send a scanned copy of a free form request containing your handwritten signature to <a href=\"mailto:info@jet.su\">info@jet.su</a>. A paper request may be submitted in person to any Company office or sent by registered mail with delivery confirmation. As required by personal data protection legislation, within a period not exceeding 30 calendar days from the date of receipt of the written request, we will provide the requested information related to the processing of your personal data. </p> </li> <li> <h3>6.3 Right to rectification and deletion of personal data</h3> <p> You may request correction of your personal data if such data is inaccurate, incomplete, or outdated. If personal data does not correspond to reality and the accurate data is available to the Company, the personal data will be corrected or updated. </p> <p> You may also request blocking or destruction of your personal data if such data is incomplete, outdated, inaccurate, unlawfully obtained, or not necessary for the stated purpose of processing. </p> <p> If the inaccuracy of personal data is confirmed, the Company will notify all persons to whom the inaccurate or incorrect personal data was previously disclosed of all corrections, updates, or amendments made. </p> <p> Please send a scanned copy of a free form request containing your handwritten signature to <a href=\"mailto:info@jet.su\">info@jet.su</a>. A paper request may be submitted to a Company office in person or sent by registered mail with delivery confirmation. As required by personal data protection legislation, within a period not exceeding 7 business days from the completion of verification of the accuracy of the submitted information, we will fulfill the request or provide a reasoned refusal to fulfill it. </p> </li> <li> <h3>6.4 Right to appeal actions of the personal data operator</h3> <p> You, as a personal data subject, have the right to appeal unlawful actions or inaction of the Company in the processing of personal data to the authorized authority for the protection of the rights of personal data subjects or through judicial proceedings. </p> <p> In accordance with Article 23 of Federal Law No. 152 FZ dated 27 July 2007 On Personal Data, the authorized authority for the protection of the rights of personal data subjects in the Russian Federation is the federal executive authority exercising control and supervision in the field of information technologies and communications. </p> <p> At present, the authorized authority for the protection of the rights of personal data subjects is the Federal Service for Supervision of Communications, Information Technology, and Mass Media, namely one of its departments, the Department for the Protection of the Rights of Personal Data Subjects <a href=\"https://pd.rkn.gov.ru/\" target=\"_blank\">https://pd.rkn.gov.ru/</a>. </p> </li> </ol>"
+    }
+   },
+   {
+    "uuid": "item-8-uuid",
+    "type": "policyContacts",
+    "data": {
+     "hash": "#item-8",
+     "title": "7. Contact details of Infosystems Jet JSC",
+     "subtitle": "Joint Stock Company<br> \"Infosystems Jet\"",
+     "items": [
+      {
+       "title": "Legal address",
+       "value": "127015, Moscow, Bolshaya Novodmitrovskaya Street, building 14, structure 2, floor 6, room 13, office 2.654"
+      },
+      {
+       "title": "Actual address",
+       "value": "127015, Moscow, Bolshaya Novodmitrovskaya Street, building 14, structure 2, floor 6, room 13, office 2.654"
+      },
+      {
+       "title": "Phone",
+       "link": "tel:+7 (495) 411-76-01",
+       "value": "+7 (495) 411-76-01"
+      },
+      {
+       "title": "Email",
+       "link": "mailto:info@jet.su",
+       "value": "info@jet.su"
+      },
+      {
+       "title": "Website",
+       "link": "https://jet.su/",
+       "value": "https://jet.su/"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "item-9-uuid",
+    "type": "policyItem",
+    "data": {
+     "hash": "#item-9",
+     "navTitle": "Attachments",
+     "title": "8. Attachments",
+     "text": "<a href=\"/static/zapros-na-otzyv-soglasija-na-obrabotku-personalnyh-dannyh.docx\" download>Request for withdrawal of consent to the processing of personal data</a>",
+     "variant": "policyItem_last"
+    }
+   }
+  ]
+ }
+}

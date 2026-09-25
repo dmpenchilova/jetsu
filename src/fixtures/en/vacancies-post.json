@@ -1,0 +1,135 @@
+{
+ "total": 9,
+ "items": [
+  {
+   "tag": "IT infrastructure",
+   "title": "Deputy Head of Project Management Department",
+   "items": [
+    "Moscow",
+    "Experience from 3 years",
+    "Office or hybrid"
+   ],
+   "slug": "vacancy-1",
+   "btn": {
+    "title": "Apply"
+   }
+  },
+  {
+   "tag": "IT infrastructure",
+   "title": "Customer Relations Manager",
+   "items": [
+    "Moscow",
+    "Experience from 3 years",
+    "Office or hybrid"
+   ],
+   "slug": "vacancy-2",
+   "btn": {
+    "title": "Apply"
+   }
+  },
+  {
+   "tag": "IT infrastructure",
+   "title": "IT Product Sales Manager",
+   "items": [
+    "Moscow",
+    "Experience from 3 years",
+    "Office or hybrid"
+   ],
+   "slug": "vacancy-3",
+   "btn": {
+    "title": "Apply"
+   }
+  },
+  {
+   "tag": "IT infrastructure",
+   "title": "Customer Relations Manager",
+   "items": [
+    "Moscow",
+    "Experience from 3 years",
+    "Office or hybrid"
+   ],
+   "slug": "vacancy-4",
+   "btn": {
+    "title": "Apply"
+   }
+  },
+  {
+   "tag": "IT infrastructure",
+   "title": "Senior Network Security Engineer",
+   "items": [
+    "Moscow",
+    "Experience from 3 years",
+    "Office or hybrid"
+   ],
+   "slug": "vacancy-5",
+   "btn": {
+    "title": "Apply"
+   }
+  },
+  {
+   "tag": "Information Security",
+   "title": "Fraud Prevention Solutions Analyst",
+   "items": [
+    "Moscow",
+    "Experience from 3 years",
+    "Office or hybrid"
+   ],
+   "slug": "vacancy-6",
+   "btn": {
+    "title": "Apply"
+   }
+  },
+  {
+   "tag": "IT infrastructure",
+   "title": "Customer Relations Manager",
+   "items": [
+    "Moscow",
+    "Experience from 3 years",
+    "Office or hybrid"
+   ],
+   "slug": "vacancy-4",
+   "btn": {
+    "title": "Apply"
+   }
+  },
+  {
+   "tag": "IT infrastructure",
+   "title": "Senior Network Security Engineer",
+   "items": [
+    "Moscow",
+    "Experience from 3 years",
+    "Office or hybrid"
+   ],
+   "slug": "vacancy-5",
+   "btn": {
+    "title": "Apply"
+   }
+  },
+  {
+   "tag": "Information Security",
+   "title": "Fraud Prevention Solutions Analyst",
+   "items": [
+    "Moscow",
+    "Experience from 3 years",
+    "Office or hybrid"
+   ],
+   "slug": "vacancy-6",
+   "btn": {
+    "title": "Apply"
+   }
+  },
+  {
+   "tag": "Information Security",
+   "title": "Fraud Prevention Solutions Analyst",
+   "items": [
+    "Moscow",
+    "Experience from 3 years",
+    "Office or hybrid"
+   ],
+   "slug": "vacancy-6",
+   "btn": {
+    "title": "Apply"
+   }
+  }
+ ]
+}

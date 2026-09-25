@@ -1,0 +1,78 @@
+{
+ "status": "success",
+ "data": {
+  "breadcrumbs": {
+   "variant": "breadcrumbs_blue",
+   "items": [
+    {
+     "title": "Стажировки"
+    }
+   ]
+  },
+  "seo": {
+   "title": "Internships"
+  },
+  "jobs": {
+   "hashToScroll": "#callback",
+   "count": 4,
+   "background": {
+    "type": "mixed",
+    "src": "/static/video/jobs/bg.mp4"
+   },
+   "items": [
+    {
+     "tag": "IT Infrastructure",
+     "title": "Deputy Head of Project Management Department",
+     "items": [
+      "Moscow",
+      "Experience from 3 years",
+      "Office or hybrid"
+     ],
+     "slug": "internship-1",
+     "btn": {
+      "title": "Apply"
+     }
+    },
+    {
+     "tag": "IT infrastructure",
+     "title": "Customer Relations Manager",
+     "items": [
+      "Moscow",
+      "Experience from 3 years",
+      "Office or hybrid"
+     ],
+     "slug": "internship-2",
+     "btn": {
+      "title": "Apply"
+     }
+    },
+    {
+     "tag": "IT infrastructure",
+     "title": "Windows System Administrator",
+     "items": [
+      "Moscow",
+      "Experience from 3 years",
+      "Office or hybrid"
+     ],
+     "slug": "internship-3",
+     "btn": {
+      "title": "Apply"
+     }
+    },
+    {
+     "tag": "IT infrastructure",
+     "title": "IT Product Sales Manager",
+     "items": [
+      "Moscow",
+      "Experience from 3 years",
+      "Office or hybrid"
+     ],
+     "slug": "internship-4",
+     "btn": {
+      "title": "Apply"
+     }
+    }
+   ]
+  }
+ }
+}

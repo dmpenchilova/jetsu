@@ -1,0 +1,428 @@
+{
+ "status": "success",
+ "data": {
+  "breadcrumbs": {
+   "variant": "breadcrumbs_blue",
+   "items": [
+    {
+     "title": "About the company",
+     "url": "/about"
+    },
+    {
+     "title": "Partners"
+    }
+   ]
+  },
+  "seo": {
+   "title": "Partners"
+  },
+  "companions": {
+   "hash": "#companions",
+   "title": "Partners",
+   "total": 5,
+   "count": 6,
+   "form": {
+    "fields": [
+     {
+      "id": "search",
+      "name": "search",
+      "type": "groupSearch",
+      "fields": [
+       {
+        "id": "text",
+        "name": "text",
+        "placeholder": "Enter partner name...",
+        "type": "inputSearch"
+       },
+       {
+        "id": "types",
+        "name": "types",
+        "type": "groupSearchSelect",
+        "fields": [
+         {
+          "id": "direction",
+          "name": "direction",
+          "placeholder": "Direction",
+          "type": "selectSearchItem",
+          "items": [
+           {
+            "title": "IT Infrastructure",
+            "value": "it"
+           },
+           {
+            "title": "Service and outsourcing",
+            "value": "services"
+           },
+           {
+            "title": "Information security",
+            "value": "info"
+           },
+           {
+            "title": "Networks and engineering infrastructure",
+            "value": "network"
+           },
+           {
+            "title": "Software development and business applications",
+            "value": "development"
+           },
+           {
+            "title": "Machine learning and artificial intelligence",
+            "value": "ai"
+           },
+           {
+            "title": "Own products in the Russian software registry",
+            "value": "ownProducts"
+           },
+           {
+            "title": "Production safety",
+            "value": "productionSafety"
+           },
+           {
+            "title": "Machine learning and artificial intelligence",
+            "value": "ai2"
+           },
+           {
+            "title": "IT Infrastructure",
+            "value": "it2"
+           },
+           {
+            "title": "Service and outsourcing",
+            "value": "services2"
+           },
+           {
+            "title": "Information security",
+            "value": "info2"
+           },
+           {
+            "title": "Networks and engineering infrastructure",
+            "value": "network2"
+           },
+           {
+            "title": "Software development and business applications",
+            "value": "development2"
+           },
+           {
+            "title": "Machine learning and artificial intelligence",
+            "value": "ai3"
+           },
+           {
+            "title": "Own products in the Russian software registry",
+            "value": "ownProducts2"
+           },
+           {
+            "title": "Production safety",
+            "value": "productionSafety2"
+           },
+           {
+            "title": "Machine learning and artificial intelligence",
+            "value": "ai4"
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "items": [
+    {
+     "title": "Agat RT",
+     "description": "Authorized partner",
+     "img": {
+      "src": "/static/images/companions/agat-logo.png"
+     }
+    },
+    {
+     "title": "IT Bastion",
+     "description": "Official partner",
+     "img": {
+      "src": "/static/images/companions/bastion-logo.png"
+     }
+    },
+    {
+     "title": "ASKON",
+     "description": "Partner",
+     "img": {
+      "src": "/static/images/companions/ascon-logo.png"
+     }
+    },
+    {
+     "title": "Auvix",
+     "description": "Reseller",
+     "img": {
+      "src": "/static/images/companions/auvix-logo.png"
+     }
+    },
+    {
+     "title": "Aerodisk",
+     "description": "Authorized partner",
+     "img": {
+      "src": "/static/images/companions/agat-logo.png"
+     }
+    },
+    {
+     "title": "Webmonitorex",
+     "description": "Authorized partner",
+     "img": {
+      "src": "/static/images/companions/auvix-logo.png"
+     }
+    },
+    {
+     "title": "Gas information service",
+     "description": "Authorized partner",
+     "img": {
+      "src": "/static/images/companions/agat-logo.png"
+     }
+    },
+    {
+     "title": "Indeed",
+     "description": "Authorized partner",
+     "img": {
+      "src": "/static/images/companions/ascon-logo.png"
+     }
+    },
+    {
+     "title": "Iskratel",
+     "description": "Authorized partner",
+     "img": {
+      "src": "/static/images/companions/auvix-logo.png"
+     }
+    },
+    {
+     "title": "Kvazar",
+     "description": "Authorized partner",
+     "img": {
+      "src": "/static/images/companions/ascon-logo.png"
+     }
+    },
+    {
+     "title": "Cyberprotect",
+     "description": "Authorized partner",
+     "img": {
+      "src": "/static/images/companions/bastion-logo.png"
+     }
+    },
+    {
+     "title": "Code Security",
+     "description": "Authorized partner",
+     "img": {
+      "src": "/static/images/companions/ascon-logo.png"
+     }
+    },
+    {
+     "title": "Kontur",
+     "description": "Partner",
+     "img": {
+      "src": "/static/images/companions/auvix-logo.png"
+     }
+    },
+    {
+     "title": "F6",
+     "description": "Official supplier",
+     "img": {
+      "src": "/static/images/companions/f6-logo.png"
+     }
+    },
+    {
+     "title": "Kaspersky Lab",
+     "description": "Platinum Partner",
+     "img": {
+      "src": "/static/images/companions/ascon-logo.png"
+     },
+     "items": [
+      "Cloud Security",
+      "Extended Detection and Response",
+      "Kaspersky Industrial CyberSecurity",
+      "KUMA",
+      "IT Cybersecurity"
+     ]
+    },
+    {
+     "title": "Chislitel Laboratory",
+     "description": "Partner",
+     "img": {
+      "src": "/static/images/companions/ascon-logo.png"
+     }
+    },
+    {
+     "title": "Satel",
+     "description": "Partner",
+     "img": {
+      "src": "/static/images/companions/satel-logo.png"
+     }
+    },
+    {
+     "title": "Research Institute of Special Design Bureau Development Center",
+     "description": "Partner",
+     "img": {
+      "src": "/static/images/companions/auvix-logo.png"
+     }
+    },
+    {
+     "title": "Dew",
+     "description": "Reseller",
+     "img": {
+      "src": "/static/images/companions/rosa-logo.png"
+     }
+    },
+    {
+     "title": "C-Terra",
+     "description": "Gold Partner",
+     "img": {
+      "src": "/static/images/companions/setere-logo.png"
+     }
+    },
+    {
+     "title": "SAVRUS",
+     "description": "Gold Partner",
+     "img": {
+      "src": "/static/images/companions/setere-logo.png"
+     }
+    },
+    {
+     "title": "CyberPeak",
+     "description": "Authorized partner",
+     "img": {
+      "src": "/static/images/companions/setere-logo.png"
+     }
+    },
+    {
+     "title": "Satel Pro",
+     "description": "Authorized partner",
+     "img": {
+      "src": "/static/images/companions/setere-logo.png"
+     }
+    },
+    {
+     "title": "CyberPeak",
+     "description": "Standard partner",
+     "img": {
+      "src": "/static/images/companions/setere-logo.png"
+     }
+    },
+    {
+     "title": "Thesis",
+     "description": "Certified partner",
+     "img": {
+      "src": "/static/images/companions/setere-logo.png"
+     }
+    },
+    {
+     "title": "Factor-TS",
+     "description": "Partner",
+     "img": {
+      "src": "/static/images/companions/setere-logo.png"
+     }
+    },
+    {
+     "title": "Flant",
+     "description": "Partner",
+     "img": {
+      "src": "/static/images/companions/setere-logo.png"
+     }
+    }
+   ]
+  },
+  "callback": {
+   "hash": "#callback",
+   "tag": "Still have questions?",
+   "title": "Tell us about your task — we will offer a solution",
+   "background": {
+    "type": "mixed",
+    "src": "/static/images/callback/img-1.jpg"
+   },
+   "form": {
+    "visible": [
+     {
+      "type": "row",
+      "data": [
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Name*",
+         "name": "name",
+         "validations": [
+          "required"
+         ]
+        }
+       },
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Last Name*",
+         "name": "lastName",
+         "validations": [
+          "required"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "type": "row",
+      "data": [
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Email*",
+         "name": "email",
+         "validations": [
+          "required",
+          "email"
+         ]
+        }
+       },
+       {
+        "type": "phone",
+        "data": {
+         "placeholder": "Phone",
+         "name": "phone",
+         "validations": [
+          "phone"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "type": "row",
+      "data": [
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Company*",
+         "name": "company",
+         "validations": [
+          "required"
+         ]
+        }
+       },
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Job title",
+         "name": "position"
+        }
+       }
+      ]
+     },
+     {
+      "type": "textarea",
+      "data": {
+       "placeholder": "Describe your task*",
+       "name": "task",
+       "validations": [
+        "required"
+       ]
+      }
+     }
+    ],
+    "btn": {
+     "title": "Send"
+    },
+    "action": "/form/callback"
+   }
+  }
+ }
+}

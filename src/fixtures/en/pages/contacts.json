@@ -1,0 +1,655 @@
+{
+ "status": "success",
+ "data": {
+  "breadcrumbs": {
+   "variant": "breadcrumbs_blue",
+   "items": [
+    {
+     "title": "Contacts"
+    }
+   ]
+  },
+  "seo": {
+   "title": "Contacts"
+  },
+  "content": [
+   {
+    "uuid": "hero-uuid",
+    "type": "contactsHero",
+    "data": {
+     "hash": "#hero",
+     "title": "Contacts",
+     "tag": "General",
+     "background": {
+      "type": "mixed",
+      "src": "/static/video/jobs/bg.mp4"
+     },
+     "btn": {
+      "title": "Have you been hacked?"
+     },
+     "phone": {
+      "title": "For emergency contact",
+      "items": [
+       {
+        "value": "+7 495 411 76 04",
+        "link": "tel:+7 (495) 411-76-04"
+       }
+      ]
+     },
+     "items": [
+      {
+       "title": "Service center",
+       "items": [
+        {
+         "value": "+7 999 200 20 20",
+         "link": "tel:+7 (999) 200-20-20"
+        },
+        {
+         "value": "+7 999 465 70 90",
+         "link": "tel:+7 (999) 465-70-90"
+        }
+       ]
+      },
+      {
+       "title": "Press center",
+       "items": [
+        {
+         "value": "pr@jet.su",
+         "link": "mailto:pr@jet.su"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "offices-uuid",
+    "type": "offices",
+    "data": {
+     "hash": "#offices",
+     "tag": "All offices",
+     "offices": [
+      {
+       "title": "Russia",
+       "cities": [
+        {
+         "title": "Moscow",
+         "description": "14 Bolshaya Novodmitrovskaya St., bldg. 1, 1st and 2nd checkpoint, Novodmitrovsky office center",
+         "items": [
+          {
+           "title": "Phone",
+           "items": [
+            {
+             "value": "+7 999 200 20 20",
+             "link": "tel:+7 (999) 200-20-20"
+            },
+            {
+             "value": "+7 999 465 70 90",
+             "link": "tel:+7 (999) 465-70-90"
+            }
+           ]
+          },
+          {
+           "title": "Service center",
+           "items": [
+            {
+             "value": "+7 999 200 20 20",
+             "link": "tel:+7 (999) 200-20-20"
+            },
+            {
+             "value": "+7 999 465 70 90",
+             "link": "tel:+7 (999) 465-70-90"
+            }
+           ]
+          },
+          {
+           "title": "Email",
+           "items": [
+            {
+             "value": "info@jet.su",
+             "link": "mailto:info@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Vladivostok",
+         "description": "Sukhanova Street, building 3-a, room 509",
+         "items": [
+          {
+           "title": "Phone",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (423) 243-29-75"
+            }
+           ]
+          },
+          {
+           "title": "Mail",
+           "items": [
+            {
+             "value": "vladivostok@jet.su",
+             "link": "mailto:vladivostok@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Krasnodar",
+         "description": "Kalinin Street, building 326, 3rd floor",
+         "items": [
+          {
+           "title": "Phone",
+           "items": [
+            {
+             "value": "+7 861 212 69 49",
+             "link": "tel:+7 (861) 212-69-49"
+            },
+            {
+             "value": "+7 861 212 69 50",
+             "link": "tel:+7 (861) 212-69-50"
+            }
+           ]
+          },
+          {
+           "title": "Mail",
+           "items": [
+            {
+             "value": "kuban@jet.su",
+             "link": "mailto:kuban@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Nizhny Novgorod",
+         "description": "Ulyanova Street, Building 26/11, Office 14-06",
+         "items": [
+          {
+           "title": "Phone",
+           "items": [
+            {
+             "value": "+7 831 469 06 26",
+             "link": "tel:+7 (831) 469-06-26"
+            },
+            {
+             "value": "+7 831 469 08 03",
+             "link": "tel:+7 (831) 469-08-03"
+            }
+           ]
+          },
+          {
+           "title": "Mail",
+           "items": [
+            {
+             "value": "nnovgorod@jet.su",
+             "link": "mailto:nnovgorod@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Saint Petersburg",
+         "description": "Chapaeva Street, building 15, office 102",
+         "items": [
+          {
+           "title": "Phone",
+           "items": [
+            {
+             "value": "+7 812 332 29 56",
+             "link": "tel:+7 (812) 332-29-56"
+            }
+           ]
+          },
+          {
+           "title": "Mail",
+           "items": [
+            {
+             "value": "info_spb@jet.su",
+             "link": "mailto:info_spb@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Yekaterinburg",
+         "description": "Rosa Luxemburg Street, building 49, office 503",
+         "items": [
+          {
+           "title": "Phone",
+           "items": [
+            {
+             "value": "+7 343 286 14 40",
+             "link": "tel:+7 (343) 286-14-40"
+            }
+           ]
+          },
+          {
+           "title": "Fax",
+           "items": [
+            {
+             "value": "+7 343 286 14 40",
+             "link": "tel:+7 (343) 286-14-40"
+            }
+           ]
+          },
+          {
+           "title": "Mail",
+           "items": [
+            {
+             "value": "ural@jet.su",
+             "link": "mailto:ural@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Samara",
+         "description": "Gorky Street, building 10, 2nd floor",
+         "items": [
+          {
+           "title": "Phone",
+           "items": [
+            {
+             "value": "+7 495 411 76 01 ext.2998",
+             "link": "tel:+7 (495) 411-76-01"
+            }
+           ]
+          },
+          {
+           "title": "Mail",
+           "items": [
+            {
+             "value": "info@jet.su",
+             "link": "mailto:info@jet.su"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "CIS Countries",
+       "cities": [
+        {
+         "title": "Moscow 1",
+         "description": "Bolshaya Novodmitrovskaya Street, building 14, building 1, 1st and 2nd checkpoint, Novodmitrovsky office center",
+         "items": [
+          {
+           "title": "Phone",
+           "items": [
+            {
+             "value": "+7 999 200 20 20",
+             "link": "tel:+7 (999) 200-20-20"
+            },
+            {
+             "value": "+7 999 465 70 90",
+             "link": "tel:+7 (999) 465-70-90"
+            }
+           ]
+          },
+          {
+           "title": "Service Center",
+           "items": [
+            {
+             "value": "+7 999 200 20 20",
+             "link": "tel:+7 (999) 200-20-20"
+            },
+            {
+             "value": "+7 999 465 70 90",
+             "link": "tel:+7 (999) 465-70-90"
+            }
+           ]
+          },
+          {
+           "title": "Mail",
+           "items": [
+            {
+             "value": "info@jet.su",
+             "link": "mailto:info@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Vladivostok 1",
+         "description": "Sukhanova Street, Building 3-a, Room 509",
+         "items": [
+          {
+           "title": "Phone",
+           "items": [
+            {
+             "value": "+7 423 243 29 75",
+             "link": "tel:+7 (423) 243-29-75"
+            }
+           ]
+          },
+          {
+           "title": "Mail",
+           "items": [
+            {
+             "value": "vladivostok@jet.su",
+             "link": "mailto:vladivostok@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Krasnodar 1",
+         "description": "Kalinina Street, building 326, 3rd floor",
+         "items": [
+          {
+           "title": "Phone",
+           "items": [
+            {
+             "value": "+7 861 212 69 49",
+             "link": "tel:+7 (861) 212-69-49"
+            },
+            {
+             "value": "+7 861 212 69 50",
+             "link": "tel:+7 (861) 212-69-50"
+            }
+           ]
+          },
+          {
+           "title": "Mail",
+           "items": [
+            {
+             "value": "kuban@jet.su",
+             "link": "mailto:kuban@jet.su"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Nizhny Novgorod 1",
+         "description": "Ulyanova Street, building 26/11, office 14-06",
+         "items": [
+          {
+           "title": "Phone",
+           "items": [
+            {
+             "value": "+7 831 469 06 26",
+             "link": "tel:+7 (831) 469-06-26"
+            },
+            {
+             "value": "+7 831 469 08 03",
+             "link": "tel:+7 (831) 469-08-03"
+            }
+           ]
+          },
+          {
+           "title": "Mail",
+           "items": [
+            {
+             "value": "nnovgorod@jet.su",
+             "link": "mailto:nnovgorod@jet.su"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "documents-uuid",
+    "type": "documents",
+    "data": {
+     "hash": "#documents",
+     "tag": "Tender Documentation",
+     "title": "All necessary documents and company details — in one section",
+     "btn": {
+      "title": "Go to documents",
+      "url": "/documents"
+     },
+     "background": {
+      "type": "mixed",
+      "desktop": "/static/images/documents/bg-desktop.jpg",
+      "tablet": "/static/images/documents/bg-tablet.jpg",
+      "src": "/static/images/documents/bg.jpg"
+     }
+    }
+   },
+   {
+    "uuid": "callback-uuid",
+    "type": "callback",
+    "data": {
+     "hash": "#callback",
+     "tag": "Have questions?",
+     "title": "Tell us about your task — we will offer a solution",
+     "form": {
+      "visible": [
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Name*",
+           "name": "name",
+           "validations": [
+            "required"
+           ]
+          }
+         },
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Last Name*",
+           "name": "lastName",
+           "validations": [
+            "required"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Email*",
+           "name": "email",
+           "validations": [
+            "required",
+            "email"
+           ]
+          }
+         },
+         {
+          "type": "phone",
+          "data": {
+           "placeholder": "Phone",
+           "name": "phone",
+           "validations": [
+            "phone"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Company*",
+           "name": "company",
+           "validations": [
+            "required"
+           ]
+          }
+         },
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Position",
+           "name": "position"
+          }
+         }
+        ]
+       },
+       {
+        "type": "textarea",
+        "data": {
+         "placeholder": "Describe your task*",
+         "name": "task",
+         "validations": [
+          "required"
+         ]
+        }
+       }
+      ],
+      "btn": {
+       "title": "Send"
+      },
+      "action": "/form/callback"
+     }
+    }
+   },
+   {
+    "uuid": "details-uuid",
+    "type": "details",
+    "data": {
+     "hash": "#details",
+     "tag": "Details",
+     "title": "Joint Stock Company<br>«Infosystems Jet»",
+     "items": [
+      {
+       "title": "Legal Address",
+       "items": [
+        {
+         "value": "127015, Moscow, Bolshaya Novodmitrovskaya Street, Building 14, Building 2, Floor 6, Room 13, Office 2.654"
+        }
+       ]
+      },
+      {
+       "title": "Actual Address",
+       "items": [
+        {
+         "value": "127015, Moscow, Bolshaya Novodmitrovskaya Street, Building 14, Building 2, Floor 6, Room 13, Office 2.654"
+        }
+       ]
+      },
+      {
+       "title": "Phone",
+       "items": [
+        {
+         "value": "+7 (495) 411-76-01",
+         "link": "tel:+7 (495) 411-76-01"
+        }
+       ]
+      },
+      {
+       "title": "Mail",
+       "items": [
+        {
+         "value": "info@jet.su",
+         "link": "mailto:info@jet.su"
+        }
+       ]
+      },
+      {
+       "title": "Identification Number (INN / KPP)",
+       "items": [
+        {
+         "value": "7729058675 / 771501001"
+        }
+       ]
+      },
+      {
+       "title": "OGRN",
+       "items": [
+        {
+         "value": "1027700121195"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "activities-uuid",
+    "type": "activities",
+    "data": {
+     "hash": "#activities",
+     "items": [
+      {
+       "title": "Primary code of the All-Russian Classifier of Economic Activities of the main type of activity",
+       "variant": "activities__itemWrap_bgGray",
+       "codes": [
+        {
+         "title": "62.02",
+         "description": "Consulting activities and work in the field of computer technologies"
+        }
+       ]
+      },
+      {
+       "title": "Codes of additional types of activities",
+       "codes": [
+        {
+         "title": "62.09",
+         "description": "Other activities related to the use of computers and information technology"
+        },
+        {
+         "title": "62.01",
+         "description": "Software development"
+        },
+        {
+         "title": "62.03.13",
+         "description": "Maintenance of computer systems",
+         "content": {
+          "title": "Information on the inclusion of products created and used by the organization in the field of information technology in the unified register of Russian programs for electronic computers and databases",
+          "url": "https://jet.su/services/sobstvennye-produkty-v-reestre-rossiyskogo-po/"
+         }
+        }
+       ]
+      },
+      {
+       "title": "Information on the directions of the organization's activities carried out in the field of information technology, in terms of services provided and products developed",
+       "codes": [
+        {
+         "title": "1.01",
+         "description": "Design, and (or) survey, and (or) development, and (or) adaptation, and (or) modification (including localization, customization, refinement), and (or) reverse engineering, and (or) modernization, and (or) updating, and (or) installation, and (or) integration, and (or) configuration, and (or) implementation, and (or) maintenance, and (or) testing, and (or) trials, and (or) technical support, and (or) operation, including administration, as well as the provision of services (including consulting, training, expert services, and others) in the specified types of activities (hereinafter - design and (or) other activities, as well as the provision of services), in relation to software for electronic computers (hereinafter - software), and (or) databases (including their updates and corrections), and (or) visual user interfaces"
+        },
+        {
+         "title": "1.06",
+         "description": "Design and (or) other activities, as well as the provision of services in relation to information and telecommunication infrastructure - computer systems combining computer hardware, software, and (or) databases, and (or) communication technologies (data transmission technologies) (hereinafter - IT infrastructure), data centers and cloud (virtual) infrastructure, situational centers, as well as activities related to the management of computer systems and computer hardware"
+        },
+        {
+         "title": "2.01",
+         "description": "Implementation of software for electronic computers, databases (including their updates and changes), information security tools, including by alienation of rights, granting rights (licensing), providing remote access through information and telecommunication networks, including the Internet, providing remote computing power emulating physical equipment, copying, wholesale and retail sale of copies of software for electronic computers, databases, publishing collections of software for electronic computers and databases, providing copies of software for electronic computers, databases for leasing, renting (hiring)"
+        },
+        {
+         "title": "11.01",
+         "description": "Provision of services to ensure and enhance the level of information security and protection of information from computer attacks and other threats in the field of information security, including services for vulnerability assessment, penetration testing, design and implementation of protection measures, analysis and control of information protection status, infrastructure modernization to improve protection levels, monitoring of information security of informatization means and systems, detection, prevention, and elimination of computer attack consequences, and response to computer incidents, activities for information protection and security of critical information infrastructure objects"
+        },
+        {
+         "title": "27.01",
+         "description": "Retail and wholesale trade (supply) of software and equipment, its components, IT infrastructure equipment, leasing, renting (hiring) of software and equipment, its components, IT infrastructure equipment"
+        }
+       ]
+      }
+     ]
+    }
+   }
+  ]
+ }
+}

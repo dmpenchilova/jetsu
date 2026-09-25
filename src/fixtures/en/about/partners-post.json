@@ -1,0 +1,215 @@
+{
+ "total": 28,
+ "items": [
+  {
+   "title": "Agate RT",
+   "description": "Authorized Partner",
+   "img": {
+    "src": "/static/images/companions/agat-logo.png"
+   }
+  },
+  {
+   "title": "IT Bastion",
+   "description": "Official Partner",
+   "img": {
+    "src": "/static/images/companions/bastion-logo.png"
+   }
+  },
+  {
+   "title": "ASKON",
+   "description": "Partner",
+   "img": {
+    "src": "/static/images/companions/ascon-logo.png"
+   }
+  },
+  {
+   "title": "Auvix",
+   "description": "Reseller",
+   "img": {
+    "src": "/static/images/companions/auvix-logo.png"
+   }
+  },
+  {
+   "title": "Aerodisk",
+   "description": "Authorized partner",
+   "img": {
+    "src": "/static/images/companions/agat-logo.png"
+   }
+  },
+  {
+   "title": "Webmonitorex",
+   "description": "Authorized partner",
+   "img": {
+    "src": "/static/images/companions/auvix-logo.png"
+   }
+  },
+  {
+   "title": "Gas Information Service",
+   "description": "Authorized partner",
+   "img": {
+    "src": "/static/images/companions/agat-logo.png"
+   }
+  },
+  {
+   "title": "Indeed",
+   "description": "Authorized partner",
+   "img": {
+    "src": "/static/images/companions/ascon-logo.png"
+   }
+  },
+  {
+   "title": "Iskratel",
+   "description": "Authorized partner",
+   "img": {
+    "src": "/static/images/companions/auvix-logo.png"
+   }
+  },
+  {
+   "title": "Kvazar",
+   "description": "Authorized partner",
+   "img": {
+    "src": "/static/images/companions/ascon-logo.png"
+   }
+  },
+  {
+   "title": "Cyberprotect",
+   "description": "Authorized partner",
+   "img": {
+    "src": "/static/images/companions/bastion-logo.png"
+   }
+  },
+  {
+   "title": "Security code",
+   "description": "Authorized partner",
+   "img": {
+    "src": "/static/images/companions/ascon-logo.png"
+   }
+  },
+  {
+   "title": "Contour",
+   "description": "Partner",
+   "img": {
+    "src": "/static/images/companions/auvix-logo.png"
+   }
+  },
+  {
+   "title": "F6",
+   "description": "Official supplier",
+   "img": {
+    "src": "/static/images/companions/f6-logo.png"
+   }
+  },
+  {
+   "title": "Kaspersky Lab",
+   "description": "Platinum Partner",
+   "img": {
+    "src": "/static/images/companions/ascon-logo.png"
+   },
+   "items": [
+    "Cloud Security",
+    "Extended Detection and Response",
+    "Kaspersky Industrial CyberSecurity",
+    "KUMA",
+    "IT Cybersecurity"
+   ]
+  },
+  {
+   "title": "Chislitel Laboratory",
+   "description": "Partner",
+   "img": {
+    "src": "/static/images/companions/ascon-logo.png"
+   }
+  },
+  {
+   "title": "Satel",
+   "description": "Partner",
+   "img": {
+    "src": "/static/images/companions/satel-logo.png"
+   }
+  },
+  {
+   "title": "Research Institute of SOCB Development Center",
+   "description": "Partner",
+   "img": {
+    "src": "/static/images/companions/auvix-logo.png"
+   }
+  },
+  {
+   "title": "Dew",
+   "description": "Reseller",
+   "img": {
+    "src": "/static/images/companions/rosa-logo.png"
+   }
+  },
+  {
+   "title": "S-Terra",
+   "description": "Golden Partner",
+   "img": {
+    "src": "/static/images/companions/setere-logo.png"
+   }
+  },
+  {
+   "title": "SAVRUS",
+   "description": "Golden Partner",
+   "img": {
+    "src": "/static/images/companions/setere-logo.png"
+   }
+  },
+  {
+   "title": "CyberPeak",
+   "description": "Authorized partner",
+   "img": {
+    "src": "/static/images/companions/setere-logo.png"
+   }
+  },
+  {
+   "title": "Satel Pro",
+   "description": "Authorized partner",
+   "img": {
+    "src": "/static/images/companions/setere-logo.png"
+   }
+  },
+  {
+   "title": "CyberPeak",
+   "description": "Standard partner",
+   "img": {
+    "src": "/static/images/companions/setere-logo.png"
+   }
+  },
+  {
+   "title": "SINTELLECT",
+   "description": "Partner",
+   "img": {
+    "src": "/static/images/companions/setere-logo.png"
+   }
+  },
+  {
+   "title": "T-COM",
+   "description": "Partner",
+   "img": {
+    "src": "/static/images/companions/setere-logo.png"
+   }
+  },
+  {
+   "title": "Thesis",
+   "description": "Certified partner",
+   "img": {
+    "src": "/static/images/companions/setere-logo.png"
+   }
+  },
+  {
+   "title": "Factor-TS",
+   "description": "Partner",
+   "img": {
+    "src": "/static/images/companions/setere-logo.png"
+   }
+  },
+  {
+   "title": "Flant",
+   "description": "Partner",
+   "img": {
+    "src": "/static/images/companions/setere-logo.png"
+   }
+  }
+ ]
+}

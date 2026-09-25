@@ -1,0 +1,889 @@
+{
+ "status": "success",
+ "data": {
+  "breadcrumbs": {
+   "items": [
+    {
+     "title": "Services and solutions"
+    }
+   ]
+  },
+  "seo": {
+   "title": "Service detail page"
+  },
+  "content": [
+   {
+    "uuid": "hero-uuid",
+    "type": "serviceHero",
+    "data": {
+     "hash": "#hero",
+     "tag": "About the service",
+     "title": "Forming a digital transformation strategy in manufacturing",
+     "description": "Network equipment for large data centers, clouds, and corporate IT infrastructure",
+     "btn": {
+      "title": "Leave a request"
+     },
+     "background": {
+      "type": "mixed",
+      "src": "/static/video/events/bg.mp4"
+     }
+    }
+   },
+   {
+    "uuid": "text-1-uuid",
+    "type": "serviceText",
+    "data": {
+     "hash": "#text-1",
+     "tag": "How it works",
+     "title": "White Box switches",
+     "items": [
+      {
+       "description": "White Box is a network equipment delivery model in which the hardware platform and network software are delivered separately. White Box emerged as a response to classic network hardware and software systems (HSS) from well-known vendors, which are typically black boxes."
+      },
+      {
+       "description": "The hardware platform and network software for the White Box model are supplied separately, allowing you to assemble your own combination of elements, replace any component independently of others, or even modify the OS for your specific tasks. This approach ensures transparent pricing, saves on infrastructure costs, and reduces dependence on large network solution providers."
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "text-2-uuid",
+    "type": "serviceText",
+    "data": {
+     "hash": "#text-2",
+     "tag": "How does this work",
+     "items": [
+      {
+       "description": "White Box is a network equipment delivery model in which the hardware platform and network software are delivered separately. White Box emerged as a response to classic network hardware and software systems (HSS) from well-known vendors, which are typically black boxes."
+      },
+      {
+       "description": "The hardware platform and network software for the White Box model are supplied separately, allowing you to assemble your own combination of elements, replace any component independently of others, or even modify the OS for your specific tasks. This approach ensures transparent pricing, saves on infrastructure costs, and reduces dependence on large network solution providers."
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "cards-1-uuid",
+    "type": "cards",
+    "data": {
+     "hash": "#cards-1",
+     "tag": "Advantages",
+     "title": "White Box helps reduce costs and expand functionality",
+     "description": "Compliance with security requirements. The hybrid cloud model is in demand from companies that need to comply with critical information infrastructure protection requirements, as well as organizations with a large amount of development.",
+     "items": [
+      {
+       "title": "Economic Efficiency",
+       "text": "White Box is not just a switch without being tied to a specific operating system. It is a multiservice network platform that allows you to ensure the operation of all necessary functions. Such a solution is easy to scale with business growth, and the independence of the software part from the hardware allows you to flexibly configure the services required by a specific company and use them to the maximum."
+      },
+      {
+       "title": "Data security",
+       "text": "White Box is not just a switch without being tied to a specific operating system."
+      },
+      {
+       "title": "Economic efficiency",
+       "text": "White Box is not just a switch without being tied to a specific operating system. It is a multiservice network platform that allows you to ensure the operation of all necessary functions. Such a solution is easy to scale with business growth, and the independence of the software part from the hardware allows you to flexibly configure the services required by a specific company and use them to the maximum."
+      },
+      {
+       "title": "Expertise for complex tasks",
+       "text": "Support for specific business needs, solving non-standard tasks of any complexity – from high-load systems to Big Data integration"
+      },
+      {
+       "title": "Economic efficiency",
+       "text": "White Box is not just a switch without being tied to a specific operating system. It is a multiservice network platform that allows you to ensure the operation of all necessary functions. Such a solution is easy to scale with business growth, and the independence of the software part from the hardware allows you to flexibly configure the services required by a specific company and use them to the maximum."
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "cards-2-uuid",
+    "type": "cards",
+    "data": {
+     "hash": "#cards-2",
+     "tag": "Advantages",
+     "title": "White Box helps reduce costs and expand functionality",
+     "items": [
+      {
+       "title": "Economic efficiency",
+       "text": "White Box is not just a switch without being tied to a specific operating system. It is a multiservice network platform that allows you to ensure the operation of all necessary functions. Such a solution is easy to scale with business growth, and the independence of the software part from the hardware allows you to flexibly configure the services required by a specific company and use them to the maximum."
+      },
+      {
+       "title": "Data security",
+       "text": "White Box is not just a switch without being tied to a specific operating system."
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "cards-3-uuid",
+    "type": "cards",
+    "data": {
+     "variant": "cards_columns_2",
+     "hash": "#cards-3",
+     "tag": "Advantages",
+     "title": "Reduce costs and expand functionality",
+     "items": [
+      {
+       "text": "White Box is not just a switch without being tied to a specific operating system. It is a multiservice network platform that allows you to ensure the operation of all necessary functions. Such a solution is easy to scale with business growth, and the independence of the software part from the hardware allows you to flexibly configure the services required by a specific company and use them to the maximum."
+      },
+      {
+       "text": "White Box is not just a switch without being tied to a specific operating system."
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "cards-4-uuid",
+    "type": "cards",
+    "data": {
+     "variant": "cards_columns_2",
+     "hash": "#cards-4",
+     "tag": "Advantages",
+     "title": "Reduce costs and expand functionality",
+     "items": [
+      {
+       "title": "Scale IT infrastructure and flexibly configure necessary services"
+      },
+      {
+       "title": "Reduce costs on purchasing network switches and adapt to explosive traffic growth"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "cards-5-uuid",
+    "type": "cards",
+    "data": {
+     "hash": "#cards-5",
+     "tag": "Advantages",
+     "title": "Reduce costs and expand functionality",
+     "items": [
+      {
+       "text": "White Box is not just a switch without being tied to a specific operating system. It is a multiservice network platform that allows you to ensure the operation of all necessary functions. Such a solution is easy to scale with business growth, and the independence of the software part from the hardware allows you to flexibly configure the services required by a specific company and use them to the maximum."
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "table-uuid",
+    "type": "serviceTable",
+    "data": {
+     "hash": "#table",
+     "tag": "When to use",
+     "title": "Choose White Box when:",
+     "items": [
+      "Building a data center from scratch",
+      "Customizing the OS on your own",
+      "Need to request improvements from the community or vendor",
+      "No need for a TORP registry",
+      "Limited access to current firmware",
+      "There is or will be a data center network automation system",
+      "Need to scale the network"
+     ]
+    }
+   },
+   {
+    "uuid": "list-1-uuid",
+    "type": "serviceList",
+    "data": {
+     "hash": "#list-1",
+     "tag": "When to use",
+     "title": "When is White Box needed?",
+     "type": "order",
+     "items": [
+      "When building a data center from scratch",
+      "When you need to customize the OS on your own with a team or request improvements from the community/vendor",
+      "If classic vendors do not suit you, for example, due to lack of service, problems with access to current firmware, risks of remote blocking",
+      "You do not need a TORP registry",
+      "If there is or is planned a data center network automation system. In this case, it adapts to a specific NOS, and then you update hardware platforms as you grow to new equipment without interrupting service operation",
+      "There is a need for long-term network scaling"
+     ]
+    }
+   },
+   {
+    "uuid": "list-2-uuid",
+    "type": "serviceList",
+    "data": {
+     "hash": "#list-2",
+     "tag": "When to use",
+     "title": "When is White Box needed?",
+     "items": [
+      "When you need to customize the OS on your own with a team or request improvements from the community/vendor",
+      "If classic vendors do not suit you, for example, due to lack of service, problems with access to current firmware, risks of remote blocking",
+      "You do not need a TORP registry",
+      "If there is or is planned a data center network automation system. In this case, it adapts to a specific NOS, and then you update hardware platforms as you grow to new equipment without interrupting service operation",
+      "There is a need for long-term network scaling"
+     ]
+    }
+   },
+   {
+    "uuid": "img-uuid",
+    "type": "serviceImg",
+    "data": {
+     "hash": "#img",
+     "img": {
+      "src": "/static/images/service/img-1.jpg"
+     }
+    }
+   },
+   {
+    "uuid": "content-1-uuid",
+    "type": "serviceContent",
+    "data": {
+     "hash": "#content-1",
+     "tag": "What is included",
+     "title": "Service composition",
+     "items": [
+      {
+       "title": "Resources",
+       "type": "order",
+       "items": [
+        "A team of experienced specialists with practical experience in building projects based on White Box equipment from various manufacturers and operating systems",
+        "Partnership with major suppliers of White Box solutions Demo laboratory with White Box equipment"
+       ]
+      },
+      {
+       "title": "Services",
+       "type": "order",
+       "items": [
+        "Audit, TCO reduction expertise",
+        "Functional testing and pilot trials",
+        "Design, supply, installation",
+        "Support and service"
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "content-2-uuid",
+    "type": "serviceContent",
+    "data": {
+     "hash": "#content-2",
+     "tag": "What is included",
+     "title": "Service composition",
+     "items": [
+      {
+       "title": "Resources",
+       "items": [
+        "A team of experienced specialists with practical experience in building projects based on White Box equipment from various manufacturers and operating systems",
+        "Partnership with major suppliers of White Box solutions Demo laboratory with White Box equipment"
+       ]
+      },
+      {
+       "title": "Services",
+       "items": [
+        "Audit, TCO reduction expertise",
+        "Functional testing and pilot trials",
+        "Design, supply, installation",
+        "Support and service"
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "partners-1-uuid",
+    "type": "partners",
+    "data": {
+     "hash": "#partners-1",
+     "tag": "Technologies we trust",
+     "title": "Our partners",
+     "description": "Jet Infosystems works only with proven partners in the field of White Box, present in Russia for more than 10 years and demonstrating a steady growth in supply volumes.<br><br>We take on negotiations with vendors and guarantee timely project implementation",
+     "background": {
+      "src": "/static/video/ideas/jet.mp4",
+      "type": "mixed"
+     },
+     "items": [
+      {
+       "title": "Authorized partner",
+       "img": {
+        "src": "/static/images/partners/img-1.png"
+       }
+      },
+      {
+       "title": "Official partner",
+       "img": {
+        "src": "/static/images/partners/img-2.png"
+       }
+      },
+      {
+       "title": "Authorized partner",
+       "img": {
+        "src": "/static/images/partners/img-3.png"
+       }
+      },
+      {
+       "title": "Strategic partner",
+       "img": {
+        "src": "/static/images/partners/img-4.png"
+       }
+      },
+      {
+       "title": "Authorized partner",
+       "img": {
+        "src": "/static/images/partners/img-5.png"
+       }
+      },
+      {
+       "title": "Authorized partner",
+       "img": {
+        "src": "/static/images/partners/img-1.png"
+       }
+      },
+      {
+       "title": "Official partner",
+       "img": {
+        "src": "/static/images/partners/img-2.png"
+       }
+      },
+      {
+       "title": "Authorized partner",
+       "img": {
+        "src": "/static/images/partners/img-3.png"
+       }
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "partners-2-uuid",
+    "type": "partners",
+    "data": {
+     "hash": "#partners-2",
+     "tag": "Technologies we trust",
+     "title": "Our partners",
+     "background": {
+      "src": "/static/video/ideas/jet.mp4",
+      "type": "mixed"
+     },
+     "items": [
+      {
+       "title": "Authorized partner",
+       "img": {
+        "src": "/static/images/partners/img-1.png"
+       },
+       "url": "/"
+      },
+      {
+       "title": "Official partner",
+       "img": {
+        "src": "/static/images/partners/img-2.png"
+       }
+      },
+      {
+       "title": "Authorized partner",
+       "img": {
+        "src": "/static/images/partners/img-3.png"
+       }
+      },
+      {
+       "title": "Strategic partner",
+       "img": {
+        "src": "/static/images/partners/img-4.png"
+       }
+      },
+      {
+       "title": "Authorized partner",
+       "img": {
+        "src": "/static/images/partners/img-5.png"
+       }
+      },
+      {
+       "title": "Authorized partner",
+       "img": {
+        "src": "/static/images/partners/img-1.png"
+       }
+      },
+      {
+       "title": "Official partner",
+       "img": {
+        "src": "/static/images/partners/img-2.png"
+       }
+      },
+      {
+       "title": "Authorized partner",
+       "img": {
+        "src": "/static/images/partners/img-3.png"
+       }
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "faq-uuid",
+    "type": "faq",
+    "data": {
+     "hash": "#faq",
+     "tag": "Still have questions?",
+     "title": "Frequently asked questions",
+     "items": [
+      {
+       "title": "What problems does White Box help solve?",
+       "description": "For example, a company has a whole network of small offices. Each location needs network access, which is provided by a switch. But in addition to this, Wi-Fi, telephony, and the collection of information from various sensors and video cameras may also be required. The cost of implementing the entire set of these IT functions should be as low as possible, while a centralized approach should be implemented everywhere. In this case, White Box helps—it allows you to implement all these functions on a single IT platform. And by implementing monitoring and management agents, you can get the most informative system possible.",
+       "isOpen": true
+      },
+      {
+       "title": "What to consider before switching to White Box?",
+       "description": "For example, a company has a whole network of small offices. Each location needs network access, which is provided by a switch. But in addition to this, Wi-Fi, telephony, and the collection of information from various sensors and video cameras may also be required. The cost of implementing the entire set of these IT functions should be as low as possible, while a centralized approach should be implemented everywhere. In this case, White Box helps—it allows you to implement all these functions on a single IT platform. And by implementing monitoring and management agents, you can get the most informative system possible."
+      },
+      {
+       "title": "How to handle support, software updates, and documentation?",
+       "description": "For example, a company has a whole network of small offices. Each location needs network access, which is provided by a switch. But in addition to this, Wi-Fi, telephony, and the collection of information from various sensors and video cameras may also be required. The cost of implementing the entire set of these IT functions should be as low as possible, while a centralized approach should be implemented everywhere. In this case, White Box helps—it allows you to implement all these functions on a single IT platform. And by implementing monitoring and management agents, you can get the most informative system possible."
+      },
+      {
+       "title": "For which companies might White Box solutions be impractical?",
+       "description": "For example, a company has a whole network of small offices. Each location needs network access, which is provided by a switch. But in addition to this, Wi-Fi, telephony, and the collection of information from various sensors and video cameras may also be required. The cost of implementing the entire set of these IT functions should be as low as possible, while a centralized approach should be implemented everywhere. In this case, White Box helps—it allows you to implement all these functions on a single IT platform. And by implementing monitoring and management agents, you can get the most informative system possible."
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "events-1-uuid",
+    "type": "events",
+    "data": {
+     "hash": "#events-1",
+     "tag": "Events calendar",
+     "background": {
+      "type": "mixed",
+      "src": "/static/video/events/bg.mp4"
+     },
+     "items": [
+      {
+       "title": "IT Elements 2025",
+       "description": "Dates and program announced for the largest technology conference IT Elements 2025",
+       "tags": [
+        "IT Infrastructure",
+        "Machine Learning and Artificial Intelligence",
+        "Information Security"
+       ],
+       "type": "Webinar",
+       "time": "July 31, 10:00",
+       "format": "Online",
+       "btn": {
+        "title": "Register",
+        "url": "/"
+       }
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "events-2-uuid",
+    "type": "events",
+    "data": {
+     "hash": "#events-2",
+     "tag": "Events calendar",
+     "background": {
+      "type": "mixed",
+      "src": "/static/video/events/bg.mp4"
+     },
+     "items": [
+      {
+       "title": "IT Elements 2025",
+       "description": "Dates and program announced for the largest technology conference IT Elements 2025",
+       "tags": [
+        "IT Infrastructure",
+        "Machine Learning and Artificial Intelligence",
+        "Information Security"
+       ],
+       "type": "Webinar",
+       "time": "July 31, 10:00",
+       "format": "Online",
+       "btn": {
+        "title": "Register",
+        "url": "/"
+       }
+      },
+      {
+       "title": "CyberCamp 2025",
+       "description": "The 4th annual online cybersecurity conference. Listen to presentations from leading forensic specialists, penetration testers, analysts, and other experts.",
+       "tags": [
+        "Information security"
+       ],
+       "type": "Conference",
+       "time": "October 20 - 25",
+       "format": "Online",
+       "btn": {
+        "title": "Register",
+        "url": "https://2025.cybercamp.su/"
+       }
+      }
+     ]
+    }
+   },
+   {
+    "type": "leader",
+    "uuid": "leader-uuid",
+    "data": {
+     "hash": "#leader",
+     "tag": "Face and voice of the team",
+     "title": "Team Leader",
+     "person": {
+      "name": "Konstantin Konstantinopolsky",
+      "position": "Head of Cloud Platforms",
+      "img": {
+       "src": "/static/images/leader/img-1.jpg"
+      },
+      "btn": {
+       "title": "Contact",
+       "hash": "#callback"
+      }
+     }
+    }
+   },
+   {
+    "uuid": "reviews-uuid",
+    "type": "reviews",
+    "data": {
+     "hash": "#reviews",
+     "tag": "About us",
+     "title": "What clients say",
+     "items": [
+      {
+       "description": "«The transition to a new platform will allow us to improve the quality of customer service, thereby increasing their satisfaction with our service. The project was completed to a high professional standard.».",
+       "person": {
+        "name": "Ekaterina Borodkina",
+        "position": "Head of IT Service Management at Beeline",
+        "img": {
+         "src": "/static/images/reviews/photo1.png"
+        }
+       }
+      },
+      {
+       "description": "«The transition to a new platform will allow us to improve the quality of customer service, thereby increasing their satisfaction with our service. The project was completed to a high professional standard.».",
+       "person": {
+        "name": "Andrey Nesterov",
+        "position": "Technical Director at Yota",
+        "img": {
+         "src": "/static/images/reviews/photo2.png"
+        }
+       }
+      },
+      {
+       "description": "«The transition to a new platform will allow us to improve the quality of customer service, thereby increasing their satisfaction with our service. The project was completed to a high professional standard.».",
+       "person": {
+        "name": "Ekaterina Borodkina",
+        "position": "Head of IT Service Management at Beeline",
+        "img": {
+         "src": "/static/images/reviews/photo1.png"
+        }
+       }
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "information-1-uuid",
+    "type": "information",
+    "data": {
+     "hash": "#information-1",
+     "tag": "What makes us strong",
+     "title": "Why «Infosystems Jet»",
+     "items": [
+      {
+       "title": "1000+",
+       "description": "Database audits",
+       "link": {
+        "title": "HH.ru",
+        "url": "/"
+       }
+      },
+      {
+       "title": "10",
+       "description": "Largest companies in Russia for which DBMS were designed"
+      },
+      {
+       "title": "Approach",
+       "description": "To each project and client"
+      },
+      {
+       "title": "30+",
+       "description": "Years of experience in designing and implementing DBMS in leading IT infrastructures"
+      },
+      {
+       "title": "30+ PB",
+       "description": "Experience migrating DBMS with more than 30 petabytes of data in a week"
+      },
+      {
+       "title": "100+",
+       "description": "Projects using DBMS in 2024",
+       "link": {
+        "title": "HH.ru",
+        "url": "/"
+       }
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "information-2-uuid",
+    "type": "information",
+    "data": {
+     "variant": "information_list",
+     "hash": "#information-2",
+     "tag": "What makes us strong",
+     "title": "Why «Infosystems Jet»",
+     "items": [
+      {
+       "title": "1000+",
+       "description": "Database audits",
+       "link": {
+        "title": "HH.ru",
+        "url": "/"
+       }
+      },
+      {
+       "title": "10",
+       "description": "Largest companies in Russia for which DBMS were designed"
+      },
+      {
+       "title": "Approach",
+       "description": "To each project and client"
+      },
+      {
+       "title": "30+",
+       "description": "Years of experience in designing and implementing DBMS in leading IT infrastructures"
+      },
+      {
+       "title": "30+ PB",
+       "description": "Experience migrating DBMS with more than 30 petabytes of data in a week"
+      },
+      {
+       "title": "100+",
+       "description": "Projects using DBMS in 2024",
+       "link": {
+        "title": "HH.ru",
+        "url": "/"
+       }
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "text-4-uuid",
+    "type": "serviceText",
+    "data": {
+     "hash": "#text-4",
+     "tag": "Why choose us",
+     "title": "White Box: «Infosystems Jet Expertise»",
+     "items": [
+      {
+       "description": "White Box is a composite product, so it is not always clear who to turn to for help at different stages of implementation and when problems arise. A large IT integrator plays the role of a center of expertise here: it helps to conduct detailed testing of the solution, performs all turnkey work, and provides long-term support."
+      },
+      {
+       "description": "The more experience an integrator has in building data centers using various network solutions, the better the quality of White Box implementation and subsequent operation they can ensure."
+      },
+      {
+       "description": "«Infosystem Jet» has a special laboratory for testing White Box solutions, where we have already tested Edgecore, Asterfusion, and Ufispace switches. All models were used in the construction of real data centers in Russia, which gives us, as an integrator, an understanding of all the nuances of working with them."
+      },
+      {
+       "description": "We are ready to offer our assistance in all aspects: from selecting a suitable solution, developing a working project, equipment delivery and implementation, to the subsequent development of data center network automation systems and support for the final solution. We are also ready to provide training and consultations to end customers on white-box products."
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "text-5-uuid",
+    "type": "serviceText",
+    "data": {
+     "hash": "#text-5",
+     "tag": "Why choose us",
+     "title": "White Box: «Jet Infosystems Expertise»",
+     "items": [
+      {
+       "title": "Expert approach",
+       "description": "The more experience an integrator has building data centers using various network solutions, the better the quality of the White Box implementation and subsequent operation. The Infosystems Jet team will help conduct detailed testing of the solution, perform all turnkey work, and provide long-term support."
+      },
+      {
+       "title": "Laboratory for testing White Box solutions",
+       "description": "Infosystems Jet has a special laboratory for testing White Box solutions, where we have already tested Edgecore, Asterfusion, and Ufispace switches. All models were used in the construction of real data centers in Russia, which gives us, as an integrator, an understanding of all the nuances of working with them."
+      },
+      {
+       "title": "Professional support",
+       "description": "We are ready to offer our assistance in all aspects: from selecting a suitable solution, developing a working project, equipment delivery and implementation, to the subsequent development of data center network automation systems and support for the final solution. We are also ready to provide training and consultations to end customers on white-box products."
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "img-text-uuid",
+    "type": "serviceImgText",
+    "data": {
+     "hash": "#img-text",
+     "tag": "Hybrid cloud model",
+     "img": {
+      "src": "/static/images/service/img-1.jpg"
+     },
+     "description": "Hybrid cloud combines a company's IT resources with the infrastructure and services of third-party public cloud providers. The hybrid cloud model allows flexible distribution of IT services depending on their criticality — with a hybrid cloud, data can be stored and applications run in multiple environments. At the same time, the hybrid cloud environment allows centralized management of all computing resources.<br><br>Strategically, the hybrid cloud enables faster adaptation to changing market conditions and flexible scaling in accordance with business goals. Most importantly, the hybrid cloud combines the advantages of two approaches: on-premise and cloud. Constant or specific loads are more efficiently kept in-house, while variable loads are moved to the cloud. The virtual environment allows rapid system deployment regardless of equipment delivery times and significantly reduces Time to Market."
+    }
+   },
+   {
+    "uuid": "stages-uuid",
+    "type": "stages",
+    "data": {
+     "hash": "#stages",
+     "tag": "How we work",
+     "title": "Project implementation stages",
+     "items": [
+      {
+       "title": "Analysis of current<br>IT infrastructure and requirements",
+       "description": "Analysis of current<br>IT infrastructure and requirements"
+      },
+      {
+       "title": "Cloud architecture design",
+       "description": "Analysis of current IT infrastructure and requirements. Analysis of current IT infrastructure and requirements."
+      },
+      {
+       "title": "Deployment and Integration",
+       "description": "Analysis of current<br>IT infrastructure and requirements"
+      },
+      {
+       "title": "Support, maintenance, optimization",
+       "description": "Analysis of current<br>IT infrastructure and requirements"
+      },
+      {
+       "title": "Analysis of current<br>IT infrastructure and requirements",
+       "description": "Analysis of current<br>IT infrastructure and requirements"
+      },
+      {
+       "title": "Cloud architecture design",
+       "description": "Analysis of current IT infrastructure and requirements"
+      },
+      {
+       "title": "Deployment and Integration",
+       "description": "Analysis of current<br>IT infrastructure and requirements"
+      },
+      {
+       "title": "Support, maintenance, optimization",
+       "description": "Analysis of current<br>IT infrastructure and requirements"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "topical-uuid",
+    "type": "topical",
+    "data": {
+     "hash": "#topical",
+     "tag": "Topical",
+     "title": "Latest news, cases, releases, and expert materials",
+     "items": [
+      {
+       "tag": "News",
+       "title": "What is White Box and why should you consider it?",
+       "tags": [
+        "Cybersecurity",
+        "Security"
+       ],
+       "url": "https://www.jetinfo.ru/chto-takoe-white-box-i-pochemu-o-nem-stoit-zadumatsya/"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "callback-uuid",
+    "type": "callback",
+    "data": {
+     "hash": "#callback",
+     "tag": "Still have questions?",
+     "title": "Tell us about your task — we will offer a solution",
+     "background": {
+      "type": "mixed",
+      "src": "/static/images/callback/img-1.jpg"
+     },
+     "form": {
+      "visible": [
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Name*",
+           "name": "name",
+           "validations": [
+            "required"
+           ]
+          }
+         },
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Last Name*",
+           "name": "lastName",
+           "validations": [
+            "required"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Email*",
+           "name": "email",
+           "validations": [
+            "required",
+            "email"
+           ]
+          }
+         },
+         {
+          "type": "phone",
+          "data": {
+           "placeholder": "Phone",
+           "name": "phone",
+           "validations": [
+            "phone"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Company*",
+           "name": "company",
+           "validations": [
+            "required"
+           ]
+          }
+         },
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Position",
+           "name": "position"
+          }
+         }
+        ]
+       },
+       {
+        "type": "textarea",
+        "data": {
+         "placeholder": "Describe your task*",
+         "name": "task",
+         "validations": [
+          "required"
+         ]
+        }
+       }
+      ],
+      "btn": {
+       "title": "Submit"
+      },
+      "action": "/form/callback"
+     }
+    }
+   }
+  ]
+ }
+}

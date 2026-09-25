@@ -1,0 +1,607 @@
+{
+ "status": "success",
+ "data": {
+  "breadcrumbs": {
+   "variant": "breadcrumbs_blue",
+   "items": [
+    {
+     "title": "Карьера"
+    }
+   ]
+  },
+  "seo": {
+   "title": "Карьера"
+  },
+  "content": [
+   {
+    "uuid": "hero-uuid",
+    "type": "careerHero",
+    "data": {
+     "hash": "#hero",
+     "tag": "Карьера",
+     "title": "<span style=\"color:#BBBBBB\">В нашей команде новички</span> <span style=\"color:#21252C\">быстро растут,</span><span style=\"color:#BBBBBB\"> а профессионалы </span><span style=\"color:#21252C\">реализуют масштабные проекты.</span> <span style=\"color:#BBBBBB\">Здесь</span> <span style=\"color:#21252C\">ваши идеи меняют будущее</span>",
+     "images": [
+      {
+       "src": "/static/images/team/team-1.jpg"
+      },
+      {
+       "src": "/static/images/team/team-2.jpg"
+      },
+      {
+       "src": "/static/images/team/team-3.jpg"
+      },
+      {
+       "src": "/static/images/team/team-7.jpg"
+      },
+      {
+       "src": "/static/images/team/team-6.jpg"
+      },
+      {
+       "src": "/static/images/team/team-4.jpg"
+      }
+     ],
+     "btn": {
+      "title": "Найти вакансию",
+      "url": "/vacancies"
+     },
+     "btnScroll": {
+      "title": "Отправить резюме"
+     },
+     "tags": [
+      {
+       "title": "Стажировки",
+       "url": "/internships"
+      },
+      {
+       "title": "Все вакансии",
+       "url": "/vacancies"
+      },
+      {
+       "title": "Сервис и поддержка пользователей",
+       "url": "/vacancies/?type=service"
+      },
+      {
+       "title": "ИТ-инфраструктура",
+       "url": "/vacancies/?type=it"
+      },
+      {
+       "title": "Информационная безопасность",
+       "url": "/vacancies/?type=security"
+      },
+      {
+       "title": "Сети и инженерная инфраструктура",
+       "url": "/vacancies/?type=networks"
+      },
+      {
+       "title": "Машинное обучение и ИИ",
+       "url": "/vacancies/?type=ai"
+      },
+      {
+       "title": "Разработка ПО и бизнес-приложений",
+       "url": "/vacancies/?type=development"
+      },
+      {
+       "title": "Управление проектами и продуктами",
+       "url": "/vacancies/?type=management"
+      },
+      {
+       "title": "Финансы",
+       "url": "/vacancies/?type=finance"
+      },
+      {
+       "title": "Продажи",
+       "url": "/vacancies/?type=sales"
+      },
+      {
+       "title": "Административный персонал",
+       "url": "/vacancies/?type=personal"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "video-uuid",
+    "type": "careerVideo",
+    "data": {
+     "hash": "#video",
+     "video": {
+      "url": "/static/video/career/jet.mp4"
+     }
+    }
+   },
+   {
+    "uuid": "about-uuid",
+    "type": "about",
+    "data": {
+     "hash": "#about",
+     "title": "«Инфосистемы Джет» — крупная ИТ-компания с 35-летней историей. Мы реализуем ключевые проекты для ведущих игроков рынка. У нас сильная экспертиза, интересные задачи и высокотехнологичная среда.",
+     "subtitle": "Входим в пятерку крупнейших<br>ИКТ-компаний России",
+     "link": {
+      "title": "RAEX, 2025 год",
+      "url": "/"
+     },
+     "items": [
+      {
+       "title": "Топ-100",
+       "description": "Рейтинга работодателей HH.ru за 2024 год",
+       "link": {
+        "title": "HH.ru",
+        "url": "/"
+       }
+      },
+      {
+       "title": "2 200+",
+       "description": "Сотрудников с высокой квалификацией"
+      },
+      {
+       "title": "800+",
+       "description": "Уникальных проектов реализуем ежегодно"
+      },
+      {
+       "title": "30+",
+       "description": "Демолабораторий (DevSecOps, Jet RuLab, Wi-Fi 6, ИБ-решений и др.)"
+      },
+      {
+       "title": "Топ-5",
+       "description": "Рейтинга IT-работодателей «Хабр Карьеры» за 2024 год",
+       "link": {
+        "title": "HH.ru",
+        "url": "/"
+       }
+      }
+     ],
+     "companies": [
+      {
+       "src": "/static/images/career/about/img-1.png"
+      },
+      {
+       "src": "/static/images/career/about/img-2.png"
+      },
+      {
+       "src": "/static/images/career/about/img-3.png"
+      },
+      {
+       "src": "/static/images/career/about/img-4.png"
+      },
+      {
+       "src": "/static/images/career/about/img-5.png"
+      },
+      {
+       "src": "/static/images/career/about/img-6.png"
+      },
+      {
+       "src": "/static/images/career/about/img-7.png"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "stack-uuid",
+    "type": "stack",
+    "data": {
+     "hash": "#stack",
+     "tag": "Технологический стек",
+     "title": "Мы работаем на пересечении<br>современных технологий и устойчивых инженерных практик",
+     "items": [
+      {
+       "src": "/static/images/career/stack/img-1.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-2.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-3.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-4.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-5.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-6.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-7.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-8.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-9.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-10.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-11.png"
+      },
+      {
+       "src": "/static/images/career/stack/img-12.png"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "benefits-uuid",
+    "type": "benefits",
+    "data": {
+     "hash": "#benefits",
+     "tag": "Плюсы и возможности",
+     "title": "Почему выбирают нас",
+     "items": [
+      {
+       "title": "Аккредитованная ИТ-компания",
+       "description": "1 Масштабные выездные мероприятия для сотрудников и их семей. Клубы по интересам: бег, мото- и велоспорт, волейбол, баскетбол, йога, горные лыжи, сноуборд, джиу-джитсу, пинг-понг, футбол или просто PlayStation и даже своя рок-группа Jet Zeppelin. А также: художественные практикумы, киберспортивные турниры, экскурсии по городу. И, конечно, самые грандиозные корпоративы",
+       "img": {
+        "src": "/static/images/career/benefits/img-1.jpg"
+       }
+      },
+      {
+       "title": "Гибкий социальный пакет ",
+       "description": "2 Масштабные выездные мероприятия для сотрудников и их семей. Клубы по интересам: бег, мото- и велоспорт, волейбол, баскетбол, йога, горные лыжи, сноуборд, джиу-джитсу, пинг-понг, футбол или просто PlayStation и даже своя рок-группа Jet Zeppelin. А также: художественные практикумы, киберспортивные турниры, экскурсии по городу.",
+       "img": {
+        "src": "/static/images/topical/img-1.jpg"
+       }
+      },
+      {
+       "title": "Забота о вас и ваших близких",
+       "description": "3 Масштабные выездные мероприятия для сотрудников и их семей. Клубы по интересам: бег, мото- и велоспорт, волейбол, баскетбол, йога, горные лыжи, сноуборд, джиу-джитсу, пинг-понг, футбол или просто PlayStation и даже своя рок-группа Jet Zeppelin. А также: художественные практикумы, киберспортивные турниры, экскурсии по городу. И, конечно, самые грандиозные корпоративы",
+       "img": {
+        "src": "/static/images/career/benefits/img-1.jpg"
+       }
+      },
+      {
+       "title": "Обучение и развитие",
+       "description": "4 Масштабные выездные мероприятия для сотрудников и их семей. Клубы по интересам: бег, мото- и велоспорт, волейбол, баскетбол, йога, горные лыжи, сноуборд, джиу-джитсу, пинг-понг, футбол или просто PlayStation и даже своя рок-группа Jet Zeppelin. А также: художественные практикумы, киберспортивные турниры, экскурсии по городу.",
+       "img": {
+        "src": "/static/images/topical/img-1.jpg"
+       }
+      },
+      {
+       "title": "Конференции и выступления",
+       "description": "5 Масштабные выездные мероприятия для сотрудников и их семей. Клубы по интересам: бег, мото- и велоспорт, волейбол, баскетбол, йога, горные лыжи, сноуборд, джиу-джитсу, пинг-понг, футбол или просто PlayStation и даже своя рок-группа Jet Zeppelin. А также: художественные практикумы, киберспортивные турниры, экскурсии по городу. И, конечно, самые грандиозные корпоративы",
+       "img": {
+        "src": "/static/images/career/benefits/img-1.jpg"
+       }
+      },
+      {
+       "title": "Офис и оборудование",
+       "description": "6 Масштабные выездные мероприятия для сотрудников и их семей. Клубы по интересам: бег, мото- и велоспорт, волейбол, баскетбол, йога, горные лыжи, сноуборд, джиу-джитсу, пинг-понг, футбол или просто PlayStation и даже своя рок-группа Jet Zeppelin. А также: художественные практикумы, киберспортивные турниры, экскурсии по городу.",
+       "img": {
+        "src": "/static/images/topical/img-1.jpg"
+       }
+      },
+      {
+       "title": "Совместные активности и досуг",
+       "description": "7 Масштабные выездные мероприятия для сотрудников и их семей. Клубы по интересам: бег, мото- и велоспорт, волейбол, баскетбол, йога, горные лыжи, сноуборд, джиу-джитсу, пинг-понг, футбол или просто PlayStation и даже своя рок-группа Jet Zeppelin. А также: художественные практикумы, киберспортивные турниры, экскурсии по городу. И, конечно, самые грандиозные корпоративы",
+       "img": {
+        "src": "/static/images/career/benefits/img-1.jpg"
+       }
+      },
+      {
+       "title": "Корпоративные скидки",
+       "description": "8 Масштабные выездные мероприятия для сотрудников и их семей. Клубы по интересам: бег, мото- и велоспорт, волейбол, баскетбол, йога, горные лыжи, сноуборд, джиу-джитсу, пинг-понг, футбол или просто PlayStation и даже своя рок-группа Jet Zeppelin. А также: художественные практикумы, киберспортивные турниры, экскурсии по городу.",
+       "img": {
+        "src": "/static/images/topical/img-1.jpg"
+       }
+      },
+      {
+       "title": "Команда и атмосфера",
+       "description": "9 Масштабные выездные мероприятия для сотрудников и их семей. Клубы по интересам: бег, мото- и велоспорт, волейбол, баскетбол, йога, горные лыжи, сноуборд, джиу-джитсу, пинг-понг, футбол или просто PlayStation и даже своя рок-группа Jet Zeppelin. А также: художественные практикумы, киберспортивные турниры, экскурсии по городу. И, конечно, самые грандиозные корпоративы",
+       "img": {
+        "src": "/static/images/career/benefits/img-1.jpg"
+       }
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "offers-uuid",
+    "type": "offers",
+    "data": {
+     "hash": "#offers",
+     "tag": "Стажировки",
+     "title": "Начни карьеру вместе с нами",
+     "subtitle": "Что мы предлагаем",
+     "description": "Тут ценят твое время и горят общим делом! Тебя ждут реальные задачи, оплачиваемая стажировка, крутые наставники и мощный буст для старта карьеры",
+     "btn": {
+      "title": "Все стажировки",
+      "url": "/internships"
+     },
+     "items": [
+      {
+       "title": "Команда крутых экспертов",
+       "description": "Будешь работать над реальными проектами вместе с топовыми специалистами"
+      },
+      {
+       "title": "Прокачка скиллов",
+       "description": "Дадим доступ к нашим закрытым курсам и материалам. Учись и применяй сразу на практике"
+      },
+      {
+       "title": "График под твой ритм",
+       "description": "Можно совмещать с учебой без стресса. Сессия, пары — гибко подойдем к этому вопросу"
+      },
+      {
+       "title": "Нетворкинг и комьюнити",
+       "description": "Воркшопы, митапы, ивенты — погружаем в атмосферу, где знакомятся и растут вместе"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "gallery-uuid",
+    "type": "gallery",
+    "data": {
+     "hash": "#gallery",
+     "title": "Подписывайтесь<br>на наши площадки",
+     "items": [
+      {
+       "img": {
+        "src": "/static/images/career/gallery/img-1.jpg"
+       },
+       "caption": "Победители премии Jet Stars"
+      },
+      {
+       "img": {
+        "src": "/static/images/career/gallery/img-2.jpg"
+       },
+       "caption": "Творческая атмосфера"
+      },
+      {
+       "img": {
+        "src": "/static/images/career/gallery/img-3.jpg"
+       },
+       "caption": "Работа в вашем темпе"
+      },
+      {
+       "img": {
+        "src": "/static/images/career/gallery/img-4.jpg"
+       },
+       "caption": "Работа над проектом в офисе"
+      }
+     ],
+     "socials": [
+      {
+       "title": "Telegram",
+       "icon": "telegram",
+       "url": "https://t.me/+DTFpOi9-ssxmYzRi"
+      },
+      {
+       "title": "Rutube",
+       "icon": "rutube",
+       "url": "https://rutube.ru/channel/26045378/"
+      },
+      {
+       "title": "Habr",
+       "icon": "habr",
+       "url": "https://habr.com/ru/company/jetinfosystems/profile/"
+      },
+      {
+       "title": "HeadHunter",
+       "icon": "hh",
+       "url": "https://hh.ru/employer/3095"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "banners-uuid",
+    "type": "banners",
+    "data": {
+     "hash": "#banners",
+     "items": [
+      {
+       "title": "Наши вакансии",
+       "description": "Присоединяйтесь к нам, чтобы работать<br>над масштабными проектами",
+       "btn": {
+        "title": "Все вакансии",
+        "url": "/vacancies"
+       }
+      },
+      {
+       "title": "Программы стажировок",
+       "description": "Начни строить карьеру в Джет —<br>выбери направление и напиши нам!",
+       "btn": {
+        "title": "Все стажировки",
+        "url": "/internships"
+       }
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "topical-uuid",
+    "type": "topical",
+    "data": {
+     "hash": "#topical",
+     "tag": "Актуальное",
+     "title": "Последние новости, кейсы, релизы и экспертные материалы",
+     "items": [
+      {
+       "tag": "Новость",
+       "title": "Старт IT Elements 2025 — в Москве открылась главная ИТ-конференция осени",
+       "tags": [
+        "Кибербез",
+        "Безопасность"
+       ],
+       "img": {
+        "src": "/static/images/topical/img-1.jpg"
+       },
+       "url": "https://jet.su/press-center/news/start-it-elements-2025-v-moskve-otkrylas-glavnaya-it-konferentsiya-oseni/"
+      },
+      {
+       "tag": "Статья",
+       "title": "Открыта регистрация на главный онлайн-кэмп по практической кибербезопасности CyberCamp 2025",
+       "tags": [
+        "Кибербез",
+        "Безопасность"
+       ],
+       "img": {
+        "src": "/static/images/topical/img-2.jpg"
+       },
+       "url": "https://jet.su/press-center/news/otkryta-registratsiya-na-glavnyy-onlayn-kemp-po-prakticheskoy-kiberbezopasnosti-cybercamp-2025/"
+      },
+      {
+       "tag": "Новость",
+       "title": "«Сетевое лето»: главные темы первой правктической ИТ-конференции о сетях и инженерной инфраструктуре",
+       "tags": [
+        "Кибербез",
+        "Безопасность"
+       ],
+       "url": "https://jet.su/press-center/news/setevoe-leto-glavnye-temy-pervoy-prakticheskoy-it-konferentsii-o-setyakh-i-inzhenernoy-infrastruktur/"
+      },
+      {
+       "tag": "Статья",
+       "title": "Зачем бизнесу частные сети?",
+       "tags": [
+        "Кибербез",
+        "Безопасность"
+       ],
+       "img": {
+        "src": "/static/images/topical/img-2.jpg"
+       },
+       "url": "https://jet.su/czentr-ekspertizy/all/zachem-biznesu-chastnye-seti/"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "callback-uuid",
+    "type": "callback",
+    "data": {
+     "hash": "#callback",
+     "tag": "Не нашли подходящую вакансию?",
+     "title": "Оставьте свои контакты — мы напишем, когда появится подходящая позиция",
+     "background": {
+      "type": "mixed",
+      "src": "/static/images/callback/img-1.jpg"
+     },
+     "form": {
+      "visible": [
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Имя*",
+           "name": "name",
+           "validations": [
+            "required"
+           ]
+          }
+         },
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Фамилия*",
+           "name": "lastName",
+           "validations": [
+            "required"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Email*",
+           "name": "email",
+           "validations": [
+            "required",
+            "email"
+           ]
+          }
+         },
+         {
+          "type": "phone",
+          "data": {
+           "placeholder": "Телефон*",
+           "name": "phone",
+           "validations": [
+            "required",
+            "phone"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Желаемая должность*",
+         "name": "position",
+         "validations": [
+          "required"
+         ]
+        }
+       },
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Ссылки на соцсети и мессенджеры",
+         "name": "socials"
+        }
+       },
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Ссылка на резюме",
+           "name": "rezume"
+          }
+         },
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Ссылка на портфолио",
+           "name": "portfolio"
+          }
+         }
+        ]
+       },
+       {
+        "type": "textarea",
+        "data": {
+         "placeholder": "Сопроводительное письмо*",
+         "name": "text",
+         "validations": [
+          "required"
+         ]
+        }
+       },
+       {
+        "type": "file",
+        "data": {
+         "name": "file",
+         "acceptedFileTypes": [
+          "application/pdf",
+          ".doc,",
+          ".docx",
+          "application/msword",
+          "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "application/rtf"
+         ],
+         "validations": [
+          "file"
+         ]
+        }
+       }
+      ],
+      "btn": {
+       "title": "Отправить отклик"
+      },
+      "action": "/form/callback"
+     }
+    }
+   }
+  ]
+ }
+}

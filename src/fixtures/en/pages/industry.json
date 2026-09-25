@@ -1,0 +1,721 @@
+{
+ "status": "success",
+ "data": {
+  "breadcrumbs": {
+   "items": [
+    {
+     "title": "Telecom"
+    }
+   ]
+  },
+  "seo": {
+   "title": "Industry"
+  },
+  "content": [
+   {
+    "uuid": "hero-uuid",
+    "type": "viewIndustry",
+    "data": {
+     "title": "Telecom",
+     "description": "We help telecom operators accelerate digital transformation, increase network capacity, and reduce IT infrastructure maintenance costs",
+     "background": {
+      "type": "mixed",
+      "src": "/static/video/events/bg.mp4"
+     },
+     "btn": {
+      "title": "All industries",
+      "url": "/"
+     },
+     "addContent": {
+      "items": [
+       {
+        "title": "80+",
+        "description": "Projects completed annually"
+       },
+       {
+        "title": "60+",
+        "description": "Domestic partners"
+       }
+      ],
+      "company": [
+       {
+        "src": "/static/images/logo-1-white.svg",
+        "alt": "logo"
+       },
+       {
+        "src": "/static/images/logo-2-white.svg",
+        "alt": "logo"
+       },
+       {
+        "src": "/static/images/logo-3-white.svg",
+        "alt": "logo"
+       }
+      ]
+     }
+    }
+   },
+   {
+    "uuid": "aboutIndustry-uuid",
+    "type": "aboutIndustry",
+    "data": {
+     "hash": "#about-industry",
+     "tag": "Why Jet Infosystems",
+     "title": "Turning technological infrastructure into a strategic advantage",
+     "navTitle": "About the industry",
+     "description": [
+      "Our projects combine Russian hardware and software with global best practices and deep expertise. We don't just implement technology—we create the foundation for your growth.",
+      "We help build fault-tolerant data centers, migrate networks to modern technologies (SD-WAN/SDN), and create secure virtualization platforms so you can confidently grow your business.",
+      "We annually expand our portfolio of solutions, regularly adding innovative technologies while maintaining classic tools and systems."
+     ],
+     "items": [
+      "Проектирование и внедрение SD‑WAN",
+      "Модернизация сетей",
+      "Мониторинг и аналитика",
+      "Проектирование и строительство дата‑центров",
+      "Специальные решения для операторов связи",
+      "Облачные платформы для телеком-индустрии",
+      "Киберзащита инфраструктуры и SOC",
+      "ИТ‑аутсорсинг и сервисная поддержка"
+     ]
+    }
+   },
+   {
+    "uuid": "solutions-uuid",
+    "type": "solutions",
+    "data": {
+     "hash": "#solutions",
+     "tag": "Services and solutions",
+     "title": "We implement large-scale telecom projects—from technical support of network equipment and software to building an MVNO core",
+     "navTitle": "Services and solutions",
+     "btn": {
+      "title": "All services",
+      "url": "/"
+     },
+     "items": [
+      {
+       "title": "Service and outsourcing",
+       "content": {
+        "items": [
+         {
+          "title": "Technical equipment support",
+          "description": "We support both multivendor hybrid IT landscapes and individual systems"
+         },
+         {
+          "title": "Infrastructure recovery after a cyberattack",
+          "description": "We repel cyberattacks, help restore business processes and IT systems after an incident. We respond within an hour of the request"
+         },
+         {
+          "title": "Technical software support",
+          "description": "We ensure stable software operation and timely updates for continuous and resilient business processes"
+         },
+         {
+          "title": "IT infrastructure outsourcing",
+          "description": "We manage and support IT infrastructure with the expertise of Jet Infosystems specialists"
+         }
+        ],
+        "btn": {
+         "title": "Show more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Infrastructure 3.0 and hybrid clouds",
+       "content": {
+        "items": [
+         {
+          "title": "Backup and data recovery systems",
+          "description": "We protect your data, ensuring security and information preservation for uninterrupted business operations"
+         },
+         {
+          "title": "Fault-tolerant and cyber-resilient IT infrastructure",
+          "description": "We build reliable IT infrastructure with protection against cyberattacks and failures"
+         },
+         {
+          "title": "Private and hybrid clouds",
+          "description": "We create and maintain cloud infrastructure, automate IT processes, and migrate services to cloud platforms"
+         },
+         {
+          "title": "Data storage systems",
+          "description": "We implement reliable and scalable storage systems, configure data security, and ensure easy scalability"
+         },
+         {
+          "title": "IT infrastructure import substitution",
+          "description": "We develop strategies for import substitution and transition to domestic IT infrastructure"
+         }
+        ],
+        "btn": {
+         "title": "Show more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Information Security",
+       "content": {
+        "items": [
+         {
+          "title": "Jet CSIRT (Monitoring and response to cyberattacks)",
+          "description": "We provide effective threat detection and timely response. We take on SOC outsourcing, build monitoring and incident response processes for information security"
+         },
+         {
+          "title": "Network security",
+          "description": "We help implement controlled secure network interaction at all levels, configure access policies, and ensure transparent and secure data exchange"
+         },
+         {
+          "title": "Vulnerability management as a service",
+          "description": "Expert vulnerability analysis: We identify the most dangerous ones and help justify the need to fix them."
+         },
+         {
+          "title": "Access management",
+          "description": "We implement solutions for authentication and access rights management"
+         },
+         {
+          "title": "DevSecOps",
+          "description": "We develop and adapt secure software development methodologies, implement DevSecOps tools, and train teams to work with them"
+         }
+        ],
+        "btn": {
+         "title": "Show more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Industrial Safety and IoT",
+       "content": {
+        "items": [
+         {
+          "title": "Personnel and equipment positioning system",
+          "description": "We implement systems to prevent vehicle collisions, as well as tools to determine the location of personnel and equipment at industrial sites"
+         },
+         {
+          "title": "Computer vision and video analytics based on AI",
+          "description": "We automate quality and safety control using AI solutions and computer vision"
+         },
+         {
+          "title": "Comprehensive physical security systems",
+          "description": "We build modern comprehensive security systems for threat prediction and prevention"
+         }
+        ],
+        "btn": {
+         "title": "Show more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Intelligent Networks and Engineering Infrastructure",
+       "content": {
+        "items": [
+         {
+          "title": "TELCO CLOUD",
+          "description": "Platform for hosting intelligent components of a telecom operator — from packet core network and billing to monitoring"
+         },
+         {
+          "title": "Software-defined networks",
+          "description": "We implement comprehensive SD-WAN solutions, design network architecture, and supply equipment and software"
+         },
+         {
+          "title": "Data center engineering systems service and support",
+          "description": "We maintain the operability of the engineering infrastructure of your data centers"
+         },
+         {
+          "title": "Data center data transmission networks",
+          "description": "We design, build, and modernize data transmission networks for data centers"
+         }
+        ],
+        "btn": {
+         "title": "Show more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Digital Transformation and DevSecOps",
+       "content": {
+        "items": [
+         {
+          "title": "DevSecOps",
+          "description": "We develop and adapt secure software development methodologies, implement DevSecOps tools, and train teams to work with them"
+         },
+         {
+          "title": "Container virtualization platforms",
+          "description": "We design and implement secure container platforms for running microservice applications"
+         },
+         {
+          "title": "IT strategy development for enterprises",
+          "description": "We develop plans for the development of information systems to optimize business processes and reduce company costs"
+         },
+         {
+          "title": "Organization of teams and tools for software and ML development",
+          "description": "We organize teams of specialists, build processes, and platform infrastructure for sustainable delivery of applications and AI/ML solutions"
+         }
+        ],
+        "btn": {
+         "title": "Show more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Software Development and Business Applications",
+       "content": {
+        "items": [
+         {
+          "title": "Customer Data and Relationship Platform",
+          "description": "We build systems for working with customers: integrating data, automating processes, and improving team efficiency"
+         },
+         {
+          "title": "Industrial Data Collection and Processing Systems",
+          "description": "We implement platforms for collecting, storing, and analyzing industrial data"
+         },
+         {
+          "title": "Integration of application systems and software",
+          "description": "We turn a set of disparate solutions into a single digital ecosystem, ensuring the coherent operation of applications and services"
+         },
+         {
+          "title": "Credit pipeline",
+          "description": "We implement solutions to automate the lending process: from application to support"
+         },
+         {
+          "title": "Integration of cloud services and cloud infrastructure management",
+          "description": "We integrate cloud provider services and configure infrastructure management: migration, orchestration, cost optimization, and security"
+         }
+        ],
+        "btn": {
+         "title": "Show more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Machine learning and artificial intelligence",
+       "content": {
+        "items": [
+         {
+          "title": "Prediction systems",
+          "description": "We reduce risks and improve forecast accuracy using AI and ML"
+         },
+         {
+          "title": "Recommendation services",
+          "description": "We implement AI systems for personalized recommendations and increased conversion"
+         },
+         {
+          "title": "Speech analytics",
+          "description": "We develop speech analytics systems for processing customer calls and evaluating operator performance"
+         },
+         {
+          "title": "Corporate GPT based on large language models",
+          "description": "We create and implement AI assistants, automating work with documents and clients"
+         }
+        ],
+        "btn": {
+         "title": "Show more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Data Management",
+       "content": {
+        "items": [
+         {
+          "title": "Data Warehouses",
+          "description": "We design data warehouses (Data Warehouse) for preparing accurate and consistent management reporting"
+         },
+         {
+          "title": "Data Integration",
+          "description": "We help ensure reliable data delivery, configure ETL/ELT processes, CDC replication, and MQ queues"
+         },
+         {
+          "title": "Business Intelligence Systems",
+          "description": "We implement BI solutions for data visualization, analysis, and control of company business processes"
+         }
+        ],
+        "btn": {
+         "title": "Show more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Consulting and Audit",
+       "content": {
+        "items": [
+         {
+          "title": "IT Infrastructure Audit",
+          "description": "We conduct an independent assessment of IT infrastructure for business requirements compliance"
+         },
+         {
+          "title": "IT Strategy Development for Enterprise",
+          "description": "We develop an information systems development plan to optimize business processes and reduce company costs"
+         },
+         {
+          "title": "Expert Information Security Consulting",
+          "description": "We conduct audits and analyses of information security, developing cybersecurity strategies"
+         },
+         {
+          "title": "Practical Security Analysis",
+          "description": "We simulate attacker actions to assess IT infrastructure protection. We identify vulnerabilities and prepare recommendations to enhance security"
+         }
+        ],
+        "btn": {
+         "title": "Show more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Training and Cyber Exercises",
+       "content": {
+        "items": [
+         {
+          "title": "Jet CyberCamp",
+          "description": "Annual online cybersecurity conference. Listen to reports from leading experts, pentesters, and analysts. Participate in team cyber exercises on the Jet CyberCamp platform"
+         },
+         {
+          "title": "Information Security Staff Training (Security Awareness)",
+          "description": "We conduct information security training for employees: from knowledge assessment to regular training sessions"
+         }
+        ],
+        "btn": {
+         "title": "Show more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Digital Workplace",
+       "content": {
+        "items": [
+         {
+          "title": "Virtual Desktop Infrastructure (VDI)",
+          "description": "We create virtual desktop infrastructure for secure remote work"
+         },
+         {
+          "title": "Corporate IP Telephony Systems",
+          "description": "We build effective business communications using corporate IP telephony systems"
+         },
+         {
+          "title": "Smart Office",
+          "description": "We integrate IT system complexes into a single workspace"
+         },
+         {
+          "title": "Unified Communications and Collaboration Solutions",
+          "description": "We implement tools for corporate communications: with colleagues, partners, clients"
+         }
+        ],
+        "btn": {
+         "title": "Show more",
+         "url": "/"
+        }
+       }
+      },
+      {
+       "title": "Own solutions and products",
+       "content": {
+        "items": [
+         {
+          "title": "Showroom of domestic UC solutions",
+          "description": "Showroom of equipment and services for corporate communications and collaboration"
+         },
+         {
+          "title": "Jet Detective",
+          "description": "Anti-fraud and financial monitoring platform"
+         },
+         {
+          "title": "Jet CSIRT",
+          "description": "Cybersecurity center: monitoring and rapid incident response, proactive threat hunting, and brand protection"
+         },
+         {
+          "title": "Jet CyberCamp",
+          "description": "An annual online cybersecurity conference. Listen to presentations from leading experts, penetration testers, and analysts. Participate in team cyber exercises on the Jet CyberCamp platform."
+         },
+         {
+          "title": "Jet RuLab",
+          "description": "Laboratory of Russian IT solutions. We help select, test, and implement the most promising Russian IT solutions"
+         }
+        ],
+        "btn": {
+         "title": "Show more",
+         "url": "/"
+        }
+       }
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "examples-uuid",
+    "type": "examples",
+    "data": {
+     "hash": "#examples",
+     "tag": "Task examples",
+     "title": "Proven solutions",
+     "navTitle": "Task examples",
+     "items": [
+      {
+       "title": "Expansion of LTE Roaming Technical Capabilities",
+       "link": {
+        "title": "Telecommunications",
+        "url": "/"
+       },
+       "description": "Upgraded network gateways for LTE roaming, increasing the connection speed of subscribers abroad. The operator was able to launch new roaming packages with improved call quality.",
+       "stats": [
+        {
+         "title": "DSR",
+         "description": "reduces the risk of service unavailability"
+        },
+        {
+         "title": "Time-to-market",
+         "description": "is reduced thanks to network modernization"
+        }
+       ],
+       "btn": {
+        "title": "Discuss a similar task",
+        "url": "#callback"
+       }
+      },
+      {
+       "title": "Traffic Management Complex",
+       "link": {
+        "title": "Telecom",
+        "url": "/"
+       },
+       "description": "Implemented a traffic analysis and management system (DPI) for automatic resource allocation between applications and services. Thanks to the policy and tariff management architecture, the operator can now create personalized offers for different subscriber groups.",
+       "stats": [
+        {
+         "title": "In 8 months",
+         "description": "project implemented"
+        },
+        {
+         "title": "300 Mbps",
+         "description": "speed on the subscriber device"
+        }
+       ],
+       "btn": {
+        "title": "Discuss a similar task",
+        "url": "#callback"
+       }
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "future-uuid",
+    "type": "future",
+    "data": {
+     "hash": "#future",
+     "tag": "Defining the future today",
+     "title": "Over 35 years of evolution of \"Infosystem Jet\"",
+     "navTitle": "Industry cases",
+     "background": {
+      "type": "mixed",
+      "src": "/static/video/events/bg.mp4"
+     },
+     "items": [
+      {
+       "title": "Traffic Management Complex",
+       "tag": "Telecom",
+       "description": "Implemented a traffic analysis and management system (DPI) for automatic resource allocation between applications and services. Thanks to the policy and tariff management architecture, the operator can now create personalized offers for different subscriber groups.",
+       "company": {
+        "src": "/static/images/logo-1-white.svg"
+       },
+       "stats": [
+        {
+         "title": "In 8 months",
+         "description": "project implemented"
+        },
+        {
+         "title": "300 Mbps",
+         "description": "speed on the subscriber device"
+        }
+       ],
+       "btn": {
+        "title": "Discuss a similar task",
+        "url": "/"
+       }
+      },
+      {
+       "title": "Expansion of LTE Roaming Technical Capabilities",
+       "company": {
+        "src": "/static/images/logo-2-white.svg"
+       },
+       "description": "Upgraded network gateways for LTE roaming, increasing the connection speed of subscribers abroad. The operator was able to launch new roaming packages with improved call quality.",
+       "stats": [
+        {
+         "title": "DSR",
+         "description": "reduces the risk of service unavailability"
+        },
+        {
+         "title": "Time-to-market",
+         "description": "is reduced thanks to network modernization"
+        }
+       ],
+       "btn": {
+        "title": "Discuss a similar task",
+        "url": "/"
+       }
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "reviews-uuid",
+    "type": "reviews",
+    "data": {
+     "hash": "#reviews",
+     "tag": "About us",
+     "title": "What clients say",
+     "navTitle": "Client reviews",
+     "items": [
+      {
+       "description": "«The new complex has made it possible to significantly improve the provision of services to subscribers and dynamically adapt to the current state of the network infrastructure.».",
+       "person": {
+        "name": "Andrey Nesterov",
+        "position": "Technical Director of Yota",
+        "img": {
+         "src": "/static/images/reviews/photo2.png"
+        }
+       }
+      },
+      {
+       "description": "«The transition to the new platform allowed us to improve the quality of customer service, and therefore the degree of their satisfaction with our service. The work on the project was carried out at a high professional level.»",
+       "person": {
+        "name": "Ekaterina Borodkina",
+        "position": "Head of IT Management Service at Beeline",
+        "img": {
+         "src": "/static/images/reviews/photo1.png"
+        }
+       }
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "callback-uuid",
+    "type": "callback",
+    "data": {
+     "hash": "#callback",
+     "tag": "Have questions?",
+     "title": "Tell us about your task — we will offer a solution",
+     "form": {
+      "visible": [
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Name*",
+           "name": "name",
+           "validations": [
+            "required"
+           ]
+          }
+         },
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Last Name*",
+           "name": "lastName",
+           "validations": [
+            "required"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Email*",
+           "name": "email",
+           "validations": [
+            "required",
+            "email"
+           ]
+          }
+         },
+         {
+          "type": "phone",
+          "data": {
+           "placeholder": "Phone",
+           "name": "phone",
+           "validations": [
+            "phone"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Company*",
+           "name": "company",
+           "validations": [
+            "required"
+           ]
+          }
+         },
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Job title",
+           "name": "position"
+          }
+         }
+        ]
+       },
+       {
+        "type": "textarea",
+        "data": {
+         "placeholder": "Describe the task*",
+         "name": "task",
+         "validations": [
+          "required"
+         ]
+        }
+       }
+      ],
+      "btn": {
+       "title": "Submit"
+      },
+      "action": "/form/callback"
+     }
+    }
+   },
+   {
+    "uuid": "topical-uuid",
+    "type": "topical",
+    "data": {
+     "hash": "#topical",
+     "tag": "Topical",
+     "title": "Latest news, case studies, releases, and expert materials",
+     "navTitle": "Topical",
+     "items": [
+      {
+       "tag": "News",
+       "title": "Kazakh mobile operator Kcell has strengthened the protection of its signaling network using the DSR solution",
+       "tags": [
+        "Telecommunications"
+       ],
+       "img": {
+        "src": "/static/images/topical/img-1.jpg"
+       },
+       "url": "https://jet.su/press-center/news/kazakhstanskiy-mobilnyy-operator-kcell-usilil-zashchitu-svoey-signalnoy-seti-pri-pomoshchi-resheniya/?ysclid=mhuew7qppz140029919"
+      }
+     ]
+    }
+   }
+  ]
+ }
+}

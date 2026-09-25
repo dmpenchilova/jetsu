@@ -1,0 +1,137 @@
+{
+ "status": "success",
+ "data": {
+  "callback": {
+   "hash": "#callback",
+   "tag": "Didn't find a suitable vacancy?",
+   "title": "Leave your contact details — we'll write to you when a suitable position appears",
+   "background": {
+    "type": "mixed",
+    "src": "/static/images/callback/img-1.jpg"
+   },
+   "form": {
+    "visible": [
+     {
+      "type": "row",
+      "data": [
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "First Name*",
+         "name": "name",
+         "validations": [
+          "required"
+         ]
+        }
+       },
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Last Name*",
+         "name": "lastName",
+         "validations": [
+          "required"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "type": "row",
+      "data": [
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Email*",
+         "name": "email",
+         "validations": [
+          "required",
+          "email"
+         ]
+        }
+       },
+       {
+        "type": "phone",
+        "data": {
+         "placeholder": "Phone*",
+         "name": "phone",
+         "validations": [
+          "required",
+          "phone"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "type": "input",
+      "data": {
+       "placeholder": "Desired Position*",
+       "name": "position",
+       "validations": [
+        "required"
+       ]
+      }
+     },
+     {
+      "type": "input",
+      "data": {
+       "placeholder": "Links to social networks and messengers",
+       "name": "socials"
+      }
+     },
+     {
+      "type": "row",
+      "data": [
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Link to Resume",
+         "name": "rezume"
+        }
+       },
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Link to Portfolio",
+         "name": "portfolio"
+        }
+       }
+      ]
+     },
+     {
+      "type": "textarea",
+      "data": {
+       "placeholder": "Cover Letter*",
+       "name": "text",
+       "validations": [
+        "required"
+       ]
+      }
+     },
+     {
+      "type": "file",
+      "data": {
+       "name": "file",
+       "acceptedFileTypes": [
+        "application/pdf",
+        ".doc,",
+        ".docx",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "application/rtf"
+       ],
+       "validations": [
+        "file"
+       ]
+      }
+     }
+    ],
+    "btn": {
+     "title": "Send feedback"
+    },
+    "action": "/form/callback"
+   }
+  }
+ }
+}

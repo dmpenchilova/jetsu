@@ -1,0 +1,95 @@
+{
+ "tag": "Report an incident",
+ "title": "Please fill out the form so we can contact you. Emergency number: +7&nbsp;495&nbsp;411-76-04",
+ "form": {
+  "visible": [
+   {
+    "type": "row",
+    "data": [
+     {
+      "type": "input",
+      "data": {
+       "placeholder": "Name*",
+       "name": "name",
+       "validations": [
+        "required"
+       ]
+      }
+     },
+     {
+      "type": "input",
+      "data": {
+       "placeholder": "Last Name*",
+       "name": "lastName",
+       "validations": [
+        "required"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "type": "row",
+    "data": [
+     {
+      "type": "input",
+      "data": {
+       "placeholder": "Email*",
+       "name": "email",
+       "validations": [
+        "required",
+        "email"
+       ]
+      }
+     },
+     {
+      "type": "phone",
+      "data": {
+       "placeholder": "Phone",
+       "name": "phone",
+       "validations": [
+        "phone"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "type": "row",
+    "data": [
+     {
+      "type": "input",
+      "data": {
+       "placeholder": "Company*",
+       "name": "company",
+       "validations": [
+        "required"
+       ]
+      }
+     },
+     {
+      "type": "input",
+      "data": {
+       "placeholder": "Job title",
+       "name": "position"
+      }
+     }
+    ]
+   },
+   {
+    "type": "textarea",
+    "data": {
+     "placeholder": "Your question*",
+     "name": "question",
+     "validations": [
+      "required"
+     ]
+    }
+   }
+  ],
+  "btn": {
+   "title": "Send"
+  },
+  "action": "/form/callback"
+ }
+}

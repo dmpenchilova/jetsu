@@ -1,0 +1,428 @@
+{
+ "status": "success",
+ "data": {
+  "breadcrumbs": {
+   "variant": "breadcrumbs_blue",
+   "items": [
+    {
+     "title": "О компании",
+     "url": "/about"
+    },
+    {
+     "title": "Партнеры"
+    }
+   ]
+  },
+  "seo": {
+   "title": "Партнеры"
+  },
+  "companions": {
+   "hash": "#companions",
+   "title": "Партнёры",
+   "total": 5,
+   "count": 6,
+   "form": {
+    "fields": [
+     {
+      "id": "search",
+      "name": "search",
+      "type": "groupSearch",
+      "fields": [
+       {
+        "id": "text",
+        "name": "text",
+        "placeholder": "Введите название партнера...",
+        "type": "inputSearch"
+       },
+       {
+        "id": "types",
+        "name": "types",
+        "type": "groupSearchSelect",
+        "fields": [
+         {
+          "id": "direction",
+          "name": "direction",
+          "placeholder": "Направление",
+          "type": "selectSearchItem",
+          "items": [
+           {
+            "title": "ИТ-инфраструктура",
+            "value": "it"
+           },
+           {
+            "title": "Сервис и аутсорсинг",
+            "value": "services"
+           },
+           {
+            "title": "Информационная безопасность",
+            "value": "info"
+           },
+           {
+            "title": "Сети и инженерная инфраструктура",
+            "value": "network"
+           },
+           {
+            "title": "Разработка ПО и бизнес-приложения",
+            "value": "development"
+           },
+           {
+            "title": "Машинное обучение и искусственный интеллект",
+            "value": "ai"
+           },
+           {
+            "title": "Собственные продукты в реестре российского ПО",
+            "value": "ownProducts"
+           },
+           {
+            "title": "Производственная безопасность",
+            "value": "productionSafety"
+           },
+           {
+            "title": "Машинное обучение и искусственный интеллект",
+            "value": "ai2"
+           },
+           {
+            "title": "ИТ-инфраструктура",
+            "value": "it2"
+           },
+           {
+            "title": "Сервис и аутсорсинг",
+            "value": "services2"
+           },
+           {
+            "title": "Информационная безопасность",
+            "value": "info2"
+           },
+           {
+            "title": "Сети и инженерная инфраструктура",
+            "value": "network2"
+           },
+           {
+            "title": "Разработка ПО и бизнес-приложения",
+            "value": "development2"
+           },
+           {
+            "title": "Машинное обучение и искусственный интеллект",
+            "value": "ai3"
+           },
+           {
+            "title": "Собственные продукты в реестре росс ийского ПО",
+            "value": "ownProducts2"
+           },
+           {
+            "title": "Производственная безопасность",
+            "value": "productionSafety2"
+           },
+           {
+            "title": "Машинное обучение и искусственный интеллект",
+            "value": "ai4"
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "items": [
+    {
+     "title": "Агат РТ",
+     "description": "Авторизованный партнёр",
+     "img": {
+      "src": "/static/images/companions/agat-logo.png"
+     }
+    },
+    {
+     "title": "АйТи Бастион",
+     "description": "Официальный партнёр",
+     "img": {
+      "src": "/static/images/companions/bastion-logo.png"
+     }
+    },
+    {
+     "title": "АСКОН",
+     "description": "Партнёр",
+     "img": {
+      "src": "/static/images/companions/ascon-logo.png"
+     }
+    },
+    {
+     "title": "Аувикс",
+     "description": "Реселлер",
+     "img": {
+      "src": "/static/images/companions/auvix-logo.png"
+     }
+    },
+    {
+     "title": "Аэродиск",
+     "description": "Авторизованный партнёр",
+     "img": {
+      "src": "/static/images/companions/agat-logo.png"
+     }
+    },
+    {
+     "title": "Вебмониторэкс",
+     "description": "Авторизованный партнёр",
+     "img": {
+      "src": "/static/images/companions/auvix-logo.png"
+     }
+    },
+    {
+     "title": "Газинформсервис",
+     "description": "Авторизованный партнёр",
+     "img": {
+      "src": "/static/images/companions/agat-logo.png"
+     }
+    },
+    {
+     "title": "Индид (Indeed)",
+     "description": "Авторизованный партнёр",
+     "img": {
+      "src": "/static/images/companions/ascon-logo.png"
+     }
+    },
+    {
+     "title": "Искрател",
+     "description": "Авторизованный партнёр",
+     "img": {
+      "src": "/static/images/companions/auvix-logo.png"
+     }
+    },
+    {
+     "title": "Квазар",
+     "description": "Авторизованный партнёр",
+     "img": {
+      "src": "/static/images/companions/ascon-logo.png"
+     }
+    },
+    {
+     "title": "Киберпротект",
+     "description": "Авторизованный партнёр",
+     "img": {
+      "src": "/static/images/companions/bastion-logo.png"
+     }
+    },
+    {
+     "title": "Код Безопасности",
+     "description": "Авторизованный партнёр",
+     "img": {
+      "src": "/static/images/companions/ascon-logo.png"
+     }
+    },
+    {
+     "title": "Контур",
+     "description": "Партнёр",
+     "img": {
+      "src": "/static/images/companions/auvix-logo.png"
+     }
+    },
+    {
+     "title": "F6",
+     "description": "Официальный поставщик",
+     "img": {
+      "src": "/static/images/companions/f6-logo.png"
+     }
+    },
+    {
+     "title": "Лаборатория Касперского",
+     "description": "Platinum Partner",
+     "img": {
+      "src": "/static/images/companions/ascon-logo.png"
+     },
+     "items": [
+      "Cloud Security",
+      "Extended Detection and Response",
+      "Kaspersky Industrial CyberSecurity",
+      "KUMA",
+      "IT Cybersecurity"
+     ]
+    },
+    {
+     "title": "Лаборатория Числитель",
+     "description": "Партнёр",
+     "img": {
+      "src": "/static/images/companions/ascon-logo.png"
+     }
+    },
+    {
+     "title": "Сател",
+     "description": "Партнёр",
+     "img": {
+      "src": "/static/images/companions/satel-logo.png"
+     }
+    },
+    {
+     "title": "НИИ СОКБ Центр разработки",
+     "description": "Партнёр",
+     "img": {
+      "src": "/static/images/companions/auvix-logo.png"
+     }
+    },
+    {
+     "title": "Роса",
+     "description": "Реселлер",
+     "img": {
+      "src": "/static/images/companions/rosa-logo.png"
+     }
+    },
+    {
+     "title": "С-Терра",
+     "description": "Золотой Партнёр",
+     "img": {
+      "src": "/static/images/companions/setere-logo.png"
+     }
+    },
+    {
+     "title": "САВРУС",
+     "description": "Золотой Партнёр",
+     "img": {
+      "src": "/static/images/companions/setere-logo.png"
+     }
+    },
+    {
+     "title": "Сайберпик (CyberPeak)",
+     "description": "Авторизованный партнёр",
+     "img": {
+      "src": "/static/images/companions/setere-logo.png"
+     }
+    },
+    {
+     "title": "Сател Про",
+     "description": "Авторизованный партнёр",
+     "img": {
+      "src": "/static/images/companions/setere-logo.png"
+     }
+    },
+    {
+     "title": "Сайберпик (CyberPeak)",
+     "description": "Стандартный партнёр",
+     "img": {
+      "src": "/static/images/companions/setere-logo.png"
+     }
+    },
+    {
+     "title": "Тезис",
+     "description": "Сертифицированный партнёр",
+     "img": {
+      "src": "/static/images/companions/setere-logo.png"
+     }
+    },
+    {
+     "title": "Фактор-ТС",
+     "description": "Партнёр",
+     "img": {
+      "src": "/static/images/companions/setere-logo.png"
+     }
+    },
+    {
+     "title": "Флант",
+     "description": "Партнёр",
+     "img": {
+      "src": "/static/images/companions/setere-logo.png"
+     }
+    }
+   ]
+  },
+  "callback": {
+   "hash": "#callback",
+   "tag": "Остались вопросы?",
+   "title": "Расскажите о своей задаче — мы предложим решение",
+   "background": {
+    "type": "mixed",
+    "src": "/static/images/callback/img-1.jpg"
+   },
+   "form": {
+    "visible": [
+     {
+      "type": "row",
+      "data": [
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Имя*",
+         "name": "name",
+         "validations": [
+          "required"
+         ]
+        }
+       },
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Фамилия*",
+         "name": "lastName",
+         "validations": [
+          "required"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "type": "row",
+      "data": [
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Email*",
+         "name": "email",
+         "validations": [
+          "required",
+          "email"
+         ]
+        }
+       },
+       {
+        "type": "phone",
+        "data": {
+         "placeholder": "Телефон",
+         "name": "phone",
+         "validations": [
+          "phone"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "type": "row",
+      "data": [
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Компания*",
+         "name": "company",
+         "validations": [
+          "required"
+         ]
+        }
+       },
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Должность",
+         "name": "position"
+        }
+       }
+      ]
+     },
+     {
+      "type": "textarea",
+      "data": {
+       "placeholder": "Опишите задачу*",
+       "name": "task",
+       "validations": [
+        "required"
+       ]
+      }
+     }
+    ],
+    "btn": {
+     "title": "Отправить"
+    },
+    "action": "/form/callback"
+   }
+  }
+ }
+}

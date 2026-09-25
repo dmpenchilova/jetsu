@@ -1,0 +1,280 @@
+{
+ "status": "success",
+ "data": {
+  "breadcrumbs": {
+   "variant": "breadcrumbs_blue",
+   "items": [
+    {
+     "title": "Vacancies"
+    }
+   ]
+  },
+  "seo": {
+   "title": "Vacancies"
+  },
+  "jobs": {
+   "hashToScroll": "#callback",
+   "count": 28,
+   "total": 9,
+   "background": {
+    "type": "mixed",
+    "src": "/static/video/jobs/bg.mp4"
+   },
+   "form": {
+    "fields": [
+     {
+      "id": "search",
+      "name": "search",
+      "type": "groupSearch",
+      "fields": [
+       {
+        "id": "text",
+        "name": "text",
+        "placeholder": "Enter a job title or keyword...",
+        "type": "inputSearch"
+       },
+       {
+        "id": "types",
+        "name": "types",
+        "type": "groupSearchSelect",
+        "fields": [
+         {
+          "id": "direction",
+          "name": "direction",
+          "placeholder": "Direction",
+          "type": "selectSearchItemMulti",
+          "items": [
+           {
+            "title": "IT Infrastructure",
+            "value": "it"
+           },
+           {
+            "title": "Service and Outsourcing",
+            "value": "services"
+           },
+           {
+            "title": "Information Security",
+            "value": "info"
+           }
+          ]
+         },
+         {
+          "id": "industry",
+          "name": "industry",
+          "placeholder": "Industry",
+          "type": "selectSearchItemMulti",
+          "items": [
+           {
+            "title": "IT Infrastructure",
+            "value": "it"
+           },
+           {
+            "title": "Service and Outsourcing",
+            "value": "services"
+           },
+           {
+            "title": "Information Security",
+            "value": "info"
+           },
+           {
+            "title": "Information Security",
+            "value": "info1"
+           },
+           {
+            "title": "Information Security",
+            "value": "info2"
+           }
+          ]
+         },
+         {
+          "id": "allPublications",
+          "name": "allPublications",
+          "placeholder": "All publications",
+          "type": "selectSearchItemMulti",
+          "items": [
+           {
+            "title": "News",
+            "value": "news"
+           },
+           {
+            "title": "Articles",
+            "value": "articles"
+           },
+           {
+            "title": "Cases",
+            "value": "case"
+           },
+           {
+            "title": "Projects",
+            "value": "projects"
+           },
+           {
+            "title": "JETINFO Magazine",
+            "value": "jurnal"
+           },
+           {
+            "title": "Events",
+            "value": "events"
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "type",
+      "name": "type",
+      "type": "tags",
+      "defaultValue": [
+       "service"
+      ],
+      "items": [
+       {
+        "title": "Service and User Support",
+        "value": "service",
+        "count": 3
+       },
+       {
+        "title": "IT Infrastructure",
+        "value": "it"
+       }
+      ]
+     }
+    ]
+   },
+   "items": [
+    {
+     "tag": "IT Infrastructure",
+     "title": "Deputy Head of Project Management Department",
+     "items": [
+      "Moscow",
+      "Experience from 3 years",
+      "Office or hybrid"
+     ],
+     "slug": "vacancy-1",
+     "btn": {
+      "title": "Apply"
+     }
+    },
+    {
+     "tag": "IT Infrastructure",
+     "title": "Customer Relations Manager",
+     "items": [
+      "Moscow",
+      "Experience from 3 years",
+      "Office or hybrid"
+     ],
+     "slug": "vacancy-2",
+     "btn": {
+      "title": "Apply"
+     }
+    },
+    {
+     "tag": "IT Infrastructure",
+     "title": "IT Product Sales Manager",
+     "items": [
+      "Moscow",
+      "Experience from 3 years",
+      "Office or hybrid"
+     ],
+     "slug": "vacancy-3",
+     "btn": {
+      "title": "Apply"
+     }
+    },
+    {
+     "tag": "IT Infrastructure",
+     "title": "Customer Relations Manager",
+     "items": [
+      "Moscow",
+      "Experience from 3 years",
+      "Office or hybrid"
+     ],
+     "slug": "vacancy-4",
+     "btn": {
+      "title": "Apply"
+     }
+    },
+    {
+     "tag": "IT Infrastructure",
+     "title": "Senior Network Security Engineer",
+     "items": [
+      "Moscow",
+      "Experience from 3 years",
+      "Office or hybrid"
+     ],
+     "slug": "vacancy-5",
+     "btn": {
+      "title": "Apply"
+     }
+    },
+    {
+     "tag": "Information Security",
+     "title": "Fraud Prevention Solutions Analyst",
+     "items": [
+      "Moscow",
+      "Experience from 3 years",
+      "Office or hybrid"
+     ],
+     "slug": "vacancy-6",
+     "btn": {
+      "title": "Apply"
+     }
+    },
+    {
+     "tag": "IT Infrastructure",
+     "title": "IT Product Sales Manager",
+     "items": [
+      "Moscow",
+      "Experience from 3 years",
+      "Office or hybrid"
+     ],
+     "slug": "vacancy-3",
+     "btn": {
+      "title": "Apply"
+     }
+    },
+    {
+     "tag": "IT Infrastructure",
+     "title": "Customer Relations Manager",
+     "items": [
+      "Moscow",
+      "Experience from 3 years",
+      "Office or hybrid"
+     ],
+     "slug": "vacancy-4",
+     "btn": {
+      "title": "Apply"
+     }
+    },
+    {
+     "tag": "IT Infrastructure",
+     "title": "Senior Network Security Engineer",
+     "items": [
+      "Moscow",
+      "Experience from 3 years",
+      "Office or hybrid"
+     ],
+     "slug": "vacancy-5",
+     "btn": {
+      "title": "Apply"
+     }
+    },
+    {
+     "tag": "Information Security",
+     "title": "Fraud Prevention Solutions Analyst",
+     "items": [
+      "Moscow",
+      "Experience from 3 years",
+      "Office or hybrid"
+     ],
+     "slug": "vacancy-6",
+     "btn": {
+      "title": "Apply"
+     }
+    }
+   ]
+  }
+ }
+}

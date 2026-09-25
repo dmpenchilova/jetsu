@@ -1,0 +1,432 @@
+{
+ "status": "success",
+ "data": {
+  "breadcrumbs": {
+   "items": [
+    {
+     "title": "Center of expertise"
+    }
+   ]
+  },
+  "seo": {
+   "title": "Internship details page"
+  },
+  "hero": {
+   "hash": "#hero",
+   "tag": "Internship",
+   "title": "Information security <br>architect",
+   "btn": {
+    "title": "Reply"
+   },
+   "hashToScroll": "#callback",
+   "background": {
+    "type": "mixed",
+    "desktop": "/static/images/detail/bg-desktop.jpg",
+    "tablet": "/static/video/events/bg.mp4",
+    "src": "/static/images/detail/bg.jpg"
+   },
+   "items": [
+    {
+     "title": "City",
+     "value": "All Russia"
+    },
+    {
+     "title": "Experience",
+     "value": "6 years and more"
+    },
+    {
+     "title": "Direction",
+     "value": "Information security"
+    }
+   ]
+  },
+  "aboutDirection": {
+   "hash": "#about-direction",
+   "navTitle": "About the center of expertise",
+   "tag": "About the center of expertise",
+   "title": "JET Information Security Center is 300+ specialists, dozens of protected projects in the public sector, banks and industry. We design IS architecture, build processes, implement solutions such as SIEM, DLP, IDM, PAM, conduct pentests, and train teams.",
+   "subtitle": "Our strengths",
+   "items": [
+    {
+     "title": "Wide range of solutions and vendors"
+    },
+    {
+     "title": "Deep expertise, confirmed by certifications"
+    },
+    {
+     "title": "Full cycle project support"
+    }
+   ]
+  },
+  "aboutVacancy": {
+   "hash": "#about-vacancy",
+   "navTitle": "About the vacancy",
+   "tag": "About the vacancy",
+   "title": "What will be included in your responsibilities",
+   "description": "You will participate in the development of IS solution architecture, assist in risk assessment, design protection systems, participate in technical presales, and support the implementation of solutions at customers",
+   "items": [
+    {
+     "title": "We are waiting for you",
+     "img": {
+      "src": "/static/images/detail/team.jpg"
+     },
+     "items": [
+      {
+       "title": "Experience in system integration in the information security field for at least 6 years"
+      },
+      {
+       "title": "Knowledge of the main regulatory requirements of Federal legislation and regulators in the field of information protection, including regulatory legal acts of FSTEC of Russia and FSB of Russia, 149-FZ, 152-FZ, 187-FZ, FSTEC Orders 17, 21, 239, 31, FSB Order 378"
+      },
+      {
+       "title": "Experience in forming information security threat models (understanding current threats, knowledge of the regulatory framework of domestic regulators in the field of information security threat analysis, justification of closing information security threats with organizational and technical measures)"
+      },
+      {
+       "title": "Experience in sizing, planning installation, deployment, maintenance, and performance tuning of server and network equipment, Windows, Linux, and any other OS (Solaris, AIX, xBSD)"
+      },
+      {
+       "title": "Knowledge and practical experience in applying open-source technologies and products in production environments to ensure fault tolerance, backup, monitoring, proxying, and containerization of application solutions, as well as automation of typical operations."
+      },
+      {
+       "title": "Knowledge of products in at least 2 information security areas (WAF, PAM, access control systems, virtualization environment protection, vulnerability management, EDR, SIEM/IRP/SOAR/sGRC, NGFW) at the architect level"
+      },
+      {
+       "title": "Experience in designing and applying built-in protection mechanisms for IT solutions (OS, DBMS, virtualization, network equipment)"
+      },
+      {
+       "title": "Understanding the principles of creating information protection systems, industry standards, main processes, and approaches to the development of information security in organizations"
+      },
+      {
+       "title": "Experience in implementing technologically complex (in terms of functionality and/or architecture) projects in the role of chief designer or architect"
+      },
+      {
+       "title": "Broad outlook, awareness of modern containerization, automation, monitoring, application development, and delivery technologies"
+      },
+      {
+       "title": "Experience in implementing complex projects involving interaction with multiple customer departments, skills in technical negotiations, presenting the position and solution of the Contractor, as well as analyzing the business needs of the Customer"
+      },
+      {
+       "title": "Interest in optimizing project solutions and the technological sequence of work on the project, functional leadership in project teams (as chief designer) and the development of members of these teams"
+      },
+      {
+       "title": "Knowledge of English at a level necessary for oral communication with Vendor representatives"
+      },
+      {
+       "title": "Higher technical education"
+      }
+     ]
+    },
+    {
+     "title": "What tasks await you",
+     "items": [
+      {
+       "title": "Participation in the development of architectural solutions and technical proposals for network information security subsystems"
+      },
+      {
+       "title": "Control of Customer satisfaction with the progress and results of the project, management of Customer expectations"
+      },
+      {
+       "title": "Development and coordination with the Customer of the architecture of the technical solution implementing the technical tasks of the project"
+      },
+      {
+       "title": "Project team management, task delegation, control and acceptance of project team work results, quality control of completed work"
+      },
+      {
+       "title": "Design and implementation of comprehensive information protection systems taking into account both the requirements of RD FSTEC and Russian legislation, as well as best practices for countering cyber threats"
+      },
+      {
+       "title": "Direct participation in project implementation, configuration, and testing of implemented information security solutions"
+      },
+      {
+       "title": "Interaction with Vendor specialists in solving technical problems"
+      },
+      {
+       "title": "Demonstration of project results to the customer, conducting PSI, negotiations on the qualification of comments and their elimination within the agreed time frame"
+      },
+      {
+       "title": "Participation in developing the competencies of department specialists, selecting promising solutions for business development, and optimizing production processes"
+      }
+     ]
+    }
+   ]
+  },
+  "bePlus": {
+   "hash": "#be-plus",
+   "variant": "withBg",
+   "items": [
+    {
+     "title": "It will be a plus",
+     "items": [
+      {
+       "title": "Have at least 6 years of experience in information security"
+      },
+      {
+       "title": "Understand the principles of Zero Trust, RBAC, access management"
+      },
+      {
+       "title": "Know the basic classes of solutions: SIEM, DLP, NGFW"
+      },
+      {
+       "title": "You know how to prepare architectural documentation"
+      },
+      {
+       "title": "Ready to communicate with the customer"
+      }
+     ]
+    }
+   ]
+  },
+  "advantages": {
+   "hash": "#advantages",
+   "navTitle": "What we offer",
+   "tag": "What we offer",
+   "title": "Advantages that set us apart from others",
+   "items": [
+    {
+     "title": "Accredited IT company"
+    },
+    {
+     "title": "Opportunity for vertical/horizontal growth and experience exchange. Regular training, courses, and certifications."
+    },
+    {
+     "title": "Participation in professional events and competitions.<br>Such as CTF, PHD, and of course, our CyberCamp."
+    },
+    {
+     "title": "Flexible social package. Choose between DMS, fitness compensation, and English language learning"
+    },
+    {
+     "title": "Joint activities. Running, cycling, volleyball, yoga, skiing, snowboarding, ping-pong, football, corporate clubs, or just PlayStation"
+    },
+    {
+     "title": "Work format. Office/hybrid/remote, 5/2 schedule, usually we work from 10:00 to 18:30, but we are ready to discuss a convenient start time"
+    },
+    {
+     "title": "Office amenities. Gym with instructors, masseur and massage chairs, corporate library, medical office, coffee shops, lounge areas, and live fish"
+    },
+    {
+     "title": "Convenient location. Within walking distance from Savelovskaya metro station"
+    },
+    {
+     "title": "Corporate discounts on virtually everything you can pay for online. From electronics to beauty salons, from restaurants to airline tickets."
+    }
+   ]
+  },
+  "faq": {
+   "hash": "#faq",
+   "navTitle": "Frequently Asked Questions",
+   "tag": "Still have questions?",
+   "title": "Frequently Asked Questions",
+   "items": [
+    {
+     "title": "What is a private cloud?",
+     "description": "This is a dedicated cloud environment that is accessible only to one organization",
+     "isOpen": true
+    },
+    {
+     "title": "What is different about hybrid cloud?",
+     "description": "This is a dedicated cloud environment that is accessible only to one organization"
+    },
+    {
+     "title": "Where is the data physically located?",
+     "description": "This is a dedicated cloud environment that is accessible only to one organization"
+    },
+    {
+     "title": "Is it possible to migrate from another cloud?",
+     "description": "This is a dedicated cloud environment that is accessible only to one organization"
+    }
+   ]
+  },
+  "similar": {
+   "hash": "#similar",
+   "navTitle": "Similar Internships",
+   "title": "Similar Internships",
+   "hashToScroll": "#callback",
+   "items": [
+    {
+     "tag": "Information Security",
+     "title": "Deputy Head of Project Management Department",
+     "items": [
+      "All Russia",
+      "Experience from 6 years",
+      "Office"
+     ],
+     "slug": "internship-1",
+     "btn": {
+      "title": "Reply"
+     }
+    },
+    {
+     "tag": "Information Security",
+     "title": "Customer Relations Manager",
+     "items": [
+      "Moscow",
+      "Experience from 3 years",
+      "Office or hybrid"
+     ],
+     "slug": "internship-2",
+     "btn": {
+      "title": "Reply"
+     }
+    },
+    {
+     "tag": "Information Security",
+     "title": "Deputy Head of Project Management Department",
+     "items": [
+      "All Russia",
+      "Experience from 6 years",
+      "Office"
+     ],
+     "slug": "internship-3",
+     "btn": {
+      "title": "Reply"
+     }
+    },
+    {
+     "tag": "Information Security",
+     "title": "Customer Relations Manager",
+     "items": [
+      "Moscow",
+      "Experience from 3 years",
+      "Office or hybrid"
+     ],
+     "slug": "internship-4",
+     "btn": {
+      "title": "Reply"
+     }
+    }
+   ]
+  },
+  "callback": {
+   "hash": "#callback",
+   "tag": "Did not find a suitable vacancy?",
+   "title": "Leave your contact details — we will write to you when a suitable position appears",
+   "background": {
+    "type": "mixed",
+    "src": "/static/images/callback/img-1.jpg"
+   },
+   "form": {
+    "visible": [
+     {
+      "type": "row",
+      "data": [
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Name*",
+         "name": "name",
+         "validations": [
+          "required"
+         ]
+        }
+       },
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Last Name*",
+         "name": "lastName",
+         "validations": [
+          "required"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "type": "row",
+      "data": [
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Email*",
+         "name": "email",
+         "validations": [
+          "required",
+          "email"
+         ]
+        }
+       },
+       {
+        "type": "phone",
+        "data": {
+         "placeholder": "Phone*",
+         "name": "phone",
+         "validations": [
+          "required",
+          "phone"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "type": "input",
+      "data": {
+       "defaultValue": "Information Security Architect",
+       "placeholder": "Desired position*",
+       "name": "position",
+       "validations": [
+        "required"
+       ]
+      }
+     },
+     {
+      "type": "input",
+      "data": {
+       "placeholder": "Links to social networks and messengers",
+       "name": "socials"
+      }
+     },
+     {
+      "type": "row",
+      "data": [
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Link to resume",
+         "name": "resume"
+        }
+       },
+       {
+        "type": "input",
+        "data": {
+         "placeholder": "Link to portfolio",
+         "name": "portfolio"
+        }
+       }
+      ]
+     },
+     {
+      "type": "textarea",
+      "data": {
+       "placeholder": "Cover letter*",
+       "name": "text",
+       "validations": [
+        "required"
+       ]
+      }
+     },
+     {
+      "type": "file",
+      "data": {
+       "name": "file",
+       "acceptedFileTypes": [
+        "application/pdf",
+        ".doc,",
+        ".docx",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "application/rtf"
+       ],
+       "validations": [
+        "file"
+       ]
+      }
+     }
+    ],
+    "btn": {
+     "title": "Send response"
+    },
+    "action": "/form/callback"
+   }
+  }
+ }
+}

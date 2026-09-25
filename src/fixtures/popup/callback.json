@@ -1,0 +1,95 @@
+{
+ "tag": "Сообщить об инциденте",
+ "title": "Заполните форму, чтобы мы смогли оперативно связаться с вами. Номер для экстренной связи: +7&nbsp;495&nbsp;411-76-04",
+ "form": {
+  "visible": [
+   {
+    "type": "row",
+    "data": [
+     {
+      "type": "input",
+      "data": {
+       "placeholder": "Имя*",
+       "name": "name",
+       "validations": [
+        "required"
+       ]
+      }
+     },
+     {
+      "type": "input",
+      "data": {
+       "placeholder": "Фамилия*",
+       "name": "lastName",
+       "validations": [
+        "required"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "type": "row",
+    "data": [
+     {
+      "type": "input",
+      "data": {
+       "placeholder": "Email*",
+       "name": "email",
+       "validations": [
+        "required",
+        "email"
+       ]
+      }
+     },
+     {
+      "type": "phone",
+      "data": {
+       "placeholder": "Телефон",
+       "name": "phone",
+       "validations": [
+        "phone"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "type": "row",
+    "data": [
+     {
+      "type": "input",
+      "data": {
+       "placeholder": "Компания*",
+       "name": "company",
+       "validations": [
+        "required"
+       ]
+      }
+     },
+     {
+      "type": "input",
+      "data": {
+       "placeholder": "Должность",
+       "name": "position"
+      }
+     }
+    ]
+   },
+   {
+    "type": "textarea",
+    "data": {
+     "placeholder": "Ваш вопрос*",
+     "name": "task",
+     "validations": [
+      "required"
+     ]
+    }
+   }
+  ],
+  "btn": {
+   "title": "Отправить"
+  },
+  "action": "/form/callback"
+ }
+}

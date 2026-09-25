@@ -1,0 +1,470 @@
+{
+ "status": "success",
+ "data": {
+  "breadcrumbs": {
+   "items": [
+    {
+     "title": "Project"
+    }
+   ]
+  },
+  "seo": {
+   "title": "Project"
+  },
+  "content": [
+   {
+    "uuid": "hero-uuid",
+    "type": "projectHero",
+    "data": {
+     "hash": "#hero",
+     "tag": "Project",
+     "title": "How to outsource IT infrastructure management<br/> and cut IT department costs by 20 percent",
+     "background": {
+      "type": "mixed",
+      "src": "/static/video/project/bg.mp4",
+      "desktop": "/static/images/project/background.jpg"
+     },
+     "item": {
+      "title": "April 25, 2024",
+      "icon": {
+       "alt": "Icon",
+       "src": "/static/images/project/kazak-logo.jpg"
+      },
+      "description": "The intercity NGN network united ten regional centers of the Republic of Kazakhstan: Aktobe, Atyrau, Kamensk, Karaganda, Pavlodar, Petropavlovsk, Taraz, Ust-Kamenogorsk, Taldykorgan, Shymkent.",
+      "tags": [
+       "Finance and Insurance",
+       "Service and Outsourcing"
+      ]
+     }
+    }
+   },
+   {
+    "uuid": "results-uuid",
+    "type": "results",
+    "data": {
+     "hash": "#results",
+     "navTitle": "Numbers",
+     "tag": "Results",
+     "title": "Numbers we achieved",
+     "items": [
+      {
+       "title": "99,5%",
+       "subTitle": "Service availability<br/> uptime"
+      },
+      {
+       "title": "50+",
+       "subTitle": "Significant IT projects have been successfully implemented"
+      },
+      {
+       "title": "20%",
+       "subTitle": "Reduced bank IT<br/> operating costs"
+      },
+      {
+       "title": "22%",
+       "subTitle": "Increased acquiring performance"
+      },
+      {
+       "title": "x2",
+       "subTitle": "Incident resolution time<br/> halved"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "goals-uuid",
+    "type": "goals",
+    "data": {
+     "hash": "#goals",
+     "navTitle": "Goals and Objectives",
+     "tag": "Goals and Objectives",
+     "title": "Goals and Objectives",
+     "items": [
+      {
+       "title": "Business task",
+       "description": "Russian Standard Bank together<br/> with Infosystems Jet strengthened its own IT department to remain a highly technological market player under any conditions"
+      },
+      {
+       "title": "IT task",
+       "description": "Deepen and expand expertise in IT. Strengthen round-the-clock IT support for key business processes"
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "decision-uuid",
+    "type": "decision",
+    "data": {
+     "hash": "#decision",
+     "navTitle": "Decision",
+     "tag": "Decisions",
+     "title": "Goals and Objectives",
+     "btn": {
+      "title": "Solve a similar problem",
+      "url": "/"
+     },
+     "items": [
+      "We deployed an updated, enhanced monitoring system that covers all infrastructure services",
+      "We created a new map of business system interactions linked to the IT infrastructure",
+      "We formed an enhanced technical rapid response team in collaboration with Infosystems Jet",
+      "Conducted an in-depth unscheduled comprehensive audit of all IT systems",
+      "Prepared a project for the transformation of IT services. This allowed the bank to formulate a specific",
+      "Prepared a project for the transformation of IT services. This allowed the bank to formulate a specific"
+     ]
+    }
+   },
+   {
+    "uuid": "realization-uuid",
+    "type": "realization",
+    "data": {
+     "hash": "#realization",
+     "navTitle": "Realization",
+     "tag": "Realization",
+     "title": "How we solved <br/>the task",
+     "text": "<p> The selection of Infosystems Jet as a partner was driven by several factors. The engineers of Infosystems Jet possess the required competencies to support a broad stack of solutions, which represents a significant contribution to ensuring stable, high performance, and uninterrupted operation of the banking infrastructure. </p> <p> The first year proved to be the most dynamic and intensive. In addition to studying and gaining in depth understanding of the infrastructure, the joint team of the two companies established effective communication, developed operational regulations, and formed integration solutions for handling requests and incidents. </p> <p> At the second stage, having positively assessed the results of cooperation with the service partner, the bank allowed the possibility of involving the Infosystems Jet team in the administration of certain complex application software. </p> <h3>Subheading</h3> <p> At subsequent stages, the partnership was further scaled by expanding the scope of application software administration and participation in technical support for servers and parts of the infrastructure. At the final stage of cooperation, the Infosystems Jet team took part in supporting the bank IT applications and also proposed new domestic products, which were seamlessly integrated into the IT systems. As part of the import substitution program, Infosystems Jet helps the bank consistently and confidently integrate an increasing number of Russian solutions into its operations, participating in the preparation of the infrastructure for migration processes. </p>"
+    }
+   },
+   {
+    "uuid": "transformation-uuid",
+    "type": "transformation",
+    "data": {
+     "hash": "#transformation",
+     "navTitle": "Transformation",
+     "tag": "Transformation",
+     "title": "Transformation of IT Service",
+     "img": {
+      "src": "/static/images/transformation/img-1.jpg",
+      "alt": "Image of transformation chart"
+     }
+    }
+   },
+   {
+    "uuid": "outcomes-uuid",
+    "type": "outcomes",
+    "data": {
+     "hash": "#outcomes",
+     "navTitle": "Outcomes",
+     "tag": "Outcomes",
+     "title": "What we achieved",
+     "btn": {
+      "title": "Learn more about the project",
+      "url": "/"
+     },
+     "items": [
+      "Reduction of IT costs by up to 20%",
+      "Compliance with strict SLAs",
+      "The risk of downtime for business-critical systems has been reduced to a minimum",
+      "Thanks to the cooperation, Russian Standard Bank has a reliable partner, in particular",
+      "Integration between the bank's ITSM systems and the integrator company has been set up. The Infosystems team",
+      "Having carried out migrations and streamlined IT processes in the infrastructure layer, our company",
+      "A fault-tolerant environment for critical business services has been built from scratch, which has reduced the time"
+     ]
+    }
+   },
+   {
+    "uuid": "plans-uuid",
+    "type": "plans",
+    "data": {
+     "hash": "#plans",
+     "navTitle": "Development Plans",
+     "tag": "Development Plans",
+     "title": "In the near <br/>future",
+     "text": "<p>Many years of cooperation have helped Russian Standard Bank become an even more high-tech player in the market, meeting high industry standards. </p><p>Today, the partnership with Infosystems Jet helps implement the import substitution strategy, taking into account the requirements of the Central Bank of the Russian Federation. </p>",
+     "background": {
+      "type": "mixed",
+      "src": "/static/images/plans/img-mobile.png",
+      "tablet": "/static/images/plans/img-tablet.png",
+      "desktop": "/static/images/plans/img-desktop.png",
+      "alt": "Development plans background"
+     }
+    }
+   },
+   {
+    "uuid": "feedback-uuid",
+    "type": "feedback",
+    "data": {
+     "hash": "#feedback",
+     "tag": "Feedback",
+     "title": "What the client <br/>says about our work",
+     "name": "Sergey Bochkarev,",
+     "company": "JSC NSPK",
+     "img": {
+      "src": "/static/images/feedback/img-1.jpg"
+     },
+     "video": {
+      "url": "/static/video/view/bg.mp4"
+     }
+    }
+   },
+   {
+    "uuid": "similar-projects-uuid",
+    "type": "similarProjects",
+    "data": {
+     "hash": "#similar-projects",
+     "title": "Similar Projects",
+     "items": [
+      {
+       "tag": "Case",
+       "title": "Ensuring fault tolerance of operator services during a sharp increase in users during peak hours",
+       "slug": "project-1-1",
+       "img": [
+        {
+         "src": "/static/images/similar-projects/img-1.jpg",
+         "alt": "Company icon"
+        },
+        {
+         "src": "/static/images/similar-projects/img-1.jpg",
+         "alt": "Company icon"
+        }
+       ],
+       "tags": [
+        "Software Development and Business Applications"
+       ]
+      },
+      {
+       "tag": "Case",
+       "title": "Ensuring fault tolerance of operator services during a sharp increase in users during peak hours",
+       "slug": "project-2-1",
+       "img": [
+        {
+         "src": "/static/images/similar-projects/img-1.jpg",
+         "alt": "Company icon"
+        }
+       ],
+       "tags": [
+        "Software Development and Business Applications"
+       ]
+      },
+      {
+       "tag": "Case",
+       "title": "Ensuring fault tolerance of operator services during a sharp increase in users during peak hours",
+       "slug": "project-3-1",
+       "img": [
+        {
+         "src": "/static/images/similar-projects/img-1.jpg",
+         "alt": "Company icon"
+        }
+       ],
+       "tags": [
+        "Software Development and Business Applications"
+       ]
+      },
+      {
+       "tag": "Case",
+       "title": "Ensuring fault tolerance <br/> of operator services during sharp increases in users during peak hours",
+       "slug": "project-4-1",
+       "img": [
+        {
+         "src": "/static/images/similar-projects/img-1.jpg",
+         "alt": "Company icon"
+        }
+       ],
+       "tags": [
+        "Software Development and Business Applications"
+       ]
+      },
+      {
+       "tag": "Case",
+       "title": "Ensuring fault tolerance <br/> of operator services during sharp increases in users during peak hours",
+       "slug": "project-5-1",
+       "img": [
+        {
+         "src": "/static/images/similar-projects/img-1.jpg",
+         "alt": "Company icon"
+        }
+       ],
+       "tags": [
+        "Software Development and Business Applications"
+       ]
+      },
+      {
+       "tag": "Case",
+       "title": "Ensuring fault tolerance <br/> of operator services during sharp increases in users during peak hours",
+       "slug": "project-6-1",
+       "img": [
+        {
+         "src": "/static/images/similar-projects/img-1.jpg",
+         "alt": "Company icon"
+        },
+        {
+         "src": "/static/images/similar-projects/img-1.jpg",
+         "alt": "Company icon"
+        }
+       ],
+       "tags": [
+        "Software Development and Business Applications"
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "similar-projects-2-uuid",
+    "type": "similarProjects",
+    "data": {
+     "hash": "#similar-projects",
+     "title": "Other client projects",
+     "items": [
+      {
+       "tag": "Case",
+       "title": "Ensuring fault tolerance <br/> of operator services during sharp increases in users during peak hours",
+       "slug": "project-7-2",
+       "img": [
+        {
+         "src": "/static/images/similar-projects/img-1.jpg",
+         "alt": "Company icon"
+        },
+        {
+         "src": "/static/images/similar-projects/img-1.jpg",
+         "alt": "Company icon"
+        }
+       ],
+       "tags": [
+        "Software Development and Business Applications"
+       ]
+      },
+      {
+       "tag": "Case",
+       "title": "Ensuring fault tolerance <br/> of operator services during sharp increases in users during peak hours",
+       "slug": "project-7-2",
+       "img": [
+        {
+         "src": "/static/images/similar-projects/img-1.jpg",
+         "alt": "Company icon"
+        },
+        {
+         "src": "/static/images/similar-projects/img-1.jpg",
+         "alt": "Company icon"
+        }
+       ],
+       "tags": [
+        "Software Development and Business Applications"
+       ]
+      },
+      {
+       "tag": "Case",
+       "title": "Ensuring fault tolerance <br/> of operator services during sharp increases in users during peak hours",
+       "slug": "project-7-2",
+       "img": [
+        {
+         "src": "/static/images/similar-projects/img-1.jpg",
+         "alt": "Company icon"
+        },
+        {
+         "src": "/static/images/similar-projects/img-1.jpg",
+         "alt": "Company icon"
+        }
+       ],
+       "tags": [
+        "Software Development and Business Applications"
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "uuid": "callback-uuid",
+    "type": "callback",
+    "data": {
+     "hash": "#callback",
+     "tag": "Still have questions?",
+     "title": "Tell us about your task — we will offer a solution",
+     "background": {
+      "type": "mixed",
+      "src": "/static/images/callback/img-1.jpg"
+     },
+     "form": {
+      "visible": [
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Name*",
+           "name": "name",
+           "validations": [
+            "required"
+           ]
+          }
+         },
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Last Name*",
+           "name": "lastName",
+           "validations": [
+            "required"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Email*",
+           "name": "email",
+           "validations": [
+            "required",
+            "email"
+           ]
+          }
+         },
+         {
+          "type": "phone",
+          "data": {
+           "placeholder": "Phone",
+           "name": "phone",
+           "validations": [
+            "phone"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "type": "row",
+        "data": [
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Company*",
+           "name": "company",
+           "validations": [
+            "required"
+           ]
+          }
+         },
+         {
+          "type": "input",
+          "data": {
+           "placeholder": "Position",
+           "name": "position"
+          }
+         }
+        ]
+       },
+       {
+        "type": "textarea",
+        "data": {
+         "placeholder": "Describe the task*",
+         "name": "task",
+         "validations": [
+          "required"
+         ]
+        }
+       }
+      ],
+      "btn": {
+       "title": "Submit"
+      },
+      "action": "/form/callback"
+     }
+    }
+   }
+  ]
+ }
+}
