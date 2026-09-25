@@ -2,7 +2,7 @@
 FROM node:22-alpine AS deps
 WORKDIR /app
 RUN apk add --no-cache libc6-compat
-COPY package.json package-lock.json ./
+COPY package.json package-lock.json .npmrc ./
 RUN npm ci
 
 # Сборка. Этот же этап используется для служебных команд (импорт тестовых данных, миграции).
