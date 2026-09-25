@@ -4,6 +4,7 @@
 import type { Payload } from 'payload'
 
 import { blockShapes } from '../blocks'
+import { BINDINGS } from '../blocks/bindings'
 import type { Shape } from '../blocks/shape'
 import { collectFormIds, collectMediaIds, type MediaDoc, toFront, type ToFrontCtx } from '../blocks/transform'
 import { formToFront } from '../collections/Forms'
@@ -134,7 +135,17 @@ export const pageToFront = async (payload: Payload, page: PageDoc, locale: Local
   const breadcrumbs = await breadcrumbsOf(payload, page, locale)
   if (breadcrumbs) data.breadcrumbs = breadcrumbs
   data.seo = seoOf(page, ctx)
-  data.content = blocksToFront(rows, ctx)
+  const content = blocksToFront(rows, ctx)
+  // блоки, которые берут записи из коллекций
+  const { resolveBinding } = await import('./lists')
+  for (const block of content) {
+    const row = rows.find((r) => String(r.id ?? '') === block.uuid)
+    const binding = BINDINGS[block.type]
+    if (!row || !binding) continue
+    const items = await resolveBinding(payload, block.type, row, locale)
+    if (items !== undefined) block.data[binding.prop] = items
+  }
+  data.content = content
   return { status: 'success', data }
 }
 

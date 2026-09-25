@@ -1,5 +1,6 @@
 import type { Block, Field } from 'payload'
 
+import { BINDINGS } from './bindings'
 import { BLOCK_META, FIELD_LABELS, LONG_TEXT_KEYS, OPTION_LABELS } from './meta'
 import { nameOf, type Prop, type Shape } from './shape'
 
@@ -216,11 +217,56 @@ const commonBlockFields = (hasNav: boolean): Field[] => [
   },
 ]
 
+/** Выбор источника данных для блоков, связанных с коллекциями. */
+const sourceFields = (b: { collection: string; auto?: string; limit?: number }): Field[] => [
+  {
+    type: 'row',
+    fields: [
+      {
+        name: 'source',
+        label: 'Откуда брать записи',
+        type: 'select',
+        defaultValue: 'manual',
+        options: [
+          { label: 'Заполнить вручную', value: 'manual' },
+          ...(b.auto ? [{ label: `Автоматически: ${b.auto}`, value: 'auto' }] : []),
+          { label: 'Выбрать записи', value: 'pick' },
+        ],
+        admin: { width: '50%' },
+      },
+      {
+        name: 'limit',
+        label: 'Сколько показать',
+        type: 'number',
+        defaultValue: b.limit,
+        admin: { width: '25%', condition: (_, sibling) => sibling?.source === 'auto', description: 'Пусто — все' },
+      },
+    ],
+  },
+  {
+    name: 'pick',
+    label: 'Записи',
+    type: 'relationship',
+    relationTo: b.collection as never,
+    hasMany: true,
+    admin: { condition: (_, sibling) => sibling?.source === 'pick', description: 'Порядок на сайте — как здесь' },
+  },
+]
+
 export const buildBlock = (type: string, shape: Shape): Block => {
   const meta = BLOCK_META[type] ?? { label: type, group: 'Прочее' }
   const props = shape.kind === 'object' ? shape.props : []
   const hasNav = props.some((p) => p.key === 'navTitle')
-  const own = props.filter((p) => p.key !== 'hash' && p.key !== 'navTitle')
+  const binding = BINDINGS[type]
+  // поле, которое может заполняться из коллекции, необязательно: при автоматическом источнике оно пустое
+  const own = props
+    .filter((p) => p.key !== 'hash' && p.key !== 'navTitle')
+    .map((p) => (binding && p.key === binding.prop ? { ...p, required: false } : p))
+  const ownFields = objectFields(own, true).map((f) =>
+    binding && 'name' in f && f.name === binding.prop
+      ? ({ ...f, admin: { ...(f.admin ?? {}), condition: (_: unknown, sibling: Record<string, unknown>) => !sibling?.source || sibling.source === 'manual' } } as Field)
+      : f,
+  )
   return {
     slug: type,
     labels: { singular: meta.label, plural: meta.label },
@@ -230,6 +276,6 @@ export const buildBlock = (type: string, shape: Shape): Block => {
       group: meta.group,
       ...(meta.hint ? { custom: { hint: meta.hint } } : {}),
     },
-    fields: [...commonBlockFields(hasNav), ...objectFields(own, true)],
+    fields: [...commonBlockFields(hasNav), ...(binding ? sourceFields(binding) : []), ...ownFields],
   }
 }

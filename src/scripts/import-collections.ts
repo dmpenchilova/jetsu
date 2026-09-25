@@ -371,4 +371,99 @@ export const importCollections = async (payload: Payload) => {
   }
   for (const [id, title] of termEn) await setEn('terms', id, { title })
   log('Английские версии загружены')
+
+  // ——— мероприятия, офисы и карточки направлений и отраслей — из блоков тестовых страниц ———
+  const home = ((await readJson('pages/index.json'))?.data as Json)?.content as Json[]
+  const contactsPage = ((await readJson('pages/contacts.json'))?.data as Json)?.content as Json[]
+  const block = (content: Json[] | undefined, type: string) => content?.find((b) => b.type === type)?.data as Json | undefined
+
+  const eventsBlock = block(home, 'events')
+  const eventFormat = new Map<string, Id>()
+  for (const [i, e] of (((eventsBlock?.items as Json[]) ?? [])).entries()) {
+    let formatId: Id | undefined
+    if (e.format) {
+      formatId = eventFormat.get(String(e.format)) ?? (await term('eventFormat', String(e.format)))
+      eventFormat.set(String(e.format), formatId)
+    }
+    const tags = await tagsOf(e.tags)
+    // даты в тестовых данных — текстом, поэтому ставим ближайшие будущие даты и сохраняем текст
+    const start = new Date(Date.now() + (30 + i * 14) * 24 * 60 * 60 * 1000)
+    await upsert(payload, 'events', { title: { equals: e.title } }, {
+      title: e.title,
+      description: e.description ?? null,
+      type: e.type ?? null,
+      format: formatId ?? null,
+      timeText: e.time ?? null,
+      startAt: start.toISOString(),
+      directions: tags.directions,
+      industries: tags.industries,
+      img: await img(e.img),
+      btn: e.btn ?? {},
+      _status: 'published',
+    })
+  }
+  log('Мероприятия загружены')
+
+  const officesBlock = block(contactsPage, 'offices')
+  let officeOrder = 0
+  for (const group of ((officesBlock?.offices as Json[]) ?? [])) {
+    const region = /снг|cis/i.test(String(group.title)) ? 'cis' : 'russia'
+    for (const city of ((group.cities as Json[]) ?? [])) {
+      officeOrder += 10
+      await upsert(payload, 'offices', { and: [{ title: { equals: city.title } }, { region: { equals: region } }] }, {
+        region,
+        title: city.title,
+        description: city.description ?? null,
+        groups: ((city.items as Json[]) ?? []).map((g) => ({ title: g.title, items: g.items ?? [] })),
+        order: officeOrder,
+      })
+    }
+  }
+  log('Офисы загружены')
+
+  // карточки направлений из слайдера на главной — к направлению с тем же названием или первому свободному
+  const dirSlides = ((block(home, 'directions')?.items as Json[]) ?? [])
+  for (const slide of dirSlides) {
+    const id = directionIds.get(clean(String(slide.suptitle ?? '')))
+    if (!id) continue
+    await payload.update({
+      collection: 'directions',
+      id,
+      data: {
+        cardTitle: slide.title ?? null,
+        description: ((slide.description as string[]) ?? []).join('\n\n') || null,
+        image: await img(slide.img),
+        logos: await Promise.all(((slide.company as Json[]) ?? []).slice(0, 4).map((c) => img(c))),
+      } as never,
+    })
+  }
+  const indItems = ((block(home, 'industries')?.items as Json[]) ?? [])
+  for (const it of indItems) {
+    const title = clean(String(it.title))
+    const content = (it.content ?? {}) as Json
+    const code = slugify(title)
+    const id = industryIds.get(title) ?? (await upsert(payload, 'industries', { code: { equals: code } }, { title, code, order: 300 }))
+    industryIds.set(title, id)
+    await payload.update({
+      collection: 'industries',
+      id,
+      data: {
+        short: it.description ?? null,
+        description: content.description ?? null,
+        metrics: ((content.items as Json[]) ?? []).slice(0, 3).map((m) => ({ value: m.title, label: m.description ?? null })),
+        logos: await Promise.all(((content.company as Json[]) ?? []).slice(0, 4).map((c) => img(c))),
+      } as never,
+    })
+  }
+  log('Карточки направлений и отраслей загружены')
+
+  // пример связанных блоков: на главной мероприятия, на «Контактах» офисы берутся из коллекций
+  for (const [path, type] of [['', 'events'], ['contacts', 'offices']] as const) {
+    const found = await payload.find({ collection: 'pages', where: { path: { equals: path } }, limit: 1, depth: 0, locale: 'ru' })
+    const page = found.docs[0] as { id: Id; content?: Json[] } | undefined
+    if (!page?.content) continue
+    const content = page.content.map((row) => (row.blockType === type ? { ...row, source: 'auto' } : row))
+    await payload.update({ collection: 'pages', id: page.id, locale: 'ru', data: { content, _status: 'published' } as never })
+  }
+  log('Блоки «Мероприятия» на главной и «Офисы» на «Контактах» переключены на данные из коллекций')
 }

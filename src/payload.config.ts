@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url'
 
 import { Partners, Vacancies } from './collections/Career'
 import { Directions, Industries, Services, Subdirections } from './collections/Catalog'
+import { Events, Offices } from './collections/Company'
 import { Projects, Publications } from './collections/Expertise'
 import { Forms } from './collections/Forms'
 import { Media } from './collections/Media'
@@ -62,12 +63,14 @@ export default buildConfig({
     Pages,
     Publications,
     Projects,
+    Events,
     Services,
     Directions,
     Subdirections,
     Industries,
     Vacancies,
     Partners,
+    Offices,
     Terms,
     Media,
     Forms,

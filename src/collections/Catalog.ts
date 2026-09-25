@@ -55,7 +55,8 @@ export const Directions: CollectionConfig = {
       label: 'Карточка в слайдере направлений',
       admin: { initCollapsed: true },
       fields: [
-        { name: 'description', label: 'Описание', type: 'textarea', localized: true, maxLength: 500 },
+        { name: 'cardTitle', label: 'Заголовок карточки', type: 'text', localized: true, admin: { description: 'Например «Развивайте бизнес. Мы обеспечим поддержку.» Если пусто — название направления' } },
+        { name: 'description', label: 'Описание', type: 'textarea', localized: true, maxLength: 500, admin: { description: 'Абзацы разделяйте пустой строкой' } },
         imageGroup('image', 'Картинка'),
         logosField,
       ],

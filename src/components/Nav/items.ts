@@ -17,10 +17,12 @@ export const NAV_ITEMS: NavItem[] = [
 
   { group: 'Экспертиза', label: 'Публикации', href: '/admin/collections/publications', entity: c('publications'), icon: 'M4 5h16v14H4z M8 9h8 M8 13h8 M8 17h5' },
   { label: 'Проекты', href: '/admin/collections/projects', entity: c('projects'), icon: 'M4 8h16v11H4z M9 8V5h6v3' },
+  { label: 'Мероприятия', href: '/admin/collections/events', entity: c('events'), icon: 'M4 6h16v14H4z M4 10h16 M9 3v4 M15 3v4' },
 
   { group: 'Контент', label: 'Услуги и решения', href: '/admin/collections/services', entity: c('services'), icon: 'M4 4h7v7H4z M13 4h7v7h-7z M4 13h7v7H4z M13 13h7v7h-7z' },
   { label: 'Карьера', href: '/admin/collections/vacancies', entity: c('vacancies'), icon: 'M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6 M17 11a3 3 0 1 0 0-6 M21 20c0-2.6-1.7-4.9-4-5.7' },
   { label: 'Партнёры', href: '/admin/collections/partners', entity: c('partners'), icon: 'M5 21V4h10v17 M15 9h4v12 M8 8h4 M8 12h4 M8 16h4 M3 21h18' },
+  { label: 'Офисы', href: '/admin/collections/offices', entity: c('offices'), icon: 'M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z M12 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4z' },
 
   { group: 'Справочники', label: 'Теги и списки', href: '/admin/collections/terms', entity: c('terms'), icon: 'M3 12V4h8l10 10-8 8z M7.5 7.5h.01' },
   { label: 'Направления', href: '/admin/collections/directions', entity: c('directions'), icon: 'M4 12h16 M14 6l6 6-6 6' },

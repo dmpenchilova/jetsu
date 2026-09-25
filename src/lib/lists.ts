@@ -598,3 +598,180 @@ export const partnersFilter = async (payload: Payload, locale: Locale, body: unk
   const { total, items } = await partnerItems(payload, locale, readFilters(body), await lookups(payload, locale))
   return { total, items }
 }
+
+// ————————————————————————————— Блоки, связанные с коллекциями —————————————————————————————
+
+const REGION_TITLES: Record<Locale, Record<string, string>> = {
+  ru: { russia: 'Россия', cis: 'СНГ' },
+  en: { russia: 'Russia', cis: 'CIS' },
+}
+
+const EVENT_BTN: Record<Locale, string> = { ru: 'Зарегистрироваться', en: 'Register' }
+const MORE: Record<Locale, string> = { ru: 'Подробнее', en: 'Learn more' }
+
+const eventTime = (doc: Doc, locale: Locale) => {
+  if (doc.timeText) return doc.timeText as string
+  if (!doc.startAt) return undefined
+  const d = new Date(doc.startAt)
+  const parts = new Intl.DateTimeFormat('ru-RU', { timeZone: 'Europe/Moscow', hour: '2-digit', minute: '2-digit', hour12: false }).format(d)
+  const day = new Intl.DateTimeFormat('ru-RU', { timeZone: 'Europe/Moscow', day: 'numeric' }).format(d)
+  const month = T[locale].months[Number(new Intl.DateTimeFormat('en-US', { timeZone: 'Europe/Moscow', month: 'numeric' }).format(d)) - 1]
+  return `${day} ${month} ${parts}`
+}
+
+/** Записи для блока: выбранные вручную (в заданном порядке) или автоматические. */
+const pickOrAuto = async (payload: Payload, collection: string, locale: Locale, row: Doc, auto: () => Promise<Doc[]>, defaultLimit?: number) => {
+  if (row.source === 'pick') {
+    const wanted = ids(row.pick).map(String)
+    if (!wanted.length) return []
+    const where: Where = collection === 'publications' || collection === 'events' || collection === 'projects' ? { and: [published, { id: { in: wanted } }] } : { id: { in: wanted } }
+    const docs = byId(await findAll(payload, collection, locale, where))
+    return wanted.map((id) => docs.get(id)).filter(Boolean) as Doc[]
+  }
+  const docs = await auto()
+  const limit = typeof row.limit === 'number' && row.limit > 0 ? row.limit : row.limit === undefined ? defaultLimit : undefined
+  return limit ? docs.slice(0, limit) : docs
+}
+
+const pagePaths = async (payload: Payload, pageIds: unknown[]) => {
+  const wanted = pageIds.map(idOf).filter(Boolean).map(String)
+  if (!wanted.length) return new Map<string, string>()
+  const res = await payload.find({ collection: 'pages', where: { id: { in: wanted } }, depth: 0, limit: wanted.length, pagination: false, overrideAccess: true, select: { path: true } })
+  return new Map(res.docs.map((p) => [String(p.id), `/${p.path ? `${p.path}/` : ''}`]))
+}
+
+/**
+ * Данные связанного поля блока в формате фронта. undefined — блок заполнен вручную, трогать не нужно.
+ */
+export const resolveBinding = async (payload: Payload, type: string, row: Doc, locale: Locale): Promise<unknown[] | undefined> => {
+  if (row.source !== 'auto' && row.source !== 'pick') return undefined
+  const lk = await lookups(payload, locale)
+  const imgs = async (docs: Doc[], fields: string[]) =>
+    buildCtx(
+      payload,
+      docs.flatMap((d) =>
+        fields.flatMap((f) => (Array.isArray(d[f]) ? (d[f] as unknown[]).map((v) => ({ shape: IMG, value: v })) : [{ shape: IMG, value: d[f] }])),
+      ),
+      locale,
+    )
+
+  switch (type) {
+    case 'events': {
+      const now = new Date().toISOString()
+      const docs = await pickOrAuto(payload, 'events', locale, row, async () =>
+        (await findAll(payload, 'events', locale, published, 'startAt')).filter((d) => (d.endAt ? d.endAt >= now : d.startAt >= now.slice(0, 10))),
+        6,
+      )
+      const ctx = await imgs(docs, ['img'])
+      return docs.map((d) => {
+        const card: Doc = { title: d.title }
+        if (d.description) card.description = d.description
+        if (d.type) card.type = d.type
+        const time = eventTime(d, locale)
+        if (time) card.time = time
+        const format = lk.terms.get(String(idOf(d.format)))?.title
+        if (format) card.format = format
+        const tags = tagTitles(d, lk)
+        if (tags.length) card.tags = tags
+        const img = toFront(IMG, d.img, ctx)
+        if (img) card.img = img
+        if (d.btn?.url) card.btn = { title: d.btn.title || EVENT_BTN[locale], url: d.btn.url }
+        return card
+      })
+    }
+    case 'topical':
+    case 'similarNews': {
+      const docs = await pickOrAuto(payload, 'publications', locale, row, async () => {
+        const all = await findAll(payload, 'publications', locale, published, '-date')
+        if (type === 'similarNews') return all
+        return all.sort((a, b) => Number(!!b.recommended) - Number(!!a.recommended) || (b.priority ?? 0) - (a.priority ?? 0) || String(b.date).localeCompare(String(a.date)))
+      }, 6)
+      const ctx = await imgs(docs, ['cover'])
+      if (type === 'similarNews') return docs.map((d) => publicationCard(d, lk, ctx, locale))
+      return docs.map((d) => {
+        const card: Doc = { tag: T[locale].types[d.type] ?? '', title: d.title }
+        const tags = tagTitles(d, lk)
+        if (tags.length) card.tags = tags
+        const img = toFront(IMG, d.cover, ctx)
+        if (img) card.img = img
+        card.url = `${locale === 'en' ? '/en' : ''}/expertise/${d.slug}/`
+        return card
+      })
+    }
+    case 'directions':
+    case 'industries': {
+      const collection = type
+      const docs = await pickOrAuto(payload, collection, locale, row, async () => findAll(payload, collection, locale, {}, 'order'))
+      const ctx = await imgs(docs, ['image', 'logos'])
+      const paths = await pagePaths(payload, docs.map((d) => d.page))
+      const btnOf = (d: Doc) => {
+        const url = paths.get(String(idOf(d.page)))
+        return url ? { title: MORE[locale], url } : undefined
+      }
+      const logos = (d: Doc) => ((d.logos ?? []) as unknown[]).map((l) => toFront(IMG, l, ctx)).filter(Boolean)
+      if (collection === 'directions') {
+        return docs.map((d) => {
+          const card: Doc = { suptitle: d.title, title: d.cardTitle || d.title }
+          const img = toFront(IMG, d.image, ctx)
+          if (img) card.img = img
+          if (d.description) card.description = String(d.description).split(/\n\s*\n/).map((s) => s.trim()).filter(Boolean)
+          const company = logos(d)
+          if (company.length) card.company = company
+          const btn = btnOf(d)
+          if (btn) card.btn = btn
+          return card
+        })
+      }
+      return docs.map((d) => {
+        const content: Doc = { title: d.title }
+        if (d.description) content.description = d.description
+        const metrics = ((d.metrics ?? []) as Doc[]).filter((m) => m.value).map((m) => ({ title: m.value, ...(m.label ? { description: m.label } : {}) }))
+        if (metrics.length) content.items = metrics
+        const company = logos(d)
+        if (company.length) content.company = company
+        const btn = btnOf(d)
+        if (btn) content.btn = btn
+        return { title: d.title, ...(d.short ? { description: d.short } : {}), content }
+      })
+    }
+    case 'partners':
+    case 'vendors': {
+      const docs = await pickOrAuto(payload, 'partners', locale, row, async () => findAll(payload, 'partners', locale, {}, 'order'))
+      const ctx = await imgs(docs, ['logo'])
+      return docs
+        .map((d) => {
+          const img = toFront(IMG, d.logo, ctx) as Doc | undefined
+          if (!img) return undefined
+          if (type === 'vendors') return { src: img.src, alt: d.title, ...(d.url ? { url: d.url } : {}) }
+          const type_ = lk.terms.get(String(idOf(d.type)))?.title
+          return { img, ...(type_ ? { title: type_ } : {}), ...(d.url ? { url: d.url } : {}) }
+        })
+        .filter(Boolean) as Doc[]
+    }
+    case 'offices':
+    case 'contacts': {
+      const docs = await pickOrAuto(payload, 'offices', locale, row, async () => findAll(payload, 'offices', locale, {}, 'order'))
+      const regions = ['russia', 'cis'].filter((r) => docs.some((d) => d.region === r))
+      return regions.map((r, i) => ({
+        title: REGION_TITLES[locale][r],
+        ...(i === 0 ? { isDefault: true } : {}),
+        cities: docs
+          .filter((d) => d.region === r)
+          .map((d) => ({
+            title: d.title,
+            ...(d.description ? { description: d.description } : {}),
+            items: ((d.groups ?? []) as Doc[]).map((g) => ({
+              title: g.title,
+              items: ((g.items ?? []) as Doc[]).filter((x) => x.value).map((x) => ({ value: x.value, ...(x.link ? { link: x.link } : {}) })),
+            })),
+          })),
+      }))
+    }
+    case 'relatedServices': {
+      const docs = await pickOrAuto(payload, 'services', locale, row, async () => [])
+      return docs.map((s) => ({ title: s.title, ...(s.description ? { description: s.description } : {}), slug: s.slug }))
+    }
+    default:
+      return undefined
+  }
+}

@@ -70,12 +70,14 @@ export interface Config {
     pages: Page;
     publications: Publication;
     projects: Project;
+    events: Event;
     services: Service;
     directions: Direction;
     subdirections: Subdirection;
     industries: Industry;
     vacancies: Vacancy;
     partners: Partner;
+    offices: Office;
     terms: Term;
     media: Media;
     forms: Form;
@@ -91,12 +93,14 @@ export interface Config {
     pages: PagesSelect<false> | PagesSelect<true>;
     publications: PublicationsSelect<false> | PublicationsSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
+    events: EventsSelect<false> | EventsSelect<true>;
     services: ServicesSelect<false> | ServicesSelect<true>;
     directions: DirectionsSelect<false> | DirectionsSelect<true>;
     subdirections: SubdirectionsSelect<false> | SubdirectionsSelect<true>;
     industries: IndustriesSelect<false> | IndustriesSelect<true>;
     vacancies: VacanciesSelect<false> | VacanciesSelect<true>;
     partners: PartnersSelect<false> | PartnersSelect<true>;
+    offices: OfficesSelect<false> | OfficesSelect<true>;
     terms: TermsSelect<false> | TermsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
@@ -605,29 +609,40 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Publication)[] | null;
             tag?: string | null;
             title?: string | null;
-            items: {
-              tag?: string | null;
-              title?: string | null;
-              tags?:
-                | {
-                    value: string;
-                    id?: string | null;
-                  }[]
-                | null;
-              img?: {
-                src?: (number | null) | Media;
-                /**
-                 * Если пусто — берётся из медиатеки
-                 */
-                alt?: string | null;
-                tablet?: (number | null) | Media;
-                desktop?: (number | null) | Media;
-              };
-              url?: string | null;
-              id?: string | null;
-            }[];
+            items?:
+              | {
+                  tag?: string | null;
+                  title?: string | null;
+                  tags?:
+                    | {
+                        value: string;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  img?: {
+                    src?: (number | null) | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  url?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'topical';
@@ -645,6 +660,15 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Event)[] | null;
             tag?: string | null;
             background?: {
               src?: (number | null) | Media;
@@ -668,33 +692,35 @@ export interface Page {
                   id?: string | null;
                 }[]
               | null;
-            items: {
-              title?: string | null;
-              description?: string | null;
-              type?: string | null;
-              time?: string | null;
-              format?: string | null;
-              tags?:
-                | {
-                    value: string;
-                    id?: string | null;
-                  }[]
-                | null;
-              img?: {
-                src?: (number | null) | Media;
-                /**
-                 * Если пусто — берётся из медиатеки
-                 */
-                alt?: string | null;
-                tablet?: (number | null) | Media;
-                desktop?: (number | null) | Media;
-              };
-              btn?: {
-                title?: string | null;
-                url?: string | null;
-              };
-              id?: string | null;
-            }[];
+            items?:
+              | {
+                  title?: string | null;
+                  description?: string | null;
+                  type?: string | null;
+                  time?: string | null;
+                  format?: string | null;
+                  tags?:
+                    | {
+                        value: string;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  img?: {
+                    src?: (number | null) | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  btn?: {
+                    title?: string | null;
+                    url?: string | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'events';
@@ -755,40 +781,51 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Industry)[] | null;
             tag?: string | null;
             title?: string | null;
-            items: {
-              title: string;
-              description?: string | null;
-              content?: {
-                title?: string | null;
-                description?: string | null;
-                subitems?:
-                  | {
-                      title: string;
-                      description?: string | null;
-                      id?: string | null;
-                    }[]
-                  | null;
-                company?:
-                  | {
-                      src: number | Media;
-                      /**
-                       * Если пусто — берётся из медиатеки
-                       */
-                      alt?: string | null;
-                      tablet?: (number | null) | Media;
-                      desktop?: (number | null) | Media;
-                      id?: string | null;
-                    }[]
-                  | null;
-                btn?: {
-                  title?: string | null;
-                  url?: string | null;
-                };
-              };
-              id?: string | null;
-            }[];
+            items?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  content?: {
+                    title?: string | null;
+                    description?: string | null;
+                    subitems?:
+                      | {
+                          title: string;
+                          description?: string | null;
+                          id?: string | null;
+                        }[]
+                      | null;
+                    company?:
+                      | {
+                          src: number | Media;
+                          /**
+                           * Если пусто — берётся из медиатеки
+                           */
+                          alt?: string | null;
+                          tablet?: (number | null) | Media;
+                          desktop?: (number | null) | Media;
+                          id?: string | null;
+                        }[]
+                      | null;
+                    btn?: {
+                      title?: string | null;
+                      url?: string | null;
+                    };
+                  };
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'industries';
@@ -806,43 +843,54 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Direction)[] | null;
             tag?: string | null;
-            items: {
-              suptitle?: string | null;
-              title?: string | null;
-              description?:
-                | {
-                    value: string;
-                    id?: string | null;
-                  }[]
-                | null;
-              img?: {
-                src?: (number | null) | Media;
-                /**
-                 * Если пусто — берётся из медиатеки
-                 */
-                alt?: string | null;
-                tablet?: (number | null) | Media;
-                desktop?: (number | null) | Media;
-              };
-              company?:
-                | {
-                    src: number | Media;
+            items?:
+              | {
+                  suptitle?: string | null;
+                  title?: string | null;
+                  description?:
+                    | {
+                        value: string;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  img?: {
+                    src?: (number | null) | Media;
                     /**
                      * Если пусто — берётся из медиатеки
                      */
                     alt?: string | null;
                     tablet?: (number | null) | Media;
                     desktop?: (number | null) | Media;
-                    id?: string | null;
-                  }[]
-                | null;
-              btn?: {
-                title?: string | null;
-                url?: string | null;
-              };
-              id?: string | null;
-            }[];
+                  };
+                  company?:
+                    | {
+                        src: number | Media;
+                        /**
+                         * Если пусто — берётся из медиатеки
+                         */
+                        alt?: string | null;
+                        tablet?: (number | null) | Media;
+                        desktop?: (number | null) | Media;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  btn?: {
+                    title?: string | null;
+                    url?: string | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'directions';
@@ -952,6 +1000,15 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Partner)[] | null;
             tag?: string | null;
             title?: string | null;
             description?: string | null;
@@ -965,20 +1022,22 @@ export interface Page {
               desktop?: (number | null) | Media;
               type?: ('mixed' | 'image' | 'video') | null;
             };
-            items: {
-              title?: string | null;
-              img: {
-                src: number | Media;
-                /**
-                 * Если пусто — берётся из медиатеки
-                 */
-                alt?: string | null;
-                tablet?: (number | null) | Media;
-                desktop?: (number | null) | Media;
-              };
-              url?: string | null;
-              id?: string | null;
-            }[];
+            items?:
+              | {
+                  title?: string | null;
+                  img: {
+                    src: number | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  url?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'partners';
@@ -996,14 +1055,25 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Partner)[] | null;
             tag: string;
             title?: string | null;
-            items: {
-              src: string;
-              alt?: string | null;
-              url?: string | null;
-              id?: string | null;
-            }[];
+            items?:
+              | {
+                  src: string;
+                  alt?: string | null;
+                  url?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
             btn?: {
               title?: string | null;
               url?: string | null;
@@ -1098,46 +1168,57 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Publication)[] | null;
             title: string;
             description?: string | null;
             btn?: {
               title?: string | null;
               url?: string | null;
             };
-            items: {
-              tag: string;
-              title: string;
-              description?: string | null;
-              slug?: string | null;
-              tags?:
-                | {
-                    value: string;
-                    id?: string | null;
-                  }[]
-                | null;
-              background?: {
-                src?: (number | null) | Media;
-                /**
-                 * Если пусто — берётся из медиатеки
-                 */
-                alt?: string | null;
-                tablet?: (number | null) | Media;
-                desktop?: (number | null) | Media;
-              };
-              img?:
-                | {
-                    src: number | Media;
+            items?:
+              | {
+                  tag: string;
+                  title: string;
+                  description?: string | null;
+                  slug?: string | null;
+                  tags?:
+                    | {
+                        value: string;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  background?: {
+                    src?: (number | null) | Media;
                     /**
                      * Если пусто — берётся из медиатеки
                      */
                     alt?: string | null;
                     tablet?: (number | null) | Media;
                     desktop?: (number | null) | Media;
-                    id?: string | null;
-                  }[]
-                | null;
-              id?: string | null;
-            }[];
+                  };
+                  img?:
+                    | {
+                        src: number | Media;
+                        /**
+                         * Если пусто — берётся из медиатеки
+                         */
+                        alt?: string | null;
+                        tablet?: (number | null) | Media;
+                        desktop?: (number | null) | Media;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'similarNews';
@@ -1705,6 +1786,15 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Office)[] | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -1720,25 +1810,27 @@ export interface Page {
               title: string;
               url?: string | null;
             };
-            offices: {
-              title: string;
-              isDefault?: boolean | null;
-              cities: {
-                title: string;
-                description?: string | null;
-                items: {
+            offices?:
+              | {
                   title: string;
-                  subitems: {
-                    value: string;
-                    link?: string | null;
+                  isDefault?: boolean | null;
+                  cities: {
+                    title: string;
+                    description?: string | null;
+                    items: {
+                      title: string;
+                      subitems: {
+                        value: string;
+                        link?: string | null;
+                        id?: string | null;
+                      }[];
+                      id?: string | null;
+                    }[];
                     id?: string | null;
                   }[];
                   id?: string | null;
-                }[];
-                id?: string | null;
-              }[];
-              id?: string | null;
-            }[];
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'contacts';
@@ -2417,14 +2509,25 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            source?: ('manual' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Service)[] | null;
             title: string;
             description?: string | null;
-            items: {
-              title: string;
-              description?: string | null;
-              slug?: string | null;
-              id?: string | null;
-            }[];
+            items?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  slug?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'relatedServices';
@@ -2930,27 +3033,38 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Office)[] | null;
             tag?: string | null;
             supTag?: string | null;
-            offices: {
-              title: string;
-              isDefault?: boolean | null;
-              cities: {
-                title: string;
-                description?: string | null;
-                items: {
+            offices?:
+              | {
                   title: string;
-                  subitems: {
-                    value: string;
-                    link?: string | null;
+                  isDefault?: boolean | null;
+                  cities: {
+                    title: string;
+                    description?: string | null;
+                    items: {
+                      title: string;
+                      subitems: {
+                        value: string;
+                        link?: string | null;
+                        id?: string | null;
+                      }[];
+                      id?: string | null;
+                    }[];
                     id?: string | null;
                   }[];
                   id?: string | null;
-                }[];
-                id?: string | null;
-              }[];
-              id?: string | null;
-            }[];
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'offices';
@@ -3118,65 +3232,6 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "forms".
- */
-export interface Form {
-  id: number;
-  title: string;
-  /**
-   * По типу выбираются получатели писем и интеграции
-   */
-  kind: 'business' | 'vacancy' | 'quality' | 'incident';
-  visible?:
-    | {
-        type: 'input' | 'phone' | 'textarea' | 'file';
-        /**
-         * Латиницей, уходит в письмо и CRM
-         */
-        name: string;
-        placeholder?: string | null;
-        label?: string | null;
-        validations?: ('required' | 'email' | 'phone' | 'file')[] | null;
-        sameRow?: boolean | null;
-        multiple?: boolean | null;
-        /**
-         * Например .pdf, .docx
-         */
-        acceptedFileTypes?: string[] | null;
-        defaultValue?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  hidden?:
-    | {
-        type: 'input' | 'phone' | 'textarea' | 'file';
-        /**
-         * Латиницей, уходит в письмо и CRM
-         */
-        name: string;
-        placeholder?: string | null;
-        label?: string | null;
-        validations?: ('required' | 'email' | 'phone' | 'file')[] | null;
-        sameRow?: boolean | null;
-        multiple?: boolean | null;
-        /**
-         * Например .pdf, .docx
-         */
-        acceptedFileTypes?: string[] | null;
-        defaultValue?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  btn?: string | null;
-  /**
-   * Куда фронт отправляет заявку
-   */
-  action?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "publications".
  */
 export interface Publication {
@@ -3321,6 +3376,13 @@ export interface Direction {
   id: number;
   title: string;
   center?: (number | null) | Term;
+  /**
+   * Например «Развивайте бизнес. Мы обеспечим поддержку.» Если пусто — название направления
+   */
+  cardTitle?: string | null;
+  /**
+   * Абзацы разделяйте пустой строкой
+   */
   description?: string | null;
   image?: {
     src?: (number | null) | Media;
@@ -3450,6 +3512,172 @@ export interface Subdirection {
   title: string;
   direction: number | Direction;
   description?: string | null;
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Прошедшие мероприятия со страниц пропадают сами
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "events".
+ */
+export interface Event {
+  id: number;
+  title: string;
+  description?: string | null;
+  /**
+   * Конференция, вебинар…
+   */
+  type?: string | null;
+  format?: (number | null) | Term;
+  /**
+   * Например «20–25 октября». Если пусто — из даты
+   */
+  timeText?: string | null;
+  startAt: string;
+  /**
+   * После окончания мероприятие скрывается
+   */
+  endAt?: string | null;
+  directions?: (number | Direction)[] | null;
+  industries?: (number | Industry)[] | null;
+  img?: {
+    src?: (number | null) | Media;
+    /**
+     * Если пусто — берётся из медиатеки
+     */
+    alt?: string | null;
+    tablet?: (number | null) | Media;
+    desktop?: (number | null) | Media;
+  };
+  btn?: {
+    title?: string | null;
+    url?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "forms".
+ */
+export interface Form {
+  id: number;
+  title: string;
+  /**
+   * По типу выбираются получатели писем и интеграции
+   */
+  kind: 'business' | 'vacancy' | 'quality' | 'incident';
+  visible?:
+    | {
+        type: 'input' | 'phone' | 'textarea' | 'file';
+        /**
+         * Латиницей, уходит в письмо и CRM
+         */
+        name: string;
+        placeholder?: string | null;
+        label?: string | null;
+        validations?: ('required' | 'email' | 'phone' | 'file')[] | null;
+        sameRow?: boolean | null;
+        multiple?: boolean | null;
+        /**
+         * Например .pdf, .docx
+         */
+        acceptedFileTypes?: string[] | null;
+        defaultValue?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  hidden?:
+    | {
+        type: 'input' | 'phone' | 'textarea' | 'file';
+        /**
+         * Латиницей, уходит в письмо и CRM
+         */
+        name: string;
+        placeholder?: string | null;
+        label?: string | null;
+        validations?: ('required' | 'email' | 'phone' | 'file')[] | null;
+        sameRow?: boolean | null;
+        multiple?: boolean | null;
+        /**
+         * Например .pdf, .docx
+         */
+        acceptedFileTypes?: string[] | null;
+        defaultValue?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  btn?: string | null;
+  /**
+   * Куда фронт отправляет заявку
+   */
+  action?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "partners".
+ */
+export interface Partner {
+  id: number;
+  title: string;
+  logo?: {
+    src?: (number | null) | Media;
+    /**
+     * Если пусто — берётся из медиатеки
+     */
+    alt?: string | null;
+    tablet?: (number | null) | Media;
+    desktop?: (number | null) | Media;
+  };
+  type?: (number | null) | Term;
+  directions?: (number | Direction)[] | null;
+  /**
+   * Нумеруются на сайте сами
+   */
+  items?:
+    | {
+        value: string;
+        id?: string | null;
+      }[]
+    | null;
+  url?: string | null;
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "offices".
+ */
+export interface Office {
+  id: number;
+  region: 'russia' | 'cis';
+  title: string;
+  description?: string | null;
+  /**
+   * Телефон, сервисный центр, почта…
+   */
+  groups?:
+    | {
+        title: string;
+        items?:
+          | {
+              value: string;
+              /**
+               * tel:… или mailto:…
+               */
+              link?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
   order?: number | null;
   updatedAt: string;
   createdAt: string;
@@ -3692,38 +3920,6 @@ export interface Vacancy {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "partners".
- */
-export interface Partner {
-  id: number;
-  title: string;
-  logo?: {
-    src?: (number | null) | Media;
-    /**
-     * Если пусто — берётся из медиатеки
-     */
-    alt?: string | null;
-    tablet?: (number | null) | Media;
-    desktop?: (number | null) | Media;
-  };
-  type?: (number | null) | Term;
-  directions?: (number | Direction)[] | null;
-  /**
-   * Нумеруются на сайте сами
-   */
-  items?:
-    | {
-        value: string;
-        id?: string | null;
-      }[]
-    | null;
-  url?: string | null;
-  order?: number | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -3879,6 +4075,10 @@ export interface PayloadLockedDocument {
         value: number | Project;
       } | null)
     | ({
+        relationTo: 'events';
+        value: number | Event;
+      } | null)
+    | ({
         relationTo: 'services';
         value: number | Service;
       } | null)
@@ -3901,6 +4101,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'partners';
         value: number | Partner;
+      } | null)
+    | ({
+        relationTo: 'offices';
+        value: number | Office;
       } | null)
     | ({
         relationTo: 'terms';
@@ -4321,6 +4525,9 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               tag?: T;
               title?: T;
               items?:
@@ -4354,6 +4561,9 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               tag?: T;
               background?:
                 | T
@@ -4452,6 +4662,9 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               tag?: T;
               title?: T;
               items?:
@@ -4498,6 +4711,9 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               tag?: T;
               items?:
                 | T
@@ -4616,6 +4832,9 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               tag?: T;
               title?: T;
               description?: T;
@@ -4652,6 +4871,9 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               tag?: T;
               title?: T;
               items?:
@@ -4740,6 +4962,9 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               title?: T;
               description?: T;
               btn?:
@@ -5252,6 +5477,9 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               tag?: T;
               title?: T;
               items?:
@@ -5825,6 +6053,9 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               title?: T;
               description?: T;
               items?:
@@ -6246,6 +6477,9 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               tag?: T;
               supTag?: T;
               offices?:
@@ -6558,6 +6792,38 @@ export interface ProjectsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "events_select".
+ */
+export interface EventsSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  type?: T;
+  format?: T;
+  timeText?: T;
+  startAt?: T;
+  endAt?: T;
+  directions?: T;
+  industries?: T;
+  img?:
+    | T
+    | {
+        src?: T;
+        alt?: T;
+        tablet?: T;
+        desktop?: T;
+      };
+  btn?:
+    | T
+    | {
+        title?: T;
+        url?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "services_select".
  */
 export interface ServicesSelect<T extends boolean = true> {
@@ -6578,6 +6844,7 @@ export interface ServicesSelect<T extends boolean = true> {
 export interface DirectionsSelect<T extends boolean = true> {
   title?: T;
   center?: T;
+  cardTitle?: T;
   description?: T;
   image?:
     | T
@@ -6838,6 +7105,31 @@ export interface PartnersSelect<T extends boolean = true> {
         id?: T;
       };
   url?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "offices_select".
+ */
+export interface OfficesSelect<T extends boolean = true> {
+  region?: T;
+  title?: T;
+  description?: T;
+  groups?:
+    | T
+    | {
+        title?: T;
+        items?:
+          | T
+          | {
+              value?: T;
+              link?: T;
+              id?: T;
+            };
+        id?: T;
+      };
   order?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -7759,6 +8051,10 @@ export interface TaskSchedulePublish {
       | ({
           relationTo: 'projects';
           value: number | Project;
+        } | null)
+      | ({
+          relationTo: 'events';
+          value: number | Event;
         } | null)
       | ({
           relationTo: 'vacancies';

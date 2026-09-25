@@ -7,6 +7,7 @@ import { APIError } from 'payload'
 import { canPublish, hasRole, isLoggedIn, type Role } from '../access'
 import { imageFields } from '../blocks/fields'
 import { revalidateFront } from '../lib/revalidate'
+import { revalidateBound } from '../lib/revalidateBound'
 
 /** Доступ: читать могут все вошедшие, править — перечисленные роли, удалять — администратор и редактор. */
 export const contentAccess = (...editors: Role[]): CollectionConfig['access'] => ({
@@ -118,19 +119,22 @@ export const revalidateHooks = (tags: string[] | ((doc: Record<string, unknown>)
   const tagsOf = (doc: Record<string, unknown>) => (typeof tags === 'function' ? tags(doc) : tags)
   return {
     afterChange: [
-      async ({ doc, previousDoc, req }) => {
+      async ({ doc, previousDoc, req, collection }) => {
         const status = (doc as { _status?: string })._status
         const prevStatus = (previousDoc as { _status?: string } | undefined)?._status
         // черновики не трогают сайт
         if (status === undefined || status === 'published' || prevStatus === 'published') {
           await revalidateFront(req.payload, tagsOf(doc))
+          // и страницы, где блоки берут записи из этой коллекции
+          await revalidateBound(req.payload, collection.slug)
         }
         return doc
       },
     ],
     afterDelete: [
-      async ({ doc, req }) => {
+      async ({ doc, req, collection }) => {
         await revalidateFront(req.payload, tagsOf(doc))
+        await revalidateBound(req.payload, collection.slug)
       },
     ],
   }
