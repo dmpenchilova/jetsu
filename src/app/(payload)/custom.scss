@@ -1,0 +1,155 @@
+// Оформление админки в стиле сайта jet.su: шрифт OnyOne, синий #0032AD, лайм #CDF824,
+// кнопки-«таблетки» и синяя полоса справа, как на сайте.
+
+@font-face {
+  font-family: 'OnyOne';
+  src: url('/OnyOneRegular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OnyOne';
+  src: url('/OnyOneMedium.woff2') format('woff2');
+  font-weight: 500 700;
+  font-display: swap;
+}
+
+:root {
+  --jet-blue: #0032ad;
+  --jet-blue-300: #e6e9ee;
+  --jet-lime: #cdf824;
+  --jet-lime-200: #f3fdc8;
+  --jet-black: #21252c;
+  --jet-orange: #f87c24;
+  --font-body: 'OnyOne', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --style-radius-s: 8px;
+  --style-radius-m: 12px;
+  --style-radius-l: 16px;
+}
+
+html[data-theme='light'] {
+  --theme-bg: #ffffff;
+  --theme-text: var(--jet-black);
+  --theme-input-bg: #ffffff;
+  --theme-elevation-50: #f5f5f5;
+  --theme-elevation-100: #e8e8e8;
+  --theme-elevation-150: #e0e0e0;
+  --theme-elevation-200: #d4d4d4;
+  --theme-elevation-400: #bbbbbb;
+  --theme-elevation-500: #8c8c8c;
+  --theme-elevation-600: #585858;
+  --theme-elevation-800: var(--jet-black);
+  --theme-success-50: var(--jet-lime-200);
+  --theme-success-100: var(--jet-lime-200);
+  --theme-success-150: #e6fb91;
+  --theme-success-250: var(--jet-lime);
+  --theme-success-500: #6f8a00;
+  --theme-error-50: #fef1e7;
+  --theme-error-100: #fde3cf;
+  --theme-error-500: var(--jet-orange);
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+// синяя полоса справа, как на сайте
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 8px;
+  background: var(--jet-blue);
+  z-index: 50;
+  pointer-events: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+}
+
+// кнопки
+.btn {
+  border-radius: 100px;
+}
+
+.btn--style-primary {
+  background: var(--jet-blue);
+  color: #fff;
+
+  &:not(:disabled):hover,
+  &:not(:disabled):focus-visible {
+    background: #00268a;
+  }
+}
+
+.btn--style-secondary {
+  box-shadow: inset 0 0 0 1px var(--jet-blue);
+  color: var(--jet-blue);
+}
+
+// меню слева: активный пункт — синий
+.nav {
+  background: #fff;
+  border-right: 1px solid var(--theme-elevation-100);
+}
+
+.nav__link {
+  border-radius: 10px;
+  padding-inline: 12px;
+
+  &.active,
+  &:hover {
+    background: var(--jet-blue-300);
+    color: var(--jet-blue);
+  }
+}
+
+.nav-group__toggle {
+  color: var(--theme-elevation-600);
+  font-size: 12px;
+  text-transform: none;
+}
+
+// поля ввода
+.field-type input,
+.field-type textarea,
+.react-select .rs__control {
+  border-radius: 10px;
+}
+
+// карточки блоков
+.blocks-field__row > .collapsible {
+  border-radius: 14px;
+}
+
+.pill {
+  border-radius: 100px;
+}
+
+// экран входа
+.template-minimal {
+  background: var(--jet-blue);
+
+  .template-minimal__wrap {
+    background: #fff;
+    border-radius: 24px;
+    padding: 48px 40px;
+    max-width: 480px;
+  }
+}
+
+.jet-logo {
+  width: 184px;
+  height: 52px;
+}
+
+.jet-icon {
+  display: block;
+}

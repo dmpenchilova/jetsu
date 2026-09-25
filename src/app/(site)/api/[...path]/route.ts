@@ -1,6 +1,6 @@
 /**
- * API для фронта jet-front-main. Во фронте переменная API указывает сюда:
- * API=https://<адрес админки>/site-api
+ * API для фронта jet-front-main. Фронт обращается к https://<API>/api/…,
+ * где API — адрес админки из его .env (без протокола, например admin.jet.su).
  *
  * Страницы конструктора, хедер/футер, 404 и попап отдаются из админки.
  * Разделы, которые появятся на следующих этапах (публикации, каталог, вакансии, партнёры),
@@ -11,6 +11,7 @@ import { getPayload } from 'payload'
 
 import { footerShape, headerShape, page404Shape, popupCallbackShape } from '@/globals'
 import { readFixture } from '@/lib/fixtures'
+import { readPreviewHash } from '@/lib/preview'
 import { type Locale, type PageDoc, pageToFront, shapeToFront } from '@/lib/serialize'
 
 export const dynamic = 'force-dynamic'
@@ -87,17 +88,20 @@ export async function POST(req: Request, { params }: { params: Promise<{ path: s
   const locale: Locale = body.lang === 'en' || url.searchParams.get('lang') === 'en' ? 'en' : 'ru'
 
   if (path === 'preview') {
-    const hash = typeof body.hash === 'string' ? body.hash : ''
-    if (!/^[a-f0-9]{32,64}$/.test(hash)) return notFound()
+    const target = typeof body.hash === 'string' ? readPreviewHash(body.hash) : null
+    if (!target) return notFound()
     const payload = await getPayload({ config })
-    const { docs } = await payload.find({
-      collection: 'previews',
-      where: { and: [{ hash: { equals: hash } }, { expiresAt: { greater_than: new Date().toISOString() } }] },
-      limit: 1,
-      depth: 0,
-      overrideAccess: true,
-    })
-    return docs[0] ? json(docs[0].data) : notFound()
+    const page = await payload
+      .findByID({ collection: 'pages', id: target.id, locale: target.locale, draft: true, depth: 0, overrideAccess: true })
+      .catch(() => null)
+    if (!page) return notFound()
+    const res = await pageToFront(payload, page as unknown as PageDoc, target.locale)
+    if (target.block) {
+      // превью одного блока — в том виде, в каком его ждёт страница /preview фронта
+      const block = (res.data.content as { uuid: string }[]).find((b) => b.uuid === target.block)
+      return block ? json({ status: 'success', data: block }) : notFound()
+    }
+    return json(res)
   }
 
   // фильтры списков и отправка форм появятся на этапах 3 и 4

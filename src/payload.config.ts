@@ -1,6 +1,5 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
-import { en } from '@payloadcms/translations/languages/en'
 import { ru } from '@payloadcms/translations/languages/ru'
 import path from 'path'
 import { buildConfig } from 'payload'
@@ -10,7 +9,6 @@ import { fileURLToPath } from 'url'
 import { Forms } from './collections/Forms'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
-import { Previews } from './collections/Previews'
 import { Users } from './collections/Users'
 import { globals } from './globals'
 
@@ -23,13 +21,22 @@ if (process.env.NODE_ENV === 'production' && (process.env.PAYLOAD_SECRET ?? '').
 
 export default buildConfig({
   serverURL: process.env.SERVER_URL || undefined,
+  // /api занят API для фронта (так его ищет jet-front-main), собственный REST Payload — на /cms-api
+  routes: { api: '/cms-api' },
   admin: {
     user: Users.slug,
     meta: { titleSuffix: ' — админка jet.su' },
+    avatar: 'default',
+    components: {
+      graphics: {
+        Logo: '/components/Logo#Logo',
+        Icon: '/components/Icon#Icon',
+      },
+    },
     importMap: { baseDir: path.resolve(dirname) },
   },
   i18n: {
-    supportedLanguages: { ru, en },
+    supportedLanguages: { ru },
     fallbackLanguage: 'ru',
   },
   localization: {
@@ -40,7 +47,7 @@ export default buildConfig({
     defaultLocale: 'ru',
     fallback: false,
   },
-  collections: [Pages, Media, Forms, Users, Previews],
+  collections: [Pages, Media, Forms, Users],
   globals,
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

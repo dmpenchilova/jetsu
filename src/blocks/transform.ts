@@ -82,6 +82,8 @@ export const toFront = (shape: Shape, value: unknown, ctx: ToFrontCtx): unknown 
       const out: Obj = {}
       for (const p of shape.props) {
         const v = toFront(p.shape, value[nameOf(p)], ctx)
+        // пустой необязательный список не отдаём: фронт нарисовал бы пустую плашку
+        if (Array.isArray(v) && v.length === 0 && !p.required) continue
         if (v !== undefined) out[p.key] = v
       }
       return Object.keys(out).length ? out : undefined

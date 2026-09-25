@@ -3,6 +3,7 @@ import { APIError } from 'payload'
 
 import { canPublish, hasRole, isLoggedIn } from '../access'
 import { pageBlocks } from '../blocks'
+import { previewUrl } from '../lib/preview'
 import { builderTag, revalidateFront } from '../lib/revalidate'
 
 type PageDoc = {
@@ -11,6 +12,21 @@ type PageDoc = {
   slug?: string | null
   parent?: number | string | { id: number | string } | null
   _status?: 'draft' | 'published' | null
+}
+
+const strip = (v: unknown) =>
+  typeof v === 'string'
+    ? v.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim()
+    : ''
+
+/** Подпись блока в списке: заголовок или надзаголовок, у скрытых — пометка. */
+const nameBlocks = (rows: unknown) => {
+  if (!Array.isArray(rows)) return rows
+  return rows.map((row: Record<string, unknown>) => {
+    const text = strip(row.title) || strip(row.tag) || strip(row.navTitle) || strip(row.subtitle) || strip(row.description)
+    const short = text.length > 70 ? `${text.slice(0, 70)}…` : text
+    return { ...row, blockName: `${row.hidden ? '[скрыт] ' : ''}${short}` }
+  })
 }
 
 const parentId = (p: PageDoc['parent']) => (p && typeof p === 'object' ? p.id : p) ?? null
@@ -24,6 +40,18 @@ export const Pages: CollectionConfig = {
     listSearchableFields: ['title', 'path'],
     group: 'Контент',
     description: 'Страницы сайта, которые собираются из блоков',
+    livePreview: {
+      url: ({ data, locale }) => {
+        if (!data?.id) return null
+        const code = typeof locale === 'string' ? locale : locale?.code
+        return previewUrl({ id: String(data.id), locale: code === 'en' ? 'en' : 'ru' })
+      },
+      breakpoints: [
+        { label: 'Десктоп 1440', name: 'desktop', width: 1440, height: 900 },
+        { label: 'Планшет 768', name: 'tablet', width: 768, height: 1024 },
+        { label: 'Телефон 375', name: 'mobile', width: 375, height: 812 },
+      ],
+    },
   },
   access: {
     read: isLoggedIn,
@@ -58,6 +86,7 @@ export const Pages: CollectionConfig = {
           if (!slug) throw new APIError('У вложенной страницы должен быть символьный код', 400, undefined, true)
         }
         data.path = [parentPath, slug].filter(Boolean).join('/')
+        data.content = nameBlocks(data.content)
 
         const where: Where = { path: { equals: data.path } }
         if (originalDoc?.id) where.id = { not_equals: originalDoc.id }

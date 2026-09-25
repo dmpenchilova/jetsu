@@ -172,8 +172,18 @@ const variantFields = (data: Shape): Field[] => {
   return f ? [{ ...f, label: 'Текст', type: f.type === 'text' ? 'textarea' : f.type } as Field] : []
 }
 
+/** Порядок полей в форме: сначала надзаголовок, заголовок и текст, потом всё остальное — как в схеме. */
+const FIRST = ['tag', 'supTag', 'suptitle', 'title', 'secondTitle', 'subtitle', 'subTitle', 'name', 'position', 'postion', 'description', 'text']
+const rank = (key: string) => {
+  const i = FIRST.indexOf(key)
+  return i === -1 ? FIRST.length : i
+}
+
 export const objectFields = (props: Prop[], parentRequired: boolean): Field[] =>
-  props.map((p) => propField(p, parentRequired)).filter((f): f is Field => f !== null)
+  [...props]
+    .sort((a, b) => rank(a.key) - rank(b.key))
+    .map((p) => propField(p, parentRequired))
+    .filter((f): f is Field => f !== null)
 
 /** Поля, общие для всех блоков страницы. */
 const commonBlockFields = (hasNav: boolean): Field[] => [

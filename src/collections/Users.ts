@@ -37,16 +37,16 @@ export const Users: CollectionConfig = {
   },
   hooks: {
     beforeValidate: [
-      async ({ data, originalDoc, req }) => {
+      async ({ data, operation, originalDoc, req }) => {
+        // первый пользователь, созданный через экран регистрации, становится администратором
+        if (operation === 'create' && data) {
+          const { totalDocs } = await req.payload.count({ collection: 'users', overrideAccess: true })
+          if (totalDocs === 0) data.role = 'admin'
+        }
         const password = (data as { password?: string } | undefined)?.password
         if (password) {
           const role = (data?.role ?? originalDoc?.role) as string | undefined
           checkPassword(password, role)
-        }
-        // первый пользователь, созданный через экран регистрации, становится администратором
-        if (!originalDoc && data && !data.role) {
-          const { totalDocs } = await req.payload.count({ collection: 'users', overrideAccess: true })
-          if (totalDocs === 0) data.role = 'admin'
         }
         return data
       },
