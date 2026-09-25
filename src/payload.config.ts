@@ -59,6 +59,8 @@ export default buildConfig({
   db: postgresAdapter({
     pool: { connectionString: process.env.DATABASE_URL || '' },
     blocksAsJSON: true,
+    // схему базы меняем только миграциями; автоподстройку для локальной разработки включает PAYLOAD_DB_PUSH=true
+    push: process.env.PAYLOAD_DB_PUSH === 'true',
     // в production схема базы меняется только миграциями, они применяются при запуске
     prodMigrations: migrations,
   }),
