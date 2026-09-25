@@ -14,11 +14,13 @@ import { Projects, Publications } from './collections/Expertise'
 import { Forms } from './collections/Forms'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
+import { Redirects } from './collections/Redirects'
 import { SubmissionFiles, Submissions } from './collections/Submissions'
 import { Terms } from './collections/Terms'
 import { Users } from './collections/Users'
 import { globals } from './globals'
 import { FormSettings } from './globals/formSettings'
+import { SeoSettings } from './globals/seoSettings'
 import { TypographSettings } from './globals/typographSettings'
 import { globalTextHook, textHook } from './lib/textHooks'
 import { FORMS_QUEUE, formTasks } from './lib/forms/deliver'
@@ -93,10 +95,11 @@ export default buildConfig({
     Media,
     Forms,
     Submissions,
+    Redirects,
     SubmissionFiles,
     Users,
   ].map((c) => (TEXT_COLLECTIONS.has(c.slug) ? withText(c, textHook) : c)),
-  globals: [...globals.map((g) => withText(g, globalTextHook)), FormSettings, TypographSettings],
+  globals: [...globals.map((g) => withText(g, globalTextHook)), FormSettings, TypographSettings, SeoSettings],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },

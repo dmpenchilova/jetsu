@@ -26,6 +26,7 @@ import {
   publicationPage,
 } from '@/lib/lists'
 import { readPreviewHash } from '@/lib/preview'
+import { indexingAllowed, redirectsList, robotsTxt, sitemapUrls } from '@/lib/seo'
 import { type Locale, type PageDoc, pageToFront, shapeToFront } from '@/lib/serialize'
 
 export const dynamic = 'force-dynamic'
@@ -34,6 +35,16 @@ const json = (body: unknown, status = 200) =>
   Response.json(body, { status, headers: { 'Cache-Control': 'no-store' } })
 
 const notFound = () => json({ status: 'error', errors: ['not found'] }, 404)
+
+/** canonical и запрет индексации (если он включён в «SEO и индексация») для ответов страниц. */
+const withSeo = async (payload: Awaited<ReturnType<typeof getPayload>>, res: unknown, path: string, locale: Locale) => {
+  const data = (res as { data?: { seo?: Record<string, string> } } | null)?.data
+  if (!data || typeof data !== 'object') return res
+  const seo = (data.seo ??= {})
+  seo.canonical = `${locale === 'en' ? '/en' : ''}/${path}${path ? '/' : ''}`.replace(/\/{2,}/g, '/')
+  if (!(await indexingAllowed(payload))) seo.robots = 'noindex, nofollow'
+  return res
+}
 
 const localeOf = (url: URL): Locale => (url.searchParams.get('lang') === 'en' ? 'en' : 'ru')
 
@@ -62,8 +73,16 @@ export async function GET(req: Request, { params }: { params: Promise<{ path: st
     })
     const page = docs[0]
     if (!page || page._status !== 'published') return notFound()
-    return json(await pageToFront(payload, page as unknown as PageDoc, locale))
+    return json(await withSeo(payload, await pageToFront(payload, page as unknown as PageDoc, locale), pagePath, locale))
   }
+
+  // SEO-файлы сайта
+  if (path === 'sitemap') return json({ status: 'success', data: await sitemapUrls(payload) })
+  if (path === 'robots') {
+    const site = url.searchParams.get('site') || process.env.FRONT_URL || ''
+    return new Response(await robotsTxt(payload, site), { headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' } })
+  }
+  if (path === 'redirects') return json({ status: 'success', data: await redirectsList(payload) })
 
   if (path === 'common') {
     const [header, footer] = await Promise.all([
@@ -97,20 +116,21 @@ export async function GET(req: Request, { params }: { params: Promise<{ path: st
     if (key !== 'lang') query[key] = [...(query[key] ?? []), value]
   })
   const parts = path.split('/')
-  if (path === 'expertise') return json(await expertisePage(payload, locale, query))
+  const seo = async (res: unknown) => json(await withSeo(payload, res, path, locale))
+  if (path === 'expertise') return seo(await expertisePage(payload, locale, query))
   if (parts[0] === 'expertise' && parts.length === 2) {
     const res = await publicationPage(payload, locale, parts[1])
-    return res ? json(res) : notFound()
+    return res ? seo(res) : notFound()
   }
-  if (path === 'services') return json(await catalogPage(payload, locale, query))
-  if (path === 'vacancies') return json(await jobsPage(payload, locale, 'vacancy', query))
-  if (path === 'internships') return json(await jobsPage(payload, locale, 'internship', query))
+  if (path === 'services') return seo(await catalogPage(payload, locale, query))
+  if (path === 'vacancies') return seo(await jobsPage(payload, locale, 'vacancy', query))
+  if (path === 'internships') return seo(await jobsPage(payload, locale, 'internship', query))
   if ((parts[0] === 'vacancies' || parts[0] === 'internships') && parts.length === 2) {
     const res = await jobPage(payload, locale, parts[0] === 'vacancies' ? 'vacancy' : 'internship', parts[1])
-    return res ? json(res) : notFound()
+    return res ? seo(res) : notFound()
   }
   if (path === 'jobs') return json(await jobsCommon(payload, locale))
-  if (path === 'about/partners') return json(await partnersPage(payload, locale, query))
+  if (path === 'about/partners') return seo(await partnersPage(payload, locale, query))
 
   const fixture = await readFixture(path, locale)
   return fixture === undefined ? notFound() : json(fixture)

@@ -5,6 +5,7 @@ import { canPublish, hasRole, isLoggedIn } from '../access'
 import { pageBlocks } from '../blocks'
 import { previewUrl } from '../lib/preview'
 import { builderTag, revalidateFront } from '../lib/revalidate'
+import { autoRedirect } from './Redirects'
 
 type PageDoc = {
   id: number | string
@@ -115,6 +116,10 @@ export const Pages: CollectionConfig = {
           for (const child of children.docs) {
             await req.payload.update({ collection: 'pages', id: child.id, data: {}, draft: child._status !== 'published', req, overrideAccess: true })
           }
+        }
+        // опубликованная страница сменила адрес — старый ведёт на новый
+        if (prev?.path !== undefined && prev.path !== page.path && page._status === 'published' && prev._status === 'published') {
+          await autoRedirect(req.payload, `/${prev.path ?? ''}/`, `/${page.path ?? ''}/`)
         }
         if (page._status === 'published' || prev?._status === 'published') {
           const tags = [builderTag(page.path ?? '')]

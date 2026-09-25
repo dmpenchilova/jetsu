@@ -40,6 +40,8 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Футер', href: '/admin/globals/footer', entity: g('footer'), icon: 'M4 15h16v4H4z M4 7h10 M4 11h7' },
   { label: 'Страница 404', href: '/admin/globals/not-found', entity: g('not-found'), icon: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z M12 8v5 M12 16h.01' },
   { label: 'Попап «Связаться»', href: '/admin/globals/popup-callback', entity: g('popup-callback'), icon: 'M4 5h16v11H8l-4 4z' },
+  { label: 'SEO и индексация', href: '/admin/globals/seo-settings', entity: g('seo-settings'), icon: 'M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14z M20 20l-4-4' },
+  { label: 'Редиректы', href: '/admin/collections/redirects', entity: c('redirects'), icon: 'M4 7h12l-3-3 M16 7l-3 3 M20 17H8l3 3 M8 17l3-3' },
   { label: 'Типограф', href: '/admin/globals/typograph-settings', entity: g('typograph-settings'), icon: 'M5 5h14 M12 5v14 M9 19h6' },
 
   { group: 'Разделы сайта', label: 'Центр экспертизы', href: '/admin/globals/expertise-page', entity: g('expertise-page'), icon: 'M12 3l2.5 6 6.5.5-5 4 1.5 6.5-5.5-3.5-5.5 3.5L9 13.5l-5-4L10.5 9z' },

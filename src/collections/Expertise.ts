@@ -40,7 +40,7 @@ export const Publications: CollectionConfig = {
   access: contentAccess('author'),
   versions: drafts,
   hooks: {
-    ...revalidateHooks(['expertise', 'detail']),
+    ...revalidateHooks(['expertise', 'detail'], { pathOf: (d) => (d.slug ? `/expertise/${d.slug}/` : null) }),
     beforeChange: [
       ({ data, req }) => {
         guardPublish({ data, req })

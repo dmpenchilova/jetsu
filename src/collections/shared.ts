@@ -8,6 +8,7 @@ import { canPublish, hasRole, isLoggedIn, type Role } from '../access'
 import { imageFields } from '../blocks/fields'
 import { revalidateFront } from '../lib/revalidate'
 import { revalidateBound } from '../lib/revalidateBound'
+import { autoRedirect } from './Redirects'
 
 /** Доступ: читать могут все вошедшие, править — перечисленные роли, удалять — администратор и редактор. */
 export const contentAccess = (...editors: Role[]): CollectionConfig['access'] => ({
@@ -114,14 +115,25 @@ export const guardPublish = ({ data, req }: { data: Record<string, unknown>; req
   return data
 }
 
-/** Хуки сброса кэша фронта после сохранения и удаления. */
-export const revalidateHooks = (tags: string[] | ((doc: Record<string, unknown>) => string[])): CollectionConfig['hooks'] => {
+/**
+ * Хуки сброса кэша фронта после сохранения и удаления.
+ * pathOf — адрес записи на сайте: если он изменился у опубликованной записи, создаётся редирект.
+ */
+export const revalidateHooks = (
+  tags: string[] | ((doc: Record<string, unknown>) => string[]),
+  options: { pathOf?: (doc: Record<string, unknown>) => string | null } = {},
+): CollectionConfig['hooks'] => {
   const tagsOf = (doc: Record<string, unknown>) => (typeof tags === 'function' ? tags(doc) : tags)
   return {
     afterChange: [
       async ({ doc, previousDoc, req, collection }) => {
         const status = (doc as { _status?: string })._status
         const prevStatus = (previousDoc as { _status?: string } | undefined)?._status
+        if (options.pathOf && previousDoc && status === 'published' && prevStatus === 'published') {
+          const from = options.pathOf(previousDoc)
+          const to = options.pathOf(doc)
+          if (from && to && from !== to) await autoRedirect(req.payload, from, to)
+        }
         // черновики не трогают сайт
         if (status === undefined || status === 'published' || prevStatus === 'published') {
           await revalidateFront(req.payload, tagsOf(doc))

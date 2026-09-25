@@ -40,7 +40,9 @@ export const Vacancies: CollectionConfig = {
   access: contentAccess('hr'),
   versions: drafts,
   hooks: {
-    ...revalidateHooks(['vacancies', 'internships', 'jobs', 'job-detail']),
+    ...revalidateHooks(['vacancies', 'internships', 'jobs', 'job-detail'], {
+      pathOf: (d) => (d.slug ? `/${d.kind === 'internship' ? 'internships' : 'vacancies'}/${d.slug}/` : null),
+    }),
     beforeChange: [({ data, req }) => guardPublish({ data, req })],
   },
   fields: [

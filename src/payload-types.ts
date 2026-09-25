@@ -82,6 +82,7 @@ export interface Config {
     media: Media;
     forms: Form;
     submissions: Submission;
+    redirects: Redirect;
     'submission-files': SubmissionFile;
     users: User;
     'payload-kv': PayloadKv;
@@ -107,6 +108,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     submissions: SubmissionsSelect<false> | SubmissionsSelect<true>;
+    redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     'submission-files': SubmissionFilesSelect<false> | SubmissionFilesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -130,6 +132,7 @@ export interface Config {
     'partners-page': PartnersPage;
     'form-settings': FormSetting;
     'typograph-settings': TypographSetting;
+    'seo-settings': SeoSetting;
     'payload-jobs-stats': PayloadJobsStat;
   };
   globalsSelect: {
@@ -143,6 +146,7 @@ export interface Config {
     'partners-page': PartnersPageSelect<false> | PartnersPageSelect<true>;
     'form-settings': FormSettingsSelect<false> | FormSettingsSelect<true>;
     'typograph-settings': TypographSettingsSelect<false> | TypographSettingsSelect<true>;
+    'seo-settings': SeoSettingsSelect<false> | SeoSettingsSelect<true>;
     'payload-jobs-stats': PayloadJobsStatsSelect<false> | PayloadJobsStatsSelect<true>;
   };
   locale: 'ru' | 'en';
@@ -4022,6 +4026,23 @@ export interface SubmissionFile {
   focalY?: number | null;
 }
 /**
+ * Перенаправления со старых адресов. Адрес пишите без домена: /about/old/
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "redirects".
+ */
+export interface Redirect {
+  id: number;
+  from: string;
+  to: string;
+  code: '301' | '302';
+  active?: boolean | null;
+  auto?: boolean | null;
+  note?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
@@ -4248,6 +4269,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'submissions';
         value: number | Submission;
+      } | null)
+    | ({
+        relationTo: 'redirects';
+        value: number | Redirect;
       } | null)
     | ({
         relationTo: 'submission-files';
@@ -7403,6 +7428,20 @@ export interface SubmissionsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "redirects_select".
+ */
+export interface RedirectsSelect<T extends boolean = true> {
+  from?: T;
+  to?: T;
+  code?: T;
+  active?: T;
+  auto?: T;
+  note?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "submission-files_select".
  */
 export interface SubmissionFilesSelect<T extends boolean = true> {
@@ -7929,6 +7968,29 @@ export interface TypographSetting {
   createdAt?: string | null;
 }
 /**
+ * robots.txt и карта сайта sitemap.xml собираются автоматически из опубликованных страниц
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "seo-settings".
+ */
+export interface SeoSetting {
+  id: number;
+  /**
+   * Выключите на тестовом стенде: robots.txt запретит всё, а страницы получат noindex
+   */
+  indexing?: boolean | null;
+  /**
+   * Строка Sitemap с адресом карты сайта добавляется сама
+   */
+  robots?: string | null;
+  /**
+   * Адреса без домена, например /policy/. Можно начало адреса: /about/old/*
+   */
+  exclude?: string[] | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-jobs-stats".
  */
@@ -8349,6 +8411,18 @@ export interface TypographSettingsSelect<T extends boolean = true> {
   enabled?: T;
   yo?: T;
   nbHyphen?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "seo-settings_select".
+ */
+export interface SeoSettingsSelect<T extends boolean = true> {
+  indexing?: T;
+  robots?: T;
+  exclude?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
