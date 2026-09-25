@@ -26,7 +26,8 @@ export const Users: CollectionConfig = {
     tokenExpiration: 8 * 60 * 60,
     maxLoginAttempts: 5,
     lockTime: 15 * 60 * 1000,
-    cookies: { sameSite: 'Strict', secure: process.env.NODE_ENV === 'production' },
+    // secure-куки только на https: иначе Safari не сохраняет вход на http://localhost
+    cookies: { sameSite: 'Strict', secure: (process.env.SERVER_URL ?? '').startsWith('https://') },
   },
   access: {
     read: adminOrSelf,
