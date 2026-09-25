@@ -16,7 +16,9 @@ import { migrations } from './migrations'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-if (process.env.NODE_ENV === 'production' && (process.env.PAYLOAD_SECRET ?? '').length < 32) {
+// проверяем при запуске сервера, а не при сборке (при сборке секретов нет)
+const isBuild = process.env.NEXT_PHASE === 'phase-production-build'
+if (process.env.NODE_ENV === 'production' && !isBuild && (process.env.PAYLOAD_SECRET ?? '').length < 32) {
   throw new Error('PAYLOAD_SECRET должен быть не короче 32 символов')
 }
 

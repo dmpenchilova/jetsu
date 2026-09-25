@@ -77,6 +77,8 @@ services:
       RECAPTCHA_SITE_KEY: client_token
       REVALIDATE_SECRET: ${REVALIDATE_SECRET:-dev-secret}
       ADMIN_URL: http://localhost:3001
+      # git-хуки фронта в контейнере не нужны
+      HUSKY: '0'
     ports:
       - '127.0.0.1:3000:3000'
     volumes:
