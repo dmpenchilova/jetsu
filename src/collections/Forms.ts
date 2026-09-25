@@ -1,6 +1,8 @@
 import type { CollectionConfig, Field } from 'payload'
 
 import { hasRole, isLoggedIn } from '../access'
+import { emailsField } from '../globals/formSettings'
+import { FORM_KINDS } from './Submissions'
 
 const fieldRow: Field[] = [
   {
@@ -88,19 +90,29 @@ export const Forms: CollectionConfig = {
   fields: [
     { name: 'title', label: 'Название', type: 'text', required: true, localized: true },
     {
-      name: 'kind',
-      label: 'Тип формы',
-      type: 'select',
-      required: true,
-      defaultValue: 'business',
-      options: [
-        { label: 'Бизнес-запрос', value: 'business' },
-        { label: 'Отклик на вакансию', value: 'vacancy' },
-        { label: 'Качество сервисной поддержки', value: 'quality' },
-        { label: 'Сообщить об инциденте', value: 'incident' },
+      type: 'row',
+      fields: [
+        {
+          name: 'kind',
+          label: 'Тип формы',
+          type: 'select',
+          required: true,
+          defaultValue: 'business',
+          options: [...FORM_KINDS],
+          admin: { width: '50%', description: 'По типу выбираются получатели писем и интеграции' },
+        },
+        {
+          name: 'center',
+          label: 'Центр',
+          type: 'relationship',
+          relationTo: 'terms',
+          filterOptions: { kind: { equals: 'center' } },
+          admin: { width: '50%', description: 'Письмо уйдёт и на ящик центра' },
+        },
       ],
-      admin: { description: 'По типу выбираются получатели писем и интеграции' },
     },
+    emailsField('recipients', 'Дополнительные получатели', 'Кроме общих получателей из «Настроек форм»'),
+    emailsField('cc', 'В копии'),
     {
       name: 'visible',
       label: 'Поля формы',
@@ -127,10 +139,9 @@ export const Forms: CollectionConfig = {
     },
     {
       name: 'action',
-      label: 'Адрес отправки',
       type: 'text',
-      defaultValue: '/form/callback',
-      admin: { description: 'Куда фронт отправляет заявку' },
+      // адрес отправки строится сам: /api/form/callback/?form=<id>
+      admin: { hidden: true },
     },
   ],
 }
@@ -148,6 +159,7 @@ type FormField = {
 }
 
 type FormDoc = {
+  id?: number | string
   visible?: FormField[] | null
   hidden?: FormField[] | null
   btn?: string | null
@@ -188,7 +200,9 @@ export const formToFront = (doc: FormDoc) => {
   const hidden = listToFront(doc.hidden)
   if (hidden.length) out.hidden = hidden
   if (doc.btn) out.btn = { title: doc.btn }
-  if (doc.action) out.action = doc.action
+  // сайт отправляет заявку на этот адрес, по нему админка узнаёт форму
+  if (doc.id !== undefined) out.action = `/api/form/callback/?form=${doc.id}`
+  else if (doc.action) out.action = doc.action
   return out
 }
 

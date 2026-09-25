@@ -43,11 +43,13 @@ export const makeCtx = (payload: Payload, formTitle: string): FromFrontCtx => {
     form: async (data) => {
       const form = formFromFront(data as Parameters<typeof formFromFront>[0])
       const key = createHash('sha1').update(JSON.stringify(form)).digest('hex').slice(0, 12)
-      const title = `${formTitle} · ${key}`
+      // форма с файлом — отклик на вакансию, остальные — бизнес-запросы
+      const isVacancy = [...form.visible, ...form.hidden].some((f) => f.type === 'file')
+      const title = `${isVacancy ? 'Отклик на вакансию' : formTitle} · ${key}`
       const found = await payload.find({ collection: 'forms', where: { title: { equals: title } }, limit: 1, depth: 0 })
       if (found.docs[0]) return found.docs[0].id
       // шаблон из тестовых данных одинаков для обоих языков
-      const doc = await payload.create({ collection: 'forms', locale: 'ru', data: { title, kind: 'business', ...form } })
+      const doc = await payload.create({ collection: 'forms', locale: 'ru', data: { title, kind: isVacancy ? 'vacancy' : 'business', ...form } })
       await payload.update({ collection: 'forms', id: doc.id, locale: 'en', data: { title, ...form } })
       return doc.id
     },

@@ -29,8 +29,11 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Поднаправления', href: '/admin/collections/subdirections', entity: c('subdirections'), icon: 'M6 4v10a4 4 0 0 0 4 4h8 M14 14l4 4-4 4' },
   { label: 'Отрасли', href: '/admin/collections/industries', entity: c('industries'), icon: 'M3 21h18 M5 21V10l5 3V10l5 3V6l4 2v13' },
 
-  { group: 'Сервис', label: 'Формы', href: '/admin/collections/forms', entity: c('forms'), icon: 'M5 3h14v18H5z M9 8h6 M9 12h6 M9 16h3' },
-  { label: 'Медиатека', href: '/admin/collections/media', entity: c('media'), icon: 'M4 5h16v14H4z M4 16l5-5 4 4 3-3 4 4 M15 9h.01' },
+  { group: 'Заявки', label: 'Заявки', href: '/admin/collections/submissions', entity: c('submissions'), icon: 'M4 4h16v12H7l-3 4z M8 9h8 M8 12h5' },
+  { label: 'Шаблоны форм', href: '/admin/collections/forms', entity: c('forms'), icon: 'M5 3h14v18H5z M9 8h6 M9 12h6 M9 16h3' },
+  { label: 'Настройки форм', href: '/admin/globals/form-settings', entity: g('form-settings'), icon: 'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-2.9 1.2V21a2 2 0 1 1-4 0v-.1A1.7 1.7 0 0 0 7 19.4l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0-1.2-2.9H3a2 2 0 1 1 0-4h.1A1.7 1.7 0 0 0 4.6 7l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 2.9-1.2V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 2.9 1.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0 1.2 2.9H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z' },
+
+  { group: 'Сервис', label: 'Медиатека', href: '/admin/collections/media', entity: c('media'), icon: 'M4 5h16v14H4z M4 16l5-5 4 4 3-3 4 4 M15 9h.01' },
   { label: 'Пользователи', href: '/admin/collections/users', entity: c('users'), icon: 'M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z' },
 
   { group: 'Настройки сайта', label: 'Хедер', href: '/admin/globals/header', entity: g('header'), icon: 'M4 5h16v4H4z M4 13h10 M4 17h7' },

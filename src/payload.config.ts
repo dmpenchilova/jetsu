@@ -1,4 +1,5 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { ru } from '@payloadcms/translations/languages/ru'
 import path from 'path'
@@ -13,9 +14,12 @@ import { Projects, Publications } from './collections/Expertise'
 import { Forms } from './collections/Forms'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
+import { SubmissionFiles, Submissions } from './collections/Submissions'
 import { Terms } from './collections/Terms'
 import { Users } from './collections/Users'
 import { globals } from './globals'
+import { FormSettings } from './globals/formSettings'
+import { FORMS_QUEUE, formTasks } from './lib/forms/deliver'
 import { migrations } from './migrations'
 
 const filename = fileURLToPath(import.meta.url)
@@ -34,6 +38,8 @@ export default buildConfig({
   admin: {
     user: Users.slug,
     meta: { titleSuffix: ' — админка jet.su' },
+    // «25 сентября 2026, 20:44» вместо «сентября 25-е 2026, 8:44 ПП»
+    dateFormat: 'd MMMM yyyy, HH:mm',
     avatar: 'default',
     components: {
       Nav: '/components/Nav#Nav',
@@ -50,6 +56,8 @@ export default buildConfig({
   i18n: {
     supportedLanguages: { ru },
     fallbackLanguage: 'ru',
+    // в русском переводе Payload в подсказке поиска теряется название поля
+    translations: { ru: { general: { searchBy: 'Поиск: {{label}}', or: 'или' } } },
   },
   localization: {
     locales: [
@@ -74,9 +82,11 @@ export default buildConfig({
     Terms,
     Media,
     Forms,
+    Submissions,
+    SubmissionFiles,
     Users,
   ],
-  globals,
+  globals: [...globals, FormSettings],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },
@@ -90,4 +100,26 @@ export default buildConfig({
     prodMigrations: migrations,
   }),
   sharp,
+  // письма: SMTP из .env; без SMTP_HOST письма не уходят, а в журнале заявки пишется причина
+  email: process.env.SMTP_HOST
+    ? nodemailerAdapter({
+        defaultFromAddress: process.env.SMTP_FROM || 'noreply@jet.su',
+        defaultFromName: 'Сайт jet.su',
+        skipVerify: true,
+        transportOptions: {
+          host: process.env.SMTP_HOST,
+          port: Number(process.env.SMTP_PORT || 587),
+          secure: process.env.SMTP_SECURE === 'true',
+          auth: process.env.SMTP_USER ? { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS } : undefined,
+        },
+      })
+    : undefined,
+  jobs: {
+    tasks: formTasks,
+    // повторы отправок и ночная очистка; в служебных командах очередь не запускается
+    autoRun: [{ cron: '* * * * *', queue: FORMS_QUEUE, limit: 20 }],
+    shouldAutoRun: () => process.env.PAYLOAD_JOBS_AUTORUN !== 'false',
+    deleteJobOnComplete: true,
+    access: { run: ({ req }) => (req.user as { role?: string } | null)?.role === 'admin', queue: () => false, cancel: ({ req }) => (req.user as { role?: string } | null)?.role === 'admin' },
+  },
 })

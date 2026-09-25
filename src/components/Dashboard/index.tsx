@@ -77,6 +77,11 @@ export const Dashboard = async ({ payload, user }: Props) => {
     await payload.find({ collection: 'publications', where: { _status: { equals: 'published' } }, sort: '-date', limit: 5, depth: 0 }).catch(() => ({ docs: [] }))
   ).docs as { id: number; title?: string; date?: string }[]
 
+  // новые заявки — с учётом прав (HR видит только отклики)
+  const leads = (await payload
+    .find({ collection: 'submissions', where: { status: { equals: 'new' } }, sort: '-createdAt', limit: 5, depth: 0, user: user as never, overrideAccess: false })
+    .catch(() => null)) as { totalDocs: number; docs: { id: number; summary?: string; createdAt: string; deliveryState?: string }[] } | null
+
   const name = (user?.name || user?.email || '').split(' ')[0]
 
   return (
@@ -165,6 +170,24 @@ export const Dashboard = async ({ payload, user }: Props) => {
         </section>
 
         <div className="jet-dash__side">
+          {leads && (
+            <section className="jet-card" aria-labelledby="leads-h">
+              <div className="jet-card__head">
+                <h2 id="leads-h">Новые заявки{leads.totalDocs ? ` · ${leads.totalDocs}` : ''}</h2>
+                <Link href="/admin/collections/submissions">Все</Link>
+              </div>
+              {leads.docs.length === 0 && <div className="jet-table__empty">Новых заявок нет</div>}
+              {leads.docs.map((l) => (
+                <Link key={l.id} href={`/admin/collections/submissions/${l.id}`} className="jet-list__item">
+                  <span className="jet-ell">
+                    {l.deliveryState === 'failed' && <span className="jet-dot jet-dot--red" title="Письмо не ушло" />}
+                    {l.summary}
+                  </span>
+                  <span className="jet-muted jet-small">{when(l.createdAt)}</span>
+                </Link>
+              ))}
+            </section>
+          )}
           <section className="jet-card" aria-labelledby="recent-h">
             <div className="jet-card__head">
               <h2 id="recent-h">Последние публикации</h2>

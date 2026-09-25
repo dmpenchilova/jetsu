@@ -16,6 +16,6 @@ export const migrations = [
   {
     up: migration_20260925_164248_events_offices.up,
     down: migration_20260925_164248_events_offices.down,
-    name: '20260925_164248_events_offices'
+    name: '20260925_164248_events_offices',
   },
 ];

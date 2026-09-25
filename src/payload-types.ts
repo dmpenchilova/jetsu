@@ -81,6 +81,8 @@ export interface Config {
     terms: Term;
     media: Media;
     forms: Form;
+    submissions: Submission;
+    'submission-files': SubmissionFile;
     users: User;
     'payload-kv': PayloadKv;
     'payload-jobs': PayloadJob;
@@ -104,6 +106,8 @@ export interface Config {
     terms: TermsSelect<false> | TermsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
+    submissions: SubmissionsSelect<false> | SubmissionsSelect<true>;
+    'submission-files': SubmissionFilesSelect<false> | SubmissionFilesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>;
@@ -124,6 +128,8 @@ export interface Config {
     'catalog-page': CatalogPage;
     'career-page': CareerPage;
     'partners-page': PartnersPage;
+    'form-settings': FormSetting;
+    'payload-jobs-stats': PayloadJobsStat;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
@@ -134,6 +140,8 @@ export interface Config {
     'catalog-page': CatalogPageSelect<false> | CatalogPageSelect<true>;
     'career-page': CareerPageSelect<false> | CareerPageSelect<true>;
     'partners-page': PartnersPageSelect<false> | PartnersPageSelect<true>;
+    'form-settings': FormSettingsSelect<false> | FormSettingsSelect<true>;
+    'payload-jobs-stats': PayloadJobsStatsSelect<false> | PayloadJobsStatsSelect<true>;
   };
   locale: 'ru' | 'en';
   widgets: {
@@ -142,6 +150,10 @@ export interface Config {
   user: User;
   jobs: {
     tasks: {
+      'deliver-email': TaskDeliverEmail;
+      'deliver-bitrix24': TaskDeliverBitrix24;
+      'deliver-friendwork': TaskDeliverFriendwork;
+      'cleanup-submissions': TaskCleanupSubmissions;
       schedulePublish: TaskSchedulePublish;
       inline: {
         input: unknown;
@@ -3570,6 +3582,15 @@ export interface Form {
    * По типу выбираются получатели писем и интеграции
    */
   kind: 'business' | 'vacancy' | 'quality' | 'incident';
+  /**
+   * Письмо уйдёт и на ящик центра
+   */
+  center?: (number | null) | Term;
+  /**
+   * Кроме общих получателей из «Настроек форм»
+   */
+  recipients?: string[] | null;
+  cc?: string[] | null;
   visible?:
     | {
         type: 'input' | 'phone' | 'textarea' | 'file';
@@ -3611,9 +3632,6 @@ export interface Form {
       }[]
     | null;
   btn?: string | null;
-  /**
-   * Куда фронт отправляет заявку
-   */
   action?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -3919,6 +3937,89 @@ export interface Vacancy {
   _status?: ('draft' | 'published') | null;
 }
 /**
+ * Всё, что отправили через формы сайта. Заявки старше срока хранения удаляются автоматически
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "submissions".
+ */
+export interface Submission {
+  id: number;
+  summary?: string | null;
+  kind?: ('business' | 'vacancy' | 'quality' | 'incident') | null;
+  status?: ('new' | 'progress' | 'done' | 'spam') | null;
+  deliveryState?: ('pending' | 'sent' | 'failed') | null;
+  fields?:
+    | {
+        label?: string | null;
+        value?: string | null;
+        name?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  files?: (number | SubmissionFile)[] | null;
+  /**
+   * Видят только сотрудники
+   */
+  comment?: string | null;
+  deliveries?:
+    | {
+        channel?: ('email' | 'bitrix24' | 'friendwork') | null;
+        status?: ('pending' | 'sent' | 'retry' | 'failed' | 'skipped') | null;
+        attempts?: number | null;
+        at?: string | null;
+        target?: string | null;
+        error?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  form?: (number | null) | Form;
+  formTitle?: string | null;
+  page?: string | null;
+  locale?: string | null;
+  utm?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  recipients?: string | null;
+  captcha?: string | null;
+  ipHash?: string | null;
+  search?: string | null;
+  data?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "submission-files".
+ */
+export interface SubmissionFile {
+  id: number;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
@@ -4015,7 +4116,13 @@ export interface PayloadJob {
     | {
         executedAt: string;
         completedAt: string;
-        taskSlug: 'inline' | 'schedulePublish';
+        taskSlug:
+          | 'inline'
+          | 'deliver-email'
+          | 'deliver-bitrix24'
+          | 'deliver-friendwork'
+          | 'cleanup-submissions'
+          | 'schedulePublish';
         taskID: string;
         input?:
           | {
@@ -4048,10 +4155,28 @@ export interface PayloadJob {
         id?: string | null;
       }[]
     | null;
-  taskSlug?: ('inline' | 'schedulePublish') | null;
+  taskSlug?:
+    | (
+        | 'inline'
+        | 'deliver-email'
+        | 'deliver-bitrix24'
+        | 'deliver-friendwork'
+        | 'cleanup-submissions'
+        | 'schedulePublish'
+      )
+    | null;
   queue?: string | null;
   waitUntil?: string | null;
   processing?: boolean | null;
+  meta?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -4117,6 +4242,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'forms';
         value: number | Form;
+      } | null)
+    | ({
+        relationTo: 'submissions';
+        value: number | Submission;
+      } | null)
+    | ({
+        relationTo: 'submission-files';
+        value: number | SubmissionFile;
       } | null)
     | ({
         relationTo: 'users';
@@ -7187,6 +7320,9 @@ export interface MediaSelect<T extends boolean = true> {
 export interface FormsSelect<T extends boolean = true> {
   title?: T;
   kind?: T;
+  center?: T;
+  recipients?: T;
+  cc?: T;
   visible?:
     | T
     | {
@@ -7219,6 +7355,66 @@ export interface FormsSelect<T extends boolean = true> {
   action?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "submissions_select".
+ */
+export interface SubmissionsSelect<T extends boolean = true> {
+  summary?: T;
+  kind?: T;
+  status?: T;
+  deliveryState?: T;
+  fields?:
+    | T
+    | {
+        label?: T;
+        value?: T;
+        name?: T;
+        id?: T;
+      };
+  files?: T;
+  comment?: T;
+  deliveries?:
+    | T
+    | {
+        channel?: T;
+        status?: T;
+        attempts?: T;
+        at?: T;
+        target?: T;
+        error?: T;
+        id?: T;
+      };
+  form?: T;
+  formTitle?: T;
+  page?: T;
+  locale?: T;
+  utm?: T;
+  recipients?: T;
+  captcha?: T;
+  ipHash?: T;
+  search?: T;
+  data?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "submission-files_select".
+ */
+export interface SubmissionFilesSelect<T extends boolean = true> {
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -7281,6 +7477,7 @@ export interface PayloadJobsSelect<T extends boolean = true> {
   queue?: T;
   waitUntil?: T;
   processing?: T;
+  meta?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -7667,6 +7864,70 @@ export interface PartnersPage {
   createdAt?: string | null;
 }
 /**
+ * Кому уходят заявки и сколько они хранятся. Адреса можно вводить через Enter
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "form-settings".
+ */
+export interface FormSetting {
+  id: number;
+  /**
+   * К ним добавляются ящик центра и получатели, указанные в самой форме
+   */
+  recipients?: {
+    business?: string[] | null;
+    vacancy?: string[] | null;
+    quality?: string[] | null;
+    incident?: string[] | null;
+  };
+  /**
+   * Например, ящик маркетинга для контроля
+   */
+  copy?: string[] | null;
+  fromName?: string | null;
+  subjectPrefix?: string | null;
+  /**
+   * Потом заявка и файлы удаляются
+   */
+  retentionDays?: number | null;
+  maxFileMb?: number | null;
+  rateLimit?: {
+    perMinute?: number | null;
+    perHour?: number | null;
+  };
+  bitrix24?: {
+    enabled?: boolean | null;
+    kinds?: ('business' | 'quality' | 'incident')[] | null;
+    /**
+     * Останется только отметка об отправке
+     */
+    dropAfterSend?: boolean | null;
+  };
+  friendwork?: {
+    enabled?: boolean | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-jobs-stats".
+ */
+export interface PayloadJobsStat {
+  id: number;
+  stats?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
@@ -8023,6 +8284,56 @@ export interface PartnersPageSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "form-settings_select".
+ */
+export interface FormSettingsSelect<T extends boolean = true> {
+  recipients?:
+    | T
+    | {
+        business?: T;
+        vacancy?: T;
+        quality?: T;
+        incident?: T;
+      };
+  copy?: T;
+  fromName?: T;
+  subjectPrefix?: T;
+  retentionDays?: T;
+  maxFileMb?: T;
+  rateLimit?:
+    | T
+    | {
+        perMinute?: T;
+        perHour?: T;
+      };
+  bitrix24?:
+    | T
+    | {
+        enabled?: T;
+        kinds?: T;
+        dropAfterSend?: T;
+      };
+  friendwork?:
+    | T
+    | {
+        enabled?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-jobs-stats_select".
+ */
+export interface PayloadJobsStatsSelect<T extends boolean = true> {
+  stats?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "collections_widget".
  */
 export interface CollectionsWidget {
@@ -8030,6 +8341,44 @@ export interface CollectionsWidget {
     [k: string]: unknown;
   };
   width: 'full';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TaskDeliver-email".
+ */
+export interface TaskDeliverEmail {
+  input: {
+    submission: number;
+  };
+  output?: unknown;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TaskDeliver-bitrix24".
+ */
+export interface TaskDeliverBitrix24 {
+  input: {
+    submission: number;
+  };
+  output?: unknown;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TaskDeliver-friendwork".
+ */
+export interface TaskDeliverFriendwork {
+  input: {
+    submission: number;
+  };
+  output?: unknown;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TaskCleanup-submissions".
+ */
+export interface TaskCleanupSubmissions {
+  input?: unknown;
+  output?: unknown;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

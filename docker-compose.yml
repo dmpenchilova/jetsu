@@ -1,6 +1,7 @@
 # Локальный запуск всего сайта одной командой: docker compose up -d --build
-#   админка  http://localhost:3001/admin
-#   сайт     http://localhost:3000
+#   админка        http://localhost:3001/admin
+#   сайт           http://localhost:3000
+#   тестовая почта http://localhost:8025 (сюда приходят письма о заявках)
 # Фронт берётся из папки рядом (../jet-front-main), путь можно поменять в .env: FRONT_DIR=...
 services:
   db:
@@ -33,10 +34,27 @@ services:
       FRONT_URL: http://localhost:3000
       FRONT_INTERNAL_URL: http://front:3000
       REVALIDATE_SECRET: ${REVALIDATE_SECRET:-dev-secret}
+      # письма о заявках; локально — в тестовый ящик Mailpit
+      SMTP_HOST: ${SMTP_HOST:-mailpit}
+      SMTP_PORT: ${SMTP_PORT:-1025}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      SMTP_SECURE: ${SMTP_SECURE:-false}
+      SMTP_FROM: ${SMTP_FROM:-noreply@jet.su}
+      SMARTCAPTCHA_SERVER_KEY: ${SMARTCAPTCHA_SERVER_KEY:-}
+      PRIVATE_UPLOADS_DIR: /app/private-uploads
     ports:
       - '127.0.0.1:3001:3001'
     volumes:
       - media:/app/media
+      - private_uploads:/app/private-uploads
+
+  # Тестовый почтовый ящик: все письма остаются здесь и никуда не уходят
+  mailpit:
+    image: axllent/mailpit:latest
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:8025:8025'
 
   # Служебный контейнер для команд: docker compose run --rm tools npm run import:fixtures
   tools:
@@ -52,9 +70,12 @@ services:
       PAYLOAD_SECRET: ${PAYLOAD_SECRET}
       SERVER_URL: http://localhost:3001
       MEDIA_DIR: /app/media
+      PRIVATE_UPLOADS_DIR: /app/private-uploads
       FRONT_DIR: /front
+      PAYLOAD_JOBS_AUTORUN: 'false'
     volumes:
       - media:/app/media
+      - private_uploads:/app/private-uploads
       - ${FRONT_DIR:-../jet-front-main}:/front:ro
 
   front:
@@ -74,7 +95,8 @@ services:
       IS_HTTPS: 'false'
       IS_DEVELOPMENT: 'false'
       DISABLE_CACHE: 'false'
-      RECAPTCHA_SITE_KEY: client_token
+      # ключ SmartCaptcha для сайта; пусто — капча выключена (локально)
+      RECAPTCHA_SITE_KEY: ${SMARTCAPTCHA_CLIENT_KEY:-}
       REVALIDATE_SECRET: ${REVALIDATE_SECRET:-dev-secret}
       ADMIN_URL: http://localhost:3001
       # git-хуки фронта в контейнере не нужны
@@ -89,5 +111,6 @@ services:
 volumes:
   pgdata:
   media:
+  private_uploads:
   front_modules:
   front_next:
