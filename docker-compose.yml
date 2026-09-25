@@ -1,43 +1,91 @@
-version: '3'
-
+# Локальный запуск всего сайта одной командой: docker compose up -d --build
+#   админка  http://localhost:3001/admin
+#   сайт     http://localhost:3000
+# Фронт берётся из папки рядом (../jet-front-main), путь можно поменять в .env: FRONT_DIR=...
 services:
-  payload:
-    image: node:20-alpine
-    ports:
-      - '3000:3000'
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: jet
+      POSTGRES_PASSWORD: jet
+      POSTGRES_DB: jet_admin
     volumes:
-      - .:/home/node/app
-      - node_modules:/home/node/app/node_modules
-    working_dir: /home/node/app/
-    command: sh -c "corepack enable && corepack prepare pnpm@latest --activate && pnpm install && pnpm dev"
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - '127.0.0.1:5432:5432'
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U jet -d jet_admin']
+      interval: 3s
+      retries: 20
+
+  admin:
+    build: .
+    restart: unless-stopped
     depends_on:
-      - mongo
-      # - postgres
-    env_file:
-      - .env
-
-  # Ensure your DATABASE_URL uses 'mongo' as the hostname ie. mongodb://mongo/my-db-name
-  mongo:
-    image: mongo:latest
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgres://jet:jet@db:5432/jet_admin
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET:?Задайте PAYLOAD_SECRET в .env}
+      SERVER_URL: http://localhost:3001
+      # фронт внутри docker-сети — для сброса кэша; в браузере превью открывается по FRONT_PUBLIC_URL
+      FRONT_URL: http://localhost:3000
+      FRONT_INTERNAL_URL: http://front:3000
+      REVALIDATE_SECRET: ${REVALIDATE_SECRET:-dev-secret}
     ports:
-      - '27017:27017'
-    command:
-      - --storageEngine=wiredTiger
+      - '127.0.0.1:3001:3001'
     volumes:
-      - data:/data/db
-    logging:
-      driver: none
+      - media:/app/media
 
-  # Uncomment the following to use postgres
-  # postgres:
-  #   restart: always
-  #   image: postgres:latest
-  #   volumes:
-  #     - pgdata:/var/lib/postgresql/data
-  #   ports:
-  #     - "5432:5432"
+  # Служебный контейнер для команд: docker compose run --rm tools npm run import:fixtures
+  tools:
+    build:
+      context: .
+      target: builder
+    profiles: ['tools']
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgres://jet:jet@db:5432/jet_admin
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET}
+      SERVER_URL: http://localhost:3001
+      MEDIA_DIR: /app/media
+      FRONT_DIR: /front
+    volumes:
+      - media:/app/media
+      - ${FRONT_DIR:-../jet-front-main}:/front:ro
+
+  front:
+    image: node:22-alpine
+    restart: unless-stopped
+    working_dir: /app
+    depends_on: [admin]
+    # Внутри контейнера localhost:3001 перенаправляется в админку, поэтому адреса картинок
+    # и API одинаковы для браузера и для сервера фронта.
+    # Сборка фронта при первом запуске занимает несколько минут.
+    command: >-
+      sh -c "node -e \"const n=require('net');n.createServer(c=>{const s=n.connect(3001,'admin');c.pipe(s).pipe(c);c.on('error',()=>s.destroy());s.on('error',()=>c.destroy())}).listen(3001,'127.0.0.1')\" &
+      npm ci && npm run build && npm run start -- -p 3000"
+    environment:
+      SITE: localhost:3000
+      API: localhost:3001
+      IS_HTTPS: 'false'
+      IS_DEVELOPMENT: 'false'
+      DISABLE_CACHE: 'false'
+      RECAPTCHA_SITE_KEY: client_token
+      REVALIDATE_SECRET: ${REVALIDATE_SECRET:-dev-secret}
+      ADMIN_URL: http://localhost:3001
+    ports:
+      - '127.0.0.1:3000:3000'
+    volumes:
+      - ${FRONT_DIR:-../jet-front-main}:/app
+      - front_modules:/app/node_modules
+      - front_next:/app/.next
 
 volumes:
-  data:
-  # pgdata:
-  node_modules:
+  pgdata:
+  media:
+  front_modules:
+  front_next:

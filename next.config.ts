@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
   skipTrailingSlashRedirect: true,
   agentRules: false,
   poweredByHeader: false,
+  output: 'standalone',
   images: {
     localPatterns: [
       {

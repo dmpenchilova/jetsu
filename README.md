@@ -1,67 +1,120 @@
-# Payload Blank Template
+# Админка jet.su
 
-This template comes configured with the bare minimum to get started on anything you need.
+Админка и API сайта «Инфосистемы Джет» на Payload CMS 3 + PostgreSQL. Сайт `jet-front-main` берёт из неё все данные. Во фронте для этого почти ничего не меняется: в его `.env` указывается адрес админки и выключается режим тестовых данных.
 
-## Quick start
+## Что уже есть (этапы 1–2 ТЗ)
 
-This template can be deployed directly from our Cloud hosting and it will setup MongoDB and cloud S3 object storage for media.
+- **Вход и роли.**
+  - Роли: администратор, редактор, автор, HR.
+  - Пароль не короче 12 символов, у администратора не короче 14.
+  - После 5 неудачных попыток вход блокируется на 15 минут.
+  - Сессия живёт 8 часов.
+  - Автор сохраняет только черновики, публикуют редактор и администратор.
+- **Страницы-конструкторы.**
+  - Все 81 блок фронта. Поля блоков собираются прямо из схем фронта (`src/contract/schemas.json`), поэтому админка и сайт не расходятся.
+  - Блок можно скрыть, дублировать и перетаскивать. У каждого блока есть якорь и название в навигации.
+  - Черновики с автосохранением, история версий, публикация по расписанию.
+  - Адрес страницы собирается из родителя и символьного кода, хлебные крошки строятся сами, есть SEO-поля.
+  - RU и EN ведутся отдельно.
+- **Превью.** Черновик показывается справа от формы в трёх ширинах: 1440, 768 и 375. Используются фронтовые компоненты, превью обновляется после каждого автосохранения. На сайт черновик не попадает до публикации.
+- **Сброс кэша.** После публикации кэш фронта сбрасывается сразу, по тегам нужных страниц. Это закрывает баг №9 «пропадают блоки из-за старого кэша».
+- **Настройки сайта:** хедер, футер, страница 404, попап «Связаться с нами», шаблоны форм.
+- **Медиатека:** картинки, видео, документы.
+- **API для фронта** на `/api/…` в формате `apiStatic`. Разделы следующих этапов (публикации, каталог, вакансии, партнёры, отправка форм) пока отдают тестовые данные фронта, поэтому сайт работает целиком.
 
-## Quick Start - local setup
+## Запуск на своём компьютере
 
-To spin up this template locally, follow these steps:
+Понадобится только [Docker Desktop](https://www.docker.com/products/docker-desktop/). Папки лежат рядом:
 
-### Clone
+```
+Downloads/
+  jet-front-main/   ← фронт
+  jetsu/            ← эта админка
+```
 
-After you click the `Deploy` button above, you'll want to have standalone copy of this repo on your machine. If you've already cloned this repo, skip to [Development](#development).
+1. Создайте `.env` из примера и впишите секрет (любая длинная случайная строка, например из `openssl rand -hex 32`):
 
-### Development
+   ```bash
+   cd ~/Downloads/jetsu
+   cp .env.example .env
+   ```
 
-1. First [clone the repo](#clone) if you have not done so already
-2. `cd my-project && cp .env.example .env` to copy the example environment variables. You'll need to add the `MONGODB_URL` from your Cloud project to your `.env` if you want to use S3 storage and the MongoDB database that was created for you.
+2. Запустите всё одной командой. Первый запуск займёт 5–10 минут, пока собираются админка и фронт:
 
-3. `pnpm install && pnpm dev` to install dependencies and start the dev server
-4. open `http://localhost:3000` to open the app in your browser
+   ```bash
+   docker compose up -d --build
+   ```
 
-That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
+3. Откройте http://localhost:3001/admin и создайте первого пользователя. Он станет администратором.
 
-#### Docker (Optional)
+4. Загрузите в админку тестовые страницы фронта: 10 страниц RU и EN, меню, 404 и попап. Картинки и видео попадут в медиатеку:
 
-If you prefer to use Docker for local development instead of a local MongoDB instance, the provided docker-compose.yml file can be used.
+   ```bash
+   docker compose run --rm tools npm run import:fixtures
+   ```
 
-To do so, follow these steps:
+5. Сайт открывается на http://localhost:3000 и уже работает от админки.
 
-- Modify the `MONGODB_URL` in your `.env` file to `mongodb://127.0.0.1/<dbname>`
-- Modify the `docker-compose.yml` file's `MONGODB_URL` to match the above `<dbname>`
-- Run `docker-compose up` to start the database, optionally pass `-d` to run in the background.
+Остановить: `docker compose down`. Данные сохраняются в томах Docker. Удалить их вместе с базой: `docker compose down -v`.
 
-## How it works
+### Для разработчика (без Docker)
 
-The Payload config is tailored specifically to the needs of most websites. It is pre-configured in the following ways:
+Нужны Node.js 22 и PostgreSQL 16.
 
-### Collections
+```bash
+cp .env.example .env        # DATABASE_URL, PAYLOAD_SECRET, FRONT_URL, REVALIDATE_SECRET
+npm install
+npm run dev                 # http://localhost:3001/admin
+FRONT_DIR=../jet-front-main npm run import:fixtures
+npm test                    # контрактные тесты
+```
 
-See the [Collections](https://payloadcms.com/docs/configuration/collections) docs for details on how to extend this functionality.
+Фронт запускается с такими переменными в `.env`:
 
-- #### Users (Authentication)
+```
+API=localhost:3001
+IS_DEVELOPMENT=false
+REVALIDATE_SECRET=<тот же, что в админке>
+ADMIN_URL=http://localhost:3001
+```
 
-  Users are auth-enabled collections that have access to the admin panel.
+## Как это устроено
 
-  For additional help, see the official [Auth Example](https://github.com/payloadcms/payload/tree/3.x/examples/auth) or the [Authentication](https://payloadcms.com/docs/authentication/overview#authentication-overview) docs.
+| Путь | Что это |
+|---|---|
+| `/admin` | админка |
+| `/api/…` | API для фронта: `/api/pages/{путь}`, `/api/common`, `/api/not-found`, `/api/popup/callback`, `POST /api/preview` |
+| `/cms-api/…` | собственный REST Payload, нужен самой админке, доступен только после входа |
 
-- #### Media
+- `src/contract/schemas.json` — схемы блоков и ответов фронта, выгруженные из его zod-схем.
+- `src/contract/fixtures/` — тестовые данные фронта (`apiStatic`) в JSON.
+- `src/blocks/` — из схем строятся поля админки (`fields.ts`), и по тем же схемам данные преобразуются в формат фронта и обратно (`transform.ts`). Русские названия блоков и полей — в `meta.ts`.
+- `src/collections/` — страницы, медиатека, шаблоны форм, пользователи.
+- `src/globals/` — хедер, футер, 404, попап.
+- `src/lib/serialize.ts` — сборка ответов API. `revalidate.ts` — сброс кэша фронта. `preview.ts` — подписанные ссылки превью.
+- `src/migrations/` — миграции базы, применяются сами при запуске в production.
+- `tests/contract.test.ts` — каждая тестовая страница фронта и синтетический пример каждого из 81 блока проходят путь «фронт → админка → фронт» без потерь.
 
-  This is the uploads enabled collection. It features pre-configured sizes, focal point and manual resizing to help you manage your pictures.
+### Если во фронте поменялись схемы блоков
 
-### Docker
+Выгрузите их заново скриптом `scripts/front-contract/dump.mts`: инструкция в самом скрипте. Затем:
 
-Alternatively, you can use [Docker](https://www.docker.com) to spin up this template locally. To do so, follow these steps:
+```bash
+npm test
+npx payload migrate:create
+```
 
-1. Follow [steps 1 and 2 from above](#development), the docker-compose file will automatically use the `.env` file in your project root
-1. Next run `docker-compose up`
-1. Follow [steps 4 and 5 from above](#development) to login and create your first admin user
+Новый блок появится в библиотеке сам. Название ему можно дать в `src/blocks/meta.ts`.
 
-That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
+## Переменные окружения
 
-## Questions
-
-If you have any issues or questions, reach out to us on [Discord](https://discord.com/invite/payload) or start a [GitHub discussion](https://github.com/payloadcms/payload/discussions).
+| Переменная | Зачем |
+|---|---|
+| `DATABASE_URL` | подключение к PostgreSQL |
+| `PAYLOAD_SECRET` | ключ шифрования сессий, не короче 32 символов |
+| `SERVER_URL` | адрес админки; из него собираются ссылки на файлы медиатеки |
+| `MEDIA_PUBLIC_URL` | необязательно: другой адрес для файлов, например CDN |
+| `MEDIA_DIR` | папка для файлов медиатеки, по умолчанию `./media` |
+| `FRONT_URL` | адрес сайта в браузере, нужен для превью |
+| `FRONT_INTERNAL_URL` | необязательно: адрес сайта изнутри сервера для сброса кэша |
+| `REVALIDATE_SECRET` | секрет сброса кэша, тот же, что во фронте |

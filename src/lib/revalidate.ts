@@ -5,12 +5,13 @@ import type { Payload } from 'payload'
  * Если фронт не ответил, повторяет несколько раз с паузой; неудача пишется в журнал.
  */
 export const revalidateFront = async (payload: Payload, tags: string[]) => {
-  const front = process.env.FRONT_URL
+  // FRONT_INTERNAL_URL — адрес фронта изнутри сервера (например, в docker-сети), иначе FRONT_URL
+  const front = process.env.FRONT_INTERNAL_URL || process.env.FRONT_URL
   const secret = process.env.REVALIDATE_SECRET
   const unique = [...new Set(tags)].filter(Boolean)
   if (!front || unique.length === 0) return
 
-  const url = `${front.replace(/\/$/, '')}/api/revalidate?tag=${encodeURIComponent(unique.join(','))}`
+  const url = `${front.replace(/\/$/, '')}/api/revalidate/?tag=${encodeURIComponent(unique.join(','))}`
   const attempt = async (n: number): Promise<void> => {
     try {
       const res = await fetch(url, {

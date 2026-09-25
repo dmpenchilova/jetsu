@@ -1,3 +1,5 @@
+import path from 'node:path'
+
 import type { CollectionConfig } from 'payload'
 
 import { hasRole, isLoggedIn } from '../access'
@@ -17,7 +19,8 @@ export const Media: CollectionConfig = {
     delete: hasRole('admin', 'editor'),
   },
   upload: {
-    staticDir: 'media',
+    // папка с файлами; в Docker это том, который переживает пересборку
+    staticDir: process.env.MEDIA_DIR || path.resolve(process.cwd(), 'media'),
     mimeTypes: ['image/*', 'video/mp4', 'video/webm', 'video/quicktime', 'application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
     imageSizes: [{ name: 'thumbnail', width: 400, withoutEnlargement: true }],
     adminThumbnail: 'thumbnail',
