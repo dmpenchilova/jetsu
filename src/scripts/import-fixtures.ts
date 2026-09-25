@@ -15,6 +15,7 @@ import config from '@payload-config'
 import { getPayload, type Payload } from 'payload'
 
 import { blockShapes } from '../blocks'
+import { reindexAll } from '../lib/search/indexer'
 import { fromFront, type FromFrontCtx } from '../blocks/transform'
 import { footerShape, headerShape, page404Shape, popupCallbackShape } from '../globals'
 import { importCollections } from './import-collections'
@@ -116,6 +117,8 @@ const run = async () => {
     await importGlobal(payload, 'popup-callback', popupCallbackShape, await readJson(`${prefix}popup/callback.json`), locale)
   }
   await importCollections(payload)
+  const indexed = await reindexAll(payload)
+  payload.logger.info(`Индекс поиска собран: ${indexed} документов`)
   payload.logger.info('Импорт завершён')
   process.exit(0)
 }

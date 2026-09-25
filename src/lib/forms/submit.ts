@@ -18,7 +18,7 @@ type FormDocFull = {
   hidden?: FormFieldDef[] | null
 }
 
-const SERVICE_KEYS = new Set(['page', 'serviceInfo', 'smart-token', 'lang', 'form'])
+const SERVICE_KEYS = new Set(['page', 'serviceInfo', 'smart-token', 'lang', 'form', 'agreementPolitic'])
 const MAX_BODY = 60 * 1024 * 1024
 
 const reply = (status: number, success: boolean, extra: Record<string, unknown> = {}) =>
@@ -61,6 +61,20 @@ const readUtm = (raw: string | undefined) => {
     for (const [k, v] of Object.entries(obj)) {
       if (/^utm_[a-z_]{1,30}$/.test(k) && typeof v === 'string') out[k] = cleanText(v).slice(0, 200)
     }
+    return Object.keys(out).length ? out : undefined
+  } catch {
+    return undefined
+  }
+}
+
+/** Метки из адреса страницы — если сайт не передал их отдельно. */
+const utmFromPage = (page: string) => {
+  if (!page) return undefined
+  try {
+    const out: Record<string, string> = {}
+    new URL(page).searchParams.forEach((v, k) => {
+      if (/^utm_[a-z_]{1,30}$/.test(k)) out[k] = cleanText(v).slice(0, 200)
+    })
     return Object.keys(out).length ? out : undefined
   } catch {
     return undefined
@@ -125,6 +139,10 @@ export const handleFormSubmit = async (payload: Payload, req: Request) => {
   )
   if (!result.ok) return reply(400, false, { message: en ? 'Check the form fields' : 'Проверьте поля формы', errors: result.errors })
   if (!result.fields.length) return reply(400, false, { message: en ? 'Empty form' : 'Форма пустая' })
+  // отметка о согласии на обработку персональных данных (галочка под формой)
+  if (values.agreementPolitic && !/^(false|0|off)$/i.test(values.agreementPolitic)) {
+    result.fields.push({ name: 'agreementPolitic', label: 'Согласие на обработку персональных данных', value: 'да' })
+  }
 
   // файлы — в закрытое хранилище
   const fileIds: number[] = []
@@ -161,7 +179,7 @@ export const handleFormSubmit = async (payload: Payload, req: Request) => {
       formTitle,
       page,
       locale,
-      utm: readUtm(values.serviceInfo),
+      utm: readUtm(values.serviceInfo) ?? utmFromPage(page),
       captcha: { ok: 'пройдена', off: 'выключена', unavailable: 'сервис недоступен', failed: 'не пройдена' }[captcha],
       ipHash: hash,
       search: result.fields.map((f) => f.value).join(' ').slice(0, 2000),

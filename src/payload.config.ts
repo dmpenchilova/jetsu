@@ -15,6 +15,7 @@ import { Forms } from './collections/Forms'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { Redirects } from './collections/Redirects'
+import { SearchIndex, SearchQueries } from './collections/Search'
 import { SubmissionFiles, Submissions } from './collections/Submissions'
 import { Terms } from './collections/Terms'
 import { Users } from './collections/Users'
@@ -22,6 +23,7 @@ import { globals } from './globals'
 import { FormSettings } from './globals/formSettings'
 import { SeoSettings } from './globals/seoSettings'
 import { TypographSettings } from './globals/typographSettings'
+import { reindexAll, searchHooks } from './lib/search/indexer'
 import { globalTextHook, textHook } from './lib/textHooks'
 import { FORMS_QUEUE, formTasks } from './lib/forms/deliver'
 import { migrations } from './migrations'
@@ -40,6 +42,14 @@ const TEXT_COLLECTIONS = new Set([
   'pages', 'publications', 'projects', 'events', 'services', 'directions', 'subdirections', 'industries',
   'vacancies', 'partners', 'offices', 'terms', 'forms',
 ])
+/** Коллекции, которые попадают в поиск по сайту. */
+const SEARCHABLE = new Set(['pages', 'publications', 'vacancies'])
+const withSearch = <T extends { slug: string; hooks?: { afterChange?: unknown[]; afterDelete?: unknown[] } }>(c: T): T => {
+  if (!SEARCHABLE.has(c.slug)) return c
+  const h = searchHooks(c.slug as 'pages')
+  return { ...c, hooks: { ...c.hooks, afterChange: [...(c.hooks?.afterChange ?? []), ...h.afterChange], afterDelete: [...(c.hooks?.afterDelete ?? []), ...h.afterDelete] } } as T
+}
+
 const withText = <T extends { slug: string; hooks?: { beforeChange?: unknown[] } }>(c: T, hook: unknown): T =>
   ({ ...c, hooks: { ...c.hooks, beforeChange: [...(c.hooks?.beforeChange ?? []), hook] } }) as T
 
@@ -96,9 +106,11 @@ export default buildConfig({
     Forms,
     Submissions,
     Redirects,
+    SearchIndex,
+    SearchQueries,
     SubmissionFiles,
     Users,
-  ].map((c) => (TEXT_COLLECTIONS.has(c.slug) ? withText(c, textHook) : c)),
+  ].map((c) => withSearch(TEXT_COLLECTIONS.has(c.slug) ? withText(c, textHook) : c)),
   globals: [...globals.map((g) => withText(g, globalTextHook)), FormSettings, TypographSettings, SeoSettings],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
@@ -127,6 +139,12 @@ export default buildConfig({
         },
       })
     : undefined,
+  // пустой индекс поиска (первый запуск, свежая база) собирается сам в фоне
+  onInit: async (payload) => {
+    if (process.env.NEXT_PHASE === 'phase-production-build' || process.env.PAYLOAD_JOBS_AUTORUN === 'false') return
+    const { totalDocs } = await payload.count({ collection: 'search-index' }).catch(() => ({ totalDocs: -1 }))
+    if (totalDocs === 0) void reindexAll(payload).then((n) => payload.logger.info(`Индекс поиска собран: ${n} записей`)).catch(() => undefined)
+  },
   jobs: {
     tasks: formTasks,
     // повторы отправок и ночная очистка; в служебных командах очередь не запускается

@@ -83,6 +83,8 @@ export interface Config {
     forms: Form;
     submissions: Submission;
     redirects: Redirect;
+    'search-index': SearchIndex;
+    'search-queries': SearchQuery;
     'submission-files': SubmissionFile;
     users: User;
     'payload-kv': PayloadKv;
@@ -109,6 +111,8 @@ export interface Config {
     forms: FormsSelect<false> | FormsSelect<true>;
     submissions: SubmissionsSelect<false> | SubmissionsSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
+    'search-index': SearchIndexSelect<false> | SearchIndexSelect<true>;
+    'search-queries': SearchQueriesSelect<false> | SearchQueriesSelect<true>;
     'submission-files': SubmissionFilesSelect<false> | SubmissionFilesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -3201,6 +3205,7 @@ export interface Page {
      */
     title?: string | null;
   };
+  searchType?: ('auto' | 'service' | 'company' | 'industry' | 'project' | 'career' | 'other' | 'hidden') | null;
   seo?: {
     /**
      * Если пусто — название страницы
@@ -4044,6 +4049,46 @@ export interface Redirect {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "search-index".
+ */
+export interface SearchIndex {
+  id: number;
+  source?: string | null;
+  locale?: string | null;
+  type?: ('news' | 'article' | 'journal' | 'service' | 'company' | 'industry' | 'project' | 'career' | 'other') | null;
+  title?: string | null;
+  text?: string | null;
+  url?: string | null;
+  tags?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  date?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Что ищут посетители сайта. Запросы без результатов подскажут, каких материалов не хватает. Хранятся 180 дней
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "search-queries".
+ */
+export interface SearchQuery {
+  id: number;
+  query?: string | null;
+  results?: number | null;
+  type?: string | null;
+  locale?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -4273,6 +4318,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'redirects';
         value: number | Redirect;
+      } | null)
+    | ({
+        relationTo: 'search-index';
+        value: number | SearchIndex;
+      } | null)
+    | ({
+        relationTo: 'search-queries';
+        value: number | SearchQuery;
       } | null)
     | ({
         relationTo: 'submission-files';
@@ -6762,6 +6815,7 @@ export interface PagesSelect<T extends boolean = true> {
         variant?: T;
         title?: T;
       };
+  searchType?: T;
   seo?:
     | T
     | {
@@ -7437,6 +7491,34 @@ export interface RedirectsSelect<T extends boolean = true> {
   active?: T;
   auto?: T;
   note?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "search-index_select".
+ */
+export interface SearchIndexSelect<T extends boolean = true> {
+  source?: T;
+  locale?: T;
+  type?: T;
+  title?: T;
+  text?: T;
+  url?: T;
+  tags?: T;
+  date?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "search-queries_select".
+ */
+export interface SearchQueriesSelect<T extends boolean = true> {
+  query?: T;
+  results?: T;
+  type?: T;
+  locale?: T;
   updatedAt?: T;
   createdAt?: T;
 }

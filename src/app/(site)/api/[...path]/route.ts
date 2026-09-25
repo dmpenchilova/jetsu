@@ -26,6 +26,7 @@ import {
   publicationPage,
 } from '@/lib/lists'
 import { readPreviewHash } from '@/lib/preview'
+import { logQuery, searchSite } from '@/lib/search/query'
 import { indexingAllowed, redirectsList, robotsTxt, sitemapUrls } from '@/lib/seo'
 import { type Locale, type PageDoc, pageToFront, shapeToFront } from '@/lib/serialize'
 
@@ -74,6 +75,15 @@ export async function GET(req: Request, { params }: { params: Promise<{ path: st
     const page = docs[0]
     if (!page || page._status !== 'published') return notFound()
     return json(await withSeo(payload, await pageToFront(payload, page as unknown as PageDoc, locale), pagePath, locale))
+  }
+
+  // поиск по сайту: ?q=запрос&type=рубрика&page=2
+  if (path === 'search') {
+    const q = url.searchParams.get('q') ?? ''
+    const rubric = url.searchParams.get('type') || undefined
+    const data = await searchSite(payload, { q, rubric, page: Number(url.searchParams.get('page')) || 1, locale })
+    if (!url.searchParams.get('page') || url.searchParams.get('page') === '1') logQuery(payload, q, data.total, rubric, locale)
+    return json({ status: 'success', data })
   }
 
   // SEO-файлы сайта

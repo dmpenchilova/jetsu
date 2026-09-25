@@ -206,6 +206,22 @@ export const Pages: CollectionConfig = {
                 },
               ],
             },
+            {
+              name: 'searchType',
+              label: 'Раздел в поиске по сайту',
+              type: 'select',
+              defaultValue: 'auto',
+              options: [
+                { label: 'Определить по адресу', value: 'auto' },
+                { label: 'Услуги', value: 'service' },
+                { label: 'О компании', value: 'company' },
+                { label: 'Отрасли', value: 'industry' },
+                { label: 'Проекты', value: 'project' },
+                { label: 'Карьера', value: 'career' },
+                { label: 'Другое', value: 'other' },
+                { label: 'Не показывать в поиске', value: 'hidden' },
+              ],
+            },
           ],
         },
         {

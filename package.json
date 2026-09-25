@@ -14,7 +14,8 @@
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start -p 3001",
     "test": "vitest run --config ./vitest.config.mts",
-    "import:fixtures": "cross-env NODE_OPTIONS=--no-deprecation payload run src/scripts/import-fixtures.ts"
+    "import:fixtures": "cross-env NODE_OPTIONS=--no-deprecation payload run src/scripts/import-fixtures.ts",
+    "search:reindex": "cross-env NODE_OPTIONS=--no-deprecation PAYLOAD_JOBS_AUTORUN=false payload run src/scripts/reindex-search.ts"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.90.2",
