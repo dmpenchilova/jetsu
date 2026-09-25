@@ -19,6 +19,8 @@ import { Terms } from './collections/Terms'
 import { Users } from './collections/Users'
 import { globals } from './globals'
 import { FormSettings } from './globals/formSettings'
+import { TypographSettings } from './globals/typographSettings'
+import { globalTextHook, textHook } from './lib/textHooks'
 import { FORMS_QUEUE, formTasks } from './lib/forms/deliver'
 import { migrations } from './migrations'
 
@@ -30,6 +32,14 @@ const isBuild = process.env.NEXT_PHASE === 'phase-production-build'
 if (process.env.NODE_ENV === 'production' && !isBuild && (process.env.PAYLOAD_SECRET ?? '').length < 32) {
   throw new Error('PAYLOAD_SECRET должен быть не короче 32 символов')
 }
+
+/** Где работает типограф и чистка HTML: весь контент сайта. */
+const TEXT_COLLECTIONS = new Set([
+  'pages', 'publications', 'projects', 'events', 'services', 'directions', 'subdirections', 'industries',
+  'vacancies', 'partners', 'offices', 'terms', 'forms',
+])
+const withText = <T extends { slug: string; hooks?: { beforeChange?: unknown[] } }>(c: T, hook: unknown): T =>
+  ({ ...c, hooks: { ...c.hooks, beforeChange: [...(c.hooks?.beforeChange ?? []), hook] } }) as T
 
 export default buildConfig({
   serverURL: process.env.SERVER_URL || undefined,
@@ -85,8 +95,8 @@ export default buildConfig({
     Submissions,
     SubmissionFiles,
     Users,
-  ],
-  globals: [...globals, FormSettings],
+  ].map((c) => (TEXT_COLLECTIONS.has(c.slug) ? withText(c, textHook) : c)),
+  globals: [...globals.map((g) => withText(g, globalTextHook)), FormSettings, TypographSettings],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },

@@ -2,6 +2,9 @@ import type { Block, Field } from 'payload'
 
 import { BINDINGS } from './bindings'
 import { BLOCK_META, FIELD_LABELS, LONG_TEXT_KEYS, OPTION_LABELS } from './meta'
+
+/** Визуальный редактор с режимом HTML для длинных текстов. */
+export const HTML_EDITOR = '/components/HtmlEditor#HtmlEditor'
 import { nameOf, type Prop, type Shape } from './shape'
 
 /** Пустое значение select-поля фронта ('') хранится в админке как 'default'. */
@@ -78,7 +81,7 @@ const propField = (prop: Prop, parentRequired: boolean): Field | null => {
         }
       }
       return LONG_TEXT_KEYS.has(key)
-        ? { name, label: label(key), type: 'textarea', required }
+        ? { name, label: label(key), type: 'textarea', required, admin: { components: { Field: HTML_EDITOR } } }
         : { name, label: label(key), type: 'text', required }
     case 'boolean':
       return { name, label: label(key), type: 'checkbox' }
@@ -170,7 +173,9 @@ const rowFields = (of: Shape): Field[] => {
 const variantFields = (data: Shape): Field[] => {
   if (data.kind === 'object') return objectFields(data.props, true)
   const f = propField({ key: 'value', shape: data, required: true }, true)
-  return f ? [{ ...f, label: 'Текст', type: f.type === 'text' ? 'textarea' : f.type } as Field] : []
+  return f
+    ? [{ ...f, label: 'Текст', ...(f.type === 'text' ? { type: 'textarea', admin: { components: { Field: HTML_EDITOR } } } : {}) } as Field]
+    : []
 }
 
 /** Порядок полей в форме: сначала надзаголовок, заголовок и текст, потом всё остальное — как в схеме. */

@@ -1,3 +1,4 @@
+import { HtmlEditor as HtmlEditor_d0cde097a850875ce5d6f9145f923f56 } from '../../../components/HtmlEditor'
 import { SubmissionView as SubmissionView_f160ea7ab20cdce58404a3539098ac44 } from '../../../components/SubmissionView'
 import { Nav as Nav_576d6fffb75fcb081ff863baa2ca974a } from '../../../components/Nav'
 import { Icon as Icon_a02a4abfb5c9da17149cbadc8057c129 } from '../../../components/Icon'
@@ -7,6 +8,7 @@ import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } f
 
 /** @type import('payload').ImportMap */
 export const importMap = {
+  "/components/HtmlEditor#HtmlEditor": HtmlEditor_d0cde097a850875ce5d6f9145f923f56,
   "/components/SubmissionView#SubmissionView": SubmissionView_f160ea7ab20cdce58404a3539098ac44,
   "/components/Nav#Nav": Nav_576d6fffb75fcb081ff863baa2ca974a,
   "/components/Icon#Icon": Icon_a02a4abfb5c9da17149cbadc8057c129,

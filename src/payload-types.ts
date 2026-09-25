@@ -129,6 +129,7 @@ export interface Config {
     'career-page': CareerPage;
     'partners-page': PartnersPage;
     'form-settings': FormSetting;
+    'typograph-settings': TypographSetting;
     'payload-jobs-stats': PayloadJobsStat;
   };
   globalsSelect: {
@@ -141,6 +142,7 @@ export interface Config {
     'career-page': CareerPageSelect<false> | CareerPageSelect<true>;
     'partners-page': PartnersPageSelect<false> | PartnersPageSelect<true>;
     'form-settings': FormSettingsSelect<false> | FormSettingsSelect<true>;
+    'typograph-settings': TypographSettingsSelect<false> | TypographSettingsSelect<true>;
     'payload-jobs-stats': PayloadJobsStatsSelect<false> | PayloadJobsStatsSelect<true>;
   };
   locale: 'ru' | 'en';
@@ -7910,6 +7912,23 @@ export interface FormSetting {
   createdAt?: string | null;
 }
 /**
+ * Срабатывает при публикации: кавычки «ёлочки», тире, неразрывные пробелы после предлогов и союзов, «Инфосистемы Джет» без переноса. Код, адреса и HTML-теги не трогает
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "typograph-settings".
+ */
+export interface TypographSetting {
+  id: number;
+  enabled?: boolean | null;
+  yo?: boolean | null;
+  /**
+   * В шрифте сайта OnyOne нет этого знака — браузер возьмёт его из другого шрифта. Включайте, только если это устраивает
+   */
+  nbHyphen?: boolean | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-jobs-stats".
  */
@@ -8318,6 +8337,18 @@ export interface FormSettingsSelect<T extends boolean = true> {
     | {
         enabled?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "typograph-settings_select".
+ */
+export interface TypographSettingsSelect<T extends boolean = true> {
+  enabled?: T;
+  yo?: T;
+  nbHyphen?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
