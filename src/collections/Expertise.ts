@@ -33,7 +33,7 @@ export const Publications: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     group: 'Экспертиза',
-    defaultColumns: ['title', 'type', 'date', 'recommended', '_status'],
+    defaultColumns: ['title', 'type', 'date', '_status'],
     listSearchableFields: ['title', 'slug'],
   },
   defaultSort: '-date',
@@ -101,7 +101,7 @@ export const Projects: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     group: 'Экспертиза',
-    defaultColumns: ['title', 'date', 'recommended', '_status'],
+    defaultColumns: ['title', 'date', '_status'],
     listSearchableFields: ['title'],
   },
   defaultSort: '-date',

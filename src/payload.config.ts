@@ -35,6 +35,10 @@ export default buildConfig({
     meta: { titleSuffix: ' — админка jet.su' },
     avatar: 'default',
     components: {
+      Nav: '/components/Nav#Nav',
+      views: {
+        dashboard: { Component: '/components/Dashboard#Dashboard' },
+      },
       graphics: {
         Logo: '/components/Logo#Logo',
         Icon: '/components/Icon#Icon',
