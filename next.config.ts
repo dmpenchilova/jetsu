@@ -7,6 +7,10 @@ const __filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(__filename)
 
 const nextConfig: NextConfig = {
+  // фронт запрашивает главную как /site-api/pages/ — без редиректа на адрес без слеша
+  skipTrailingSlashRedirect: true,
+  agentRules: false,
+  poweredByHeader: false,
   images: {
     localPatterns: [
       {
