@@ -179,7 +179,7 @@ export const formTasks: TaskConfig[] = [
   },
   {
     slug: 'cleanup-submissions',
-    label: 'Удаление старых заявок и поисковых запросов',
+    label: 'Очистка: старые заявки, поисковые запросы, журнал действий',
     schedule: [{ cron: '0 3 * * *', queue: FORMS_QUEUE }],
     handler: (async ({ req }: { req: { payload: Payload } }) => {
       const payload = req.payload
@@ -192,6 +192,9 @@ export const formTasks: TaskConfig[] = [
       // журнал поисковых запросов — 180 дней
       const queriesBefore = new Date(Date.now() - 180 * 86400_000).toISOString()
       await payload.delete({ collection: 'search-queries', where: { createdAt: { less_than: queriesBefore } }, overrideAccess: true })
+      // журнал действий — 3 года
+      const auditBefore = new Date(Date.now() - 3 * 365 * 86400_000).toISOString()
+      await payload.delete({ collection: 'audit-log', where: { createdAt: { less_than: auditBefore } }, overrideAccess: true })
       return { output: { deleted: old.docs.length } }
     }) as unknown as TaskConfig['handler'],
   },

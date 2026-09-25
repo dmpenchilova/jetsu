@@ -68,6 +68,24 @@ export const Pages: CollectionConfig = {
       schedulePublish: true,
     },
   },
+  endpoints: [
+    {
+      // превью одного блока: /cms-api/pages/12/preview-block?block=<id блока>&locale=ru
+      path: '/:id/preview-block',
+      method: 'get',
+      handler: async (req) => {
+        if (!req.user) return Response.json({ error: 'Нужно войти в админку' }, { status: 401 })
+        const url = new URL(req.url ?? '', 'http://x')
+        const id = String(req.routeParams?.id ?? '')
+        const block = url.searchParams.get('block') ?? ''
+        const locale = url.searchParams.get('locale') === 'en' ? 'en' : 'ru'
+        if (!/^\d+$/.test(id) || !/^[\w-]{1,64}$/.test(block)) return Response.json({ error: 'bad request' }, { status: 400 })
+        const target = previewUrl({ id, locale, block })
+        if (!target) return Response.json({ error: 'Не задан адрес сайта (FRONT_URL)' }, { status: 500 })
+        return Response.redirect(target, 302)
+      },
+    },
+  ],
   hooks: {
     beforeChange: [
       async ({ data, req, originalDoc }) => {

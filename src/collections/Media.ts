@@ -2,7 +2,10 @@ import path from 'node:path'
 
 import type { CollectionConfig } from 'payload'
 
+import { APIError } from 'payload'
+
 import { hasRole, isLoggedIn } from '../access'
+import { findMediaUsage } from '../lib/mediaUsage'
 
 export const Media: CollectionConfig = {
   slug: 'media',
@@ -10,6 +13,21 @@ export const Media: CollectionConfig = {
   admin: {
     group: 'Контент',
     defaultColumns: ['filename', 'alt', 'mimeType', 'filesize', 'updatedAt'],
+    listSearchableFields: ['filename', 'alt'],
+    description: 'Файлы можно раскладывать по папкам. Чтобы найти картинки без alt-текста, отфильтруйте по полю «Alt-текст» → «не существует»',
+  },
+  // папки в медиатеке
+  folders: true,
+  hooks: {
+    beforeDelete: [
+      async ({ id, req }) => {
+        const usages = await findMediaUsage(req.payload, id)
+        if (usages.length) {
+          const list = usages.slice(0, 5).map((u) => u.where).join('; ')
+          throw new APIError(`Файл используется (${usages.length}): ${list}. Сначала уберите его оттуда`, 400, undefined, true)
+        }
+      },
+    ],
   },
   access: {
     // файлы публичны: их показывает сайт
@@ -29,5 +47,6 @@ export const Media: CollectionConfig = {
   fields: [
     { name: 'alt', label: 'Alt-текст', type: 'text', admin: { description: 'Что изображено. Подставляется, если в блоке alt не задан' } },
     { name: 'sourcePath', type: 'text', index: true, admin: { hidden: true } },
+    { name: 'usage', type: 'ui', admin: { components: { Field: '/components/MediaUsage#MediaUsage' } } },
   ],
 }

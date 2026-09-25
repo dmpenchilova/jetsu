@@ -220,6 +220,8 @@ const commonBlockFields = (hasNav: boolean): Field[] => [
         : []),
     ],
   },
+  // ссылка «Открыть превью блока» — только этот блок, в трёх размерах экрана
+  { name: 'blockPreview', type: 'ui', admin: { components: { Field: '/components/BlockPreview#BlockPreview' } } },
 ]
 
 /** Выбор источника данных для блоков, связанных с коллекциями. */

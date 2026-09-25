@@ -13,6 +13,7 @@ import { Events, Offices } from './collections/Company'
 import { Projects, Publications } from './collections/Expertise'
 import { Forms } from './collections/Forms'
 import { Media } from './collections/Media'
+import { AuditLog, withAudit, withAuditGlobal } from './collections/AuditLog'
 import { Pages } from './collections/Pages'
 import { Redirects } from './collections/Redirects'
 import { SearchIndex, SearchQueries } from './collections/Search'
@@ -108,10 +109,13 @@ export default buildConfig({
     Redirects,
     SearchIndex,
     SearchQueries,
+    AuditLog,
     SubmissionFiles,
     Users,
-  ].map((c) => withSearch(TEXT_COLLECTIONS.has(c.slug) ? withText(c, textHook) : c)),
-  globals: [...globals.map((g) => withText(g, globalTextHook)), FormSettings, TypographSettings, SeoSettings],
+  ].map((c) => withAudit(withSearch(TEXT_COLLECTIONS.has(c.slug) ? withText(c, textHook) : c))),
+  // папки (пока только в медиатеке)
+  folders: { browseByFolder: false },
+  globals: [...globals.map((g) => withText(g, globalTextHook)), FormSettings, TypographSettings, SeoSettings].map(withAuditGlobal),
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },

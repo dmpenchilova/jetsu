@@ -132,6 +132,27 @@ a {
       color: #fff;
     }
   }
+
+  &--light {
+    height: 32px;
+    padding: 0 14px;
+    background: #fff;
+    color: var(--jet-black);
+    border: 1px solid var(--jet-gray-200);
+
+    &:hover {
+      border-color: var(--jet-blue);
+      color: var(--jet-blue);
+    }
+  }
+}
+
+.jet-audit-export {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
 }
 
 // ——— меню слева ———
@@ -917,4 +938,44 @@ a {
     background: #fde2e2;
     color: #c4262b;
   }
+}
+
+/* ---------- Где используется файл ---------- */
+.jet-usage {
+  border: 1px solid var(--jet-gray-200);
+  margin: 16px 0 24px;
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0 0 8px;
+    padding: 0;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      padding: 8px 0;
+      border-top: 1px solid var(--jet-gray-200);
+
+      &:first-child {
+        border-top: none;
+      }
+    }
+
+    a {
+      color: var(--jet-blue);
+    }
+  }
+}
+
+.jet-block-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 16px;
 }

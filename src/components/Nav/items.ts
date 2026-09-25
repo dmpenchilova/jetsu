@@ -35,6 +35,7 @@ export const NAV_ITEMS: NavItem[] = [
 
   { group: 'Сервис', label: 'Медиатека', href: '/admin/collections/media', entity: c('media'), icon: 'M4 5h16v14H4z M4 16l5-5 4 4 3-3 4 4 M15 9h.01' },
   { label: 'Пользователи', href: '/admin/collections/users', entity: c('users'), icon: 'M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z' },
+  { label: 'Журнал действий', href: '/admin/collections/audit-log', entity: c('audit-log'), icon: 'M12 7v5l3 2 M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z' },
 
   { group: 'Настройки сайта', label: 'Хедер', href: '/admin/globals/header', entity: g('header'), icon: 'M4 5h16v4H4z M4 13h10 M4 17h7' },
   { label: 'Футер', href: '/admin/globals/footer', entity: g('footer'), icon: 'M4 15h16v4H4z M4 7h10 M4 11h7' },

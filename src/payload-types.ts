@@ -85,15 +85,21 @@ export interface Config {
     redirects: Redirect;
     'search-index': SearchIndex;
     'search-queries': SearchQuery;
+    'audit-log': AuditLog;
     'submission-files': SubmissionFile;
     users: User;
     'payload-kv': PayloadKv;
     'payload-jobs': PayloadJob;
+    'payload-folders': FolderInterface;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
-  collectionsJoins: {};
+  collectionsJoins: {
+    'payload-folders': {
+      documentsAndFolders: 'payload-folders' | 'media';
+    };
+  };
   collectionsSelect: {
     pages: PagesSelect<false> | PagesSelect<true>;
     publications: PublicationsSelect<false> | PublicationsSelect<true>;
@@ -113,10 +119,12 @@ export interface Config {
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     'search-index': SearchIndexSelect<false> | SearchIndexSelect<true>;
     'search-queries': SearchQueriesSelect<false> | SearchQueriesSelect<true>;
+    'audit-log': AuditLogSelect<false> | AuditLogSelect<true>;
     'submission-files': SubmissionFilesSelect<false> | SubmissionFilesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>;
+    'payload-folders': PayloadFoldersSelect<false> | PayloadFoldersSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -3221,6 +3229,8 @@ export interface Page {
   _status?: ('draft' | 'published') | null;
 }
 /**
+ * Файлы можно раскладывать по папкам. Чтобы найти картинки без alt-текста, отфильтруйте по полю «Alt-текст» → «не существует»
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
  */
@@ -3231,6 +3241,7 @@ export interface Media {
    */
   alt?: string | null;
   sourcePath?: string | null;
+  folder?: (number | null) | FolderInterface;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -3252,6 +3263,32 @@ export interface Media {
       filename?: string | null;
     };
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-folders".
+ */
+export interface FolderInterface {
+  id: number;
+  name: string;
+  folder?: (number | null) | FolderInterface;
+  documentsAndFolders?: {
+    docs?: (
+      | {
+          relationTo?: 'payload-folders';
+          value: number | FolderInterface;
+        }
+      | {
+          relationTo?: 'media';
+          value: number | Media;
+        }
+    )[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
+  folderType?: 'media'[] | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -4088,6 +4125,25 @@ export interface SearchQuery {
   createdAt: string;
 }
 /**
+ * Записи нельзя изменить или удалить. Хранятся 3 года. Выгрузка в CSV — кнопкой вверху страницы
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "audit-log".
+ */
+export interface AuditLog {
+  id: number;
+  summary?: string | null;
+  action?: ('create' | 'update' | 'publish' | 'unpublish' | 'delete' | 'login' | 'logout' | 'settings') | null;
+  userEmail?: string | null;
+  ip?: string | null;
+  locale?: string | null;
+  target?: string | null;
+  changes?: string | null;
+  user?: (number | null) | User;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
@@ -4328,12 +4384,20 @@ export interface PayloadLockedDocument {
         value: number | SearchQuery;
       } | null)
     | ({
+        relationTo: 'audit-log';
+        value: number | AuditLog;
+      } | null)
+    | ({
         relationTo: 'submission-files';
         value: number | SubmissionFile;
       } | null)
     | ({
         relationTo: 'users';
         value: number | User;
+      } | null)
+    | ({
+        relationTo: 'payload-folders';
+        value: number | FolderInterface;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -7368,6 +7432,7 @@ export interface TermsSelect<T extends boolean = true> {
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
   sourcePath?: T;
+  folder?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -7524,6 +7589,22 @@ export interface SearchQueriesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "audit-log_select".
+ */
+export interface AuditLogSelect<T extends boolean = true> {
+  summary?: T;
+  action?: T;
+  userEmail?: T;
+  ip?: T;
+  locale?: T;
+  target?: T;
+  changes?: T;
+  user?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "submission-files_select".
  */
 export interface SubmissionFilesSelect<T extends boolean = true> {
@@ -7601,6 +7682,18 @@ export interface PayloadJobsSelect<T extends boolean = true> {
   waitUntil?: T;
   processing?: T;
   meta?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-folders_select".
+ */
+export interface PayloadFoldersSelect<T extends boolean = true> {
+  name?: T;
+  folder?: T;
+  documentsAndFolders?: T;
+  folderType?: T;
   updatedAt?: T;
   createdAt?: T;
 }
