@@ -68,6 +68,15 @@ export interface Config {
   blocks: {};
   collections: {
     pages: Page;
+    publications: Publication;
+    projects: Project;
+    services: Service;
+    directions: Direction;
+    subdirections: Subdirection;
+    industries: Industry;
+    vacancies: Vacancy;
+    partners: Partner;
+    terms: Term;
     media: Media;
     forms: Form;
     users: User;
@@ -80,6 +89,15 @@ export interface Config {
   collectionsJoins: {};
   collectionsSelect: {
     pages: PagesSelect<false> | PagesSelect<true>;
+    publications: PublicationsSelect<false> | PublicationsSelect<true>;
+    projects: ProjectsSelect<false> | ProjectsSelect<true>;
+    services: ServicesSelect<false> | ServicesSelect<true>;
+    directions: DirectionsSelect<false> | DirectionsSelect<true>;
+    subdirections: SubdirectionsSelect<false> | SubdirectionsSelect<true>;
+    industries: IndustriesSelect<false> | IndustriesSelect<true>;
+    vacancies: VacanciesSelect<false> | VacanciesSelect<true>;
+    partners: PartnersSelect<false> | PartnersSelect<true>;
+    terms: TermsSelect<false> | TermsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
@@ -98,12 +116,20 @@ export interface Config {
     footer: Footer;
     'not-found': NotFound;
     'popup-callback': PopupCallback;
+    'expertise-page': ExpertisePage;
+    'catalog-page': CatalogPage;
+    'career-page': CareerPage;
+    'partners-page': PartnersPage;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
     'not-found': NotFoundSelect<false> | NotFoundSelect<true>;
     'popup-callback': PopupCallbackSelect<false> | PopupCallbackSelect<true>;
+    'expertise-page': ExpertisePageSelect<false> | ExpertisePageSelect<true>;
+    'catalog-page': CatalogPageSelect<false> | CatalogPageSelect<true>;
+    'career-page': CareerPageSelect<false> | CareerPageSelect<true>;
+    'partners-page': PartnersPageSelect<false> | PartnersPageSelect<true>;
   };
   locale: 'ru' | 'en';
   widgets: {
@@ -3151,6 +3177,553 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "publications".
+ */
+export interface Publication {
+  id: number;
+  type: 'news' | 'article' | 'journal';
+  date: string;
+  title: string;
+  description?: string | null;
+  /**
+   * Если нет — карточка с синей маской
+   */
+  cover?: {
+    src?: (number | null) | Media;
+    /**
+     * Если пусто — берётся из медиатеки
+     */
+    alt?: string | null;
+    tablet?: (number | null) | Media;
+    desktop?: (number | null) | Media;
+  };
+  background?: {
+    src?: (number | null) | Media;
+    /**
+     * Если пусто — берётся из медиатеки
+     */
+    alt?: string | null;
+    tablet?: (number | null) | Media;
+    desktop?: (number | null) | Media;
+    type?: ('mixed' | 'image' | 'video') | null;
+  };
+  body?:
+    | (
+        | {
+            value: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'html';
+          }
+        | {
+            variant?: ('default' | 'newsDetailQuote_bgGray' | 'newsDetailQuote_bgLime') | null;
+            items: (
+              | {
+                  value: string;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'speech';
+                }
+              | {
+                  name: string;
+                  position: string;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'person';
+                }
+            )[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'quote';
+          }
+        | {
+            columns: {
+              value: string;
+              id?: string | null;
+            }[];
+            items: {
+              items?:
+                | {
+                    value: string;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'table';
+          }
+        | {
+            variant?: ('default' | 'fullscreen') | null;
+            img?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+            };
+            video?: {
+              url?: string | null;
+              preview?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+            };
+            caption?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'media';
+          }
+      )[]
+    | null;
+  directions?: (number | Direction)[] | null;
+  industries?: (number | Industry)[] | null;
+  universal?: (number | Term)[] | null;
+  relatedServices?: (number | Service)[] | null;
+  /**
+   * Если пусто — подбираются сами по общим тегам
+   */
+  similar?: (number | Publication)[] | null;
+  /**
+   * Если пусто — title берётся из названия
+   */
+  seo?: {
+    title?: string | null;
+    description?: string | null;
+    keywords?: string | null;
+  };
+  /**
+   * Адрес: /expertise/<код>/
+   */
+  slug?: string | null;
+  recommended?: boolean | null;
+  /**
+   * Выше — раньше среди рекомендуемых
+   */
+  priority?: number | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "directions".
+ */
+export interface Direction {
+  id: number;
+  title: string;
+  center?: (number | null) | Term;
+  description?: string | null;
+  image?: {
+    src?: (number | null) | Media;
+    /**
+     * Если пусто — берётся из медиатеки
+     */
+    alt?: string | null;
+    tablet?: (number | null) | Media;
+    desktop?: (number | null) | Media;
+  };
+  logos?:
+    | {
+        src: number | Media;
+        /**
+         * Если пусто — берётся из медиатеки
+         */
+        alt?: string | null;
+        tablet?: (number | null) | Media;
+        desktop?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Латиница, например it или security
+   */
+  code: string;
+  order?: number | null;
+  /**
+   * Страница конструктора, на которую ведут ссылки
+   */
+  page?: (number | null) | Page;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Теги, города, опыт, форматы и другие списки для фильтров сайта
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "terms".
+ */
+export interface Term {
+  id: number;
+  kind: 'universal' | 'vacancyTag' | 'city' | 'experience' | 'workFormat' | 'eventFormat' | 'center' | 'partnerType';
+  title: string;
+  /**
+   * Латиница, например moscow
+   */
+  code: string;
+  order?: number | null;
+  /**
+   * Для центров: куда уходят письма из форм
+   */
+  email?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "industries".
+ */
+export interface Industry {
+  id: number;
+  title: string;
+  short?: string | null;
+  description?: string | null;
+  metrics?:
+    | {
+        value: string;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  logos?:
+    | {
+        src: number | Media;
+        /**
+         * Если пусто — берётся из медиатеки
+         */
+        alt?: string | null;
+        tablet?: (number | null) | Media;
+        desktop?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Латиница, например it или security
+   */
+  code: string;
+  order?: number | null;
+  /**
+   * Страница конструктора, на которую ведут ссылки
+   */
+  page?: (number | null) | Page;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services".
+ */
+export interface Service {
+  id: number;
+  /**
+   * Можно выделить часть: <span>слово</span>
+   */
+  title: string;
+  description?: string | null;
+  direction: number | Direction;
+  subdirection?: (number | null) | Subdirection;
+  industries?: (number | Industry)[] | null;
+  /**
+   * Страница услуги: /services/<код>/ — её собирают в конструкторе
+   */
+  slug?: string | null;
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Группы услуг внутри направления
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "subdirections".
+ */
+export interface Subdirection {
+  id: number;
+  title: string;
+  direction: number | Direction;
+  description?: string | null;
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: number;
+  title: string;
+  supTag?: string | null;
+  /**
+   * Если пусто — первое направление
+   */
+  tag?: string | null;
+  secondTitle?: string | null;
+  description?: string | null;
+  company?: {
+    src?: (number | null) | Media;
+    /**
+     * Если пусто — берётся из медиатеки
+     */
+    alt?: string | null;
+    tablet?: (number | null) | Media;
+    desktop?: (number | null) | Media;
+  };
+  stats?:
+    | {
+        title: string;
+        description: string;
+        id?: string | null;
+      }[]
+    | null;
+  btn?: {
+    title?: string | null;
+    url?: string | null;
+  };
+  directions?: (number | Direction)[] | null;
+  industries?: (number | Industry)[] | null;
+  date?: string | null;
+  recommended?: boolean | null;
+  priority?: number | null;
+  hideInGrid?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "vacancies".
+ */
+export interface Vacancy {
+  id: number;
+  kind: 'vacancy' | 'internship';
+  /**
+   * Перенос строки: <br>
+   */
+  title: string;
+  tag?: (number | null) | Term;
+  /**
+   * Пусто — «Вся Россия»
+   */
+  city?: (number | null) | Term;
+  experience?: (number | null) | Term;
+  workFormat?: (number | null) | Term;
+  background?: {
+    src?: (number | null) | Media;
+    /**
+     * Если пусто — берётся из медиатеки
+     */
+    alt?: string | null;
+    tablet?: (number | null) | Media;
+    desktop?: (number | null) | Media;
+    type?: ('mixed' | 'image' | 'video') | null;
+  };
+  /**
+   * После этой даты вакансия пропадёт сама
+   */
+  closeAt?: string | null;
+  /**
+   * Пустой раздел на сайте не показывается
+   */
+  aboutDirection?: {
+    tag?: string | null;
+    title?: string | null;
+    subtitle?: string | null;
+    items?:
+      | {
+          title: string;
+          isActive?: boolean | null;
+          id?: string | null;
+        }[]
+      | null;
+    hash?: string | null;
+    navTitle?: string | null;
+  };
+  /**
+   * Пустой раздел на сайте не показывается
+   */
+  aboutVacancy?: {
+    tag?: string | null;
+    title?: string | null;
+    description?: string | null;
+    items?:
+      | {
+          title: string;
+          img?: {
+            src?: (number | null) | Media;
+            /**
+             * Если пусто — берётся из медиатеки
+             */
+            alt?: string | null;
+            tablet?: (number | null) | Media;
+            desktop?: (number | null) | Media;
+          };
+          subitems: {
+            title: string;
+            id?: string | null;
+          }[];
+          variant?: ('default' | 'withBg') | null;
+          id?: string | null;
+        }[]
+      | null;
+    variant?: ('default' | 'withBg') | null;
+    hash?: string | null;
+    navTitle?: string | null;
+  };
+  /**
+   * Пустой раздел на сайте не показывается
+   */
+  bePlus?: {
+    tag?: string | null;
+    title?: string | null;
+    description?: string | null;
+    items?:
+      | {
+          title: string;
+          img?: {
+            src?: (number | null) | Media;
+            /**
+             * Если пусто — берётся из медиатеки
+             */
+            alt?: string | null;
+            tablet?: (number | null) | Media;
+            desktop?: (number | null) | Media;
+          };
+          subitems: {
+            title: string;
+            id?: string | null;
+          }[];
+          variant?: ('default' | 'withBg') | null;
+          id?: string | null;
+        }[]
+      | null;
+    variant?: ('default' | 'withBg') | null;
+    hash?: string | null;
+    navTitle?: string | null;
+  };
+  /**
+   * Пустой раздел на сайте не показывается
+   */
+  advantages?: {
+    tag?: string | null;
+    title?: string | null;
+    items?:
+      | {
+          title: string;
+          id?: string | null;
+        }[]
+      | null;
+    hash?: string | null;
+    navTitle?: string | null;
+  };
+  /**
+   * Пустой раздел на сайте не показывается
+   */
+  faq?: {
+    tag?: string | null;
+    title?: string | null;
+    items?:
+      | {
+          title: string;
+          description: string;
+          isOpen?: boolean | null;
+          id?: string | null;
+        }[]
+      | null;
+    hash?: string | null;
+    navTitle?: string | null;
+  };
+  /**
+   * Пустой раздел на сайте не показывается
+   */
+  reviews?: {
+    tag?: string | null;
+    title?: string | null;
+    variant?: ('default' | 'reviews_lime') | null;
+    items?:
+      | {
+          description?: string | null;
+          person?: {
+            name?: string | null;
+            position?: string | null;
+            img?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+            };
+          };
+          id?: string | null;
+        }[]
+      | null;
+    hash?: string | null;
+    navTitle?: string | null;
+  };
+  /**
+   * Если пусто — подбираются по направлению и городу
+   */
+  similar?: (number | Vacancy)[] | null;
+  /**
+   * Если пусто — title берётся из названия
+   */
+  seo?: {
+    title?: string | null;
+    description?: string | null;
+    keywords?: string | null;
+  };
+  /**
+   * Адрес: /vacancies/<код>/ или /internships/<код>/
+   */
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "partners".
+ */
+export interface Partner {
+  id: number;
+  title: string;
+  logo?: {
+    src?: (number | null) | Media;
+    /**
+     * Если пусто — берётся из медиатеки
+     */
+    alt?: string | null;
+    tablet?: (number | null) | Media;
+    desktop?: (number | null) | Media;
+  };
+  type?: (number | null) | Term;
+  directions?: (number | Direction)[] | null;
+  /**
+   * Нумеруются на сайте сами
+   */
+  items?:
+    | {
+        value: string;
+        id?: string | null;
+      }[]
+    | null;
+  url?: string | null;
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -3296,6 +3869,42 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'pages';
         value: number | Page;
+      } | null)
+    | ({
+        relationTo: 'publications';
+        value: number | Publication;
+      } | null)
+    | ({
+        relationTo: 'projects';
+        value: number | Project;
+      } | null)
+    | ({
+        relationTo: 'services';
+        value: number | Service;
+      } | null)
+    | ({
+        relationTo: 'directions';
+        value: number | Direction;
+      } | null)
+    | ({
+        relationTo: 'subdirections';
+        value: number | Subdirection;
+      } | null)
+    | ({
+        relationTo: 'industries';
+        value: number | Industry;
+      } | null)
+    | ({
+        relationTo: 'vacancies';
+        value: number | Vacancy;
+      } | null)
+    | ({
+        relationTo: 'partners';
+        value: number | Partner;
+      } | null)
+    | ({
+        relationTo: 'terms';
+        value: number | Term;
       } | null)
     | ({
         relationTo: 'media';
@@ -5774,6 +6383,480 @@ export interface PagesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "publications_select".
+ */
+export interface PublicationsSelect<T extends boolean = true> {
+  type?: T;
+  date?: T;
+  title?: T;
+  description?: T;
+  cover?:
+    | T
+    | {
+        src?: T;
+        alt?: T;
+        tablet?: T;
+        desktop?: T;
+      };
+  background?:
+    | T
+    | {
+        src?: T;
+        alt?: T;
+        tablet?: T;
+        desktop?: T;
+        type?: T;
+      };
+  body?:
+    | T
+    | {
+        html?:
+          | T
+          | {
+              value?: T;
+              id?: T;
+              blockName?: T;
+            };
+        quote?:
+          | T
+          | {
+              variant?: T;
+              items?:
+                | T
+                | {
+                    speech?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    person?:
+                      | T
+                      | {
+                          name?: T;
+                          position?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        table?:
+          | T
+          | {
+              columns?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              items?:
+                | T
+                | {
+                    items?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        media?:
+          | T
+          | {
+              variant?: T;
+              img?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                  };
+              video?:
+                | T
+                | {
+                    url?: T;
+                    preview?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                  };
+              caption?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  directions?: T;
+  industries?: T;
+  universal?: T;
+  relatedServices?: T;
+  similar?: T;
+  seo?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        keywords?: T;
+      };
+  slug?: T;
+  recommended?: T;
+  priority?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects_select".
+ */
+export interface ProjectsSelect<T extends boolean = true> {
+  title?: T;
+  supTag?: T;
+  tag?: T;
+  secondTitle?: T;
+  description?: T;
+  company?:
+    | T
+    | {
+        src?: T;
+        alt?: T;
+        tablet?: T;
+        desktop?: T;
+      };
+  stats?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  btn?:
+    | T
+    | {
+        title?: T;
+        url?: T;
+      };
+  directions?: T;
+  industries?: T;
+  date?: T;
+  recommended?: T;
+  priority?: T;
+  hideInGrid?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services_select".
+ */
+export interface ServicesSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  direction?: T;
+  subdirection?: T;
+  industries?: T;
+  slug?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "directions_select".
+ */
+export interface DirectionsSelect<T extends boolean = true> {
+  title?: T;
+  center?: T;
+  description?: T;
+  image?:
+    | T
+    | {
+        src?: T;
+        alt?: T;
+        tablet?: T;
+        desktop?: T;
+      };
+  logos?:
+    | T
+    | {
+        src?: T;
+        alt?: T;
+        tablet?: T;
+        desktop?: T;
+        id?: T;
+      };
+  code?: T;
+  order?: T;
+  page?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "subdirections_select".
+ */
+export interface SubdirectionsSelect<T extends boolean = true> {
+  title?: T;
+  direction?: T;
+  description?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "industries_select".
+ */
+export interface IndustriesSelect<T extends boolean = true> {
+  title?: T;
+  short?: T;
+  description?: T;
+  metrics?:
+    | T
+    | {
+        value?: T;
+        label?: T;
+        id?: T;
+      };
+  logos?:
+    | T
+    | {
+        src?: T;
+        alt?: T;
+        tablet?: T;
+        desktop?: T;
+        id?: T;
+      };
+  code?: T;
+  order?: T;
+  page?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "vacancies_select".
+ */
+export interface VacanciesSelect<T extends boolean = true> {
+  kind?: T;
+  title?: T;
+  tag?: T;
+  city?: T;
+  experience?: T;
+  workFormat?: T;
+  background?:
+    | T
+    | {
+        src?: T;
+        alt?: T;
+        tablet?: T;
+        desktop?: T;
+        type?: T;
+      };
+  closeAt?: T;
+  aboutDirection?:
+    | T
+    | {
+        tag?: T;
+        title?: T;
+        subtitle?: T;
+        items?:
+          | T
+          | {
+              title?: T;
+              isActive?: T;
+              id?: T;
+            };
+        hash?: T;
+        navTitle?: T;
+      };
+  aboutVacancy?:
+    | T
+    | {
+        tag?: T;
+        title?: T;
+        description?: T;
+        items?:
+          | T
+          | {
+              title?: T;
+              img?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                  };
+              subitems?:
+                | T
+                | {
+                    title?: T;
+                    id?: T;
+                  };
+              variant?: T;
+              id?: T;
+            };
+        variant?: T;
+        hash?: T;
+        navTitle?: T;
+      };
+  bePlus?:
+    | T
+    | {
+        tag?: T;
+        title?: T;
+        description?: T;
+        items?:
+          | T
+          | {
+              title?: T;
+              img?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                  };
+              subitems?:
+                | T
+                | {
+                    title?: T;
+                    id?: T;
+                  };
+              variant?: T;
+              id?: T;
+            };
+        variant?: T;
+        hash?: T;
+        navTitle?: T;
+      };
+  advantages?:
+    | T
+    | {
+        tag?: T;
+        title?: T;
+        items?:
+          | T
+          | {
+              title?: T;
+              id?: T;
+            };
+        hash?: T;
+        navTitle?: T;
+      };
+  faq?:
+    | T
+    | {
+        tag?: T;
+        title?: T;
+        items?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              isOpen?: T;
+              id?: T;
+            };
+        hash?: T;
+        navTitle?: T;
+      };
+  reviews?:
+    | T
+    | {
+        tag?: T;
+        title?: T;
+        variant?: T;
+        items?:
+          | T
+          | {
+              description?: T;
+              person?:
+                | T
+                | {
+                    name?: T;
+                    position?: T;
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                  };
+              id?: T;
+            };
+        hash?: T;
+        navTitle?: T;
+      };
+  similar?: T;
+  seo?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        keywords?: T;
+      };
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "partners_select".
+ */
+export interface PartnersSelect<T extends boolean = true> {
+  title?: T;
+  logo?:
+    | T
+    | {
+        src?: T;
+        alt?: T;
+        tablet?: T;
+        desktop?: T;
+      };
+  type?: T;
+  directions?: T;
+  items?:
+    | T
+    | {
+        value?: T;
+        id?: T;
+      };
+  url?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "terms_select".
+ */
+export interface TermsSelect<T extends boolean = true> {
+  kind?: T;
+  title?: T;
+  code?: T;
+  order?: T;
+  email?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
@@ -6048,6 +7131,250 @@ export interface PopupCallback {
   createdAt?: string | null;
 }
 /**
+ * Заголовок, фон, форма и блок журнала. Карточки берутся из публикаций и проектов
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "expertise-page".
+ */
+export interface ExpertisePage {
+  id: number;
+  expertiseElector?: {
+    tag?: string | null;
+    title?: string | null;
+    background?: {
+      src?: (number | null) | Media;
+      /**
+       * Если пусто — берётся из медиатеки
+       */
+      alt?: string | null;
+      tablet?: (number | null) | Media;
+      desktop?: (number | null) | Media;
+      type?: ('mixed' | 'image' | 'video') | null;
+    };
+  };
+  callback?: {
+    tag?: string | null;
+    title?: string | null;
+    background?: {
+      src?: (number | null) | Media;
+      /**
+       * Если пусто — берётся из медиатеки
+       */
+      alt?: string | null;
+      tablet?: (number | null) | Media;
+      desktop?: (number | null) | Media;
+      type?: ('mixed' | 'image' | 'video') | null;
+    };
+    form?: (number | null) | Form;
+    hash?: string | null;
+    navTitle?: string | null;
+  };
+  journal?: {
+    tag?: string | null;
+    title?: string | null;
+    description?: string | null;
+    btn?: {
+      title?: string | null;
+      url?: string | null;
+    };
+    img?: {
+      src?: (number | null) | Media;
+      /**
+       * Если пусто — берётся из медиатеки
+       */
+      alt?: string | null;
+      tablet?: (number | null) | Media;
+      desktop?: (number | null) | Media;
+    };
+    background?: {
+      src?: (number | null) | Media;
+      /**
+       * Если пусто — берётся из медиатеки
+       */
+      alt?: string | null;
+      tablet?: (number | null) | Media;
+      desktop?: (number | null) | Media;
+      type?: ('mixed' | 'image' | 'video') | null;
+    };
+    hash?: string | null;
+    navTitle?: string | null;
+  };
+  meta?: {
+    seoTitle?: string | null;
+    seoDescription?: string | null;
+    crumb?: string | null;
+    /**
+     * Например «О компании»
+     */
+    crumbParentTitle?: string | null;
+    crumbParentUrl?: string | null;
+    crumbVariant?: ('default' | 'breadcrumbs_blue') | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * Тексты страницы /services/. Карточки берутся из услуг
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "catalog-page".
+ */
+export interface CatalogPage {
+  id: number;
+  catalog?: {
+    title?: string | null;
+    description?: string | null;
+    url?: string | null;
+    background?: {
+      src?: (number | null) | Media;
+      /**
+       * Если пусто — берётся из медиатеки
+       */
+      alt?: string | null;
+      tablet?: (number | null) | Media;
+      desktop?: (number | null) | Media;
+      type?: ('mixed' | 'image' | 'video') | null;
+    };
+  };
+  callback?: {
+    tag?: string | null;
+    title?: string | null;
+    background?: {
+      src?: (number | null) | Media;
+      /**
+       * Если пусто — берётся из медиатеки
+       */
+      alt?: string | null;
+      tablet?: (number | null) | Media;
+      desktop?: (number | null) | Media;
+      type?: ('mixed' | 'image' | 'video') | null;
+    };
+    form?: (number | null) | Form;
+    hash?: string | null;
+    navTitle?: string | null;
+  };
+  meta?: {
+    seoTitle?: string | null;
+    seoDescription?: string | null;
+    crumb?: string | null;
+    /**
+     * Например «О компании»
+     */
+    crumbParentTitle?: string | null;
+    crumbParentUrl?: string | null;
+    crumbVariant?: ('default' | 'breadcrumbs_blue') | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * Фоны списков и форма «Не нашли вакансию?»
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "career-page".
+ */
+export interface CareerPage {
+  id: number;
+  vacancies?: {
+    background?: {
+      src?: (number | null) | Media;
+      /**
+       * Если пусто — берётся из медиатеки
+       */
+      alt?: string | null;
+      tablet?: (number | null) | Media;
+      desktop?: (number | null) | Media;
+      type?: ('mixed' | 'image' | 'video') | null;
+    };
+    hashToScroll?: string | null;
+  };
+  internships?: {
+    background?: {
+      src?: (number | null) | Media;
+      /**
+       * Если пусто — берётся из медиатеки
+       */
+      alt?: string | null;
+      tablet?: (number | null) | Media;
+      desktop?: (number | null) | Media;
+      type?: ('mixed' | 'image' | 'video') | null;
+    };
+    hashToScroll?: string | null;
+  };
+  callback?: {
+    tag?: string | null;
+    title?: string | null;
+    background?: {
+      src?: (number | null) | Media;
+      /**
+       * Если пусто — берётся из медиатеки
+       */
+      alt?: string | null;
+      tablet?: (number | null) | Media;
+      desktop?: (number | null) | Media;
+      type?: ('mixed' | 'image' | 'video') | null;
+    };
+    form?: (number | null) | Form;
+    hash?: string | null;
+    navTitle?: string | null;
+  };
+  meta?: {
+    seoTitle?: string | null;
+    seoDescription?: string | null;
+    crumb?: string | null;
+    /**
+     * Например «О компании»
+     */
+    crumbParentTitle?: string | null;
+    crumbParentUrl?: string | null;
+    crumbVariant?: ('default' | 'breadcrumbs_blue') | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * Заголовок и форма. Карточки берутся из коллекции «Партнёры»
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "partners-page".
+ */
+export interface PartnersPage {
+  id: number;
+  companions?: {
+    title?: string | null;
+  };
+  callback?: {
+    tag?: string | null;
+    title?: string | null;
+    background?: {
+      src?: (number | null) | Media;
+      /**
+       * Если пусто — берётся из медиатеки
+       */
+      alt?: string | null;
+      tablet?: (number | null) | Media;
+      desktop?: (number | null) | Media;
+      type?: ('mixed' | 'image' | 'video') | null;
+    };
+    form?: (number | null) | Form;
+    hash?: string | null;
+    navTitle?: string | null;
+  };
+  meta?: {
+    seoTitle?: string | null;
+    seoDescription?: string | null;
+    crumb?: string | null;
+    /**
+     * Например «О компании»
+     */
+    crumbParentTitle?: string | null;
+    crumbParentUrl?: string | null;
+    crumbVariant?: ('default' | 'breadcrumbs_blue') | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
@@ -6160,6 +7487,250 @@ export interface PopupCallbackSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "expertise-page_select".
+ */
+export interface ExpertisePageSelect<T extends boolean = true> {
+  expertiseElector?:
+    | T
+    | {
+        tag?: T;
+        title?: T;
+        background?:
+          | T
+          | {
+              src?: T;
+              alt?: T;
+              tablet?: T;
+              desktop?: T;
+              type?: T;
+            };
+      };
+  callback?:
+    | T
+    | {
+        tag?: T;
+        title?: T;
+        background?:
+          | T
+          | {
+              src?: T;
+              alt?: T;
+              tablet?: T;
+              desktop?: T;
+              type?: T;
+            };
+        form?: T;
+        hash?: T;
+        navTitle?: T;
+      };
+  journal?:
+    | T
+    | {
+        tag?: T;
+        title?: T;
+        description?: T;
+        btn?:
+          | T
+          | {
+              title?: T;
+              url?: T;
+            };
+        img?:
+          | T
+          | {
+              src?: T;
+              alt?: T;
+              tablet?: T;
+              desktop?: T;
+            };
+        background?:
+          | T
+          | {
+              src?: T;
+              alt?: T;
+              tablet?: T;
+              desktop?: T;
+              type?: T;
+            };
+        hash?: T;
+        navTitle?: T;
+      };
+  meta?:
+    | T
+    | {
+        seoTitle?: T;
+        seoDescription?: T;
+        crumb?: T;
+        crumbParentTitle?: T;
+        crumbParentUrl?: T;
+        crumbVariant?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "catalog-page_select".
+ */
+export interface CatalogPageSelect<T extends boolean = true> {
+  catalog?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        url?: T;
+        background?:
+          | T
+          | {
+              src?: T;
+              alt?: T;
+              tablet?: T;
+              desktop?: T;
+              type?: T;
+            };
+      };
+  callback?:
+    | T
+    | {
+        tag?: T;
+        title?: T;
+        background?:
+          | T
+          | {
+              src?: T;
+              alt?: T;
+              tablet?: T;
+              desktop?: T;
+              type?: T;
+            };
+        form?: T;
+        hash?: T;
+        navTitle?: T;
+      };
+  meta?:
+    | T
+    | {
+        seoTitle?: T;
+        seoDescription?: T;
+        crumb?: T;
+        crumbParentTitle?: T;
+        crumbParentUrl?: T;
+        crumbVariant?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "career-page_select".
+ */
+export interface CareerPageSelect<T extends boolean = true> {
+  vacancies?:
+    | T
+    | {
+        background?:
+          | T
+          | {
+              src?: T;
+              alt?: T;
+              tablet?: T;
+              desktop?: T;
+              type?: T;
+            };
+        hashToScroll?: T;
+      };
+  internships?:
+    | T
+    | {
+        background?:
+          | T
+          | {
+              src?: T;
+              alt?: T;
+              tablet?: T;
+              desktop?: T;
+              type?: T;
+            };
+        hashToScroll?: T;
+      };
+  callback?:
+    | T
+    | {
+        tag?: T;
+        title?: T;
+        background?:
+          | T
+          | {
+              src?: T;
+              alt?: T;
+              tablet?: T;
+              desktop?: T;
+              type?: T;
+            };
+        form?: T;
+        hash?: T;
+        navTitle?: T;
+      };
+  meta?:
+    | T
+    | {
+        seoTitle?: T;
+        seoDescription?: T;
+        crumb?: T;
+        crumbParentTitle?: T;
+        crumbParentUrl?: T;
+        crumbVariant?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "partners-page_select".
+ */
+export interface PartnersPageSelect<T extends boolean = true> {
+  companions?:
+    | T
+    | {
+        title?: T;
+      };
+  callback?:
+    | T
+    | {
+        tag?: T;
+        title?: T;
+        background?:
+          | T
+          | {
+              src?: T;
+              alt?: T;
+              tablet?: T;
+              desktop?: T;
+              type?: T;
+            };
+        form?: T;
+        hash?: T;
+        navTitle?: T;
+      };
+  meta?:
+    | T
+    | {
+        seoTitle?: T;
+        seoDescription?: T;
+        crumb?: T;
+        crumbParentTitle?: T;
+        crumbParentUrl?: T;
+        crumbVariant?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "collections_widget".
  */
 export interface CollectionsWidget {
@@ -6176,10 +7747,23 @@ export interface TaskSchedulePublish {
   input: {
     type?: ('publish' | 'unpublish') | null;
     locale?: string | null;
-    doc?: {
-      relationTo: 'pages';
-      value: number | Page;
-    } | null;
+    doc?:
+      | ({
+          relationTo: 'pages';
+          value: number | Page;
+        } | null)
+      | ({
+          relationTo: 'publications';
+          value: number | Publication;
+        } | null)
+      | ({
+          relationTo: 'projects';
+          value: number | Project;
+        } | null)
+      | ({
+          relationTo: 'vacancies';
+          value: number | Vacancy;
+        } | null);
     global?: string | null;
     user?: {
       relationTo: 'users';

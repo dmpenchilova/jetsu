@@ -11,6 +11,19 @@ import { getPayload } from 'payload'
 
 import { footerShape, headerShape, page404Shape, popupCallbackShape } from '@/globals'
 import { readFixture } from '@/lib/fixtures'
+import {
+  catalogFilter,
+  catalogPage,
+  expertiseFilter,
+  expertisePage,
+  jobPage,
+  jobsCommon,
+  jobsFilter,
+  jobsPage,
+  partnersFilter,
+  partnersPage,
+  publicationPage,
+} from '@/lib/lists'
 import { readPreviewHash } from '@/lib/preview'
 import { type Locale, type PageDoc, pageToFront, shapeToFront } from '@/lib/serialize'
 
@@ -77,6 +90,27 @@ export async function GET(req: Request, { params }: { params: Promise<{ path: st
     return data ? json(data) : notFound()
   }
 
+  // разделы из коллекций
+  const query: Record<string, string[]> = {}
+  url.searchParams.forEach((value, key) => {
+    if (key !== 'lang') query[key] = [...(query[key] ?? []), value]
+  })
+  const parts = path.split('/')
+  if (path === 'expertise') return json(await expertisePage(payload, locale, query))
+  if (parts[0] === 'expertise' && parts.length === 2) {
+    const res = await publicationPage(payload, locale, parts[1])
+    return res ? json(res) : notFound()
+  }
+  if (path === 'services') return json(await catalogPage(payload, locale, query))
+  if (path === 'vacancies') return json(await jobsPage(payload, locale, 'vacancy', query))
+  if (path === 'internships') return json(await jobsPage(payload, locale, 'internship', query))
+  if ((parts[0] === 'vacancies' || parts[0] === 'internships') && parts.length === 2) {
+    const res = await jobPage(payload, locale, parts[0] === 'vacancies' ? 'vacancy' : 'internship', parts[1])
+    return res ? json(res) : notFound()
+  }
+  if (path === 'jobs') return json(await jobsCommon(payload, locale))
+  if (path === 'about/partners') return json(await partnersPage(payload, locale, query))
+
   const fixture = await readFixture(path, locale)
   return fixture === undefined ? notFound() : json(fixture)
 }
@@ -104,7 +138,17 @@ export async function POST(req: Request, { params }: { params: Promise<{ path: s
     return json(res)
   }
 
-  // фильтры списков и отправка форм появятся на этапах 3 и 4
+  // фильтры списков
+  const filters = ['expertise', 'services', 'vacancies', 'internships', 'about/partners']
+  if (filters.includes(path)) {
+    const payload = await getPayload({ config })
+    if (path === 'expertise') return json(await expertiseFilter(payload, locale, body))
+    if (path === 'services') return json(await catalogFilter(payload, locale, body))
+    if (path === 'about/partners') return json(await partnersFilter(payload, locale, body))
+    return json(await jobsFilter(payload, locale, { ...body, kind: path === 'internships' ? 'internship' : 'vacancy' }))
+  }
+
+  // отправка форм появится на этапе 4
   const fixture = (await readFixture(`${path}-post`, locale)) ?? (await readFixture(path, locale))
   if (fixture && typeof fixture === 'object' && '__function' in fixture) return json((fixture as unknown as { sample: unknown }).sample)
   return fixture === undefined ? notFound() : json(fixture)

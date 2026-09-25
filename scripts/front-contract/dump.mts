@@ -22,6 +22,12 @@ const { seoSchema } = await load('src/shared/model/seo.ts')
 const { breadcrumbsSchema } = await load('src/shared/ui/breadcrumbs/index.ts')
 const { page404Schema } = await load('src/widgets/404/index.tsx')
 const { popupCallbackSchema } = await load('src/widgets/popups/callback/index.ts')
+const { expertiseDataSchema } = await load('src/shared/model/expertise.ts')
+const { catalogDataSchema } = await load('src/shared/model/catalog.ts')
+const { detailDataSchema } = await load('src/shared/model/detail.ts')
+const { jobsDataSchema, jobsCommonDataSchema } = await load('src/shared/model/jobs.ts')
+const { jobDetailDataSchema } = await load('src/shared/model/job-detail.ts')
+const { companionsDataSchema } = await load('src/shared/model/companions.ts')
 
 const conv = (s: unknown) => zodToJsonSchema(s as never, { $refStrategy: 'none', target: 'jsonSchema7' })
 const schemas: { blocks: Record<string, unknown>; other: Record<string, unknown> } = { blocks: {}, other: {} }
@@ -32,6 +38,13 @@ schemas.other = {
   breadcrumbs: conv(breadcrumbsSchema),
   page404: conv(page404Schema),
   popupCallback: conv(popupCallbackSchema),
+  expertisePage: conv(expertiseDataSchema),
+  catalogPage: conv(catalogDataSchema),
+  detailPage: conv(detailDataSchema),
+  jobsPage: conv(jobsDataSchema),
+  jobsCommon: conv(jobsCommonDataSchema),
+  jobDetailPage: conv(jobDetailDataSchema),
+  companionsPage: conv(companionsDataSchema),
 }
 writeFileSync(join(out, 'schemas.json'), JSON.stringify(schemas, null, 1))
 

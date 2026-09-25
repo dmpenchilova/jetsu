@@ -6,9 +6,13 @@ import { buildConfig } from 'payload'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 
+import { Partners, Vacancies } from './collections/Career'
+import { Directions, Industries, Services, Subdirections } from './collections/Catalog'
+import { Projects, Publications } from './collections/Expertise'
 import { Forms } from './collections/Forms'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
+import { Terms } from './collections/Terms'
 import { Users } from './collections/Users'
 import { globals } from './globals'
 import { migrations } from './migrations'
@@ -50,7 +54,21 @@ export default buildConfig({
     defaultLocale: 'ru',
     fallback: false,
   },
-  collections: [Pages, Media, Forms, Users],
+  collections: [
+    Pages,
+    Publications,
+    Projects,
+    Services,
+    Directions,
+    Subdirections,
+    Industries,
+    Vacancies,
+    Partners,
+    Terms,
+    Media,
+    Forms,
+    Users,
+  ],
   globals,
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
