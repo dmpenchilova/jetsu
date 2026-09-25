@@ -1,0 +1,52 @@
+# Caddy сам получает и продлевает HTTPS-сертификаты Let's Encrypt для обоих доменов.
+{
+	email {$ACME_EMAIL}
+}
+
+(security) {
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		-Server
+		-X-Powered-By
+	}
+	encode zstd gzip
+}
+
+# Сайт
+{$SITE_DOMAIN} {
+	import security
+	header {
+		# сайт можно показывать во фрейме только в админке (живое превью)
+		Content-Security-Policy "frame-ancestors 'self' https://{$ADMIN_DOMAIN}"
+	}
+	reverse_proxy front:3000
+}
+
+# www → без www
+www.{$SITE_DOMAIN} {
+	redir https://{$SITE_DOMAIN}{uri} permanent
+}
+
+# Админка и API
+{$ADMIN_DOMAIN} {
+	import security
+	header X-Frame-Options "SAMEORIGIN"
+
+	# Открыто всем: файлы медиатеки (их показывает сайт), API для сайта и приём заявок
+	@public path /cms-api/media/file/* /api/*
+	handle @public {
+		reverse_proxy admin:3001
+	}
+
+	# Всё остальное (вход в админку, служебный API) — только из сетей ADMIN_ALLOW_IPS
+	@allowed remote_ip {$ADMIN_ALLOW_IPS}
+	handle @allowed {
+		reverse_proxy admin:3001
+	}
+	handle {
+		respond "Доступ к админке закрыт" 403
+	}
+}

@@ -1,0 +1,110 @@
+# Боевой сервер: сайт + админка + база + HTTPS (Caddy) + ежедневные резервные копии.
+# Запуск (из папки deploy):  docker compose -f docker-compose.prod.yml --env-file .env up -d --build
+# Подробно — deploy/README.md
+name: jetsu
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER:-jet}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Задайте DB_PASSWORD в .env}
+      POSTGRES_DB: ${DB_NAME:-jet_admin}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${DB_USER:-jet} -d ${DB_NAME:-jet_admin}']
+      interval: 5s
+      retries: 20
+    # наружу база не открыта
+
+  admin:
+    build: ..
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgres://${DB_USER:-jet}:${DB_PASSWORD}@db:5432/${DB_NAME:-jet_admin}
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET:?Задайте PAYLOAD_SECRET в .env}
+      SERVER_URL: https://${ADMIN_DOMAIN}
+      FRONT_URL: https://${SITE_DOMAIN}
+      FRONT_INTERNAL_URL: http://front:3000
+      REVALIDATE_SECRET: ${REVALIDATE_SECRET:?Задайте REVALIDATE_SECRET в .env}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      SMTP_SECURE: ${SMTP_SECURE:-false}
+      SMTP_FROM: ${SMTP_FROM:-noreply@jet.su}
+      SMARTCAPTCHA_SERVER_KEY: ${SMARTCAPTCHA_SERVER_KEY:-}
+    volumes:
+      - media:/app/media
+      - private_uploads:/app/private-uploads
+
+  front:
+    build:
+      context: ${FRONT_DIR:-../../jet-front-main}
+      dockerfile: ${PWD}/front.Dockerfile
+      args:
+        API: ${ADMIN_DOMAIN}
+        SITE: ${SITE_DOMAIN}
+        MAIN_URL: https://${SITE_DOMAIN}
+        IS_HTTPS: 'true'
+        RECAPTCHA_SITE_KEY: ${SMARTCAPTCHA_CLIENT_KEY:-}
+    restart: unless-stopped
+    depends_on: [admin]
+    environment:
+      API: ${ADMIN_DOMAIN}
+      SITE: ${SITE_DOMAIN}
+      IS_HTTPS: 'true'
+      REVALIDATE_SECRET: ${REVALIDATE_SECRET}
+      ADMIN_URL: https://${ADMIN_DOMAIN}
+
+  # HTTPS-сертификаты Let's Encrypt, заголовки безопасности, доступ к админке только из разрешённых сетей
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on: [admin, front]
+    ports:
+      - '80:80'
+      - '443:443'
+    environment:
+      SITE_DOMAIN: ${SITE_DOMAIN}
+      ADMIN_DOMAIN: ${ADMIN_DOMAIN}
+      ADMIN_ALLOW_IPS: ${ADMIN_ALLOW_IPS:-0.0.0.0/0 ::/0}
+      ACME_EMAIL: ${ACME_EMAIL:-}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+  # Резервные копии: каждую ночь база + файлы, хранятся BACKUP_KEEP_DAYS дней
+  backup:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PGHOST: db
+      PGUSER: ${DB_USER:-jet}
+      PGPASSWORD: ${DB_PASSWORD}
+      PGDATABASE: ${DB_NAME:-jet_admin}
+      BACKUP_KEEP_DAYS: ${BACKUP_KEEP_DAYS:-14}
+      BACKUP_HOUR: ${BACKUP_HOUR:-3}
+      TZ: Europe/Moscow
+    volumes:
+      - ./backup.sh:/backup.sh:ro
+      - ${BACKUP_DIR:-./backups}:/backups
+      - media:/data/media:ro
+      - private_uploads:/data/private-uploads:ro
+    entrypoint: ['sh', '/backup.sh']
+
+volumes:
+  pgdata:
+  media:
+  private_uploads:
+  caddy_data:
+  caddy_config:
