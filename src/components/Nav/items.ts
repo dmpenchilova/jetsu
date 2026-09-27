@@ -47,6 +47,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Поисковые запросы', href: '/admin/collections/search-queries', entity: c('search-queries'), icon: 'M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14z M20 20l-4-4 M8 11h6' },
   { label: 'Ошибки 404', href: '/admin/collections/not-found-log', entity: c('not-found-log'), icon: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z M9 9l6 6 M15 9l-6 6' },
   { label: 'Редиректы', href: '/admin/collections/redirects', entity: c('redirects'), icon: 'M4 7h12l-3-3 M16 7l-3 3 M20 17H8l3 3 M8 17l3-3' },
+  { label: 'Переменные', href: '/admin/globals/site-variables', entity: g('site-variables'), icon: 'M8 4c-2 0-2 2-2 4s-2 4-2 4 2 0 2 4 0 4 2 4 M16 4c2 0 2 2 2 4s2 4 2 4-2 0-2 4 0 4-2 4' },
   { label: 'Типограф', href: '/admin/globals/typograph-settings', entity: g('typograph-settings'), icon: 'M5 5h14 M12 5v14 M9 19h6' },
 
   { group: 'Разделы сайта', label: 'Центр экспертизы', href: '/admin/globals/expertise-page', entity: g('expertise-page'), icon: 'M12 3l2.5 6 6.5.5-5 4 1.5 6.5-5.5-3.5-5.5 3.5L9 13.5l-5-4L10.5 9z' },

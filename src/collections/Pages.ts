@@ -253,7 +253,7 @@ export const Pages: CollectionConfig = {
           ],
         },
         {
-          label: 'Адрес и крошки',
+          label: 'Настройки',
           fields: [
             {
               name: 'slug',
@@ -305,6 +305,32 @@ export const Pages: CollectionConfig = {
                   admin: { description: 'Если пусто — название страницы' },
                 },
               ],
+            },
+            {
+              name: 'topics',
+              label: 'Темы страницы',
+              type: 'group',
+              admin: { description: 'По ним блоки «Актуальное», «Похожие публикации» и «Связанные услуги» в автоматическом режиме подбирают близкие материалы' },
+              fields: [
+                {
+                  type: 'row',
+                  fields: [
+                    { name: 'directions', label: 'Направления', type: 'relationship', relationTo: 'directions', hasMany: true, admin: { width: '50%' } },
+                    { name: 'industries', label: 'Отрасли', type: 'relationship', relationTo: 'industries', hasMany: true, admin: { width: '50%' } },
+                  ],
+                },
+              ],
+            },
+            {
+              name: 'layout',
+              label: 'Вид страницы',
+              type: 'select',
+              defaultValue: 'default',
+              options: [
+                { label: 'Обычная страница сайта', value: 'default' },
+                { label: 'Лендинг: без меню в шапке и без футера', value: 'landing' },
+              ],
+              admin: { description: 'Лендинг — для рекламных кампаний: посетителя ничего не отвлекает от формы' },
             },
             {
               name: 'searchType',

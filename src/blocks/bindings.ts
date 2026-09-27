@@ -13,15 +13,15 @@ export type Binding = {
 
 export const BINDINGS: Record<string, Binding> = {
   events: { prop: 'items', collection: 'events', auto: 'ближайшие мероприятия по дате', limit: 6 },
-  topical: { prop: 'items', collection: 'publications', auto: 'сначала рекомендуемые, затем свежие публикации', limit: 6 },
-  similarNews: { prop: 'items', collection: 'publications', auto: 'свежие публикации', limit: 6 },
+  topical: { prop: 'items', collection: 'publications', auto: 'рекомендуемые и свежие публикации, сначала по темам страницы', limit: 6 },
+  similarNews: { prop: 'items', collection: 'publications', auto: 'свежие публикации, сначала по темам страницы', limit: 6 },
   directions: { prop: 'items', collection: 'directions', auto: 'все направления по порядку' },
   industries: { prop: 'items', collection: 'industries', auto: 'все отрасли по порядку' },
   partners: { prop: 'items', collection: 'partners', auto: 'все партнёры по порядку' },
   vendors: { prop: 'items', collection: 'partners', auto: 'все партнёры по порядку' },
   offices: { prop: 'offices', collection: 'offices', auto: 'все офисы из раздела «Офисы»' },
   contacts: { prop: 'offices', collection: 'offices', auto: 'все офисы из раздела «Офисы»' },
-  relatedServices: { prop: 'items', collection: 'services' },
+  relatedServices: { prop: 'items', collection: 'services', auto: 'услуги по темам страницы', limit: 8 },
 }
 
 export type Source = 'manual' | 'auto' | 'pick'

@@ -79,15 +79,33 @@ export const buildCtx = async (
 }
 
 /** Блоки страницы в формате фронта. Скрытые и пустые блоки не отдаются. */
+/** Блок показывается по расписанию «с — по». */
+const inWindow = (row: BlockRow, now = Date.now()) => {
+  const from = row.showFrom ? new Date(String(row.showFrom)).getTime() : -Infinity
+  const until = row.showUntil ? new Date(String(row.showUntil)).getTime() : Infinity
+  return now >= from && now <= until
+}
+
+/** Оформление блока для фронта: только то, что отличается от макета. */
+const viewOf = (row: BlockRow) => {
+  const view: Record<string, string> = {}
+  if (row.viewBg && row.viewBg !== 'default') view.bg = String(row.viewBg)
+  if (row.viewSpaceTop && row.viewSpaceTop !== 'default') view.spaceTop = String(row.viewSpaceTop)
+  if (row.viewSpaceBottom && row.viewSpaceBottom !== 'default') view.spaceBottom = String(row.viewSpaceBottom)
+  if (row.viewDevice && row.viewDevice !== 'all') view.device = String(row.viewDevice)
+  return Object.keys(view).length ? view : undefined
+}
+
 export const blocksToFront = (rows: BlockRow[], ctx: ToFrontCtx) =>
   rows
-    .filter((row) => !row.hidden && blockShapes[row.blockType])
+    .filter((row) => !row.hidden && blockShapes[row.blockType] && inWindow(row))
     .map((row) => {
       const data = (toFront(blockShapes[row.blockType], row, ctx) ?? {}) as Record<string, unknown>
       delete data.hidden
       if (row.navTitle) data.navTitle = row.navTitle
       if (row.hash) data.hash = row.hash
-      return { type: row.blockType, uuid: String(row.id ?? ''), data }
+      const view = viewOf(row)
+      return { type: row.blockType, uuid: String(row.id ?? ''), data, ...(view ? { view } : {}) }
     })
     .filter((b) => Object.keys(b.data).length > 0)
 
@@ -125,6 +143,12 @@ export const seoOf = (page: PageDoc, ctx: ToFrontCtx) => {
   return seo
 }
 
+const topicsOf = (page: PageDoc) => {
+  const t = (page as { topics?: { directions?: unknown[]; industries?: unknown[] } }).topics
+  const list = (v?: unknown[]) => (v ?? []).map((x) => String(x && typeof x === 'object' ? (x as { id: unknown }).id : x))
+  return { directions: list(t?.directions), industries: list(t?.industries) }
+}
+
 export const pageToFront = async (payload: Payload, page: PageDoc, locale: Locale) => {
   // «Общие блоки» разворачиваются в своё содержимое
   const { expandShared } = await import('../collections/Library')
@@ -140,6 +164,8 @@ export const pageToFront = async (payload: Payload, page: PageDoc, locale: Local
   const breadcrumbs = await breadcrumbsOf(payload, page, locale)
   if (breadcrumbs) data.breadcrumbs = breadcrumbs
   data.seo = seoOf(page, ctx)
+  // лендинг: сайт прячет меню в шапке и футер
+  if ((page as { layout?: string }).layout === 'landing') data.layout = 'landing'
   const content = blocksToFront(rows, ctx)
   // блоки, которые берут записи из коллекций
   const { resolveBinding } = await import('./lists')
@@ -147,7 +173,7 @@ export const pageToFront = async (payload: Payload, page: PageDoc, locale: Local
     const row = rows.find((r) => String(r.id ?? '') === block.uuid)
     const binding = BINDINGS[block.type]
     if (!row || !binding) continue
-    const items = await resolveBinding(payload, block.type, row, locale)
+    const items = await resolveBinding(payload, block.type, row, locale, topicsOf(page))
     if (items !== undefined) block.data[binding.prop] = items
   }
   data.content = content

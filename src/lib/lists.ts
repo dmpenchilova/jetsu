@@ -643,7 +643,26 @@ const pagePaths = async (payload: Payload, pageIds: unknown[]) => {
 /**
  * Данные связанного поля блока в формате фронта. undefined — блок заполнен вручную, трогать не нужно.
  */
-export const resolveBinding = async (payload: Payload, type: string, row: Doc, locale: Locale): Promise<unknown[] | undefined> => {
+export type PageTopics = { directions: string[]; industries: string[] }
+
+/** Сколько общих тем у записи со страницей — чтобы показывать сначала самое близкое. */
+const topicScore = (d: Doc, topics?: PageTopics) => {
+  if (!topics) return 0
+  const dirs = new Set(topics.directions)
+  const inds = new Set(topics.industries)
+  const own = [...ids(d.directions).map(String), ...(d.direction ? [String(idOf(d.direction))] : [])]
+  return own.filter((x) => dirs.has(x)).length + ids(d.industries).map(String).filter((x) => inds.has(x)).length
+}
+
+/** Если у страницы заданы темы — записи по этим темам вперёд (или только они, когда их хватает). */
+const byTopics = (docs: Doc[], topics: PageTopics | undefined, min = 2) => {
+  if (!topics || (!topics.directions.length && !topics.industries.length)) return docs
+  const scored = docs.map((d, i) => ({ d, i, s: topicScore(d, topics) }))
+  const matched = scored.filter((x) => x.s > 0).sort((a, b) => b.s - a.s || a.i - b.i).map((x) => x.d)
+  return matched.length >= min ? matched : [...matched, ...docs.filter((d) => !matched.includes(d))]
+}
+
+export const resolveBinding = async (payload: Payload, type: string, row: Doc, locale: Locale, topics?: PageTopics): Promise<unknown[] | undefined> => {
   if (row.source !== 'auto' && row.source !== 'pick') return undefined
   const lk = await lookups(payload, locale)
   const imgs = async (docs: Doc[], fields: string[]) =>
@@ -683,8 +702,11 @@ export const resolveBinding = async (payload: Payload, type: string, row: Doc, l
     case 'similarNews': {
       const docs = await pickOrAuto(payload, 'publications', locale, row, async () => {
         const all = await findAll(payload, 'publications', locale, published, '-date')
-        if (type === 'similarNews') return all
-        return all.sort((a, b) => Number(!!b.recommended) - Number(!!a.recommended) || (b.priority ?? 0) - (a.priority ?? 0) || String(b.date).localeCompare(String(a.date)))
+        if (type === 'similarNews') return byTopics(all, topics)
+        return byTopics(
+          all.sort((a, b) => Number(!!b.recommended) - Number(!!a.recommended) || (b.priority ?? 0) - (a.priority ?? 0) || String(b.date).localeCompare(String(a.date))),
+          topics,
+        )
       }, 6)
       const ctx = await imgs(docs, ['cover'])
       if (type === 'similarNews') return docs.map((d) => publicationCard(d, lk, ctx, locale))
@@ -768,7 +790,11 @@ export const resolveBinding = async (payload: Payload, type: string, row: Doc, l
       }))
     }
     case 'relatedServices': {
-      const docs = await pickOrAuto(payload, 'services', locale, row, async () => [])
+      // автоматически — услуги тех направлений и отраслей, что указаны в темах страницы
+      const docs = await pickOrAuto(payload, 'services', locale, row, async () => {
+        if (!topics || (!topics.directions.length && !topics.industries.length)) return []
+        return byTopics(await findAll(payload, 'services', locale, {}, 'order'), topics, 1).filter((d) => topicScore(d, topics) > 0)
+      }, 8)
       return docs.map((s) => ({ title: s.title, ...(s.description ? { description: s.description } : {}), slug: s.slug }))
     }
     default:

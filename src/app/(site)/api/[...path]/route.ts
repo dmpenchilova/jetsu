@@ -55,7 +55,20 @@ const cleanPath = (segments: string[]) =>
     .filter((s) => s !== '')
     .join('/')
 
-export async function GET(req: Request, { params }: { params: Promise<{ path: string[] }> }) {
+export async function GET(req: Request, ctx: { params: Promise<{ path: string[] }> }) {
+  const res = await handleGet(req, ctx)
+  // переменные {{имя}} из «Настроек сайта → Переменные»
+  if (res.headers.get('Content-Type')?.includes('application/json') && res.status === 200) {
+    const url = new URL(req.url)
+    const body = await res.json()
+    const payload = await getPayload({ config })
+    const { applyVariables } = await import('@/globals/variables')
+    return json(await applyVariables(payload, body, localeOf(url)))
+  }
+  return res
+}
+
+async function handleGet(req: Request, { params }: { params: Promise<{ path: string[] }> }): Promise<Response> {
   const url = new URL(req.url)
   const locale = localeOf(url)
   const path = cleanPath((await params).path)

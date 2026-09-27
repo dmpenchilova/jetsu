@@ -222,7 +222,75 @@ const commonBlockFields = (hasNav: boolean): Field[] => [
     ],
   },
   // ссылка «Открыть превью блока» — только этот блок, в трёх размерах экрана
-  { name: 'blockPreview', type: 'ui', admin: { components: { Field: '/components/BlockPreview#BlockPreview' } } },
+  { name: 'blockPreview', type: 'ui', admin: { components: { Field: '/components/BlockPreview#BlockPreview' } } },  {
+    type: 'collapsible',
+    label: 'Оформление и показ',
+    admin: { initCollapsed: true, description: 'Необязательно. Без настроек блок выглядит как в макете' },
+    fields: [
+      {
+        type: 'row',
+        fields: [
+          {
+            name: 'viewBg',
+            label: 'Фон',
+            type: 'select',
+            options: [
+              { label: 'Как в макете', value: 'default' },
+              { label: 'Белый', value: 'white' },
+              { label: 'Серый', value: 'gray' },
+              { label: 'Лаймовый', value: 'lime' },
+              { label: 'Синий', value: 'blue' },
+            ],
+            defaultValue: 'default',
+            admin: { width: '25%' },
+          },
+          {
+            name: 'viewSpaceTop',
+            label: 'Отступ сверху',
+            type: 'select',
+            options: [
+              { label: 'Как в макете', value: 'default' },
+              { label: 'Меньше', value: 'small' },
+              { label: 'Без отступа', value: 'none' },
+            ],
+            defaultValue: 'default',
+            admin: { width: '25%' },
+          },
+          {
+            name: 'viewSpaceBottom',
+            label: 'Отступ снизу',
+            type: 'select',
+            options: [
+              { label: 'Как в макете', value: 'default' },
+              { label: 'Меньше', value: 'small' },
+              { label: 'Без отступа', value: 'none' },
+            ],
+            defaultValue: 'default',
+            admin: { width: '25%' },
+          },
+          {
+            name: 'viewDevice',
+            label: 'Где показывать',
+            type: 'select',
+            options: [
+              { label: 'Везде', value: 'all' },
+              { label: 'Только на компьютере', value: 'desktop' },
+              { label: 'Только на телефоне и планшете', value: 'mobile' },
+            ],
+            defaultValue: 'all',
+            admin: { width: '25%' },
+          },
+        ],
+      },
+      {
+        type: 'row',
+        fields: [
+          { name: 'showFrom', label: 'Показывать с', type: 'date', admin: { width: '50%', date: { pickerAppearance: 'dayAndTime' }, description: 'Например, с начала акции' } },
+          { name: 'showUntil', label: 'Показывать до', type: 'date', admin: { width: '50%', date: { pickerAppearance: 'dayAndTime' }, description: 'Потом блок сам пропадёт с сайта' } },
+        ],
+      },
+    ],
+  },
 ]
 
 /** Выбор источника данных для блоков, связанных с коллекциями. */

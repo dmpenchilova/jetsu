@@ -25,8 +25,10 @@ import { Users } from './collections/Users'
 import { globals } from './globals'
 import { FormSettings } from './globals/formSettings'
 import { SeoSettings } from './globals/seoSettings'
+import { SiteVariables } from './globals/variables'
 import { TypographSettings } from './globals/typographSettings'
 import { adminSearchEndpoint } from './lib/adminSearch'
+import { scheduledBlocksTask } from './lib/scheduledBlocks'
 import { backfillMediaHashes } from './lib/mediaUsage'
 import { reindexAll, searchHooks } from './lib/search/indexer'
 import { globalTextHook, textHook } from './lib/textHooks'
@@ -125,7 +127,7 @@ export default buildConfig({
   ].map((c) => withAudit(withWorkflow(withSearch(TEXT_COLLECTIONS.has(c.slug) ? withText(c, textHook) : c)))),
   // папки (пока только в медиатеке)
   folders: { browseByFolder: false },
-  globals: [...globals.map((g) => withText(g, globalTextHook)), FormSettings, TypographSettings, SeoSettings].map(withAuditGlobal),
+  globals: [...globals.map((g) => withText(g, globalTextHook)), FormSettings, TypographSettings, SeoSettings, SiteVariables].map(withAuditGlobal),
   endpoints: [adminSearchEndpoint],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
@@ -163,7 +165,7 @@ export default buildConfig({
     if (totalDocs === 0) void reindexAll(payload).then((n) => payload.logger.info(`Индекс поиска собран: ${n} записей`)).catch(() => undefined)
   },
   jobs: {
-    tasks: formTasks,
+    tasks: [...formTasks, scheduledBlocksTask],
     // повторы отправок и ночная очистка; в служебных командах очередь не запускается
     autoRun: [{ cron: '* * * * *', queue: FORMS_QUEUE, limit: 20 }],
     shouldAutoRun: () => process.env.PAYLOAD_JOBS_AUTORUN !== 'false',

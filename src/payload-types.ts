@@ -151,6 +151,7 @@ export interface Config {
     'form-settings': FormSetting;
     'typograph-settings': TypographSetting;
     'seo-settings': SeoSetting;
+    'site-variables': SiteVariable;
     'payload-jobs-stats': PayloadJobsStat;
   };
   globalsSelect: {
@@ -165,6 +166,7 @@ export interface Config {
     'form-settings': FormSettingsSelect<false> | FormSettingsSelect<true>;
     'typograph-settings': TypographSettingsSelect<false> | TypographSettingsSelect<true>;
     'seo-settings': SeoSettingsSelect<false> | SeoSettingsSelect<true>;
+    'site-variables': SiteVariablesSelect<false> | SiteVariablesSelect<true>;
     'payload-jobs-stats': PayloadJobsStatsSelect<false> | PayloadJobsStatsSelect<true>;
   };
   locale: 'ru' | 'en';
@@ -229,6 +231,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             description: {
               value: string;
@@ -265,6 +279,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             description?: string | null;
             background: {
@@ -294,6 +320,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             description?: string | null;
             background: {
@@ -348,6 +386,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             description?: string | null;
             background: {
@@ -377,6 +427,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             description?: string | null;
@@ -411,6 +473,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -459,6 +533,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             images?:
@@ -503,6 +589,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -532,6 +630,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag: string;
             title?: string | null;
             background: {
@@ -582,6 +692,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             subtitle?: string | null;
             items: {
@@ -606,6 +728,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag: string;
             title: string;
             background: {
@@ -645,6 +779,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -696,6 +842,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -774,6 +932,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             description?: string | null;
@@ -817,6 +987,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -879,6 +1061,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -944,6 +1138,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -974,6 +1180,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             variant?: ('default' | 'reviews_lime') | null;
@@ -1011,6 +1229,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -1036,6 +1266,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -1091,6 +1333,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -1131,6 +1385,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             person: {
@@ -1167,6 +1433,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             person?: {
@@ -1204,6 +1482,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -1272,6 +1562,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             items: {
               tag: string;
@@ -1324,6 +1626,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             description?:
@@ -1364,6 +1678,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             btn?: {
@@ -1404,6 +1730,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -1443,6 +1781,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -1500,6 +1850,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -1556,6 +1918,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag: string;
             description: string;
             id?: string | null;
@@ -1575,6 +1949,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -1605,6 +1991,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             items: {
               title: string;
@@ -1628,6 +2026,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             items: {
               suptitle?: string | null;
@@ -1652,6 +2062,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -1685,6 +2107,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -1729,6 +2163,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             items: {
               title?: string | null;
@@ -1761,6 +2207,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag: string;
             description: string;
             btn: {
@@ -1784,6 +2242,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             items: {
               tag: string;
               subitems: {
@@ -1822,6 +2292,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -1884,6 +2366,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             variant?: ('default' | 'history_rotate') | null;
             items: {
@@ -1923,6 +2417,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             video: {
               url: string;
               preview?: {
@@ -1952,6 +2458,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             subtitle: string;
             link?: {
@@ -1996,6 +2514,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items?:
@@ -2027,6 +2557,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -2060,6 +2602,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             subtitle?: string | null;
@@ -2092,6 +2646,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             items?:
               | {
@@ -2133,6 +2699,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             items?:
               | {
                   title: string;
@@ -2161,6 +2739,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag: string;
             title?: string | null;
             subtitle?: string | null;
@@ -2188,6 +2778,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             description?: string | null;
@@ -2229,6 +2831,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -2252,6 +2866,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title: string;
             hashToScroll?: string | null;
             items: {
@@ -2287,6 +2913,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             variant?: ('default' | 'serviceText_bgLime') | null;
@@ -2312,6 +2950,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             description?: string | null;
             img?: {
@@ -2340,6 +2990,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             img: {
               src: number | Media;
               /**
@@ -2366,6 +3028,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             description?: string | null;
@@ -2394,6 +3068,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -2418,6 +3104,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -2446,6 +3144,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -2469,6 +3179,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             variant?: ('default' | 'information_list') | null;
@@ -2498,6 +3220,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -2522,6 +3256,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -2545,7 +3291,19 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
-            source?: ('manual' | 'pick') | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
              */
@@ -2581,6 +3339,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -2605,6 +3375,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -2629,6 +3411,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             btn?: {
@@ -2658,6 +3452,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             text?: string | null;
@@ -2678,6 +3484,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             img: {
@@ -2706,6 +3524,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -2733,6 +3563,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             text?: string | null;
@@ -2763,6 +3605,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             name?: string | null;
@@ -2805,6 +3659,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title: string;
             background?: {
@@ -2916,6 +3782,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title: string;
             description?: string | null;
@@ -2959,6 +3837,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title: string;
             items: {
               title: string;
@@ -2999,6 +3889,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title: string;
             text?: string | null;
             variant?: ('default' | 'policyItem_last') | null;
@@ -3019,6 +3921,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title: string;
             items: {
               purpose?: string | null;
@@ -3044,6 +3958,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title: string;
             subtitle?: string | null;
             items: {
@@ -3069,6 +3995,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -3118,6 +4056,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -3146,6 +4096,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             btn: {
@@ -3179,6 +4141,18 @@ export interface Page {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             items: {
               title: string;
               variant?: ('default' | 'activities__itemWrap_bgGray') | null;
@@ -3229,6 +4203,17 @@ export interface Page {
      */
     title?: string | null;
   };
+  /**
+   * По ним блоки «Актуальное», «Похожие публикации» и «Связанные услуги» в автоматическом режиме подбирают близкие материалы
+   */
+  topics?: {
+    directions?: (number | Direction)[] | null;
+    industries?: (number | Industry)[] | null;
+  };
+  /**
+   * Лендинг — для рекламных кампаний: посетителя ничего не отвлекает от формы
+   */
+  layout?: ('default' | 'landing') | null;
   searchType?: ('auto' | 'service' | 'company' | 'industry' | 'project' | 'career' | 'other' | 'hidden') | null;
   seo?: {
     /**
@@ -3697,16 +4682,31 @@ export interface Form {
   cc?: string[] | null;
   visible?:
     | {
-        type: 'input' | 'phone' | 'textarea' | 'file';
+        type: 'input' | 'phone' | 'textarea' | 'file' | 'select' | 'checkboxes' | 'date' | 'step';
         /**
          * Латиницей, уходит в письмо и CRM
          */
-        name: string;
+        name?: string | null;
         placeholder?: string | null;
         label?: string | null;
         validations?: ('required' | 'email' | 'phone' | 'file')[] | null;
         sameRow?: boolean | null;
         multiple?: boolean | null;
+        options?:
+          | {
+              label: string;
+              /**
+               * Если пусто — как текст
+               */
+              value?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        /**
+         * Имя другого поля формы
+         */
+        showIfName?: string | null;
+        showIfValue?: string | null;
         /**
          * Например .pdf, .docx
          */
@@ -3717,16 +4717,31 @@ export interface Form {
     | null;
   hidden?:
     | {
-        type: 'input' | 'phone' | 'textarea' | 'file';
+        type: 'input' | 'phone' | 'textarea' | 'file' | 'select' | 'checkboxes' | 'date' | 'step';
         /**
          * Латиницей, уходит в письмо и CRM
          */
-        name: string;
+        name?: string | null;
         placeholder?: string | null;
         label?: string | null;
         validations?: ('required' | 'email' | 'phone' | 'file')[] | null;
         sameRow?: boolean | null;
         multiple?: boolean | null;
+        options?:
+          | {
+              label: string;
+              /**
+               * Если пусто — как текст
+               */
+              value?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        /**
+         * Имя другого поля формы
+         */
+        showIfName?: string | null;
+        showIfValue?: string | null;
         /**
          * Например .pdf, .docx
          */
@@ -3736,6 +4751,8 @@ export interface Form {
       }[]
     | null;
   btn?: string | null;
+  successTitle?: string | null;
+  successText?: string | null;
   action?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -3828,6 +4845,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             description: {
               value: string;
@@ -3864,6 +4893,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             description?: string | null;
             background: {
@@ -3893,6 +4934,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             description?: string | null;
             background: {
@@ -3947,6 +5000,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             description?: string | null;
             background: {
@@ -3976,6 +5041,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             description?: string | null;
@@ -4010,6 +5087,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -4058,6 +5147,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             images?:
@@ -4102,6 +5203,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -4131,6 +5244,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag: string;
             title?: string | null;
             background: {
@@ -4181,6 +5306,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             subtitle?: string | null;
             items: {
@@ -4205,6 +5342,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag: string;
             title: string;
             background: {
@@ -4244,6 +5393,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -4295,6 +5456,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -4373,6 +5546,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             description?: string | null;
@@ -4416,6 +5601,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -4478,6 +5675,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -4543,6 +5752,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -4573,6 +5794,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             variant?: ('default' | 'reviews_lime') | null;
@@ -4610,6 +5843,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -4635,6 +5880,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -4690,6 +5947,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -4730,6 +5999,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             person: {
@@ -4766,6 +6047,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             person?: {
@@ -4803,6 +6096,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -4871,6 +6176,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             items: {
               tag: string;
@@ -4923,6 +6240,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             description?:
@@ -4963,6 +6292,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             btn?: {
@@ -5003,6 +6344,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -5042,6 +6395,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -5099,6 +6464,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -5155,6 +6532,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag: string;
             description: string;
             id?: string | null;
@@ -5174,6 +6563,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -5204,6 +6605,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             items: {
               title: string;
@@ -5227,6 +6640,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             items: {
               suptitle?: string | null;
@@ -5251,6 +6676,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -5284,6 +6721,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -5328,6 +6777,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             items: {
               title?: string | null;
@@ -5360,6 +6821,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag: string;
             description: string;
             btn: {
@@ -5383,6 +6856,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             items: {
               tag: string;
               subitems: {
@@ -5421,6 +6906,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -5483,6 +6980,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             variant?: ('default' | 'history_rotate') | null;
             items: {
@@ -5522,6 +7031,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             video: {
               url: string;
               preview?: {
@@ -5551,6 +7072,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             subtitle: string;
             link?: {
@@ -5595,6 +7128,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items?:
@@ -5626,6 +7171,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -5659,6 +7216,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             subtitle?: string | null;
@@ -5691,6 +7260,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             items?:
               | {
@@ -5732,6 +7313,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             items?:
               | {
                   title: string;
@@ -5760,6 +7353,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag: string;
             title?: string | null;
             subtitle?: string | null;
@@ -5787,6 +7392,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             description?: string | null;
@@ -5828,6 +7445,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -5851,6 +7480,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title: string;
             hashToScroll?: string | null;
             items: {
@@ -5886,6 +7527,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             variant?: ('default' | 'serviceText_bgLime') | null;
@@ -5911,6 +7564,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             description?: string | null;
             img?: {
@@ -5939,6 +7604,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             img: {
               src: number | Media;
               /**
@@ -5965,6 +7642,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             description?: string | null;
@@ -5993,6 +7682,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -6017,6 +7718,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -6045,6 +7758,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -6068,6 +7793,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             variant?: ('default' | 'information_list') | null;
@@ -6097,6 +7834,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -6121,6 +7870,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -6144,7 +7905,19 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
-            source?: ('manual' | 'pick') | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
              */
@@ -6180,6 +7953,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -6204,6 +7989,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -6228,6 +8025,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             btn?: {
@@ -6257,6 +8066,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             text?: string | null;
@@ -6277,6 +8098,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             img: {
@@ -6305,6 +8138,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -6332,6 +8177,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             text?: string | null;
@@ -6362,6 +8219,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             name?: string | null;
@@ -6404,6 +8273,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title: string;
             background?: {
@@ -6515,6 +8396,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title: string;
             description?: string | null;
@@ -6558,6 +8451,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title: string;
             items: {
               title: string;
@@ -6598,6 +8503,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title: string;
             text?: string | null;
             variant?: ('default' | 'policyItem_last') | null;
@@ -6618,6 +8535,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title: string;
             items: {
               purpose?: string | null;
@@ -6643,6 +8572,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title: string;
             subtitle?: string | null;
             items: {
@@ -6668,6 +8609,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -6717,6 +8670,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -6745,6 +8710,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             btn: {
@@ -6778,6 +8755,18 @@ export interface SharedBlock {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             items: {
               title: string;
               variant?: ('default' | 'activities__itemWrap_bgGray') | null;
@@ -6826,6 +8815,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             description: {
               value: string;
@@ -6862,6 +8863,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             description?: string | null;
             background: {
@@ -6891,6 +8904,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             description?: string | null;
             background: {
@@ -6945,6 +8970,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             description?: string | null;
             background: {
@@ -6974,6 +9011,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             description?: string | null;
@@ -7008,6 +9057,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -7056,6 +9117,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             images?:
@@ -7100,6 +9173,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -7129,6 +9214,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag: string;
             title?: string | null;
             background: {
@@ -7179,6 +9276,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             subtitle?: string | null;
             items: {
@@ -7203,6 +9312,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag: string;
             title: string;
             background: {
@@ -7242,6 +9363,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -7293,6 +9426,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -7371,6 +9516,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             description?: string | null;
@@ -7414,6 +9571,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -7476,6 +9645,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -7541,6 +9722,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -7571,6 +9764,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             variant?: ('default' | 'reviews_lime') | null;
@@ -7608,6 +9813,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -7633,6 +9850,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -7688,6 +9917,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -7728,6 +9969,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             person: {
@@ -7764,6 +10017,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             person?: {
@@ -7801,6 +10066,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -7869,6 +10146,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             items: {
               tag: string;
@@ -7921,6 +10210,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             description?:
@@ -7961,6 +10262,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             btn?: {
@@ -8001,6 +10314,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -8040,6 +10365,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -8097,6 +10434,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -8153,6 +10502,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag: string;
             description: string;
             id?: string | null;
@@ -8172,6 +10533,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -8202,6 +10575,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             items: {
               title: string;
@@ -8225,6 +10610,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             items: {
               suptitle?: string | null;
@@ -8249,6 +10646,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -8282,6 +10691,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -8326,6 +10747,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             items: {
               title?: string | null;
@@ -8358,6 +10791,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag: string;
             description: string;
             btn: {
@@ -8381,6 +10826,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             items: {
               tag: string;
               subitems: {
@@ -8419,6 +10876,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -8481,6 +10950,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             variant?: ('default' | 'history_rotate') | null;
             items: {
@@ -8520,6 +11001,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             video: {
               url: string;
               preview?: {
@@ -8549,6 +11042,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             subtitle: string;
             link?: {
@@ -8593,6 +11098,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items?:
@@ -8624,6 +11141,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -8657,6 +11186,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             subtitle?: string | null;
@@ -8689,6 +11230,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title?: string | null;
             items?:
               | {
@@ -8730,6 +11283,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             items?:
               | {
                   title: string;
@@ -8758,6 +11323,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag: string;
             title?: string | null;
             subtitle?: string | null;
@@ -8785,6 +11362,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             description?: string | null;
@@ -8826,6 +11415,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -8849,6 +11450,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title: string;
             hashToScroll?: string | null;
             items: {
@@ -8884,6 +11497,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             variant?: ('default' | 'serviceText_bgLime') | null;
@@ -8909,6 +11534,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             description?: string | null;
             img?: {
@@ -8937,6 +11574,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             img: {
               src: number | Media;
               /**
@@ -8963,6 +11612,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             description?: string | null;
@@ -8991,6 +11652,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -9015,6 +11688,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -9043,6 +11728,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -9066,6 +11763,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             variant?: ('default' | 'information_list') | null;
@@ -9095,6 +11804,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -9119,6 +11840,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -9142,7 +11875,19 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
-            source?: ('manual' | 'pick') | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
              */
@@ -9178,6 +11923,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -9202,6 +11959,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -9226,6 +11995,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             btn?: {
@@ -9255,6 +12036,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             text?: string | null;
@@ -9275,6 +12068,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             img: {
@@ -9303,6 +12108,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -9330,6 +12147,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             text?: string | null;
@@ -9360,6 +12189,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             name?: string | null;
@@ -9402,6 +12243,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title: string;
             background?: {
@@ -9513,6 +12366,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title: string;
             description?: string | null;
@@ -9556,6 +12421,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title: string;
             items: {
               title: string;
@@ -9596,6 +12473,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title: string;
             text?: string | null;
             variant?: ('default' | 'policyItem_last') | null;
@@ -9616,6 +12505,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title: string;
             items: {
               purpose?: string | null;
@@ -9641,6 +12542,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             title: string;
             subtitle?: string | null;
             items: {
@@ -9666,6 +12579,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             source?: ('manual' | 'auto' | 'pick') | null;
             /**
              * Пусто — все
@@ -9715,6 +12640,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             items: {
@@ -9743,6 +12680,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             tag?: string | null;
             title?: string | null;
             btn: {
@@ -9776,6 +12725,18 @@ export interface PageTemplate {
              * Латиница без #, например services
              */
             hash?: string | null;
+            viewBg?: ('default' | 'white' | 'gray' | 'lime' | 'blue') | null;
+            viewSpaceTop?: ('default' | 'small' | 'none') | null;
+            viewSpaceBottom?: ('default' | 'small' | 'none') | null;
+            viewDevice?: ('all' | 'desktop' | 'mobile') | null;
+            /**
+             * Например, с начала акции
+             */
+            showFrom?: string | null;
+            /**
+             * Потом блок сам пропадёт с сайта
+             */
+            showUntil?: string | null;
             items: {
               title: string;
               variant?: ('default' | 'activities__itemWrap_bgGray') | null;
@@ -10571,6 +13532,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               description?:
                 | T
@@ -10602,6 +13569,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               description?: T;
               background?:
@@ -10622,6 +13595,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               description?: T;
               background?:
@@ -10668,6 +13647,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               description?: T;
               background?:
@@ -10688,6 +13673,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               description?: T;
@@ -10715,6 +13706,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -10755,6 +13752,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               images?:
@@ -10794,6 +13797,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -10814,6 +13823,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -10865,6 +13880,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               subtitle?: T;
               items?:
@@ -10883,6 +13904,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -10917,6 +13944,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -10953,6 +13986,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -11014,6 +14053,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               description?: T;
@@ -11054,6 +14099,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -11103,6 +14154,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -11152,6 +14209,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -11173,6 +14236,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               variant?: T;
@@ -11205,6 +14274,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -11224,6 +14299,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -11263,6 +14344,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -11291,6 +14378,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               person?:
@@ -11322,6 +14415,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               person?:
@@ -11354,6 +14453,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -11406,6 +14511,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               items?:
                 | T
@@ -11448,6 +14559,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               description?:
@@ -11479,6 +14596,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               btn?:
@@ -11519,6 +14642,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -11556,6 +14685,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -11607,6 +14742,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -11653,6 +14794,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               description?: T;
               id?: T;
@@ -11664,6 +14811,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -11690,6 +14843,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               items?:
                 | T
@@ -11707,6 +14866,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               items?:
                 | T
@@ -11725,6 +14890,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -11756,6 +14927,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -11792,6 +14969,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               items?:
                 | T
@@ -11817,6 +15000,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               description?: T;
               btn?:
@@ -11834,6 +15023,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               items?:
                 | T
                 | {
@@ -11869,6 +15064,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -11929,6 +15130,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               variant?: T;
               items?:
@@ -11963,6 +15170,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               video?:
                 | T
                 | {
@@ -11985,6 +15198,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               subtitle?: T;
               link?:
@@ -12024,6 +15243,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -12044,6 +15269,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -12070,6 +15301,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               subtitle?: T;
@@ -12096,6 +15333,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               items?:
                 | T
@@ -12128,6 +15371,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               items?:
                 | T
                 | {
@@ -12150,6 +15399,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               subtitle?: T;
@@ -12169,6 +15424,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               description?: T;
@@ -12203,6 +15464,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -12220,6 +15487,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               hashToScroll?: T;
               items?:
@@ -12251,6 +15524,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               variant?: T;
@@ -12270,6 +15549,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               description?: T;
               img?:
@@ -12289,6 +15574,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               img?:
                 | T
                 | {
@@ -12306,6 +15597,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               description?: T;
@@ -12326,6 +15623,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -12344,6 +15647,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -12368,6 +15677,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -12385,6 +15700,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               variant?: T;
@@ -12410,6 +15731,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -12428,6 +15755,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -12445,6 +15778,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -12467,6 +15806,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -12485,6 +15830,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -12503,6 +15854,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               btn?:
@@ -12526,6 +15883,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               text?: T;
@@ -12538,6 +15901,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               img?:
@@ -12557,6 +15926,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -12580,6 +15955,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               text?: T;
@@ -12601,6 +15982,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               name?: T;
@@ -12635,6 +16022,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -12751,6 +16144,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               description?: T;
@@ -12786,6 +16185,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               items?:
                 | T
@@ -12819,6 +16224,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               text?: T;
               variant?: T;
@@ -12831,6 +16242,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               items?:
                 | T
@@ -12850,6 +16267,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               subtitle?: T;
               items?:
@@ -12869,6 +16292,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -12910,6 +16339,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -12934,6 +16369,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               btn?:
@@ -12960,6 +16401,12 @@ export interface PagesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               items?:
                 | T
                 | {
@@ -13002,6 +16449,13 @@ export interface PagesSelect<T extends boolean = true> {
         variant?: T;
         title?: T;
       };
+  topics?:
+    | T
+    | {
+        directions?: T;
+        industries?: T;
+      };
+  layout?: T;
   searchType?: T;
   seo?:
     | T
@@ -13045,6 +16499,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               description?:
                 | T
@@ -13076,6 +16536,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               description?: T;
               background?:
@@ -13096,6 +16562,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               description?: T;
               background?:
@@ -13142,6 +16614,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               description?: T;
               background?:
@@ -13162,6 +16640,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               description?: T;
@@ -13189,6 +16673,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -13229,6 +16719,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               images?:
@@ -13268,6 +16764,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -13288,6 +16790,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -13339,6 +16847,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               subtitle?: T;
               items?:
@@ -13357,6 +16871,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -13391,6 +16911,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -13427,6 +16953,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -13488,6 +17020,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               description?: T;
@@ -13528,6 +17066,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -13577,6 +17121,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -13626,6 +17176,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -13647,6 +17203,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               variant?: T;
@@ -13679,6 +17241,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -13698,6 +17266,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -13737,6 +17311,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -13765,6 +17345,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               person?:
@@ -13796,6 +17382,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               person?:
@@ -13828,6 +17420,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -13880,6 +17478,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               items?:
                 | T
@@ -13922,6 +17526,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               description?:
@@ -13953,6 +17563,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               btn?:
@@ -13993,6 +17609,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -14030,6 +17652,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -14081,6 +17709,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -14127,6 +17761,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               description?: T;
               id?: T;
@@ -14138,6 +17778,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -14164,6 +17810,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               items?:
                 | T
@@ -14181,6 +17833,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               items?:
                 | T
@@ -14199,6 +17857,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -14230,6 +17894,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -14266,6 +17936,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               items?:
                 | T
@@ -14291,6 +17967,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               description?: T;
               btn?:
@@ -14308,6 +17990,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               items?:
                 | T
                 | {
@@ -14343,6 +18031,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -14403,6 +18097,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               variant?: T;
               items?:
@@ -14437,6 +18137,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               video?:
                 | T
                 | {
@@ -14459,6 +18165,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               subtitle?: T;
               link?:
@@ -14498,6 +18210,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -14518,6 +18236,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -14544,6 +18268,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               subtitle?: T;
@@ -14570,6 +18300,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               items?:
                 | T
@@ -14602,6 +18338,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               items?:
                 | T
                 | {
@@ -14624,6 +18366,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               subtitle?: T;
@@ -14643,6 +18391,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               description?: T;
@@ -14677,6 +18431,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -14694,6 +18454,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               hashToScroll?: T;
               items?:
@@ -14725,6 +18491,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               variant?: T;
@@ -14744,6 +18516,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               description?: T;
               img?:
@@ -14763,6 +18541,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               img?:
                 | T
                 | {
@@ -14780,6 +18564,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               description?: T;
@@ -14800,6 +18590,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -14818,6 +18614,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -14842,6 +18644,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -14859,6 +18667,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               variant?: T;
@@ -14884,6 +18698,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -14902,6 +18722,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -14919,6 +18745,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -14941,6 +18773,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -14959,6 +18797,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -14977,6 +18821,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               btn?:
@@ -15000,6 +18850,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               text?: T;
@@ -15012,6 +18868,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               img?:
@@ -15031,6 +18893,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -15054,6 +18922,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               text?: T;
@@ -15075,6 +18949,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               name?: T;
@@ -15109,6 +18989,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -15225,6 +19111,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               description?: T;
@@ -15260,6 +19152,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               items?:
                 | T
@@ -15293,6 +19191,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               text?: T;
               variant?: T;
@@ -15305,6 +19209,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               items?:
                 | T
@@ -15324,6 +19234,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               subtitle?: T;
               items?:
@@ -15343,6 +19259,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -15384,6 +19306,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -15408,6 +19336,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               btn?:
@@ -15434,6 +19368,12 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               items?:
                 | T
                 | {
@@ -15484,6 +19424,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               description?:
                 | T
@@ -15515,6 +19461,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               description?: T;
               background?:
@@ -15535,6 +19487,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               description?: T;
               background?:
@@ -15581,6 +19539,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               description?: T;
               background?:
@@ -15601,6 +19565,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               description?: T;
@@ -15628,6 +19598,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -15668,6 +19644,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               images?:
@@ -15707,6 +19689,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -15727,6 +19715,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -15778,6 +19772,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               subtitle?: T;
               items?:
@@ -15796,6 +19796,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -15830,6 +19836,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -15866,6 +19878,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -15927,6 +19945,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               description?: T;
@@ -15967,6 +19991,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -16016,6 +20046,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -16065,6 +20101,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -16086,6 +20128,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               variant?: T;
@@ -16118,6 +20166,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -16137,6 +20191,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -16176,6 +20236,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -16204,6 +20270,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               person?:
@@ -16235,6 +20307,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               person?:
@@ -16267,6 +20345,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -16319,6 +20403,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               items?:
                 | T
@@ -16361,6 +20451,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               description?:
@@ -16392,6 +20488,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               btn?:
@@ -16432,6 +20534,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -16469,6 +20577,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -16520,6 +20634,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -16566,6 +20686,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               description?: T;
               id?: T;
@@ -16577,6 +20703,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -16603,6 +20735,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               items?:
                 | T
@@ -16620,6 +20758,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               items?:
                 | T
@@ -16638,6 +20782,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -16669,6 +20819,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -16705,6 +20861,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               items?:
                 | T
@@ -16730,6 +20892,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               description?: T;
               btn?:
@@ -16747,6 +20915,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               items?:
                 | T
                 | {
@@ -16782,6 +20956,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -16842,6 +21022,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               variant?: T;
               items?:
@@ -16876,6 +21062,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               video?:
                 | T
                 | {
@@ -16898,6 +21090,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               subtitle?: T;
               link?:
@@ -16937,6 +21135,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -16957,6 +21161,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -16983,6 +21193,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               subtitle?: T;
@@ -17009,6 +21225,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               items?:
                 | T
@@ -17041,6 +21263,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               items?:
                 | T
                 | {
@@ -17063,6 +21291,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               subtitle?: T;
@@ -17082,6 +21316,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               description?: T;
@@ -17116,6 +21356,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -17133,6 +21379,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               hashToScroll?: T;
               items?:
@@ -17164,6 +21416,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               variant?: T;
@@ -17183,6 +21441,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               description?: T;
               img?:
@@ -17202,6 +21466,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               img?:
                 | T
                 | {
@@ -17219,6 +21489,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               description?: T;
@@ -17239,6 +21515,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -17257,6 +21539,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -17281,6 +21569,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -17298,6 +21592,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               variant?: T;
@@ -17323,6 +21623,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -17341,6 +21647,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -17358,6 +21670,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -17380,6 +21698,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -17398,6 +21722,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -17416,6 +21746,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               btn?:
@@ -17439,6 +21775,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               text?: T;
@@ -17451,6 +21793,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               img?:
@@ -17470,6 +21818,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -17493,6 +21847,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               text?: T;
@@ -17514,6 +21874,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               name?: T;
@@ -17548,6 +21914,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               background?:
@@ -17664,6 +22036,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               description?: T;
@@ -17699,6 +22077,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               items?:
                 | T
@@ -17732,6 +22116,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               text?: T;
               variant?: T;
@@ -17744,6 +22134,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               items?:
                 | T
@@ -17763,6 +22159,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               title?: T;
               subtitle?: T;
               items?:
@@ -17782,6 +22184,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               source?: T;
               limit?: T;
               pick?: T;
@@ -17823,6 +22231,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               items?:
@@ -17847,6 +22261,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               tag?: T;
               title?: T;
               btn?:
@@ -17873,6 +22293,12 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               hidden?: T;
               navTitle?: T;
               hash?: T;
+              viewBg?: T;
+              viewSpaceTop?: T;
+              viewSpaceBottom?: T;
+              viewDevice?: T;
+              showFrom?: T;
+              showUntil?: T;
               items?:
                 | T
                 | {
@@ -18539,6 +22965,15 @@ export interface FormsSelect<T extends boolean = true> {
         validations?: T;
         sameRow?: T;
         multiple?: T;
+        options?:
+          | T
+          | {
+              label?: T;
+              value?: T;
+              id?: T;
+            };
+        showIfName?: T;
+        showIfValue?: T;
         acceptedFileTypes?: T;
         defaultValue?: T;
         id?: T;
@@ -18553,11 +22988,22 @@ export interface FormsSelect<T extends boolean = true> {
         validations?: T;
         sameRow?: T;
         multiple?: T;
+        options?:
+          | T
+          | {
+              label?: T;
+              value?: T;
+              id?: T;
+            };
+        showIfName?: T;
+        showIfValue?: T;
         acceptedFileTypes?: T;
         defaultValue?: T;
         id?: T;
       };
   btn?: T;
+  successTitle?: T;
+  successText?: T;
   action?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -19239,6 +23685,28 @@ export interface SeoSetting {
   createdAt?: string | null;
 }
 /**
+ * В тексте на сайте пишите {{имя}}, например {{телефон}} — подставится значение. Для английской версии значение задаётся отдельно (переключите язык вверху)
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-variables".
+ */
+export interface SiteVariable {
+  id: number;
+  items?:
+    | {
+        /**
+         * Без скобок: телефон, адрес, лет_на_рынке
+         */
+        key: string;
+        value?: string | null;
+        note?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-jobs-stats".
  */
@@ -19671,6 +24139,23 @@ export interface SeoSettingsSelect<T extends boolean = true> {
   indexing?: T;
   robots?: T;
   exclude?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-variables_select".
+ */
+export interface SiteVariablesSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        key?: T;
+        value?: T;
+        note?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

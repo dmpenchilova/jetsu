@@ -4,7 +4,10 @@
  */
 
 export type FormFieldDef = {
-  type: 'input' | 'phone' | 'textarea' | 'file'
+  type: 'input' | 'phone' | 'textarea' | 'file' | 'select' | 'checkboxes' | 'date' | 'step'
+  options?: { label: string; value?: string | null }[] | null
+  showIfName?: string | null
+  showIfValue?: string | null
   name: string
   label?: string | null
   placeholder?: string | null
@@ -111,9 +114,45 @@ export const validateSubmission = (
   const clean: CleanField[] = []
   const outFiles: { field: string; file: IncomingFile }[] = []
 
+  const shown = (def: FormFieldDef) => {
+    if (!def.showIfName || !def.showIfValue) return true
+    const v = values[def.showIfName] ?? ''
+    return v.split(', ').includes(def.showIfValue)
+  }
+
   for (const def of defs) {
+    if (def.type === 'step' || !shown(def)) continue
     const rules = def.validations ?? []
     const required = rules.includes('required')
+
+    if (def.type === 'select' || def.type === 'checkboxes') {
+      const allowed = new Map((def.options ?? []).map((o) => [o.value || o.label, o.label]))
+      const picked = (values[def.name] ?? '').split(', ').map((v) => v.trim()).filter(Boolean)
+      if (!picked.length) {
+        if (required) errors[def.name] = t.required
+        continue
+      }
+      if (picked.some((v) => !allowed.has(v)) || (def.type === 'select' && picked.length > 1)) {
+        errors[def.name] = t.required
+        continue
+      }
+      clean.push({ name: def.name, label: labelOf(def), value: picked.map((v) => allowed.get(v) ?? v).join(', ') })
+      continue
+    }
+
+    if (def.type === 'date') {
+      const v = (values[def.name] ?? '').trim()
+      if (!v) {
+        if (required) errors[def.name] = t.required
+        continue
+      }
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(v)) {
+        errors[def.name] = t.required
+        continue
+      }
+      clean.push({ name: def.name, label: labelOf(def), value: v.split('-').reverse().join('.') })
+      continue
+    }
 
     if (def.type === 'file') {
       const list = files[def.name] ?? []

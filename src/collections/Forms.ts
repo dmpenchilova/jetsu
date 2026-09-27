@@ -19,6 +19,10 @@ const fieldRow: Field[] = [
           { label: 'Телефон', value: 'phone' },
           { label: 'Текст', value: 'textarea' },
           { label: 'Файл', value: 'file' },
+          { label: 'Выбор из списка', value: 'select' },
+          { label: 'Несколько галочек', value: 'checkboxes' },
+          { label: 'Дата', value: 'date' },
+          { label: '— Новый шаг формы —', value: 'step' },
         ],
         admin: { width: '20%' },
       },
@@ -26,7 +30,8 @@ const fieldRow: Field[] = [
         name: 'name',
         label: 'Имя поля',
         type: 'text',
-        required: true,
+        validate: (value: string | null | undefined, { siblingData }: { siblingData: { type?: string } }) =>
+          siblingData?.type === 'step' || !!value || 'Обязательное поле',
         admin: { width: '20%', description: 'Латиницей, уходит в письмо и CRM' },
       },
       { name: 'placeholder', label: 'Подсказка в поле', type: 'text', admin: { width: '30%' } },
@@ -61,6 +66,30 @@ const fieldRow: Field[] = [
         type: 'checkbox',
         admin: { width: '30%', condition: (_, row) => row?.type === 'file' },
       },
+    ],
+  },
+  {
+    name: 'options',
+    label: 'Варианты ответа',
+    type: 'array',
+    labels: { singular: 'вариант', plural: 'Варианты' },
+    admin: { condition: (_, row) => row?.type === 'select' || row?.type === 'checkboxes', initCollapsed: false },
+    fields: [
+      {
+        type: 'row',
+        fields: [
+          { name: 'label', label: 'Текст', type: 'text', required: true, admin: { width: '60%' } },
+          { name: 'value', label: 'Значение (латиницей)', type: 'text', admin: { width: '40%', description: 'Если пусто — как текст' } },
+        ],
+      },
+    ],
+  },
+  {
+    type: 'row',
+    admin: { condition: (_, row) => row?.type !== 'step' },
+    fields: [
+      { name: 'showIfName', label: 'Показывать, только если поле…', type: 'text', admin: { width: '50%', description: 'Имя другого поля формы' } },
+      { name: 'showIfValue', label: '…имеет значение', type: 'text', admin: { width: '50%' } },
     ],
   },
   {
@@ -138,6 +167,15 @@ export const Forms: CollectionConfig = {
       defaultValue: 'Отправить',
     },
     {
+      type: 'collapsible',
+      label: 'Сообщение после отправки',
+      admin: { initCollapsed: true, description: 'Если пусто — стандартное «Данные успешно отправлены»' },
+      fields: [
+        { name: 'successTitle', label: 'Заголовок', type: 'text', localized: true },
+        { name: 'successText', label: 'Текст', type: 'textarea', localized: true },
+      ],
+    },
+    {
       name: 'action',
       type: 'text',
       // адрес отправки строится сам: /api/form/callback/?form=<id>
@@ -147,8 +185,11 @@ export const Forms: CollectionConfig = {
 }
 
 type FormField = {
-  type: 'input' | 'phone' | 'textarea' | 'file'
-  name: string
+  type: 'input' | 'phone' | 'textarea' | 'file' | 'select' | 'checkboxes' | 'date' | 'step'
+  options?: { label: string; value?: string | null }[] | null
+  showIfName?: string | null
+  showIfValue?: string | null
+  name?: string | null
   placeholder?: string | null
   label?: string | null
   validations?: ('required' | 'email' | 'phone' | 'file')[] | null
@@ -160,6 +201,8 @@ type FormField = {
 
 type FormDoc = {
   id?: number | string
+  successTitle?: string | null
+  successText?: string | null
   visible?: FormField[] | null
   hidden?: FormField[] | null
   btn?: string | null
@@ -167,7 +210,10 @@ type FormDoc = {
 }
 
 const fieldToFront = (f: FormField) => {
-  const data: Record<string, unknown> = { name: f.name }
+  if (f.type === 'step') return { type: 'step', data: { name: f.name || 'step', ...(f.label ? { label: f.label } : {}) } }
+  const data: Record<string, unknown> = { name: f.name ?? '' }
+  if (f.type === 'select' || f.type === 'checkboxes') data.options = (f.options ?? []).map((o) => ({ label: o.label, value: o.value || o.label }))
+  if (f.showIfName && f.showIfValue) data.showIf = { name: f.showIfName, value: f.showIfValue }
   if (f.placeholder && f.type !== 'file') data.placeholder = f.placeholder
   if (f.label) data.label = f.label
   if (f.validations?.length) data.validations = f.validations
@@ -185,7 +231,7 @@ const listToFront = (fields: FormField[] | null | undefined) => {
   for (const f of fields ?? []) {
     const item = fieldToFront(f)
     const prev = out[out.length - 1] as { type: string; data: unknown } | undefined
-    if (f.sameRow && prev) {
+    if (f.sameRow && prev && f.type !== 'step' && prev.type !== 'step') {
       if (prev.type === 'row') (prev.data as unknown[]).push(item)
       else out[out.length - 1] = { type: 'row', data: [prev, item] }
     } else {
@@ -200,6 +246,7 @@ export const formToFront = (doc: FormDoc) => {
   const hidden = listToFront(doc.hidden)
   if (hidden.length) out.hidden = hidden
   if (doc.btn) out.btn = { title: doc.btn }
+  if (doc.successTitle || doc.successText) out.success = { ...(doc.successTitle ? { title: doc.successTitle } : {}), ...(doc.successText ? { text: doc.successText } : {}) }
   // сайт отправляет заявку на этот адрес, по нему админка узнаёт форму
   if (doc.id !== undefined) out.action = `/api/form/callback/?form=${doc.id}`
   else if (doc.action) out.action = doc.action
