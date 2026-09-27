@@ -8,9 +8,14 @@ import { assignNames, toShape, type Shape } from './shape'
 type SchemaFile = { blocks: Record<string, object>; other: Record<string, object> }
 const file = schemas as unknown as SchemaFile
 
+/** Блоки фронта, у которых в админке своя настройка (не из схемы): опрос берёт данные из раздела «Опросы». */
+export const CUSTOM_BLOCKS = new Set(['poll'])
+
 /** Структура каждого блока фронта по его типу. */
 export const blockShapes: Record<string, Shape> = Object.fromEntries(
-  Object.entries(file.blocks).map(([type, schema]) => [type, assignNames(toShape(schema))]),
+  Object.entries(file.blocks)
+    .filter(([type]) => !CUSTOM_BLOCKS.has(type))
+    .map(([type, schema]) => [type, assignNames(toShape(schema))]),
 )
 
 /** Структуры прочих ответов API: хедер и футер, 404, попап формы, SEO, хлебные крошки. */
