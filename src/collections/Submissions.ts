@@ -52,6 +52,22 @@ export const Submissions: CollectionConfig = {
     pagination: { defaultLimit: 50 },
   },
   defaultSort: '-createdAt',
+  endpoints: [
+    {
+      // «Отправить повторно»: заново ставит письмо (и интеграции) в очередь
+      path: '/:id/resend',
+      method: 'post',
+      handler: async (req) => {
+        const id = Number(req.routeParams?.id)
+        // читаем с правами пользователя: HR не может переотправить бизнес-заявку и наоборот
+        const doc = await req.payload.findByID({ collection: 'submissions', id, depth: 0, user: req.user, overrideAccess: false }).catch(() => null)
+        if (!req.user || !doc) return Response.json({ error: 'Заявка не найдена' }, { status: 404 })
+        const { queueDeliveries } = await import('../lib/forms/deliver')
+        await queueDeliveries(req.payload, id)
+        return Response.json({ ok: true })
+      },
+    },
+  ],
   access: {
     read: submissionsWhere,
     update: submissionsWhere,

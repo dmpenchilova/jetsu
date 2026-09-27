@@ -15,7 +15,7 @@ const Icon = ({ d }: { d: string }) => (
   </svg>
 )
 
-export const NavClient = ({ items, user }: { items: Item[]; user: { name: string; initials: string; role: string } }) => {
+export const NavClient = ({ items, user, stand }: { items: Item[]; user: { name: string; initials: string; role: string }; stand?: string }) => {
   const { navOpen, navRef, hydrated } = useNav()
   const pathname = usePathname() ?? ''
   // на широком экране меню всегда открыто, как в макете; на узком — по кнопке
@@ -47,6 +47,11 @@ export const NavClient = ({ items, user }: { items: Item[]; user: { name: string
             </span>
             <span className="jet-nav__cms">CMS</span>
           </div>
+          {stand && (
+            <div className="jet-nav__stand" title="Изменения здесь не попадают на боевой сайт">
+              Стенд: {stand === 'test' ? 'тестовый' : stand === 'dev' ? 'разработка' : stand}
+            </div>
+          )}
           <button type="button" className="jet-nav__search" onClick={openCommandK}>
             <span>Поиск по админке</span>
             <kbd>⌘K</kbd>

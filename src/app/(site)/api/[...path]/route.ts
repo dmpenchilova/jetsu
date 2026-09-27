@@ -208,6 +208,17 @@ export async function POST(req: Request, { params }: { params: Promise<{ path: s
     await logNotFound(payload, body, ipHash(clientIp(req))).catch(() => undefined)
     return json({ status: 'success' })
   }
+  // сайт сообщает о своей ошибке сервера (instrumentation.ts фронта)
+  if (path === 'front-error') {
+    const secret = process.env.REVALIDATE_SECRET
+    if (!secret || req.headers.get('x-jet-secret') !== secret) return notFound()
+    const payload = await getPayload({ config })
+    const { sendAlert } = await import('@/lib/alerts')
+    const message = String(body.message ?? '').slice(0, 500)
+    await sendAlert(payload, `front-error:${message.slice(0, 80)}`, 'ошибка сервера сайта', `${String(body.method ?? '')} ${String(body.path ?? '')}\n${message}\n${String(body.stack ?? '').slice(0, 1500)}`)
+    return json({ status: 'success' })
+  }
+
   const locale: Locale = body.lang === 'en' || url.searchParams.get('lang') === 'en' ? 'en' : 'ru'
 
   // ответ на опрос

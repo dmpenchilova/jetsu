@@ -52,6 +52,8 @@ const PageCheck = ({ id, locale }: { id: string | number; locale: string }) => {
     setBusy(false)
   }
   useEffect(() => {
+    // проверка загружает данные при открытии страницы
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     run()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, locale])

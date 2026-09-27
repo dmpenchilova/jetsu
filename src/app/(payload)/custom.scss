@@ -1460,3 +1460,180 @@ a {
     }
   }
 }
+
+/* ---------- Двухфакторный вход и SSO ---------- */
+.jet-2fa-login {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  input {
+    height: 44px;
+    padding: 0 14px;
+    border: 1px solid var(--theme-elevation-150);
+    border-radius: 8px;
+    font-size: 16px;
+    background: var(--theme-input-bg, #fff);
+  }
+
+  &__hint {
+    margin: 0;
+    font-size: 12px;
+    color: var(--theme-elevation-500);
+  }
+}
+
+.jet-sso {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  text-align: center;
+  color: var(--theme-elevation-500);
+
+  .jet-btn {
+    justify-content: center;
+  }
+}
+
+.jet-2fa-reset {
+  max-width: 440px;
+  margin: 0 auto 40px;
+  padding: 0 16px;
+}
+
+.jet-2fa {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+
+  p {
+    margin: 0 0 8px;
+    font-size: 13px;
+  }
+
+  input {
+    height: 38px;
+    padding: 0 10px;
+    border: 1px solid var(--theme-elevation-150);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    width: 100%;
+  }
+
+  &__on {
+    color: #1a7f37;
+    font-weight: 600;
+  }
+
+  &__off {
+    color: var(--theme-elevation-500);
+  }
+
+  &__qr svg {
+    width: 180px;
+    height: 180px;
+    background: #fff;
+  }
+
+  &__secret code {
+    word-break: break-all;
+  }
+
+  &__codes {
+    padding: 10px;
+    background: var(--theme-elevation-50);
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  &__error {
+    color: var(--theme-error-500);
+  }
+}
+
+.jet-2fa-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+
+  &__box {
+    max-width: 420px;
+    padding: 32px;
+    border-radius: 16px;
+    background: var(--theme-bg);
+
+    h3 {
+      margin-top: 0;
+    }
+  }
+}
+
+/* ---------- Метка стенда (тестовый / разработка) ---------- */
+.jet-nav__stand {
+  margin: 0 0 12px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: #ffb800;
+  color: #1a1a1a;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ---------- Справка ---------- */
+.jet-help {
+  max-width: 820px;
+  padding-top: 32px;
+  padding-bottom: 80px;
+
+  &__lead {
+    color: var(--theme-elevation-600);
+  }
+
+  &__toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 24px 0 32px;
+
+    a {
+      padding: 6px 12px;
+      border-radius: 100px;
+      background: var(--theme-elevation-50);
+      text-decoration: none;
+      font-size: 13px;
+    }
+  }
+
+  &__section {
+    padding: 24px 0;
+    border-top: 1px solid var(--theme-elevation-100);
+    scroll-margin-top: 24px;
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+
+    p,
+    li {
+      line-height: 1.6;
+    }
+  }
+}
+
+.jet-sub__resend {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}

@@ -44,6 +44,10 @@ const greeting = () => {
 
 const strip = (s: unknown) => (typeof s === 'string' ? s.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() : '')
 
+
+/** Дата N дней назад (ISO). */
+const daysAgo = (days: number) => new Date(Date.now() - days * 86400_000).toISOString()
+
 export const Dashboard = async ({ payload, user }: Props) => {
   // черновики: последние версии, которые ещё не опубликованы
   const drafts: { title: string; section: string; href: string; updatedAt: string; neverPublished: boolean }[] = []
@@ -108,11 +112,11 @@ export const Dashboard = async ({ payload, user }: Props) => {
   const failed = (await payload
     .find({ collection: 'submissions', where: { deliveryState: { equals: 'failed' } }, sort: '-createdAt', limit: 5, depth: 0, ...asUser })
     .catch(() => null)) as { totalDocs: number; docs: { id: number; summary?: string }[] } | null
-  const monthAgo = new Date(Date.now() - 30 * 86400_000).toISOString()
+  const monthAgo = daysAgo(30)
   const notFound = (await payload
     .find({ collection: 'not-found-log', where: { and: [{ lastSeen: { greater_than: monthAgo } }, { fixed: { not_equals: true } }] }, sort: '-hits', limit: 5, depth: 0, ...asUser })
     .catch(() => null)) as { docs: { id: number; path?: string; hits?: number }[] } | null
-  const halfYear = new Date(Date.now() - 180 * 86400_000).toISOString()
+  const halfYear = daysAgo(180)
   const stale = (await payload
     .find({ collection: 'pages', where: { and: [{ _status: { equals: 'published' } }, { updatedAt: { less_than: halfYear } }] }, sort: 'updatedAt', limit: 5, depth: 0, ...asUser })
     .catch(() => null)) as { docs: { id: number; title?: string; updatedAt: string }[] } | null

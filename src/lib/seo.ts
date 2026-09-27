@@ -51,7 +51,7 @@ const excluded = (patterns: string[], path: string) =>
 
 export const sitemapUrls = async (payload: Payload) => {
   const settings = await settingsOf(payload)
-  if (settings.indexing === false) return []
+  if (settings.indexing === false || !isProdStand()) return []
   const exclude = settings.exclude ?? []
   const urls: Url[] = []
   const add = (path: string, lastmod: unknown, en: boolean, ruExists = true) => {
@@ -84,7 +84,7 @@ export const sitemapUrls = async (payload: Payload) => {
 export const robotsTxt = async (payload: Payload, siteUrl: string) => {
   const settings = await settingsOf(payload)
   const base = siteUrl.replace(/\/$/, '')
-  if (settings.indexing === false) return 'User-agent: *\nDisallow: /\n'
+  if (settings.indexing === false || !isProdStand()) return 'User-agent: *\nDisallow: /\n'
   const body = (settings.robots ?? DEFAULT_ROBOTS).trim()
   return `${body}\n\nSitemap: ${base}/sitemap.xml\n`
 }
@@ -101,4 +101,7 @@ export const redirectsList = async (payload: Payload) => {
   return res.docs.map((r) => ({ from: r.from as string, to: r.to as string, code: Number(r.code ?? 301) }))
 }
 
-export const indexingAllowed = async (payload: Payload) => (await settingsOf(payload)).indexing !== false
+/** Не боевой стенд (STAND_NAME=test/dev) никогда не индексируется, что бы ни стояло в настройках. */
+export const isProdStand = () => !process.env.STAND_NAME || process.env.STAND_NAME === 'prod'
+
+export const indexingAllowed = async (payload: Payload) => isProdStand() && (await settingsOf(payload)).indexing !== false

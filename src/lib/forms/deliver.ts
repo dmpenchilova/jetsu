@@ -135,13 +135,31 @@ const runDelivery =
         at: new Date().toISOString(),
         error: message.slice(0, 500),
       })
-      if (attempts >= MAX_ATTEMPTS) return { output: {} }
+      if (attempts >= MAX_ATTEMPTS) {
+        const { sendAlert } = await import('../alerts')
+        await sendAlert(
+          payload,
+          `delivery-${channel}`,
+          'заявка не доставлена',
+          `Заявка №${submission.id} (${submission.formTitle ?? 'форма'}) не ушла в канал «${channel}» после ${attempts} попыток.\nОшибка: ${message.slice(0, 300)}\n\nЗаявка сохранена в админке: «Заявки», её можно отправить повторно.`,
+        ).catch(() => undefined)
+        return { output: {} }
+      }
       throw err
     }
   }
 
 const sendEmail = async (payload: Payload, submission: SubmissionDoc) => {
-  const { to, cc, settings } = await recipientsOf(payload, submission)
+  const real = await recipientsOf(payload, submission)
+  const { settings } = real
+  let { to, cc } = real
+  // тестовый стенд не пишет настоящим получателям: только на STAND_EMAIL_TO или никуда
+  if (process.env.STAND_NAME && process.env.STAND_NAME !== 'prod') {
+    const testTo = (process.env.STAND_EMAIL_TO || '').split(',').map((e) => e.trim()).filter(Boolean)
+    if (!testTo.length) return { target: to.join(', '), skipped: `Стенд «${process.env.STAND_NAME}»: письма не отправляются (адрес для проверки — STAND_EMAIL_TO)` }
+    to = testTo
+    cc = []
+  }
   if (!to.length) return { skipped: 'Не заданы получатели — укажите их в «Настройках форм»' }
   if (!smtpConfigured()) return { target: to.join(', '), skipped: 'Почтовый сервер не настроен (SMTP_HOST в .env)' }
   const mail = await submissionEmail(payload, submission, settings)

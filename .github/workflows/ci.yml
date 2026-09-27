@@ -1,0 +1,149 @@
+# Проверки при каждом push и pull request:
+#   1. код: линтер, типы, тесты контракта с фронтом, миграции не забыты;
+#   2. сборка и запуск на чистой базе: миграции применяются, API отвечает;
+#   3. (если задан секрет FRONT_REPO_URL) схемы фронта совпадают с src/contract и ответы API проходят zod-схемы фронта.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: 22
+  NEXT_TELEMETRY_DISABLED: 1
+
+jobs:
+  checks:
+    name: Линтер, типы, тесты
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      - name: Линтер
+        run: npm run lint
+      - name: Типы
+        run: npx tsc --noEmit
+      - name: Тесты
+        run: npm test
+      - name: Миграции не забыты
+        env:
+          PAYLOAD_SECRET: ci-secret-ci-secret-ci-secret-ci-secret
+          DATABASE_URL: postgres://unused:unused@127.0.0.1:1/unused
+        run: |
+          npx payload migrate:create ci_check --skip-empty
+          if [ -n "$(git status --porcelain src/migrations)" ]; then
+            echo "::error::Схема базы изменилась, а миграции нет. Выполните: npx payload migrate:create <название>"
+            git status --porcelain src/migrations
+            exit 1
+          fi
+
+  smoke:
+    name: Сборка и запуск на чистой базе
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    needs: checks
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: jet
+          POSTGRES_PASSWORD: jet
+          POSTGRES_DB: jet_admin
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U jet -d jet_admin" --health-interval 3s --health-retries 20
+    env:
+      DATABASE_URL: postgres://jet:jet@127.0.0.1:5432/jet_admin
+      PAYLOAD_SECRET: ci-secret-ci-secret-ci-secret-ci-secret
+      SERVER_URL: http://localhost:3001
+      FRONT_URL: http://localhost:3000
+      STAND_NAME: ci
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      - name: Сборка
+        run: npm run build
+      - name: Запуск (миграции применяются сами)
+        run: |
+          NODE_ENV=production npm start > server.log 2>&1 &
+          for i in $(seq 1 60); do
+            curl -sf http://localhost:3001/cms-api/health && break
+            sleep 3
+          done
+          curl -sf http://localhost:3001/cms-api/health || { cat server.log; exit 1; }
+      - name: Тестовые данные
+        run: PAYLOAD_JOBS_AUTORUN=false npm run import:fixtures
+      - name: API отвечает
+        run: |
+          set -e
+          for path in common pages/ sitemap redirects maintenance vuln not-found expertise services vacancies; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "http://localhost:3001/api/$path")
+            echo "$path → $code"
+            [ "$code" = "200" ] || { tail -50 server.log; exit 1; }
+          done
+          # тестовый стенд не индексируется
+          curl -s http://localhost:3001/api/robots | grep -q 'Disallow: /'
+      - name: Журнал сервера
+        if: failure()
+        run: tail -200 server.log
+
+  contract:
+    name: Контракт с фронтом
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    needs: checks
+    # репозиторий фронта закрытый: адрес с токеном только для чтения — в секрете FRONT_REPO_URL
+    if: ${{ vars.FRONT_CONTRACT == 'on' }}
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: jet
+          POSTGRES_PASSWORD: jet
+          POSTGRES_DB: jet_admin
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U jet -d jet_admin" --health-interval 3s --health-retries 20
+    env:
+      DATABASE_URL: postgres://jet:jet@127.0.0.1:5432/jet_admin
+      PAYLOAD_SECRET: ci-secret-ci-secret-ci-secret-ci-secret
+      SERVER_URL: http://localhost:3001
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      - name: Фронт
+        env:
+          FRONT_REPO_URL: ${{ secrets.FRONT_REPO_URL }}
+          FRONT_REF: ${{ vars.FRONT_REF || 'main' }}
+        run: |
+          git clone --depth 1 --branch "$FRONT_REF" "$FRONT_REPO_URL" ../jet-front-main
+          cd ../jet-front-main && HUSKY=0 npm ci --ignore-scripts
+      - name: Схемы фронта совпадают с src/contract
+        run: npm run contract:check
+      - name: Ответы API проходят zod-схемы фронта
+        run: |
+          npm run build
+          NODE_ENV=production npm start > server.log 2>&1 &
+          for i in $(seq 1 60); do curl -sf http://localhost:3001/cms-api/health && break; sleep 3; done
+          FRONT_DIR=../jet-front-main PAYLOAD_JOBS_AUTORUN=false npm run import:fixtures
+          cd ../jet-front-main
+          API_BASE=http://localhost:3001/api node --import $GITHUB_WORKSPACE/scripts/front-contract/register.mjs --import tsx $GITHUB_WORKSPACE/scripts/front-contract/validate-api.mts

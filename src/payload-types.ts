@@ -13527,6 +13527,19 @@ export interface User {
   id: number;
   name: string;
   role: 'admin' | 'editor' | 'author' | 'hr';
+  totpEnabled?: boolean | null;
+  totpSecret?: string | null;
+  totpPending?: string | null;
+  totpLastStep?: number | null;
+  totpRecovery?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -23679,6 +23692,11 @@ export interface SubmissionFilesSelect<T extends boolean = true> {
 export interface UsersSelect<T extends boolean = true> {
   name?: T;
   role?: T;
+  totpEnabled?: T;
+  totpSecret?: T;
+  totpPending?: T;
+  totpLastStep?: T;
+  totpRecovery?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;

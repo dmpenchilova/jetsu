@@ -37,6 +37,8 @@ export const CommandK = ({ nav }: { nav: NavItem[] }) => {
   useEffect(() => {
     if (open) setTimeout(() => input.current?.focus(), 20)
     else {
+      // окно закрыли — очищаем запрос
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setQ('')
       setHits([])
     }

@@ -2,6 +2,8 @@ import type { CollectionConfig } from 'payload'
 import { APIError } from 'payload'
 
 import { adminFieldOnly, adminOrSelf, isAdmin, ROLES } from '../access'
+import { ssoEndpoints } from '../lib/sso'
+import { twoFactorBeforeLogin, twoFactorEndpoints, twoFactorFields } from '../lib/twoFactor'
 
 /** Парольная политика из ТЗ: 12 символов для пользователей, 14 — для администраторов. */
 const checkPassword = (password: string, role: string | undefined) => {
@@ -36,7 +38,10 @@ export const Users: CollectionConfig = {
     delete: isAdmin,
     unlock: isAdmin,
   },
+  endpoints: [...twoFactorEndpoints, ...ssoEndpoints],
   hooks: {
+    // код двухфакторной проверки (если пользователь её включил)
+    beforeLogin: [twoFactorBeforeLogin],
     beforeValidate: [
       async ({ data, operation, originalDoc, req }) => {
         // первый пользователь, созданный через экран регистрации, становится администратором
@@ -65,5 +70,6 @@ export const Users: CollectionConfig = {
       saveToJWT: true,
       access: { update: adminFieldOnly, create: adminFieldOnly },
     },
+    ...twoFactorFields,
   ],
 }

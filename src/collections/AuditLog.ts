@@ -93,7 +93,7 @@ const titleOf = (doc: Record<string, unknown> | undefined) => {
   return typeof t === 'string' ? t.replace(/<[^>]+>/g, '').slice(0, 150) : ''
 }
 
-const SKIP_DIFF = new Set(['updatedAt', 'createdAt', '_status', 'id', 'hash', 'salt', 'password', 'sessions', 'resetPasswordToken', 'loginAttempts', 'lockUntil'])
+const SKIP_DIFF = new Set(['updatedAt', 'createdAt', '_status', 'id', 'hash', 'salt', 'password', 'sessions', 'resetPasswordToken', 'loginAttempts', 'lockUntil', 'totpSecret', 'totpPending', 'totpLastStep', 'totpRecovery'])
 
 /** Какие поля верхнего уровня изменились (без значений: в журнал не пишем содержимое и персональные данные). */
 const changedFields = (doc: Record<string, unknown>, prev: Record<string, unknown> | undefined) => {

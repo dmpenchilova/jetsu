@@ -30,5 +30,6 @@ export const Nav = (props: ServerProps & { visibleEntities?: VisibleEntities }) 
     .join('')
     .slice(0, 2)
     .toUpperCase()
-  return <NavClient items={items} user={{ name, initials, role: ROLE_LABELS[u?.role ?? ''] ?? '' }} />
+  const stand = process.env.STAND_NAME && process.env.STAND_NAME !== 'prod' ? process.env.STAND_NAME : undefined
+  return <NavClient items={items} stand={stand} user={{ name, initials, role: ROLE_LABELS[u?.role ?? ''] ?? '' }} />
 }

@@ -32,6 +32,7 @@ import { SeoSettings } from './globals/seoSettings'
 import { SiteVariables } from './globals/variables'
 import { TypographSettings } from './globals/typographSettings'
 import { adminSearchEndpoint } from './lib/adminSearch'
+import { healthEndpoint } from './lib/health'
 import { scheduledBlocksTask } from './lib/scheduledBlocks'
 import { backfillMediaHashes } from './lib/mediaUsage'
 import { reindexAll, searchHooks } from './lib/search/indexer'
@@ -78,10 +79,14 @@ export default buildConfig({
     avatar: 'default',
     components: {
       Nav: '/components/Nav#Nav',
+      // двухфакторный вход и SSO
+      afterLogin: ['/components/TwoFactor#LoginExtras'],
+      providers: ['/components/TwoFactor#TwoFactorGate'],
       views: {
         dashboard: { Component: '/components/Dashboard#Dashboard' },
         compare: { Component: '/components/Compare#Compare', path: '/compare' },
         mediaTools: { Component: '/components/MediaTools#MediaTools', path: '/media-tools' },
+        help: { Component: '/components/Help#Help', path: '/help' },
       },
       graphics: {
         Logo: '/components/Logo#Logo',
@@ -139,7 +144,7 @@ export default buildConfig({
   // папки (пока только в медиатеке)
   folders: { browseByFolder: false },
   globals: [...globals.map((g) => withText(g, globalTextHook)), FormSettings, TypographSettings, SeoSettings, SiteVariables, Maintenance].map(withAuditGlobal),
-  endpoints: [adminSearchEndpoint],
+  endpoints: [adminSearchEndpoint, healthEndpoint],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },

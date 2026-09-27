@@ -122,6 +122,8 @@ export const HtmlEditor: TextareaFieldClientComponent = (props) => {
       <div className="jet-html__box">
         <div className="jet-html__bar">
           {mode === 'visual' &&
+            // команды читают ref только по клику, не при отрисовке
+            // eslint-disable-next-line react-hooks/refs
             commands.map((c) => (
               <button
                 key={c.label}

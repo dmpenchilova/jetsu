@@ -35,8 +35,8 @@ www.{$SITE_DOMAIN} {
 	import security
 	header X-Frame-Options "SAMEORIGIN"
 
-	# Открыто всем: файлы медиатеки (их показывает сайт), API для сайта и приём заявок
-	@public path /cms-api/media/file/* /api/*
+	# Открыто всем: файлы медиатеки (их показывает сайт), API для сайта, приём заявок и проверка работоспособности
+	@public path /cms-api/media/file/* /cms-api/health /api/*
 	handle @public {
 		reverse_proxy admin:3001
 	}

@@ -2,12 +2,15 @@
  * Карточка заявки: что заполнили, файлы, источник и журнал отправки — в читаемом виде.
  * Сами поля хранятся в скрытых полях коллекции.
  */
+import { ResendButton } from './ResendButton'
+
 type Row = { name?: string | null; label?: string | null; value?: string | null }
 type Delivery = { channel?: string; status?: string; attempts?: number | null; at?: string | null; target?: string | null; error?: string | null }
 type FileRef = number | { id: number; filename?: string | null; filesize?: number | null; url?: string | null }
 
 type Props = {
   data?: {
+    id?: number
     fields?: Row[] | null
     files?: FileRef[] | null
     deliveries?: Delivery[] | null
@@ -131,6 +134,7 @@ export const SubmissionView = async ({ data, payload }: Props) => {
             </div>
           )
         })}
+        <ResendButton id={data.id} />
       </section>
     </div>
   )
