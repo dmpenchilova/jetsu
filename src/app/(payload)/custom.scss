@@ -1499,9 +1499,11 @@ a {
 }
 
 .jet-2fa-reset {
-  max-width: 440px;
-  margin: 0 auto 40px;
-  padding: 0 16px;
+  margin: 8px 0 24px;
+
+  .jet-2fa-login {
+    margin-top: 0;
+  }
 }
 
 .jet-2fa {

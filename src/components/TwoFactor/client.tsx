@@ -6,6 +6,7 @@ import { useAuth, useDocumentInfo, useFormFields } from '@payloadcms/ui'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 
 const OTP_COOKIE = 'jet-2fa'
 
@@ -28,7 +29,7 @@ export const LoginCode = () => {
         id="jet-2fa-code"
         inputMode="numeric"
         autoComplete="one-time-code"
-        placeholder="Нужен, только если включён двухфакторный вход"
+        placeholder="Если включён двухфакторный вход"
         value={value}
         onChange={(e) => {
           setValue(e.target.value)
@@ -190,15 +191,33 @@ export const TwoFactorGate = ({ children }: { children?: React.ReactNode }) => {
   }, [user, enabled])
 
   const onReset = /\/admin\/reset\//.test(pathname)
+  // на странице нового пароля поле кода встраивается в саму форму, над кнопкой
+  const [slot, setSlot] = useState<HTMLElement | null>(null)
+  useEffect(() => {
+    if (!onReset) return
+    let el: HTMLElement | null = null
+    const place = () => {
+      const button = document.querySelector('form button[type=submit]')
+      if (!button || el) return !!el
+      el = document.createElement('div')
+      el.className = 'jet-2fa-reset'
+      const row = button.closest('.form-submit') ?? button
+      row.parentElement?.insertBefore(el, row)
+      setSlot(el)
+      return true
+    }
+    const timer = setInterval(() => place() && clearInterval(timer), 200)
+    return () => {
+      clearInterval(timer)
+      el?.remove()
+      setSlot(null)
+    }
+  }, [onReset])
   const onProfile = /\/admin\/account/.test(pathname) || (user && pathname.endsWith(`/collections/users/${user.id}`))
   return (
     <>
       {children}
-      {onReset && (
-        <div className="jet-2fa-reset">
-          <LoginCode />
-        </div>
-      )}
+      {onReset && slot && createPortal(<LoginCode />, slot)}
       {user && required && !onProfile && (
         <div className="jet-2fa-gate">
           <div className="jet-2fa-gate__box">
