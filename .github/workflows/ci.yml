@@ -88,7 +88,7 @@ jobs:
           curl -sf http://localhost:3001/cms-api/health || { cat server.log; exit 1; }
       - name: Тестовые данные
         run: |
-          PAYLOAD_JOBS_AUTORUN=false npm run import:fixtures > import.log 2>&1 || {
+          FIXTURES_PLACEHOLDERS=true PAYLOAD_JOBS_AUTORUN=false npm run import:fixtures > import.log 2>&1 || {
             # ошибку показываем в сводке запуска, чтобы не открывать полный журнал
             echo "::error title=Импорт тестовых данных::$(grep -v 'Файл не найден' import.log | tail -40 | sed ':a;N;$!ba;s/%/%25/g;s/\r//g;s/\n/%0A/g')"
             exit 1

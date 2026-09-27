@@ -12,6 +12,20 @@ import { formFromFront } from '../collections/Forms'
 export const FIXTURES = path.join(process.cwd(), 'src', 'contract', 'fixtures')
 export const FRONT_DIR = path.resolve(process.env.FRONT_DIR ?? '../jet-front-main')
 
+/**
+ * Без папки фронта (например, в CI) картинки из тестовых данных заменяются серыми заглушками,
+ * чтобы страницы с обязательными картинками всё равно публиковались. Включается FIXTURES_PLACEHOLDERS=true.
+ */
+const PLACEHOLDERS = process.env.FIXTURES_PLACEHOLDERS === 'true'
+let placeholderPng: Buffer | undefined
+const placeholder = async () => {
+  if (!placeholderPng) {
+    const sharp = (await import('sharp')).default
+    placeholderPng = await sharp({ create: { width: 64, height: 64, channels: 3, background: '#c8ccd4' } }).png().toBuffer()
+  }
+  return placeholderPng
+}
+
 export type Locale = 'ru' | 'en'
 export type Json = Record<string, unknown>
 
@@ -29,6 +43,13 @@ export const makeCtx = (payload: Payload, formTitle: string): FromFrontCtx => {
       let id = found.docs[0]?.id
       if (!id) {
         const file = path.join(FRONT_DIR, 'public', decodeURIComponent(url.split('?')[0]))
+        if (PLACEHOLDERS && (!url.startsWith('/') || !existsSync(file))) {
+          const data = await placeholder()
+          const name = `placeholder-${createHash('sha1').update(url).digest('hex').slice(0, 10)}.png`
+          const doc = await payload.create({ collection: 'media', data: { alt: alt ?? '', sourcePath: url }, file: { data, mimetype: 'image/png', name, size: data.length } })
+          mediaCache.set(url, doc.id)
+          return doc.id
+        }
         if (!url.startsWith('/') || !existsSync(file)) {
           payload.logger.warn(`Файл не найден: ${url}`)
           mediaCache.set(url, undefined)
