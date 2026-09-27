@@ -99,6 +99,23 @@ export const Pages: CollectionConfig = {
       },
     },
     {
+      // проверка перед публикацией: /cms-api/pages/12/check?locale=ru
+      path: '/:id/check',
+      method: 'get',
+      handler: async (req) => {
+        if (!req.user) return Response.json({ error: 'Нужно войти в админку' }, { status: 401 })
+        const url = new URL(req.url ?? '', 'http://x')
+        const locale = url.searchParams.get('locale') === 'en' ? 'en' : 'ru'
+        const id = String(req.routeParams?.id ?? '')
+        const page = await req.payload
+          .findByID({ collection: 'pages', id, locale: 'all' as 'ru', depth: 0, draft: true, overrideAccess: true })
+          .catch(() => null)
+        if (!page) return Response.json({ error: 'not found' }, { status: 404 })
+        const { checkPage } = await import('../lib/pageCheck')
+        return Response.json({ issues: await checkPage(req.payload, page as never, locale) })
+      },
+    },
+    {
       // ссылка на черновик для коллег без входа: /cms-api/pages/12/share-link?days=7&locale=ru
       path: '/:id/share-link',
       method: 'get',

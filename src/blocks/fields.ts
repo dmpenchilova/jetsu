@@ -1,6 +1,7 @@
 import type { Block, Field } from 'payload'
 
 import { BINDINGS } from './bindings'
+import { charLimit } from './limits'
 import { BLOCK_META, FIELD_LABELS, LONG_TEXT_KEYS, OPTION_LABELS } from './meta'
 
 /** Визуальный редактор с режимом HTML для длинных текстов. */
@@ -260,6 +261,32 @@ const sourceFields = (b: { collection: string; auto?: string; limit?: number }):
   },
 ]
 
+/** Счётчик символов под текстовыми полями блока — с лимитом из макета (limits.ts). */
+const COUNTER = '/components/CharCounter#CharCounter'
+const withCounters = (type: string, fields: Field[], prefix = ''): Field[] =>
+  fields.map((f) => {
+    if (f.type === 'row' || f.type === 'collapsible') return { ...f, fields: withCounters(type, f.fields, prefix) } as Field
+    if (!('name' in f) || !f.name) return f
+    const path = prefix ? `${prefix}.${f.name}` : f.name
+    if (f.type === 'group') return { ...f, fields: withCounters(type, f.fields, path) } as Field
+    if (f.type === 'array') return { ...f, fields: withCounters(type, f.fields, `${path}.*`) } as Field
+    if (f.type === 'blocks') return { ...f, blocks: f.blocks.map((b) => ({ ...b, fields: withCounters(type, b.fields, `${path}.*`) })) } as Field
+    if (f.type !== 'text' && f.type !== 'textarea') return f
+    if (/(^|\.)(url|href|hash|alt|code|src)$/.test(path)) return f
+    const max = charLimit(type, path)
+    const admin = (f.admin ?? {}) as Record<string, unknown>
+    const components = (admin.components ?? {}) as Record<string, unknown>
+    return {
+      ...f,
+      admin: {
+        ...admin,
+        custom: { ...((admin.custom as object) ?? {}), maxChars: max },
+        // у визуального редактора счётчик встроен
+        components: components.Field ? components : { ...components, afterInput: [COUNTER] },
+      },
+    } as Field
+  })
+
 export const buildBlock = (type: string, shape: Shape): Block => {
   const meta = BLOCK_META[type] ?? { label: type, group: 'Прочее' }
   const props = shape.kind === 'object' ? shape.props : []
@@ -283,6 +310,6 @@ export const buildBlock = (type: string, shape: Shape): Block => {
       group: meta.group,
       ...(meta.hint ? { custom: { hint: meta.hint } } : {}),
     },
-    fields: [...commonBlockFields(hasNav), ...(binding ? sourceFields(binding) : []), ...ownFields],
+    fields: [...commonBlockFields(hasNav), ...(binding ? sourceFields(binding) : []), ...withCounters(type, ownFields)],
   }
 }

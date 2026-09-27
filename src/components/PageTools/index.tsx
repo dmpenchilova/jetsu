@@ -26,6 +26,63 @@ const focusBlock = (getFields: () => Record<string, { value?: unknown }>, blockI
   setTimeout(() => row.classList.remove('jet-row-flash'), 2000)
 }
 
+type Issue = { level: 'error' | 'warn'; message: string; block?: string; blockIndex?: number }
+
+const openRow = (index: number) => {
+  const row = document.getElementById(`content-row-${index}`)
+  if (!row) return
+  const tab = Array.from(document.querySelectorAll<HTMLButtonElement>('.tabs-field__tab-button')).find((b) => /Содержимое/.test(b.textContent ?? ''))
+  tab?.click()
+  const collapsible = row.querySelector('.collapsible')
+  if (collapsible?.classList.contains('collapsible--collapsed')) collapsible.querySelector<HTMLButtonElement>('.collapsible__toggle')?.click()
+  row.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  row.classList.add('jet-row-flash')
+  setTimeout(() => row.classList.remove('jet-row-flash'), 2000)
+}
+
+/** Проверка перед публикацией: предупреждения по сохранённому черновику. */
+const PageCheck = ({ id, locale }: { id: string | number; locale: string }) => {
+  const [issues, setIssues] = useState<Issue[] | null>(null)
+  const [busy, setBusy] = useState(false)
+  const run = async () => {
+    setBusy(true)
+    const res = await fetch(`/cms-api/pages/${id}/check?locale=${locale}`, { credentials: 'include' })
+    const data = await res.json().catch(() => ({}))
+    setIssues(data.issues ?? [])
+    setBusy(false)
+  }
+  useEffect(() => {
+    run()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id, locale])
+  return (
+    <div className="jet-check">
+      <div className="jet-tools__title">
+        Проверка перед публикацией
+        <button type="button" className="jet-link" onClick={run} disabled={busy}>
+          {busy ? 'проверяю…' : 'обновить'}
+        </button>
+      </div>
+      {issues && issues.length === 0 && <p className="jet-check__ok">Всё в порядке</p>}
+      {issues && issues.length > 0 && (
+        <ul className="jet-check__list">
+          {issues.map((i, n) => (
+            <li key={n} className={`jet-check__item jet-check__item--${i.level}`}>
+              {i.blockIndex !== undefined ? (
+                <button type="button" className="jet-link" onClick={() => openRow(i.blockIndex!)}>
+                  {i.block}
+                </button>
+              ) : null}
+              <span>{i.message}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+      <p className="jet-muted jet-small">Проверяется последний сохранённый черновик. Предупреждения не мешают публикации.</p>
+    </div>
+  )
+}
+
 export const PageTools = () => {
   const { id } = useDocumentInfo()
   const { getFields } = useForm()
@@ -67,6 +124,7 @@ export const PageTools = () => {
 
   return (
     <div className="jet-tools">
+      <PageCheck id={id} locale={locale?.code ?? 'ru'} />
       <div className="jet-tools__title">Показать черновик коллегам</div>
       <p className="jet-muted jet-small">Ссылка открывается без входа в админку и показывает последний сохранённый черновик</p>
       <div className="jet-tools__row">

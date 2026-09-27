@@ -8,6 +8,7 @@ import { FieldDescription, FieldError, FieldLabel, useField } from '@payloadcms/
 import type { TextareaFieldClientComponent } from 'payload'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
+import { CharCounter } from '../CharCounter'
 import './editor.scss'
 
 const ALLOWED = new Set(['P', 'BR', 'B', 'STRONG', 'I', 'EM', 'U', 'A', 'UL', 'OL', 'LI', 'SPAN', 'SUP', 'SUB', 'H3', 'H4'])
@@ -181,6 +182,7 @@ export const HtmlEditor: TextareaFieldClientComponent = (props) => {
           />
         )}
       </div>
+      <CharCounter path={path} field={field as never} />
       <FieldDescription
         path={path}
         description={field.admin?.description ?? 'Enter — перенос строки. Кавычки, тире и неразрывные пробелы расставит типограф при публикации'}

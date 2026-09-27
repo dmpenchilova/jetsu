@@ -1,5 +1,6 @@
 import { PageTools as PageTools_98c7e893dcacd1da4718b42d47b80faa } from '../../../components/PageTools'
 import { BlockPreview as BlockPreview_28c9ce0839c572b556b18afba697d565 } from '../../../components/BlockPreview'
+import { CharCounter as CharCounter_a2ae72658f7a679cb075b1beec17e86d } from '../../../components/CharCounter'
 import { HtmlEditor as HtmlEditor_d0cde097a850875ce5d6f9145f923f56 } from '../../../components/HtmlEditor'
 import { PagesFromTemplate as PagesFromTemplate_be484f34cf62d45d979187298e5cdb82 } from '../../../components/PagesFromTemplate'
 import { MediaUsage as MediaUsage_f6650644f5d188bfe66735fac80447c8 } from '../../../components/MediaUsage'
@@ -18,6 +19,7 @@ import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } f
 export const importMap = {
   "/components/PageTools#PageTools": PageTools_98c7e893dcacd1da4718b42d47b80faa,
   "/components/BlockPreview#BlockPreview": BlockPreview_28c9ce0839c572b556b18afba697d565,
+  "/components/CharCounter#CharCounter": CharCounter_a2ae72658f7a679cb075b1beec17e86d,
   "/components/HtmlEditor#HtmlEditor": HtmlEditor_d0cde097a850875ce5d6f9145f923f56,
   "/components/PagesFromTemplate#PagesFromTemplate": PagesFromTemplate_be484f34cf62d45d979187298e5cdb82,
   "/components/MediaUsage#MediaUsage": MediaUsage_f6650644f5d188bfe66735fac80447c8,
