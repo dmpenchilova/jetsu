@@ -79,7 +79,8 @@ const stampHook = (slug: string) =>
     let hasEn = locale === 'en' ? !!title(data.title) : false
     if (locale === 'ru' && originalDoc?.id) {
       const en = await req.payload
-        .findByID({ collection: slug as 'pages', id: originalDoc.id, locale: 'en', depth: 0, draft: true, overrideAccess: true, req, select: { title: true } as never })
+        // без req: чтение с другим языком внутри запроса переключило бы язык сохраняемых данных
+        .findByID({ collection: slug as 'pages', id: originalDoc.id, locale: 'en', depth: 0, draft: true, overrideAccess: true, select: { title: true } as never })
         .catch(() => null)
       hasEn = !!title((en as { title?: unknown } | null)?.title)
     }

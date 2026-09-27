@@ -151,6 +151,22 @@ export const indexDoc = async (
   lookups?: Record<Locale, Lookups>,
   req?: PayloadRequest,
 ) => {
+  // чтение на другом языке с тем же req меняет req.locale — вернём его в конце
+  const prevLocale = req?.locale
+  try {
+    await indexDocInner(payload, collection, id, lookups, req)
+  } finally {
+    if (req && prevLocale !== undefined) req.locale = prevLocale
+  }
+}
+
+const indexDocInner = async (
+  payload: Payload,
+  collection: Source,
+  id: number | string,
+  lookups?: Record<Locale, Lookups>,
+  req?: PayloadRequest,
+) => {
   const source = `${collection}:${id}`
   await payload.delete({ collection: 'search-index', where: { source: { equals: source } }, overrideAccess: true, req })
   for (const locale of LOCALES) {
