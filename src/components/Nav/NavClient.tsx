@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
+import { CommandK, openCommandK } from '../CommandK'
+
 type Item = { label: string; href: string; icon: string; group?: string }
 
 const Icon = ({ d }: { d: string }) => (
@@ -29,6 +31,8 @@ export const NavClient = ({ items, user }: { items: Item[]; user: { name: string
   const isActive = (href: string) => (href === '/admin' ? pathname === '/admin' : pathname === href || pathname.startsWith(`${href}/`))
 
   return (
+    <>
+    <CommandK nav={items} />
     <aside className={['nav', 'jet-nav', open && 'nav--nav-open', hydrated && 'nav--nav-hydrated'].filter(Boolean).join(' ')} inert={!open ? true : undefined}>
       <div className="nav__scroll" ref={navRef}>
         <nav className="jet-nav__wrap" aria-label="Разделы админки">
@@ -43,6 +47,10 @@ export const NavClient = ({ items, user }: { items: Item[]; user: { name: string
             </span>
             <span className="jet-nav__cms">CMS</span>
           </div>
+          <button type="button" className="jet-nav__search" onClick={openCommandK}>
+            <span>Поиск по админке</span>
+            <kbd>⌘K</kbd>
+          </button>
           <div className="jet-nav__list">
             {items.map((item) => (
               <div key={item.href}>
@@ -69,5 +77,6 @@ export const NavClient = ({ items, user }: { items: Item[]; user: { name: string
         </nav>
       </div>
     </aside>
+    </>
   )
 }

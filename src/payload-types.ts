@@ -88,6 +88,7 @@ export interface Config {
     'search-index': SearchIndex;
     'search-queries': SearchQuery;
     'audit-log': AuditLog;
+    'not-found-log': NotFoundLog;
     'submission-files': SubmissionFile;
     users: User;
     'payload-kv': PayloadKv;
@@ -124,6 +125,7 @@ export interface Config {
     'search-index': SearchIndexSelect<false> | SearchIndexSelect<true>;
     'search-queries': SearchQueriesSelect<false> | SearchQueriesSelect<true>;
     'audit-log': AuditLogSelect<false> | AuditLogSelect<true>;
+    'not-found-log': NotFoundLogSelect<false> | NotFoundLogSelect<true>;
     'submission-files': SubmissionFilesSelect<false> | SubmissionFilesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -3238,6 +3240,19 @@ export interface Page {
     robots?: ('index, follow' | 'noindex, follow' | 'noindex, nofollow') | null;
     image?: (number | null) | Media;
   };
+  translationStatus?: ('none' | 'outdated' | 'ok') | null;
+  ruEditedAt?: string | null;
+  enEditedAt?: string | null;
+  reviewStatus?: ('none' | 'review' | 'changes' | 'approved') | null;
+  reviewLog?:
+    | {
+        at?: string | null;
+        user?: string | null;
+        action?: string | null;
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -3438,6 +3453,19 @@ export interface Publication {
    * Выше — раньше среди рекомендуемых
    */
   priority?: number | null;
+  translationStatus?: ('none' | 'outdated' | 'ok') | null;
+  ruEditedAt?: string | null;
+  enEditedAt?: string | null;
+  reviewStatus?: ('none' | 'review' | 'changes' | 'approved') | null;
+  reviewLog?:
+    | {
+        at?: string | null;
+        user?: string | null;
+        action?: string | null;
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -3629,6 +3657,19 @@ export interface Event {
     title?: string | null;
     url?: string | null;
   };
+  translationStatus?: ('none' | 'outdated' | 'ok') | null;
+  ruEditedAt?: string | null;
+  enEditedAt?: string | null;
+  reviewStatus?: ('none' | 'review' | 'changes' | 'approved') | null;
+  reviewLog?:
+    | {
+        at?: string | null;
+        user?: string | null;
+        action?: string | null;
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -9807,6 +9848,19 @@ export interface Project {
   recommended?: boolean | null;
   priority?: number | null;
   hideInGrid?: boolean | null;
+  translationStatus?: ('none' | 'outdated' | 'ok') | null;
+  ruEditedAt?: string | null;
+  enEditedAt?: string | null;
+  reviewStatus?: ('none' | 'review' | 'changes' | 'approved') | null;
+  reviewLog?:
+    | {
+        at?: string | null;
+        user?: string | null;
+        action?: string | null;
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -9999,6 +10053,19 @@ export interface Vacancy {
    * Адрес: /vacancies/<код>/ или /internships/<код>/
    */
   slug?: string | null;
+  translationStatus?: ('none' | 'outdated' | 'ok') | null;
+  ruEditedAt?: string | null;
+  enEditedAt?: string | null;
+  reviewStatus?: ('none' | 'review' | 'changes' | 'approved') | null;
+  reviewLog?:
+    | {
+        at?: string | null;
+        user?: string | null;
+        action?: string | null;
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -10189,6 +10256,22 @@ export interface User {
     | null;
   password?: string | null;
   collection: 'users';
+}
+/**
+ * Несуществующие адреса, которые открывали посетители. Частые стоит перенаправить: откройте адрес и нажмите «Сделать редирект». Хранятся 90 дней
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "not-found-log".
+ */
+export interface NotFoundLog {
+  id: number;
+  path?: string | null;
+  hits?: number | null;
+  lastSeen?: string | null;
+  fixed?: boolean | null;
+  referrer?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -10413,6 +10496,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'audit-log';
         value: number | AuditLog;
+      } | null)
+    | ({
+        relationTo: 'not-found-log';
+        value: number | NotFoundLog;
       } | null)
     | ({
         relationTo: 'submission-files';
@@ -12923,6 +13010,19 @@ export interface PagesSelect<T extends boolean = true> {
         keywords?: T;
         robots?: T;
         image?: T;
+      };
+  translationStatus?: T;
+  ruEditedAt?: T;
+  enEditedAt?: T;
+  reviewStatus?: T;
+  reviewLog?:
+    | T
+    | {
+        at?: T;
+        user?: T;
+        action?: T;
+        text?: T;
+        id?: T;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -17929,6 +18029,19 @@ export interface PublicationsSelect<T extends boolean = true> {
   slug?: T;
   recommended?: T;
   priority?: T;
+  translationStatus?: T;
+  ruEditedAt?: T;
+  enEditedAt?: T;
+  reviewStatus?: T;
+  reviewLog?:
+    | T
+    | {
+        at?: T;
+        user?: T;
+        action?: T;
+        text?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
@@ -17970,6 +18083,19 @@ export interface ProjectsSelect<T extends boolean = true> {
   recommended?: T;
   priority?: T;
   hideInGrid?: T;
+  translationStatus?: T;
+  ruEditedAt?: T;
+  enEditedAt?: T;
+  reviewStatus?: T;
+  reviewLog?:
+    | T
+    | {
+        at?: T;
+        user?: T;
+        action?: T;
+        text?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
@@ -18001,6 +18127,19 @@ export interface EventsSelect<T extends boolean = true> {
     | {
         title?: T;
         url?: T;
+      };
+  translationStatus?: T;
+  ruEditedAt?: T;
+  enEditedAt?: T;
+  reviewStatus?: T;
+  reviewLog?:
+    | T
+    | {
+        at?: T;
+        user?: T;
+        action?: T;
+        text?: T;
+        id?: T;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -18262,6 +18401,19 @@ export interface VacanciesSelect<T extends boolean = true> {
         keywords?: T;
       };
   slug?: T;
+  translationStatus?: T;
+  ruEditedAt?: T;
+  enEditedAt?: T;
+  reviewStatus?: T;
+  reviewLog?:
+    | T
+    | {
+        at?: T;
+        user?: T;
+        action?: T;
+        text?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
@@ -18506,6 +18658,19 @@ export interface AuditLogSelect<T extends boolean = true> {
   target?: T;
   changes?: T;
   user?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "not-found-log_select".
+ */
+export interface NotFoundLogSelect<T extends boolean = true> {
+  path?: T;
+  hits?: T;
+  lastSeen?: T;
+  fixed?: T;
+  referrer?: T;
   updatedAt?: T;
   createdAt?: T;
 }

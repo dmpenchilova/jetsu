@@ -15,6 +15,7 @@ import { Forms } from './collections/Forms'
 import { Media } from './collections/Media'
 import { AuditLog, withAudit, withAuditGlobal } from './collections/AuditLog'
 import { PageTemplates, SharedBlocks } from './collections/Library'
+import { NotFoundLog } from './collections/NotFoundLog'
 import { Pages } from './collections/Pages'
 import { Redirects } from './collections/Redirects'
 import { SearchIndex, SearchQueries } from './collections/Search'
@@ -25,8 +26,10 @@ import { globals } from './globals'
 import { FormSettings } from './globals/formSettings'
 import { SeoSettings } from './globals/seoSettings'
 import { TypographSettings } from './globals/typographSettings'
+import { adminSearchEndpoint } from './lib/adminSearch'
 import { reindexAll, searchHooks } from './lib/search/indexer'
 import { globalTextHook, textHook } from './lib/textHooks'
+import { backfillTranslation, withWorkflow } from './lib/workflow'
 import { FORMS_QUEUE, formTasks } from './lib/forms/deliver'
 import { migrations } from './migrations'
 
@@ -69,6 +72,7 @@ export default buildConfig({
       Nav: '/components/Nav#Nav',
       views: {
         dashboard: { Component: '/components/Dashboard#Dashboard' },
+        compare: { Component: '/components/Compare#Compare', path: '/compare' },
       },
       graphics: {
         Logo: '/components/Logo#Logo',
@@ -113,12 +117,14 @@ export default buildConfig({
     SearchIndex,
     SearchQueries,
     AuditLog,
+    NotFoundLog,
     SubmissionFiles,
     Users,
-  ].map((c) => withAudit(withSearch(TEXT_COLLECTIONS.has(c.slug) ? withText(c, textHook) : c))),
+  ].map((c) => withAudit(withWorkflow(withSearch(TEXT_COLLECTIONS.has(c.slug) ? withText(c, textHook) : c)))),
   // папки (пока только в медиатеке)
   folders: { browseByFolder: false },
   globals: [...globals.map((g) => withText(g, globalTextHook)), FormSettings, TypographSettings, SeoSettings].map(withAuditGlobal),
+  endpoints: [adminSearchEndpoint],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },
@@ -149,6 +155,7 @@ export default buildConfig({
   // пустой индекс поиска (первый запуск, свежая база) собирается сам в фоне
   onInit: async (payload) => {
     if (process.env.NEXT_PHASE === 'phase-production-build' || process.env.PAYLOAD_JOBS_AUTORUN === 'false') return
+    await backfillTranslation(payload).catch((err) => payload.logger.error({ err }, 'translation backfill'))
     const { totalDocs } = await payload.count({ collection: 'search-index' }).catch(() => ({ totalDocs: -1 }))
     if (totalDocs === 0) void reindexAll(payload).then((n) => payload.logger.info(`Индекс поиска собран: ${n} записей`)).catch(() => undefined)
   },

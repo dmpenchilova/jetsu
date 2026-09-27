@@ -84,6 +84,41 @@ export const Dashboard = async ({ payload, user }: Props) => {
 
   const name = (user?.name || user?.email || '').split(' ')[0]
 
+  // что требует внимания
+  const asUser = { user: user as never, overrideAccess: false } as const
+  const WF: { slug: string; label: string }[] = [
+    { slug: 'pages', label: 'Страница' },
+    { slug: 'publications', label: 'Публикация' },
+    { slug: 'vacancies', label: 'Вакансия' },
+    { slug: 'projects', label: 'Проект' },
+    { slug: 'events', label: 'Мероприятие' },
+  ]
+  const onReview: { title: string; section: string; href: string; status: string }[] = []
+  let untranslated = 0
+  for (const w of WF) {
+    const r = await payload
+      .find({ collection: w.slug as 'pages', where: { reviewStatus: { in: ['review', 'changes'] } }, draft: true, depth: 0, limit: 10, ...asUser })
+      .catch(() => null)
+    for (const d of (r?.docs ?? []) as unknown as { id: number; title?: string; reviewStatus?: string }[]) {
+      onReview.push({ title: strip(d.title) || `№ ${d.id}`, section: w.label, href: `/admin/collections/${w.slug}/${d.id}`, status: d.reviewStatus ?? '' })
+    }
+    const t = await payload.count({ collection: w.slug as 'pages', where: { and: [{ translationStatus: { in: ['none', 'outdated'] } }, { _status: { equals: 'published' } }] }, ...asUser }).catch(() => null)
+    untranslated += t?.totalDocs ?? 0
+  }
+  const failed = (await payload
+    .find({ collection: 'submissions', where: { deliveryState: { equals: 'failed' } }, sort: '-createdAt', limit: 5, depth: 0, ...asUser })
+    .catch(() => null)) as { totalDocs: number; docs: { id: number; summary?: string }[] } | null
+  const monthAgo = new Date(Date.now() - 30 * 86400_000).toISOString()
+  const notFound = (await payload
+    .find({ collection: 'not-found-log', where: { and: [{ lastSeen: { greater_than: monthAgo } }, { fixed: { not_equals: true } }] }, sort: '-hits', limit: 5, depth: 0, ...asUser })
+    .catch(() => null)) as { docs: { id: number; path?: string; hits?: number }[] } | null
+  const halfYear = new Date(Date.now() - 180 * 86400_000).toISOString()
+  const stale = (await payload
+    .find({ collection: 'pages', where: { and: [{ _status: { equals: 'published' } }, { updatedAt: { less_than: halfYear } }] }, sort: 'updatedAt', limit: 5, depth: 0, ...asUser })
+    .catch(() => null)) as { docs: { id: number; title?: string; updatedAt: string }[] } | null
+  const attention =
+    onReview.length + (failed?.totalDocs ?? 0) + (notFound?.docs.length ?? 0) + (stale?.docs.length ?? 0) + untranslated > 0
+
   return (
     <div className="jet-dash">
       <header className="jet-dash__head">
@@ -132,6 +167,81 @@ export const Dashboard = async ({ payload, user }: Props) => {
           </span>
         </Link>
       </section>
+
+      {attention && (
+        <section className="jet-attention" aria-labelledby="att-h">
+          <h2 id="att-h">Требует внимания</h2>
+          <div className="jet-attention__grid">
+            {onReview.length > 0 && (
+              <div className="jet-card">
+                <div className="jet-card__head">
+                  <h3>На согласовании · {onReview.length}</h3>
+                </div>
+                {onReview.slice(0, 5).map((r) => (
+                  <Link key={r.href} href={r.href} className="jet-list__item">
+                    <span className="jet-ell">{r.title}</span>
+                    <span className="jet-muted jet-small">
+                      {r.section} · {r.status === 'changes' ? 'нужны правки' : 'на проверке'}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            )}
+            {failed && failed.totalDocs > 0 && (
+              <div className="jet-card">
+                <div className="jet-card__head">
+                  <h3>Заявки не отправились · {failed.totalDocs}</h3>
+                  <Link href="/admin/collections/submissions?where[deliveryState][equals]=failed">Все</Link>
+                </div>
+                {failed.docs.map((f) => (
+                  <Link key={f.id} href={`/admin/collections/submissions/${f.id}`} className="jet-list__item">
+                    <span className="jet-ell">
+                      <span className="jet-dot jet-dot--red" />
+                      {f.summary}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            )}
+            {notFound && notFound.docs.length > 0 && (
+              <div className="jet-card">
+                <div className="jet-card__head">
+                  <h3>Частые ошибки 404</h3>
+                  <Link href="/admin/collections/not-found-log">Все</Link>
+                </div>
+                {notFound.docs.map((n) => (
+                  <Link key={n.id} href={`/admin/collections/not-found-log/${n.id}`} className="jet-list__item">
+                    <span className="jet-ell">{n.path}</span>
+                    <span className="jet-muted jet-small">{n.hits} раз · сделать редирект →</span>
+                  </Link>
+                ))}
+              </div>
+            )}
+            {stale && stale.docs.length > 0 && (
+              <div className="jet-card">
+                <div className="jet-card__head">
+                  <h3>Давно не обновлялись</h3>
+                </div>
+                {stale.docs.map((p) => (
+                  <Link key={p.id} href={`/admin/collections/pages/${p.id}`} className="jet-list__item">
+                    <span className="jet-ell">{strip(p.title)}</span>
+                    <span className="jet-muted jet-small">{new Date(p.updatedAt).toLocaleDateString('ru-RU')}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
+            {untranslated > 0 && (
+              <div className="jet-card">
+                <div className="jet-card__head">
+                  <h3>Нет или устарел перевод</h3>
+                </div>
+                <p className="jet-muted">{untranslated} опубликованных записей без актуальной английской версии.</p>
+                <Link href="/admin/collections/pages?where[translationStatus][not_equals]=ok">Страницы →</Link>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       <div className="jet-dash__grid">
         <section className="jet-card" aria-labelledby="drafts-h">

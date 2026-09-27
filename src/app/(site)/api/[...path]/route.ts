@@ -162,6 +162,15 @@ export async function POST(req: Request, { params }: { params: Promise<{ path: s
   }
 
   const body = (await req.json().catch(() => ({}))) as Record<string, unknown>
+
+  // сайт сообщает об открытой несуществующей странице
+  if (path === 'not-found') {
+    const payload = await getPayload({ config })
+    const { logNotFound } = await import('@/collections/NotFoundLog')
+    const { clientIp, ipHash } = await import('@/lib/forms/guard')
+    await logNotFound(payload, body, ipHash(clientIp(req))).catch(() => undefined)
+    return json({ status: 'success' })
+  }
   const locale: Locale = body.lang === 'en' || url.searchParams.get('lang') === 'en' ? 'en' : 'ru'
 
   if (path === 'preview') {

@@ -192,6 +192,9 @@ export const formTasks: TaskConfig[] = [
       // журнал поисковых запросов — 180 дней
       const queriesBefore = new Date(Date.now() - 180 * 86400_000).toISOString()
       await payload.delete({ collection: 'search-queries', where: { createdAt: { less_than: queriesBefore } }, overrideAccess: true })
+      // журнал 404 — 90 дней с последнего захода
+      const nfBefore = new Date(Date.now() - 90 * 86400_000).toISOString()
+      await payload.delete({ collection: 'not-found-log', where: { lastSeen: { less_than: nfBefore } }, overrideAccess: true })
       // журнал действий — 3 года
       const auditBefore = new Date(Date.now() - 3 * 365 * 86400_000).toISOString()
       await payload.delete({ collection: 'audit-log', where: { createdAt: { less_than: auditBefore } }, overrideAccess: true })
