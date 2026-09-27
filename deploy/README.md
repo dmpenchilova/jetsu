@@ -60,24 +60,43 @@ docker compose -f docker-compose.prod.yml --env-file .env up -d --build
 - Копии старше 14 дней удаляются (срок задаётся в `BACKUP_KEEP_DAYS`).
 - Папку `backups` стоит регулярно копировать на другой сервер или в облачное хранилище.
 
+### Копии в облако
+
+Заполните в `.env` блок `S3_*` (бакет в Yandex Object Storage и сервисный ключ с правом записи). Каждая ночная копия дополнительно уходит в бакет, копии старше `S3_KEEP_DAYS` дней там удаляются. Об ошибке копии приходит оповещение в Telegram.
+
+Разовая копия прямо сейчас:
+
+```bash
+docker compose -f docker-compose.prod.yml --env-file .env run --rm backup once
+```
+
 ### Восстановление
 
 ```bash
 cd /srv/jetsu/deploy
-docker compose -f docker-compose.prod.yml stop admin front
-
-# база
-docker compose -f docker-compose.prod.yml exec -T db \
-  pg_restore --clean --if-exists --no-owner -U jet -d jet_admin < backups/db_<дата>.dump
-
-# файлы
-docker compose -f docker-compose.prod.yml run --rm -v "$PWD/backups:/backups" backup \
-  sh -c 'cd /data && tar -xzf /backups/files_<дата>.tar.gz'
-
-docker compose -f docker-compose.prod.yml start admin front
+./restore.sh backups/db_<дата>.dump backups/files_<дата>.tar.gz   # из копии на сервере
+./restore.sh --from-s3 <дата>                                     # из облака, например 2026-09-27_0300
 ```
 
-Для восстановления файлов тома медиатеки в сервисе `backup` подключены только для чтения. На время восстановления уберите `:ro` у строк `media` и `private_uploads` в `docker-compose.prod.yml`.
+Скрипт спросит подтверждение, остановит сайт и админку, восстановит базу и файлы и запустит всё обратно.
+
+## Стенды
+
+Тестовый стенд — та же установка с отдельным `.env`: `STAND_NAME=test`, свои домены и секреты, `STAND_EMAIL_TO` — ящик для проверки писем. Такой стенд закрыт от поисковиков, письма о заявках настоящим получателям не уходят, в админке видна метка «Стенд: тестовый».
+
+Лучше держать его на отдельном сервере. На том же сервере задайте ещё `COMPOSE_PROJECT_NAME=jetsu-test`, `HTTP_PORT` и `HTTPS_PORT`.
+
+Свежие данные с боевого (без заявок и файлов из них):
+
+```bash
+./restore.sh --test db_<дата>.dump files_<дата>.tar.gz
+```
+
+## Мониторинг и оповещения
+
+- **Оповещения.** Создайте бота у @BotFather, добавьте его в чат дежурных и укажите `ALERT_TELEGRAM_BOT_TOKEN` и `ALERT_TELEGRAM_CHAT_ID` (и/или `ALERT_EMAIL`). Приходят: ошибки сервера сайта и админки, заявки, которые не удалось доставить после 5 попыток, сбои резервных копий.
+- **Проверка работоспособности.** `https://<ADMIN_DOMAIN>/cms-api/health` отвечает 200, если админка и база работают (иначе 503). Docker сам перезапускает зависшие контейнеры по healthcheck.
+- **Uptime Kuma.** `docker compose -f docker-compose.prod.yml --env-file .env --profile monitoring up -d`, интерфейс — через SSH-туннель: `ssh -L 3002:127.0.0.1:3002 <сервер>` и `http://localhost:3002`. Добавьте проверки сайта и `/cms-api/health`, уведомления — в тот же Telegram.
 
 ## Безопасность
 
@@ -88,7 +107,5 @@ docker compose -f docker-compose.prod.yml start admin front
 - **Файлы из заявок** (резюме и т. п.) хранятся отдельно от медиатеки и выдаются только после входа в админку.
 - **Пароли.** Для редакторов — не короче 12 символов, для администраторов — не короче 14. После 5 неудачных попыток входа учётная запись блокируется на 15 минут.
 - **Журнал.** Все действия пользователей записываются в «Журнал действий».
-
-## Тестовый стенд
-
-Для тестового стенда используйте отдельный сервер или другие домены с таким же `.env`. Затем в админке откройте «Настройки сайта → SEO и индексация» и снимите галочку «Разрешить поисковикам индексировать сайт».
+- **Двухфакторный вход.** Каждый включает его в «Мой профиль». `TWO_FACTOR_REQUIRED_ROLES=admin` (по умолчанию в `.env.example`) делает его обязательным для администраторов.
+- **SSO.** Вход через корпоративную учётную запись (Keycloak, ADFS, Entra ID и др.) — переменные `SSO_*`, адрес возврата `https://<ADMIN_DOMAIN>/cms-api/users/sso/callback`.
