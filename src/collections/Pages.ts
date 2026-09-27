@@ -99,6 +99,24 @@ export const Pages: CollectionConfig = {
       },
     },
     {
+      // ссылка на черновик для коллег без входа: /cms-api/pages/12/share-link?days=7&locale=ru
+      path: '/:id/share-link',
+      method: 'get',
+      handler: async (req) => {
+        if (!req.user) return Response.json({ error: 'Нужно войти в админку' }, { status: 401 })
+        const url = new URL(req.url ?? '', 'http://x')
+        const id = String(req.routeParams?.id ?? '')
+        const days = Math.min(30, Math.max(1, Number(url.searchParams.get('days')) || 7))
+        const locale = url.searchParams.get('locale') === 'en' ? 'en' : 'ru'
+        if (!/^\d+$/.test(id)) return Response.json({ error: 'bad request' }, { status: 400 })
+        const link = previewUrl({ id, locale, days })
+        if (!link) return Response.json({ error: 'Не задан адрес сайта (FRONT_URL)' }, { status: 500 })
+        const { writeAudit } = await import('./AuditLog')
+        await writeAudit({ req, action: 'update', target: `Страница № ${id}`, summary: `Ссылка на черновик на ${days} дн.` })
+        return Response.json({ url: link, expires: new Date(Date.now() + days * 86400_000).toISOString() })
+      },
+    },
+    {
       // превью одного блока: /cms-api/pages/12/preview-block?block=<id блока>&locale=ru
       path: '/:id/preview-block',
       method: 'get',

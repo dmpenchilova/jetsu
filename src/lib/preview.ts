@@ -9,10 +9,11 @@ const WINDOW = 12 * 60 * 60 * 1000 // ссылка одна и та же в те
 const sign = (body: string) =>
   createHmac('sha256', `${process.env.PAYLOAD_SECRET ?? ''}:preview`).update(body).digest('hex').slice(0, 40)
 
-export type PreviewTarget = { id: string; locale: 'ru' | 'en'; block?: string }
+export type PreviewTarget = { id: string; locale: 'ru' | 'en'; block?: string; days?: number }
 
-export const makePreviewHash = ({ id, locale, block }: PreviewTarget) => {
-  const expires = (Math.floor(Date.now() / WINDOW) + 2) * WINDOW
+export const makePreviewHash = ({ id, locale, block, days }: PreviewTarget) => {
+  // ссылка «для коллег» живёт указанное число дней, служебная — около суток
+  const expires = days ? Date.now() + days * 86400_000 : (Math.floor(Date.now() / WINDOW) + 2) * WINDOW
   const body = ['p', id, locale, block ?? '', expires.toString(36)].join('.')
   return `${body}.${sign(body)}`
 }

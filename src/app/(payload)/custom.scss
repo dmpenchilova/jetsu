@@ -1028,3 +1028,36 @@ a {
     margin: 0;
   }
 }
+
+.jet-tools__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.jet-tools__share {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+
+  input {
+    width: 100%;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--jet-gray-200);
+    padding: 0 8px;
+    font-size: 12px;
+  }
+}
+
+.jet-tools__title + .jet-muted {
+  margin-top: -4px;
+}
+
+/* подсветка блока, открытого кликом в превью */
+.jet-row-flash > .collapsible,
+.jet-row-flash .collapsible__toggle-wrap {
+  box-shadow: 0 0 0 3px var(--jet-lime);
+  transition: box-shadow 0.3s;
+}
