@@ -241,7 +241,9 @@ export async function POST(req: Request, { params }: { params: Promise<{ path: s
       .findByID({ collection: 'pages', id: target.id, locale: target.locale, draft: true, depth: 0, overrideAccess: true })
       .catch(() => null)
     if (!page) return notFound()
-    const res = await pageToFront(payload, page as unknown as PageDoc, target.locale)
+    // переменные {{имя}} подставляются и в превью, как на сайте
+    const { applyVariables } = await import('@/globals/variables')
+    const res = (await applyVariables(payload, await pageToFront(payload, page as unknown as PageDoc, target.locale), target.locale)) as Awaited<ReturnType<typeof pageToFront>>
     if (target.block) {
       // превью одного блока — в том виде, в каком его ждёт страница /preview фронта
       const block = (res.data.content as { uuid: string }[]).find((b) => b.uuid === target.block)
