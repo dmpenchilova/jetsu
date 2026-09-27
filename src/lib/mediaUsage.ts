@@ -111,3 +111,21 @@ export const findMediaUsage = async (payload: Payload, mediaId: number | string)
   }
   return usages
 }
+
+/** Отпечатки содержимого для файлов, загруженных до появления поиска дубликатов (один раз при запуске). */
+export const backfillMediaHashes = async (payload: Payload) => {
+  const { createHash } = await import('node:crypto')
+  const { readFile } = await import('node:fs/promises')
+  const path = await import('node:path')
+  const dir = process.env.MEDIA_DIR || path.resolve(process.cwd(), 'media')
+  const res = await payload.find({ collection: 'media', where: { hash: { exists: false } }, depth: 0, limit: 5000, pagination: false, overrideAccess: true })
+  let n = 0
+  for (const d of res.docs as unknown as { id: number; filename?: string }[]) {
+    if (!d.filename) continue
+    const data = await readFile(path.join(dir, d.filename)).catch(() => null)
+    if (!data) continue
+    await payload.db.updateOne({ collection: 'media', id: d.id, data: { hash: createHash('sha1').update(data).digest('hex') } }).catch(() => undefined)
+    n += 1
+  }
+  if (n) payload.logger.info(`Отпечатки файлов медиатеки: ${n}`)
+}

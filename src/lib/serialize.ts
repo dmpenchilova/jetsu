@@ -52,6 +52,8 @@ export const buildCtx = async (
   if (mediaIds.size) {
     const res = await payload.find({
       collection: 'media',
+      // alt у файла на каждом языке свой
+      locale,
       where: { id: { in: [...mediaIds] } },
       limit: mediaIds.size,
       depth: 0,

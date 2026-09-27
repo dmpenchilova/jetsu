@@ -1341,3 +1341,101 @@ a {
     gap: 16px;
   }
 }
+
+/* ---------- Порядок в медиатеке ---------- */
+.jet-btn--light.is-active {
+  background: var(--jet-blue);
+  border-color: var(--jet-blue);
+  color: #fff;
+}
+
+.jet-mtools {
+  &__list {
+    background: #fff;
+    border-radius: 16px;
+    padding: 8px 16px;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 64px 180px 1fr 1fr;
+    gap: 12px;
+    align-items: center;
+    padding: 8px 0;
+    border-top: 1px solid var(--jet-gray-200);
+
+    &:first-child {
+      border-top: none;
+    }
+
+    input {
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid var(--jet-gray-200);
+      padding: 0 10px;
+      font: inherit;
+      font-size: 14px;
+    }
+  }
+
+  &__thumb,
+  &__dupitem img {
+    width: 64px;
+    height: 48px;
+    border-radius: 6px;
+    background: var(--jet-gray-100);
+    overflow: hidden;
+    display: block;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__dupitem img {
+    object-fit: contain;
+  }
+
+  &__name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__save {
+    position: sticky;
+    bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  &__dup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  &__dupitem {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: var(--jet-black);
+    text-decoration: none;
+    max-width: 160px;
+  }
+
+  &__file {
+    width: 64px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--jet-gray-100);
+    border-radius: 6px;
+  }
+}

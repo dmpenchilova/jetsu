@@ -27,6 +27,7 @@ import { FormSettings } from './globals/formSettings'
 import { SeoSettings } from './globals/seoSettings'
 import { TypographSettings } from './globals/typographSettings'
 import { adminSearchEndpoint } from './lib/adminSearch'
+import { backfillMediaHashes } from './lib/mediaUsage'
 import { reindexAll, searchHooks } from './lib/search/indexer'
 import { globalTextHook, textHook } from './lib/textHooks'
 import { backfillTranslation, withWorkflow } from './lib/workflow'
@@ -73,6 +74,7 @@ export default buildConfig({
       views: {
         dashboard: { Component: '/components/Dashboard#Dashboard' },
         compare: { Component: '/components/Compare#Compare', path: '/compare' },
+        mediaTools: { Component: '/components/MediaTools#MediaTools', path: '/media-tools' },
       },
       graphics: {
         Logo: '/components/Logo#Logo',
@@ -156,6 +158,7 @@ export default buildConfig({
   onInit: async (payload) => {
     if (process.env.NEXT_PHASE === 'phase-production-build' || process.env.PAYLOAD_JOBS_AUTORUN === 'false') return
     await backfillTranslation(payload).catch((err) => payload.logger.error({ err }, 'translation backfill'))
+    void backfillMediaHashes(payload).catch((err) => payload.logger.error({ err }, 'media hashes'))
     const { totalDocs } = await payload.count({ collection: 'search-index' }).catch(() => ({ totalDocs: -1 }))
     if (totalDocs === 0) void reindexAll(payload).then((n) => payload.logger.info(`Индекс поиска собран: ${n} записей`)).catch(() => undefined)
   },

@@ -3258,7 +3258,7 @@ export interface Page {
   _status?: ('draft' | 'published') | null;
 }
 /**
- * Файлы можно раскладывать по папкам. Чтобы найти картинки без alt-текста, отфильтруйте по полю «Alt-текст» → «не существует»
+ * Файлы можно раскладывать по папкам. Картинки без alt и одинаковые файлы — в «Порядке в медиатеке»
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
@@ -3266,9 +3266,10 @@ export interface Page {
 export interface Media {
   id: number;
   /**
-   * Что изображено. Подставляется, если в блоке alt не задан
+   * Что изображено — для незрячих и поисковиков. На каждом языке свой. Подставляется, если в блоке alt не задан
    */
   alt?: string | null;
+  hash?: string | null;
   sourcePath?: string | null;
   folder?: (number | null) | FolderInterface;
   updatedAt: string;
@@ -18489,6 +18490,7 @@ export interface TermsSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  hash?: T;
   sourcePath?: T;
   folder?: T;
   updatedAt?: T;
