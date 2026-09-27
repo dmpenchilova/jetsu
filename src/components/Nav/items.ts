@@ -14,6 +14,8 @@ const g = (slug: string) => ({ type: 'global' as const, slug })
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Главная', href: '/admin', icon: 'M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z' },
   { label: 'Страницы', href: '/admin/collections/pages', entity: c('pages'), icon: 'M7 3h7l5 5v13H7z M14 3v5h5' },
+  { label: 'Общие блоки', href: '/admin/collections/shared-blocks', entity: c('shared-blocks'), icon: 'M4 4h10v6H4z M10 14h10v6H10z M14 7h4v7' },
+  { label: 'Шаблоны страниц', href: '/admin/collections/page-templates', entity: c('page-templates'), icon: 'M4 4h16v5H4z M4 13h7v7H4z M14 13h6v7h-6z' },
 
   { group: 'Экспертиза', label: 'Публикации', href: '/admin/collections/publications', entity: c('publications'), icon: 'M4 5h16v14H4z M8 9h8 M8 13h8 M8 17h5' },
   { label: 'Проекты', href: '/admin/collections/projects', entity: c('projects'), icon: 'M4 8h16v11H4z M9 8V5h6v3' },

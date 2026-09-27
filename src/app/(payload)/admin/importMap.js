@@ -1,5 +1,7 @@
+import { PageTools as PageTools_98c7e893dcacd1da4718b42d47b80faa } from '../../../components/PageTools'
 import { BlockPreview as BlockPreview_28c9ce0839c572b556b18afba697d565 } from '../../../components/BlockPreview'
 import { HtmlEditor as HtmlEditor_d0cde097a850875ce5d6f9145f923f56 } from '../../../components/HtmlEditor'
+import { PagesFromTemplate as PagesFromTemplate_be484f34cf62d45d979187298e5cdb82 } from '../../../components/PagesFromTemplate'
 import { MediaUsage as MediaUsage_f6650644f5d188bfe66735fac80447c8 } from '../../../components/MediaUsage'
 import { FolderTableCell as FolderTableCell_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 import { FolderField as FolderField_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
@@ -14,8 +16,10 @@ import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } f
 
 /** @type import('payload').ImportMap */
 export const importMap = {
+  "/components/PageTools#PageTools": PageTools_98c7e893dcacd1da4718b42d47b80faa,
   "/components/BlockPreview#BlockPreview": BlockPreview_28c9ce0839c572b556b18afba697d565,
   "/components/HtmlEditor#HtmlEditor": HtmlEditor_d0cde097a850875ce5d6f9145f923f56,
+  "/components/PagesFromTemplate#PagesFromTemplate": PagesFromTemplate_be484f34cf62d45d979187298e5cdb82,
   "/components/MediaUsage#MediaUsage": MediaUsage_f6650644f5d188bfe66735fac80447c8,
   "@payloadcms/next/rsc#FolderTableCell": FolderTableCell_f9c02e79a4aed9a3924487c0cd4cafb1,
   "@payloadcms/next/rsc#FolderField": FolderField_f9c02e79a4aed9a3924487c0cd4cafb1,

@@ -68,6 +68,8 @@ export interface Config {
   blocks: {};
   collections: {
     pages: Page;
+    'page-templates': PageTemplate;
+    'shared-blocks': SharedBlock;
     publications: Publication;
     projects: Project;
     events: Event;
@@ -102,6 +104,8 @@ export interface Config {
   };
   collectionsSelect: {
     pages: PagesSelect<false> | PagesSelect<true>;
+    'page-templates': PageTemplatesSelect<false> | PageTemplatesSelect<true>;
+    'shared-blocks': SharedBlocksSelect<false> | SharedBlocksSelect<true>;
     publications: PublicationsSelect<false> | PublicationsSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
     events: EventsSelect<false> | EventsSelect<true>;
@@ -3191,6 +3195,16 @@ export interface Page {
             blockName?: string | null;
             blockType: 'activities';
           }
+        | {
+            hidden?: boolean | null;
+            /**
+             * Содержимое правится в разделе «Общие блоки» и меняется сразу на всех страницах
+             */
+            ref: number | SharedBlock;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'sharedBlock';
+          }
       )[]
     | null;
   /**
@@ -3745,6 +3759,6011 @@ export interface Office {
       }[]
     | null;
   order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Фрагменты, которые стоят на многих страницах. Вставляются блоком «Общий блок»; правка здесь сразу меняет все страницы
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "shared-blocks".
+ */
+export interface SharedBlock {
+  id: number;
+  title: string;
+  content?:
+    | (
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            description: {
+              value: string;
+              id?: string | null;
+            }[];
+            background: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            btn: {
+              title: string;
+              url?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            description?: string | null;
+            background: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'view';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            description?: string | null;
+            background: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            addContent?: {
+              company?:
+                | {
+                    src: number | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                    id?: string | null;
+                  }[]
+                | null;
+              items?:
+                | {
+                    title: string;
+                    description: string;
+                    id?: string | null;
+                  }[]
+                | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'viewIndustry';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            description?: string | null;
+            background: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'intro';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            description?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'serviceHero';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            item: {
+              title: string;
+              description?: string | null;
+              icon?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              tags?:
+                | {
+                    value: string;
+                    id?: string | null;
+                  }[]
+                | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'projectHero';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            images?:
+              | {
+                  src: number | Media;
+                  /**
+                   * Если пусто — берётся из медиатеки
+                   */
+                  alt?: string | null;
+                  tablet?: (number | null) | Media;
+                  desktop?: (number | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            btnScroll?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            tags: {
+              title: string;
+              url: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'careerHero';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'historyHero';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag: string;
+            title?: string | null;
+            background: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            phone: {
+              title: string;
+              items: {
+                value: string;
+                link?: string | null;
+                id?: string | null;
+              }[];
+            };
+            items: {
+              title: string;
+              subitems: {
+                value: string;
+                link?: string | null;
+                id?: string | null;
+              }[];
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contactsHero';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            subtitle?: string | null;
+            items: {
+              title: string;
+              description: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'policyHero';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag: string;
+            title: string;
+            background: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            hashToScroll?: string | null;
+            items: {
+              title: string;
+              value: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'detailHero';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Publication)[] | null;
+            tag?: string | null;
+            title?: string | null;
+            items?:
+              | {
+                  tag?: string | null;
+                  title?: string | null;
+                  tags?:
+                    | {
+                        value: string;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  img?: {
+                    src?: (number | null) | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  url?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'topical';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Event)[] | null;
+            tag?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            companies?:
+              | {
+                  src: number | Media;
+                  /**
+                   * Если пусто — берётся из медиатеки
+                   */
+                  alt?: string | null;
+                  tablet?: (number | null) | Media;
+                  desktop?: (number | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            items?:
+              | {
+                  title?: string | null;
+                  description?: string | null;
+                  type?: string | null;
+                  time?: string | null;
+                  format?: string | null;
+                  tags?:
+                    | {
+                        value: string;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  img?: {
+                    src?: (number | null) | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  btn?: {
+                    title?: string | null;
+                    url?: string | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'events';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            description?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            items: {
+              title?: string | null;
+              description?: string | null;
+              stats?: {
+                value?: string | null;
+                label?: string | null;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'ideas';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Industry)[] | null;
+            tag?: string | null;
+            title?: string | null;
+            items?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  content?: {
+                    title?: string | null;
+                    description?: string | null;
+                    subitems?:
+                      | {
+                          title: string;
+                          description?: string | null;
+                          id?: string | null;
+                        }[]
+                      | null;
+                    company?:
+                      | {
+                          src: number | Media;
+                          /**
+                           * Если пусто — берётся из медиатеки
+                           */
+                          alt?: string | null;
+                          tablet?: (number | null) | Media;
+                          desktop?: (number | null) | Media;
+                          id?: string | null;
+                        }[]
+                      | null;
+                    btn?: {
+                      title?: string | null;
+                      url?: string | null;
+                    };
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'industries';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Direction)[] | null;
+            tag?: string | null;
+            items?:
+              | {
+                  suptitle?: string | null;
+                  title?: string | null;
+                  description?:
+                    | {
+                        value: string;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  img?: {
+                    src?: (number | null) | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  company?:
+                    | {
+                        src: number | Media;
+                        /**
+                         * Если пусто — берётся из медиатеки
+                         */
+                        alt?: string | null;
+                        tablet?: (number | null) | Media;
+                        desktop?: (number | null) | Media;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  btn?: {
+                    title?: string | null;
+                    url?: string | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'directions';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            form: number | Form;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'callback';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            variant?: ('default' | 'reviews_lime') | null;
+            items: {
+              description?: string | null;
+              person?: {
+                name?: string | null;
+                position?: string | null;
+                img?: {
+                  src?: (number | null) | Media;
+                  /**
+                   * Если пусто — берётся из медиатеки
+                   */
+                  alt?: string | null;
+                  tablet?: (number | null) | Media;
+                  desktop?: (number | null) | Media;
+                };
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'reviews';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              description: string;
+              isOpen?: boolean | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'faq';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Partner)[] | null;
+            tag?: string | null;
+            title?: string | null;
+            description?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            items?:
+              | {
+                  title?: string | null;
+                  img: {
+                    src: number | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  url?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'partners';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Partner)[] | null;
+            tag: string;
+            title?: string | null;
+            items?:
+              | {
+                  src: string;
+                  alt?: string | null;
+                  url?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'vendors';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            person: {
+              name: string;
+              position?: string | null;
+              img?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              btn?: {
+                title?: string | null;
+                hash?: string | null;
+              };
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'leader';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            person?: {
+              name?: string | null;
+              postion?: string | null;
+              img?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              phone?: string | null;
+              btn?: {
+                title?: string | null;
+                hash?: string | null;
+              };
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'expert';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Publication)[] | null;
+            title: string;
+            description?: string | null;
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            items?:
+              | {
+                  tag: string;
+                  title: string;
+                  description?: string | null;
+                  slug?: string | null;
+                  tags?:
+                    | {
+                        value: string;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  background?: {
+                    src?: (number | null) | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  img?:
+                    | {
+                        src: number | Media;
+                        /**
+                         * Если пусто — берётся из медиатеки
+                         */
+                        alt?: string | null;
+                        tablet?: (number | null) | Media;
+                        desktop?: (number | null) | Media;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'similarNews';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            items: {
+              tag: string;
+              title: string;
+              description?: string | null;
+              slug?: string | null;
+              tags?:
+                | {
+                    value: string;
+                    id?: string | null;
+                  }[]
+                | null;
+              background?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              img?:
+                | {
+                    src: number | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'similarProjects';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            description?:
+              | {
+                  value: string;
+                  id?: string | null;
+                }[]
+              | null;
+            img?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+            };
+            items?:
+              | {
+                  value: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'aboutIndustry';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            items: {
+              title: string;
+              content?: {
+                subitems?:
+                  | {
+                      title: string;
+                      description?: string | null;
+                      id?: string | null;
+                    }[]
+                  | null;
+                btn?: {
+                  title?: string | null;
+                  url?: string | null;
+                };
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'solutions';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title?: string | null;
+              description?: string | null;
+              link?: {
+                title?: string | null;
+                url?: string | null;
+              };
+              stats?:
+                | {
+                    title: string;
+                    description: string;
+                    id?: string | null;
+                  }[]
+                | null;
+              btn?: {
+                title?: string | null;
+                url?: string | null;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'examples';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            items: {
+              tag?: string | null;
+              supTag?: string | null;
+              title: string;
+              secondTitle?: string | null;
+              description?: string | null;
+              company?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              stats?:
+                | {
+                    title: string;
+                    description: string;
+                    id?: string | null;
+                  }[]
+                | null;
+              btn?: {
+                title?: string | null;
+                url?: string | null;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'future';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            items: {
+              title?: string | null;
+              tags?:
+                | {
+                    title: string;
+                    /**
+                     * Параметры ссылки, например tema = cod
+                     */
+                    urlData?:
+                      | {
+                          key: string;
+                          value: string;
+                          id?: string | null;
+                        }[]
+                      | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              subitems?:
+                | {
+                    name?: string | null;
+                    description?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cases';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag: string;
+            description: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'description';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title?: string | null;
+              description?: string | null;
+              subitems: {
+                title: string;
+                description?: string | null;
+                url?: string | null;
+                id?: string | null;
+              }[];
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'services';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            items: {
+              title: string;
+              url?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'otherDirections';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            items: {
+              suptitle?: string | null;
+              title?: string | null;
+              description?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'valuation';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              isDefault?: boolean | null;
+              subitems: {
+                title: string;
+                description?: string | null;
+                link?: {
+                  title?: string | null;
+                  url?: string | null;
+                };
+                id?: string | null;
+              }[];
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'expertise';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            items: {
+              title: string;
+              description?: string | null;
+              img: {
+                src: number | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              url: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'award';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            items: {
+              title?: string | null;
+              name?: string | null;
+              img: {
+                src: number | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'team';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag: string;
+            description: string;
+            btn: {
+              title: string;
+              url?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'historyCompany';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            items: {
+              tag: string;
+              subitems: {
+                title: string;
+                card: {
+                  title: string;
+                  description: string;
+                  img: {
+                    src: number | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                };
+                id?: string | null;
+              }[];
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'sectors';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Office)[] | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              subitems: {
+                value: string;
+                link?: string | null;
+                id?: string | null;
+              }[];
+              id?: string | null;
+            }[];
+            btn: {
+              title: string;
+              url?: string | null;
+            };
+            offices?:
+              | {
+                  title: string;
+                  isDefault?: boolean | null;
+                  cities: {
+                    title: string;
+                    description?: string | null;
+                    items: {
+                      title: string;
+                      subitems: {
+                        value: string;
+                        link?: string | null;
+                        id?: string | null;
+                      }[];
+                      id?: string | null;
+                    }[];
+                    id?: string | null;
+                  }[];
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contacts';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            variant?: ('default' | 'history_rotate') | null;
+            items: {
+              title: string;
+              description?: string | null;
+              img?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              caption?: string | null;
+              id?: string | null;
+            }[];
+            quote?: {
+              name?: string | null;
+              position?: string | null;
+              speech?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'history';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            video: {
+              url: string;
+              preview?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'careerVideo';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            subtitle: string;
+            link?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            items: {
+              title: string;
+              description?: string | null;
+              link?: {
+                title?: string | null;
+                url?: string | null;
+              };
+              id?: string | null;
+            }[];
+            companies?:
+              | {
+                  src: number | Media;
+                  /**
+                   * Если пусто — берётся из медиатеки
+                   */
+                  alt?: string | null;
+                  tablet?: (number | null) | Media;
+                  desktop?: (number | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'about';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items?:
+              | {
+                  src: number | Media;
+                  /**
+                   * Если пусто — берётся из медиатеки
+                   */
+                  alt?: string | null;
+                  tablet?: (number | null) | Media;
+                  desktop?: (number | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'stack';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              description: string;
+              img?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'benefits';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            subtitle?: string | null;
+            description?: string | null;
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            items?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'offers';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            items?:
+              | {
+                  img: {
+                    src: number | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  caption?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            socials?:
+              | {
+                  title?: string | null;
+                  icon: string;
+                  url: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'gallery';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            items?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  btn?: {
+                    title?: string | null;
+                    url?: string | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'banners';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag: string;
+            title?: string | null;
+            subtitle?: string | null;
+            items?:
+              | {
+                  title: string;
+                  isActive?: boolean | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'aboutDirection';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            description?: string | null;
+            items?:
+              | {
+                  title: string;
+                  img?: {
+                    src?: (number | null) | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  subitems: {
+                    title: string;
+                    id?: string | null;
+                  }[];
+                  variant?: ('default' | 'withBg') | null;
+                  id?: string | null;
+                }[]
+              | null;
+            variant?: ('default' | 'withBg') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'aboutVacancy';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'advantages';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title: string;
+            hashToScroll?: string | null;
+            items: {
+              tag?: string | null;
+              title: string;
+              slug?: string | null;
+              subitems?:
+                | {
+                    value: string;
+                    id?: string | null;
+                  }[]
+                | null;
+              btn?: {
+                title?: string | null;
+                url?: string | null;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'similar';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            variant?: ('default' | 'serviceText_bgLime') | null;
+            items: {
+              title?: string | null;
+              description?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'serviceText';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            description?: string | null;
+            img?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'serviceImgText';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            img: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'serviceImg';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            description?: string | null;
+            variant?: ('default' | 'cards_columns_2') | null;
+            items?:
+              | {
+                  title?: string | null;
+                  text?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cards';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              value: string;
+              id?: string | null;
+            }[];
+            type?: ('marker' | 'order') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'serviceList';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              subitems: {
+                value: string;
+                id?: string | null;
+              }[];
+              type?: ('marker' | 'order') | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'serviceContent';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              value: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'serviceTable';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            variant?: ('default' | 'information_list') | null;
+            items: {
+              title: string;
+              description?: string | null;
+              link?: {
+                title?: string | null;
+                url?: string | null;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'information';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              description?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'stages';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'steps';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Service)[] | null;
+            title: string;
+            description?: string | null;
+            items?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  slug?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'relatedServices';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              subTitle?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'results';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title?: string | null;
+              description: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'goals';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            items?:
+              | {
+                  value: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'decision';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            text?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'realization';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            img: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'transformation';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              value: string;
+              id?: string | null;
+            }[];
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'outcomes';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            text?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'plans';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            name?: string | null;
+            company?: string | null;
+            img: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+            };
+            video?: {
+              url?: string | null;
+              preview?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'feedback';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title: string;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            tags?:
+              | {
+                  value: string;
+                  id?: string | null;
+                }[]
+              | null;
+            date?: string | null;
+            items: (
+              | {
+                  value: string;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'html';
+                }
+              | {
+                  variant?: ('default' | 'newsDetailQuote_bgGray' | 'newsDetailQuote_bgLime') | null;
+                  items: (
+                    | {
+                        value: string;
+                        id?: string | null;
+                        blockName?: string | null;
+                        blockType: 'speech';
+                      }
+                    | {
+                        name: string;
+                        position: string;
+                        id?: string | null;
+                        blockName?: string | null;
+                        blockType: 'person';
+                      }
+                  )[];
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'quote';
+                }
+              | {
+                  columns: {
+                    value: string;
+                    id?: string | null;
+                  }[];
+                  items: {
+                    items?:
+                      | {
+                          value: string;
+                          id?: string | null;
+                        }[]
+                      | null;
+                    id?: string | null;
+                  }[];
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'table';
+                }
+              | {
+                  variant?: ('default' | 'fullscreen') | null;
+                  img?: {
+                    src?: (number | null) | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  video?: {
+                    url?: string | null;
+                    preview?: {
+                      src?: (number | null) | Media;
+                      /**
+                       * Если пусто — берётся из медиатеки
+                       */
+                      alt?: string | null;
+                      tablet?: (number | null) | Media;
+                      desktop?: (number | null) | Media;
+                    };
+                  };
+                  caption?: string | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'media';
+                }
+            )[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'newsDetail';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title: string;
+            description?: string | null;
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            img: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+            };
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'journal';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title: string;
+            items: {
+              title: string;
+              description?: string | null;
+              img?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              subitems?:
+                | {
+                    value: string;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[];
+            count?: number | null;
+            total?: number | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'companions';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title: string;
+            text?: string | null;
+            variant?: ('default' | 'policyItem_last') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'policyItem';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title: string;
+            items: {
+              purpose?: string | null;
+              processedData?: string | null;
+              legalBasis?: string | null;
+              storagePeriod?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'policyTable';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title: string;
+            subtitle?: string | null;
+            items: {
+              title: string;
+              value: string;
+              link?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'policyContacts';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Office)[] | null;
+            tag?: string | null;
+            supTag?: string | null;
+            offices?:
+              | {
+                  title: string;
+                  isDefault?: boolean | null;
+                  cities: {
+                    title: string;
+                    description?: string | null;
+                    items: {
+                      title: string;
+                      subitems: {
+                        value: string;
+                        link?: string | null;
+                        id?: string | null;
+                      }[];
+                      id?: string | null;
+                    }[];
+                    id?: string | null;
+                  }[];
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'offices';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              subitems: {
+                value: string;
+                link?: string | null;
+                id?: string | null;
+              }[];
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'details';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            btn: {
+              title: string;
+              url?: string | null;
+            };
+            background: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'documents';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            items: {
+              title: string;
+              variant?: ('default' | 'activities__itemWrap_bgGray') | null;
+              codes: {
+                title: string;
+                description: string;
+                content?: {
+                  title?: string | null;
+                  url?: string | null;
+                };
+                id?: string | null;
+              }[];
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'activities';
+          }
+      )[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Готовые наборы блоков. Новую страницу из шаблона создают кнопкой в списке страниц; шаблон из готовой страницы — кнопкой «Сохранить как шаблон» в самой странице
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "page-templates".
+ */
+export interface PageTemplate {
+  id: number;
+  title: string;
+  description?: string | null;
+  content?:
+    | (
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            description: {
+              value: string;
+              id?: string | null;
+            }[];
+            background: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            btn: {
+              title: string;
+              url?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            description?: string | null;
+            background: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'view';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            description?: string | null;
+            background: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            addContent?: {
+              company?:
+                | {
+                    src: number | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                    id?: string | null;
+                  }[]
+                | null;
+              items?:
+                | {
+                    title: string;
+                    description: string;
+                    id?: string | null;
+                  }[]
+                | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'viewIndustry';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            description?: string | null;
+            background: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'intro';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            description?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'serviceHero';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            item: {
+              title: string;
+              description?: string | null;
+              icon?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              tags?:
+                | {
+                    value: string;
+                    id?: string | null;
+                  }[]
+                | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'projectHero';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            images?:
+              | {
+                  src: number | Media;
+                  /**
+                   * Если пусто — берётся из медиатеки
+                   */
+                  alt?: string | null;
+                  tablet?: (number | null) | Media;
+                  desktop?: (number | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            btnScroll?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            tags: {
+              title: string;
+              url: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'careerHero';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'historyHero';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag: string;
+            title?: string | null;
+            background: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            phone: {
+              title: string;
+              items: {
+                value: string;
+                link?: string | null;
+                id?: string | null;
+              }[];
+            };
+            items: {
+              title: string;
+              subitems: {
+                value: string;
+                link?: string | null;
+                id?: string | null;
+              }[];
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contactsHero';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            subtitle?: string | null;
+            items: {
+              title: string;
+              description: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'policyHero';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag: string;
+            title: string;
+            background: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            hashToScroll?: string | null;
+            items: {
+              title: string;
+              value: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'detailHero';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Publication)[] | null;
+            tag?: string | null;
+            title?: string | null;
+            items?:
+              | {
+                  tag?: string | null;
+                  title?: string | null;
+                  tags?:
+                    | {
+                        value: string;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  img?: {
+                    src?: (number | null) | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  url?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'topical';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Event)[] | null;
+            tag?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            companies?:
+              | {
+                  src: number | Media;
+                  /**
+                   * Если пусто — берётся из медиатеки
+                   */
+                  alt?: string | null;
+                  tablet?: (number | null) | Media;
+                  desktop?: (number | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            items?:
+              | {
+                  title?: string | null;
+                  description?: string | null;
+                  type?: string | null;
+                  time?: string | null;
+                  format?: string | null;
+                  tags?:
+                    | {
+                        value: string;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  img?: {
+                    src?: (number | null) | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  btn?: {
+                    title?: string | null;
+                    url?: string | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'events';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            description?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            items: {
+              title?: string | null;
+              description?: string | null;
+              stats?: {
+                value?: string | null;
+                label?: string | null;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'ideas';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Industry)[] | null;
+            tag?: string | null;
+            title?: string | null;
+            items?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  content?: {
+                    title?: string | null;
+                    description?: string | null;
+                    subitems?:
+                      | {
+                          title: string;
+                          description?: string | null;
+                          id?: string | null;
+                        }[]
+                      | null;
+                    company?:
+                      | {
+                          src: number | Media;
+                          /**
+                           * Если пусто — берётся из медиатеки
+                           */
+                          alt?: string | null;
+                          tablet?: (number | null) | Media;
+                          desktop?: (number | null) | Media;
+                          id?: string | null;
+                        }[]
+                      | null;
+                    btn?: {
+                      title?: string | null;
+                      url?: string | null;
+                    };
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'industries';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Direction)[] | null;
+            tag?: string | null;
+            items?:
+              | {
+                  suptitle?: string | null;
+                  title?: string | null;
+                  description?:
+                    | {
+                        value: string;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  img?: {
+                    src?: (number | null) | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  company?:
+                    | {
+                        src: number | Media;
+                        /**
+                         * Если пусто — берётся из медиатеки
+                         */
+                        alt?: string | null;
+                        tablet?: (number | null) | Media;
+                        desktop?: (number | null) | Media;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  btn?: {
+                    title?: string | null;
+                    url?: string | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'directions';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            form: number | Form;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'callback';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            variant?: ('default' | 'reviews_lime') | null;
+            items: {
+              description?: string | null;
+              person?: {
+                name?: string | null;
+                position?: string | null;
+                img?: {
+                  src?: (number | null) | Media;
+                  /**
+                   * Если пусто — берётся из медиатеки
+                   */
+                  alt?: string | null;
+                  tablet?: (number | null) | Media;
+                  desktop?: (number | null) | Media;
+                };
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'reviews';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              description: string;
+              isOpen?: boolean | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'faq';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Partner)[] | null;
+            tag?: string | null;
+            title?: string | null;
+            description?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            items?:
+              | {
+                  title?: string | null;
+                  img: {
+                    src: number | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  url?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'partners';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Partner)[] | null;
+            tag: string;
+            title?: string | null;
+            items?:
+              | {
+                  src: string;
+                  alt?: string | null;
+                  url?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'vendors';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            person: {
+              name: string;
+              position?: string | null;
+              img?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              btn?: {
+                title?: string | null;
+                hash?: string | null;
+              };
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'leader';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            person?: {
+              name?: string | null;
+              postion?: string | null;
+              img?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              phone?: string | null;
+              btn?: {
+                title?: string | null;
+                hash?: string | null;
+              };
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'expert';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Publication)[] | null;
+            title: string;
+            description?: string | null;
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            items?:
+              | {
+                  tag: string;
+                  title: string;
+                  description?: string | null;
+                  slug?: string | null;
+                  tags?:
+                    | {
+                        value: string;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  background?: {
+                    src?: (number | null) | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  img?:
+                    | {
+                        src: number | Media;
+                        /**
+                         * Если пусто — берётся из медиатеки
+                         */
+                        alt?: string | null;
+                        tablet?: (number | null) | Media;
+                        desktop?: (number | null) | Media;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'similarNews';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            items: {
+              tag: string;
+              title: string;
+              description?: string | null;
+              slug?: string | null;
+              tags?:
+                | {
+                    value: string;
+                    id?: string | null;
+                  }[]
+                | null;
+              background?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              img?:
+                | {
+                    src: number | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'similarProjects';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            description?:
+              | {
+                  value: string;
+                  id?: string | null;
+                }[]
+              | null;
+            img?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+            };
+            items?:
+              | {
+                  value: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'aboutIndustry';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            items: {
+              title: string;
+              content?: {
+                subitems?:
+                  | {
+                      title: string;
+                      description?: string | null;
+                      id?: string | null;
+                    }[]
+                  | null;
+                btn?: {
+                  title?: string | null;
+                  url?: string | null;
+                };
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'solutions';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title?: string | null;
+              description?: string | null;
+              link?: {
+                title?: string | null;
+                url?: string | null;
+              };
+              stats?:
+                | {
+                    title: string;
+                    description: string;
+                    id?: string | null;
+                  }[]
+                | null;
+              btn?: {
+                title?: string | null;
+                url?: string | null;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'examples';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            items: {
+              tag?: string | null;
+              supTag?: string | null;
+              title: string;
+              secondTitle?: string | null;
+              description?: string | null;
+              company?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              stats?:
+                | {
+                    title: string;
+                    description: string;
+                    id?: string | null;
+                  }[]
+                | null;
+              btn?: {
+                title?: string | null;
+                url?: string | null;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'future';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            items: {
+              title?: string | null;
+              tags?:
+                | {
+                    title: string;
+                    /**
+                     * Параметры ссылки, например tema = cod
+                     */
+                    urlData?:
+                      | {
+                          key: string;
+                          value: string;
+                          id?: string | null;
+                        }[]
+                      | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              subitems?:
+                | {
+                    name?: string | null;
+                    description?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cases';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag: string;
+            description: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'description';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title?: string | null;
+              description?: string | null;
+              subitems: {
+                title: string;
+                description?: string | null;
+                url?: string | null;
+                id?: string | null;
+              }[];
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'services';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            items: {
+              title: string;
+              url?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'otherDirections';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            items: {
+              suptitle?: string | null;
+              title?: string | null;
+              description?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'valuation';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              isDefault?: boolean | null;
+              subitems: {
+                title: string;
+                description?: string | null;
+                link?: {
+                  title?: string | null;
+                  url?: string | null;
+                };
+                id?: string | null;
+              }[];
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'expertise';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            items: {
+              title: string;
+              description?: string | null;
+              img: {
+                src: number | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              url: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'award';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            items: {
+              title?: string | null;
+              name?: string | null;
+              img: {
+                src: number | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'team';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag: string;
+            description: string;
+            btn: {
+              title: string;
+              url?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'historyCompany';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            items: {
+              tag: string;
+              subitems: {
+                title: string;
+                card: {
+                  title: string;
+                  description: string;
+                  img: {
+                    src: number | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                };
+                id?: string | null;
+              }[];
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'sectors';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Office)[] | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              subitems: {
+                value: string;
+                link?: string | null;
+                id?: string | null;
+              }[];
+              id?: string | null;
+            }[];
+            btn: {
+              title: string;
+              url?: string | null;
+            };
+            offices?:
+              | {
+                  title: string;
+                  isDefault?: boolean | null;
+                  cities: {
+                    title: string;
+                    description?: string | null;
+                    items: {
+                      title: string;
+                      subitems: {
+                        value: string;
+                        link?: string | null;
+                        id?: string | null;
+                      }[];
+                      id?: string | null;
+                    }[];
+                    id?: string | null;
+                  }[];
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contacts';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            variant?: ('default' | 'history_rotate') | null;
+            items: {
+              title: string;
+              description?: string | null;
+              img?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              caption?: string | null;
+              id?: string | null;
+            }[];
+            quote?: {
+              name?: string | null;
+              position?: string | null;
+              speech?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'history';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            video: {
+              url: string;
+              preview?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'careerVideo';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            subtitle: string;
+            link?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            items: {
+              title: string;
+              description?: string | null;
+              link?: {
+                title?: string | null;
+                url?: string | null;
+              };
+              id?: string | null;
+            }[];
+            companies?:
+              | {
+                  src: number | Media;
+                  /**
+                   * Если пусто — берётся из медиатеки
+                   */
+                  alt?: string | null;
+                  tablet?: (number | null) | Media;
+                  desktop?: (number | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'about';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items?:
+              | {
+                  src: number | Media;
+                  /**
+                   * Если пусто — берётся из медиатеки
+                   */
+                  alt?: string | null;
+                  tablet?: (number | null) | Media;
+                  desktop?: (number | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'stack';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              description: string;
+              img?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'benefits';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            subtitle?: string | null;
+            description?: string | null;
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            items?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'offers';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title?: string | null;
+            items?:
+              | {
+                  img: {
+                    src: number | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  caption?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            socials?:
+              | {
+                  title?: string | null;
+                  icon: string;
+                  url: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'gallery';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            items?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  btn?: {
+                    title?: string | null;
+                    url?: string | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'banners';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag: string;
+            title?: string | null;
+            subtitle?: string | null;
+            items?:
+              | {
+                  title: string;
+                  isActive?: boolean | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'aboutDirection';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            description?: string | null;
+            items?:
+              | {
+                  title: string;
+                  img?: {
+                    src?: (number | null) | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  subitems: {
+                    title: string;
+                    id?: string | null;
+                  }[];
+                  variant?: ('default' | 'withBg') | null;
+                  id?: string | null;
+                }[]
+              | null;
+            variant?: ('default' | 'withBg') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'aboutVacancy';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'advantages';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title: string;
+            hashToScroll?: string | null;
+            items: {
+              tag?: string | null;
+              title: string;
+              slug?: string | null;
+              subitems?:
+                | {
+                    value: string;
+                    id?: string | null;
+                  }[]
+                | null;
+              btn?: {
+                title?: string | null;
+                url?: string | null;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'similar';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            variant?: ('default' | 'serviceText_bgLime') | null;
+            items: {
+              title?: string | null;
+              description?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'serviceText';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            description?: string | null;
+            img?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'serviceImgText';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            img: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'serviceImg';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            description?: string | null;
+            variant?: ('default' | 'cards_columns_2') | null;
+            items?:
+              | {
+                  title?: string | null;
+                  text?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cards';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              value: string;
+              id?: string | null;
+            }[];
+            type?: ('marker' | 'order') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'serviceList';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              subitems: {
+                value: string;
+                id?: string | null;
+              }[];
+              type?: ('marker' | 'order') | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'serviceContent';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              value: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'serviceTable';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            variant?: ('default' | 'information_list') | null;
+            items: {
+              title: string;
+              description?: string | null;
+              link?: {
+                title?: string | null;
+                url?: string | null;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'information';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              description?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'stages';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'steps';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Service)[] | null;
+            title: string;
+            description?: string | null;
+            items?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  slug?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'relatedServices';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              subTitle?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'results';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title?: string | null;
+              description: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'goals';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            items?:
+              | {
+                  value: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'decision';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            text?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'realization';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            img: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'transformation';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              value: string;
+              id?: string | null;
+            }[];
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'outcomes';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            text?: string | null;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'plans';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            name?: string | null;
+            company?: string | null;
+            img: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+            };
+            video?: {
+              url?: string | null;
+              preview?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'feedback';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title: string;
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            tags?:
+              | {
+                  value: string;
+                  id?: string | null;
+                }[]
+              | null;
+            date?: string | null;
+            items: (
+              | {
+                  value: string;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'html';
+                }
+              | {
+                  variant?: ('default' | 'newsDetailQuote_bgGray' | 'newsDetailQuote_bgLime') | null;
+                  items: (
+                    | {
+                        value: string;
+                        id?: string | null;
+                        blockName?: string | null;
+                        blockType: 'speech';
+                      }
+                    | {
+                        name: string;
+                        position: string;
+                        id?: string | null;
+                        blockName?: string | null;
+                        blockType: 'person';
+                      }
+                  )[];
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'quote';
+                }
+              | {
+                  columns: {
+                    value: string;
+                    id?: string | null;
+                  }[];
+                  items: {
+                    items?:
+                      | {
+                          value: string;
+                          id?: string | null;
+                        }[]
+                      | null;
+                    id?: string | null;
+                  }[];
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'table';
+                }
+              | {
+                  variant?: ('default' | 'fullscreen') | null;
+                  img?: {
+                    src?: (number | null) | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  video?: {
+                    url?: string | null;
+                    preview?: {
+                      src?: (number | null) | Media;
+                      /**
+                       * Если пусто — берётся из медиатеки
+                       */
+                      alt?: string | null;
+                      tablet?: (number | null) | Media;
+                      desktop?: (number | null) | Media;
+                    };
+                  };
+                  caption?: string | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'media';
+                }
+            )[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'newsDetail';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title: string;
+            description?: string | null;
+            btn?: {
+              title?: string | null;
+              url?: string | null;
+            };
+            img: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+            };
+            background?: {
+              src?: (number | null) | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'journal';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title: string;
+            items: {
+              title: string;
+              description?: string | null;
+              img?: {
+                src?: (number | null) | Media;
+                /**
+                 * Если пусто — берётся из медиатеки
+                 */
+                alt?: string | null;
+                tablet?: (number | null) | Media;
+                desktop?: (number | null) | Media;
+              };
+              subitems?:
+                | {
+                    value: string;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[];
+            count?: number | null;
+            total?: number | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'companions';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title: string;
+            text?: string | null;
+            variant?: ('default' | 'policyItem_last') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'policyItem';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title: string;
+            items: {
+              purpose?: string | null;
+              processedData?: string | null;
+              legalBasis?: string | null;
+              storagePeriod?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'policyTable';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            title: string;
+            subtitle?: string | null;
+            items: {
+              title: string;
+              value: string;
+              link?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'policyContacts';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Office)[] | null;
+            tag?: string | null;
+            supTag?: string | null;
+            offices?:
+              | {
+                  title: string;
+                  isDefault?: boolean | null;
+                  cities: {
+                    title: string;
+                    description?: string | null;
+                    items: {
+                      title: string;
+                      subitems: {
+                        value: string;
+                        link?: string | null;
+                        id?: string | null;
+                      }[];
+                      id?: string | null;
+                    }[];
+                    id?: string | null;
+                  }[];
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'offices';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            items: {
+              title: string;
+              subitems: {
+                value: string;
+                link?: string | null;
+                id?: string | null;
+              }[];
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'details';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            tag?: string | null;
+            title?: string | null;
+            btn: {
+              title: string;
+              url?: string | null;
+            };
+            background: {
+              src: number | Media;
+              /**
+               * Если пусто — берётся из медиатеки
+               */
+              alt?: string | null;
+              tablet?: (number | null) | Media;
+              desktop?: (number | null) | Media;
+              type?: ('mixed' | 'image' | 'video') | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'documents';
+          }
+        | {
+            /**
+             * Скрытый блок не попадает на сайт
+             */
+            hidden?: boolean | null;
+            /**
+             * Без него блока нет в плавающей навигации
+             */
+            navTitle?: string | null;
+            /**
+             * Латиница без #, например services
+             */
+            hash?: string | null;
+            items: {
+              title: string;
+              variant?: ('default' | 'activities__itemWrap_bgGray') | null;
+              codes: {
+                title: string;
+                description: string;
+                content?: {
+                  title?: string | null;
+                  url?: string | null;
+                };
+                id?: string | null;
+              }[];
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'activities';
+          }
+        | {
+            hidden?: boolean | null;
+            /**
+             * Содержимое правится в разделе «Общие блоки» и меняется сразу на всех страницах
+             */
+            ref: number | SharedBlock;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'sharedBlock';
+          }
+      )[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -4314,6 +10333,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'pages';
         value: number | Page;
+      } | null)
+    | ({
+        relationTo: 'page-templates';
+        value: number | PageTemplate;
+      } | null)
+    | ({
+        relationTo: 'shared-blocks';
+        value: number | SharedBlock;
       } | null)
     | ({
         relationTo: 'publications';
@@ -6868,6 +12895,14 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        sharedBlock?:
+          | T
+          | {
+              hidden?: T;
+              ref?: T;
+              id?: T;
+              blockName?: T;
+            };
       };
   slug?: T;
   parent?: T;
@@ -6892,6 +12927,4877 @@ export interface PagesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "page-templates_select".
+ */
+export interface PageTemplatesSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  content?:
+    | T
+    | {
+        hero?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              description?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        view?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              description?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        viewIndustry?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              description?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              addContent?:
+                | T
+                | {
+                    company?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                          id?: T;
+                        };
+                    items?:
+                      | T
+                      | {
+                          title?: T;
+                          description?: T;
+                          id?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        intro?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              description?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        serviceHero?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              description?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        projectHero?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              item?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    icon?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    tags?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        careerHero?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              images?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    id?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              btnScroll?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              tags?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        historyHero?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        contactsHero?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              phone?:
+                | T
+                | {
+                    title?: T;
+                    items?:
+                      | T
+                      | {
+                          value?: T;
+                          link?: T;
+                          id?: T;
+                        };
+                  };
+              items?:
+                | T
+                | {
+                    title?: T;
+                    subitems?:
+                      | T
+                      | {
+                          value?: T;
+                          link?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        policyHero?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              subtitle?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        detailHero?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              hashToScroll?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    value?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        topical?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    tag?: T;
+                    title?: T;
+                    tags?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    url?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        events?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              tag?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              companies?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    id?: T;
+                  };
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    type?: T;
+                    time?: T;
+                    format?: T;
+                    tags?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    btn?:
+                      | T
+                      | {
+                          title?: T;
+                          url?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        ideas?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              description?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    stats?:
+                      | T
+                      | {
+                          value?: T;
+                          label?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        industries?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    content?:
+                      | T
+                      | {
+                          title?: T;
+                          description?: T;
+                          subitems?:
+                            | T
+                            | {
+                                title?: T;
+                                description?: T;
+                                id?: T;
+                              };
+                          company?:
+                            | T
+                            | {
+                                src?: T;
+                                alt?: T;
+                                tablet?: T;
+                                desktop?: T;
+                                id?: T;
+                              };
+                          btn?:
+                            | T
+                            | {
+                                title?: T;
+                                url?: T;
+                              };
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        directions?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              tag?: T;
+              items?:
+                | T
+                | {
+                    suptitle?: T;
+                    title?: T;
+                    description?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    company?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                          id?: T;
+                        };
+                    btn?:
+                      | T
+                      | {
+                          title?: T;
+                          url?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        callback?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              form?: T;
+              id?: T;
+              blockName?: T;
+            };
+        reviews?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              variant?: T;
+              items?:
+                | T
+                | {
+                    description?: T;
+                    person?:
+                      | T
+                      | {
+                          name?: T;
+                          position?: T;
+                          img?:
+                            | T
+                            | {
+                                src?: T;
+                                alt?: T;
+                                tablet?: T;
+                                desktop?: T;
+                              };
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        faq?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    isOpen?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        partners?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              tag?: T;
+              title?: T;
+              description?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              items?:
+                | T
+                | {
+                    title?: T;
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    url?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        vendors?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        leader?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              person?:
+                | T
+                | {
+                    name?: T;
+                    position?: T;
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    btn?:
+                      | T
+                      | {
+                          title?: T;
+                          hash?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        expert?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              person?:
+                | T
+                | {
+                    name?: T;
+                    postion?: T;
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    phone?: T;
+                    btn?:
+                      | T
+                      | {
+                          title?: T;
+                          hash?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        similarNews?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              title?: T;
+              description?: T;
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              items?:
+                | T
+                | {
+                    tag?: T;
+                    title?: T;
+                    description?: T;
+                    slug?: T;
+                    tags?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                    background?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        similarProjects?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    tag?: T;
+                    title?: T;
+                    description?: T;
+                    slug?: T;
+                    tags?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                    background?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        aboutIndustry?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              description?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              img?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                  };
+              items?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        solutions?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              items?:
+                | T
+                | {
+                    title?: T;
+                    content?:
+                      | T
+                      | {
+                          subitems?:
+                            | T
+                            | {
+                                title?: T;
+                                description?: T;
+                                id?: T;
+                              };
+                          btn?:
+                            | T
+                            | {
+                                title?: T;
+                                url?: T;
+                              };
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        examples?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          title?: T;
+                          url?: T;
+                        };
+                    stats?:
+                      | T
+                      | {
+                          title?: T;
+                          description?: T;
+                          id?: T;
+                        };
+                    btn?:
+                      | T
+                      | {
+                          title?: T;
+                          url?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        future?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              items?:
+                | T
+                | {
+                    tag?: T;
+                    supTag?: T;
+                    title?: T;
+                    secondTitle?: T;
+                    description?: T;
+                    company?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    stats?:
+                      | T
+                      | {
+                          title?: T;
+                          description?: T;
+                          id?: T;
+                        };
+                    btn?:
+                      | T
+                      | {
+                          title?: T;
+                          url?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        cases?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              items?:
+                | T
+                | {
+                    title?: T;
+                    tags?:
+                      | T
+                      | {
+                          title?: T;
+                          urlData?:
+                            | T
+                            | {
+                                key?: T;
+                                value?: T;
+                                id?: T;
+                              };
+                          id?: T;
+                        };
+                    subitems?:
+                      | T
+                      | {
+                          name?: T;
+                          description?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        description?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              description?: T;
+              id?: T;
+              blockName?: T;
+            };
+        services?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    subitems?:
+                      | T
+                      | {
+                          title?: T;
+                          description?: T;
+                          url?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        otherDirections?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        valuation?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    suptitle?: T;
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        expertise?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    isDefault?: T;
+                    subitems?:
+                      | T
+                      | {
+                          title?: T;
+                          description?: T;
+                          link?:
+                            | T
+                            | {
+                                title?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        award?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    url?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        team?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    name?: T;
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        historyCompany?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              description?: T;
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        sectors?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              items?:
+                | T
+                | {
+                    tag?: T;
+                    subitems?:
+                      | T
+                      | {
+                          title?: T;
+                          card?:
+                            | T
+                            | {
+                                title?: T;
+                                description?: T;
+                                img?:
+                                  | T
+                                  | {
+                                      src?: T;
+                                      alt?: T;
+                                      tablet?: T;
+                                      desktop?: T;
+                                    };
+                              };
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        contacts?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    subitems?:
+                      | T
+                      | {
+                          value?: T;
+                          link?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              offices?:
+                | T
+                | {
+                    title?: T;
+                    isDefault?: T;
+                    cities?:
+                      | T
+                      | {
+                          title?: T;
+                          description?: T;
+                          items?:
+                            | T
+                            | {
+                                title?: T;
+                                subitems?:
+                                  | T
+                                  | {
+                                      value?: T;
+                                      link?: T;
+                                      id?: T;
+                                    };
+                                id?: T;
+                              };
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        history?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              variant?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    caption?: T;
+                    id?: T;
+                  };
+              quote?:
+                | T
+                | {
+                    name?: T;
+                    position?: T;
+                    speech?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        careerVideo?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              video?:
+                | T
+                | {
+                    url?: T;
+                    preview?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        about?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              subtitle?: T;
+              link?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          title?: T;
+                          url?: T;
+                        };
+                    id?: T;
+                  };
+              companies?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        stack?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        benefits?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        offers?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              subtitle?: T;
+              description?: T;
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        gallery?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    caption?: T;
+                    id?: T;
+                  };
+              socials?:
+                | T
+                | {
+                    title?: T;
+                    icon?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        banners?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    btn?:
+                      | T
+                      | {
+                          title?: T;
+                          url?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        aboutDirection?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              subtitle?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    isActive?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        aboutVacancy?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              description?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    subitems?:
+                      | T
+                      | {
+                          title?: T;
+                          id?: T;
+                        };
+                    variant?: T;
+                    id?: T;
+                  };
+              variant?: T;
+              id?: T;
+              blockName?: T;
+            };
+        advantages?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        similar?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              hashToScroll?: T;
+              items?:
+                | T
+                | {
+                    tag?: T;
+                    title?: T;
+                    slug?: T;
+                    subitems?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                    btn?:
+                      | T
+                      | {
+                          title?: T;
+                          url?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        serviceText?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              variant?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        serviceImgText?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              description?: T;
+              img?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        serviceImg?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              img?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        cards?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              description?: T;
+              variant?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    text?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        serviceList?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              type?: T;
+              id?: T;
+              blockName?: T;
+            };
+        serviceContent?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    subitems?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                    type?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        serviceTable?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        information?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              variant?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          title?: T;
+                          url?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        stages?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        steps?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        relatedServices?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              title?: T;
+              description?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    slug?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        results?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    subTitle?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        goals?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        decision?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              items?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        realization?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              text?: T;
+              id?: T;
+              blockName?: T;
+            };
+        transformation?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              img?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        outcomes?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        plans?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              text?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        feedback?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              name?: T;
+              company?: T;
+              img?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                  };
+              video?:
+                | T
+                | {
+                    url?: T;
+                    preview?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        newsDetail?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              tags?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              date?: T;
+              items?:
+                | T
+                | {
+                    html?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    quote?:
+                      | T
+                      | {
+                          variant?: T;
+                          items?:
+                            | T
+                            | {
+                                speech?:
+                                  | T
+                                  | {
+                                      value?: T;
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                person?:
+                                  | T
+                                  | {
+                                      name?: T;
+                                      position?: T;
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    table?:
+                      | T
+                      | {
+                          columns?:
+                            | T
+                            | {
+                                value?: T;
+                                id?: T;
+                              };
+                          items?:
+                            | T
+                            | {
+                                items?:
+                                  | T
+                                  | {
+                                      value?: T;
+                                      id?: T;
+                                    };
+                                id?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    media?:
+                      | T
+                      | {
+                          variant?: T;
+                          img?:
+                            | T
+                            | {
+                                src?: T;
+                                alt?: T;
+                                tablet?: T;
+                                desktop?: T;
+                              };
+                          video?:
+                            | T
+                            | {
+                                url?: T;
+                                preview?:
+                                  | T
+                                  | {
+                                      src?: T;
+                                      alt?: T;
+                                      tablet?: T;
+                                      desktop?: T;
+                                    };
+                              };
+                          caption?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        journal?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              description?: T;
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              img?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                  };
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        companions?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    subitems?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              count?: T;
+              total?: T;
+              id?: T;
+              blockName?: T;
+            };
+        policyItem?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              text?: T;
+              variant?: T;
+              id?: T;
+              blockName?: T;
+            };
+        policyTable?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    purpose?: T;
+                    processedData?: T;
+                    legalBasis?: T;
+                    storagePeriod?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        policyContacts?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              subtitle?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    value?: T;
+                    link?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        offices?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              tag?: T;
+              supTag?: T;
+              offices?:
+                | T
+                | {
+                    title?: T;
+                    isDefault?: T;
+                    cities?:
+                      | T
+                      | {
+                          title?: T;
+                          description?: T;
+                          items?:
+                            | T
+                            | {
+                                title?: T;
+                                subitems?:
+                                  | T
+                                  | {
+                                      value?: T;
+                                      link?: T;
+                                      id?: T;
+                                    };
+                                id?: T;
+                              };
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        details?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    subitems?:
+                      | T
+                      | {
+                          value?: T;
+                          link?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        documents?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        activities?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    variant?: T;
+                    codes?:
+                      | T
+                      | {
+                          title?: T;
+                          description?: T;
+                          content?:
+                            | T
+                            | {
+                                title?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        sharedBlock?:
+          | T
+          | {
+              hidden?: T;
+              ref?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "shared-blocks_select".
+ */
+export interface SharedBlocksSelect<T extends boolean = true> {
+  title?: T;
+  content?:
+    | T
+    | {
+        hero?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              description?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        view?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              description?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        viewIndustry?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              description?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              addContent?:
+                | T
+                | {
+                    company?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                          id?: T;
+                        };
+                    items?:
+                      | T
+                      | {
+                          title?: T;
+                          description?: T;
+                          id?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        intro?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              description?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        serviceHero?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              description?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        projectHero?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              item?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    icon?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    tags?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        careerHero?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              images?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    id?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              btnScroll?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              tags?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        historyHero?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        contactsHero?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              phone?:
+                | T
+                | {
+                    title?: T;
+                    items?:
+                      | T
+                      | {
+                          value?: T;
+                          link?: T;
+                          id?: T;
+                        };
+                  };
+              items?:
+                | T
+                | {
+                    title?: T;
+                    subitems?:
+                      | T
+                      | {
+                          value?: T;
+                          link?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        policyHero?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              subtitle?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        detailHero?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              hashToScroll?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    value?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        topical?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    tag?: T;
+                    title?: T;
+                    tags?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    url?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        events?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              tag?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              companies?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    id?: T;
+                  };
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    type?: T;
+                    time?: T;
+                    format?: T;
+                    tags?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    btn?:
+                      | T
+                      | {
+                          title?: T;
+                          url?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        ideas?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              description?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    stats?:
+                      | T
+                      | {
+                          value?: T;
+                          label?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        industries?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    content?:
+                      | T
+                      | {
+                          title?: T;
+                          description?: T;
+                          subitems?:
+                            | T
+                            | {
+                                title?: T;
+                                description?: T;
+                                id?: T;
+                              };
+                          company?:
+                            | T
+                            | {
+                                src?: T;
+                                alt?: T;
+                                tablet?: T;
+                                desktop?: T;
+                                id?: T;
+                              };
+                          btn?:
+                            | T
+                            | {
+                                title?: T;
+                                url?: T;
+                              };
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        directions?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              tag?: T;
+              items?:
+                | T
+                | {
+                    suptitle?: T;
+                    title?: T;
+                    description?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    company?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                          id?: T;
+                        };
+                    btn?:
+                      | T
+                      | {
+                          title?: T;
+                          url?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        callback?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              form?: T;
+              id?: T;
+              blockName?: T;
+            };
+        reviews?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              variant?: T;
+              items?:
+                | T
+                | {
+                    description?: T;
+                    person?:
+                      | T
+                      | {
+                          name?: T;
+                          position?: T;
+                          img?:
+                            | T
+                            | {
+                                src?: T;
+                                alt?: T;
+                                tablet?: T;
+                                desktop?: T;
+                              };
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        faq?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    isOpen?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        partners?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              tag?: T;
+              title?: T;
+              description?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              items?:
+                | T
+                | {
+                    title?: T;
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    url?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        vendors?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        leader?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              person?:
+                | T
+                | {
+                    name?: T;
+                    position?: T;
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    btn?:
+                      | T
+                      | {
+                          title?: T;
+                          hash?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        expert?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              person?:
+                | T
+                | {
+                    name?: T;
+                    postion?: T;
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    phone?: T;
+                    btn?:
+                      | T
+                      | {
+                          title?: T;
+                          hash?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        similarNews?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              title?: T;
+              description?: T;
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              items?:
+                | T
+                | {
+                    tag?: T;
+                    title?: T;
+                    description?: T;
+                    slug?: T;
+                    tags?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                    background?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        similarProjects?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    tag?: T;
+                    title?: T;
+                    description?: T;
+                    slug?: T;
+                    tags?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                    background?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        aboutIndustry?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              description?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              img?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                  };
+              items?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        solutions?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              items?:
+                | T
+                | {
+                    title?: T;
+                    content?:
+                      | T
+                      | {
+                          subitems?:
+                            | T
+                            | {
+                                title?: T;
+                                description?: T;
+                                id?: T;
+                              };
+                          btn?:
+                            | T
+                            | {
+                                title?: T;
+                                url?: T;
+                              };
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        examples?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          title?: T;
+                          url?: T;
+                        };
+                    stats?:
+                      | T
+                      | {
+                          title?: T;
+                          description?: T;
+                          id?: T;
+                        };
+                    btn?:
+                      | T
+                      | {
+                          title?: T;
+                          url?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        future?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              items?:
+                | T
+                | {
+                    tag?: T;
+                    supTag?: T;
+                    title?: T;
+                    secondTitle?: T;
+                    description?: T;
+                    company?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    stats?:
+                      | T
+                      | {
+                          title?: T;
+                          description?: T;
+                          id?: T;
+                        };
+                    btn?:
+                      | T
+                      | {
+                          title?: T;
+                          url?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        cases?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              items?:
+                | T
+                | {
+                    title?: T;
+                    tags?:
+                      | T
+                      | {
+                          title?: T;
+                          urlData?:
+                            | T
+                            | {
+                                key?: T;
+                                value?: T;
+                                id?: T;
+                              };
+                          id?: T;
+                        };
+                    subitems?:
+                      | T
+                      | {
+                          name?: T;
+                          description?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        description?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              description?: T;
+              id?: T;
+              blockName?: T;
+            };
+        services?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    subitems?:
+                      | T
+                      | {
+                          title?: T;
+                          description?: T;
+                          url?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        otherDirections?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        valuation?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    suptitle?: T;
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        expertise?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    isDefault?: T;
+                    subitems?:
+                      | T
+                      | {
+                          title?: T;
+                          description?: T;
+                          link?:
+                            | T
+                            | {
+                                title?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        award?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    url?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        team?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    name?: T;
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        historyCompany?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              description?: T;
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        sectors?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              items?:
+                | T
+                | {
+                    tag?: T;
+                    subitems?:
+                      | T
+                      | {
+                          title?: T;
+                          card?:
+                            | T
+                            | {
+                                title?: T;
+                                description?: T;
+                                img?:
+                                  | T
+                                  | {
+                                      src?: T;
+                                      alt?: T;
+                                      tablet?: T;
+                                      desktop?: T;
+                                    };
+                              };
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        contacts?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    subitems?:
+                      | T
+                      | {
+                          value?: T;
+                          link?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              offices?:
+                | T
+                | {
+                    title?: T;
+                    isDefault?: T;
+                    cities?:
+                      | T
+                      | {
+                          title?: T;
+                          description?: T;
+                          items?:
+                            | T
+                            | {
+                                title?: T;
+                                subitems?:
+                                  | T
+                                  | {
+                                      value?: T;
+                                      link?: T;
+                                      id?: T;
+                                    };
+                                id?: T;
+                              };
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        history?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              variant?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    caption?: T;
+                    id?: T;
+                  };
+              quote?:
+                | T
+                | {
+                    name?: T;
+                    position?: T;
+                    speech?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        careerVideo?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              video?:
+                | T
+                | {
+                    url?: T;
+                    preview?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        about?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              subtitle?: T;
+              link?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          title?: T;
+                          url?: T;
+                        };
+                    id?: T;
+                  };
+              companies?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        stack?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        benefits?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        offers?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              subtitle?: T;
+              description?: T;
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        gallery?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    caption?: T;
+                    id?: T;
+                  };
+              socials?:
+                | T
+                | {
+                    title?: T;
+                    icon?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        banners?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    btn?:
+                      | T
+                      | {
+                          title?: T;
+                          url?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        aboutDirection?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              subtitle?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    isActive?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        aboutVacancy?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              description?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    subitems?:
+                      | T
+                      | {
+                          title?: T;
+                          id?: T;
+                        };
+                    variant?: T;
+                    id?: T;
+                  };
+              variant?: T;
+              id?: T;
+              blockName?: T;
+            };
+        advantages?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        similar?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              hashToScroll?: T;
+              items?:
+                | T
+                | {
+                    tag?: T;
+                    title?: T;
+                    slug?: T;
+                    subitems?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                    btn?:
+                      | T
+                      | {
+                          title?: T;
+                          url?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        serviceText?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              variant?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        serviceImgText?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              description?: T;
+              img?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        serviceImg?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              img?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        cards?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              description?: T;
+              variant?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    text?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        serviceList?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              type?: T;
+              id?: T;
+              blockName?: T;
+            };
+        serviceContent?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    subitems?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                    type?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        serviceTable?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        information?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              variant?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          title?: T;
+                          url?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        stages?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        steps?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        relatedServices?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              title?: T;
+              description?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    slug?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        results?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    subTitle?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        goals?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        decision?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              items?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        realization?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              text?: T;
+              id?: T;
+              blockName?: T;
+            };
+        transformation?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              img?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        outcomes?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        plans?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              text?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        feedback?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              name?: T;
+              company?: T;
+              img?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                  };
+              video?:
+                | T
+                | {
+                    url?: T;
+                    preview?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        newsDetail?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              tags?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              date?: T;
+              items?:
+                | T
+                | {
+                    html?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    quote?:
+                      | T
+                      | {
+                          variant?: T;
+                          items?:
+                            | T
+                            | {
+                                speech?:
+                                  | T
+                                  | {
+                                      value?: T;
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                person?:
+                                  | T
+                                  | {
+                                      name?: T;
+                                      position?: T;
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    table?:
+                      | T
+                      | {
+                          columns?:
+                            | T
+                            | {
+                                value?: T;
+                                id?: T;
+                              };
+                          items?:
+                            | T
+                            | {
+                                items?:
+                                  | T
+                                  | {
+                                      value?: T;
+                                      id?: T;
+                                    };
+                                id?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    media?:
+                      | T
+                      | {
+                          variant?: T;
+                          img?:
+                            | T
+                            | {
+                                src?: T;
+                                alt?: T;
+                                tablet?: T;
+                                desktop?: T;
+                              };
+                          video?:
+                            | T
+                            | {
+                                url?: T;
+                                preview?:
+                                  | T
+                                  | {
+                                      src?: T;
+                                      alt?: T;
+                                      tablet?: T;
+                                      desktop?: T;
+                                    };
+                              };
+                          caption?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        journal?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              description?: T;
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              img?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                  };
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        companions?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    img?:
+                      | T
+                      | {
+                          src?: T;
+                          alt?: T;
+                          tablet?: T;
+                          desktop?: T;
+                        };
+                    subitems?:
+                      | T
+                      | {
+                          value?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              count?: T;
+              total?: T;
+              id?: T;
+              blockName?: T;
+            };
+        policyItem?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              text?: T;
+              variant?: T;
+              id?: T;
+              blockName?: T;
+            };
+        policyTable?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    purpose?: T;
+                    processedData?: T;
+                    legalBasis?: T;
+                    storagePeriod?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        policyContacts?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              title?: T;
+              subtitle?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    value?: T;
+                    link?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        offices?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
+              tag?: T;
+              supTag?: T;
+              offices?:
+                | T
+                | {
+                    title?: T;
+                    isDefault?: T;
+                    cities?:
+                      | T
+                      | {
+                          title?: T;
+                          description?: T;
+                          items?:
+                            | T
+                            | {
+                                title?: T;
+                                subitems?:
+                                  | T
+                                  | {
+                                      value?: T;
+                                      link?: T;
+                                      id?: T;
+                                    };
+                                id?: T;
+                              };
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        details?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    subitems?:
+                      | T
+                      | {
+                          value?: T;
+                          link?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        documents?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              tag?: T;
+              title?: T;
+              btn?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                  };
+              background?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    type?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        activities?:
+          | T
+          | {
+              hidden?: T;
+              navTitle?: T;
+              hash?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    variant?: T;
+                    codes?:
+                      | T
+                      | {
+                          title?: T;
+                          description?: T;
+                          content?:
+                            | T
+                            | {
+                                title?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

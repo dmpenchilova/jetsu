@@ -3,6 +3,7 @@ import { APIError } from 'payload'
 
 import { canPublish, hasRole, isLoggedIn } from '../access'
 import { pageBlocks } from '../blocks'
+import { SharedBlockRef, withoutIds } from './Library'
 import { previewUrl } from '../lib/preview'
 import { builderTag, revalidateFront } from '../lib/revalidate'
 import { autoRedirect } from './Redirects'
@@ -41,6 +42,7 @@ export const Pages: CollectionConfig = {
     listSearchableFields: ['title', 'path'],
     group: 'Контент',
     description: 'Страницы сайта, которые собираются из блоков',
+    components: { beforeListTable: ['/components/PagesFromTemplate#PagesFromTemplate'] },
     livePreview: {
       url: ({ data, locale }) => {
         if (!data?.id) return null
@@ -70,6 +72,33 @@ export const Pages: CollectionConfig = {
   },
   endpoints: [
     {
+      // новая страница из шаблона: POST /cms-api/pages/from-template { template }
+      path: '/from-template',
+      method: 'post',
+      handler: async (req) => {
+        if (!req.user) return Response.json({ error: 'Нужно войти в админку' }, { status: 401 })
+        const body = (await req.json?.().catch(() => ({}))) as { template?: number }
+        if (!body.template) return Response.json({ error: 'Не выбран шаблон' }, { status: 400 })
+        const tpl = (await req.payload.findByID({ collection: 'page-templates', id: body.template, locale: 'all' as 'ru', depth: 0, overrideAccess: true })) as unknown as {
+          title: string
+          content?: Record<string, unknown[]>
+        }
+        const page = await req.payload.create({
+          collection: 'pages',
+          locale: 'ru',
+          draft: true,
+          data: { title: tpl.title.replace(/^Шаблон:\s*/, ''), content: withoutIds(tpl.content?.ru ?? []) as never, _status: 'draft' },
+          user: req.user,
+          overrideAccess: false,
+          req,
+        })
+        if (tpl.content?.en?.length) {
+          await req.payload.update({ collection: 'pages', id: page.id, locale: 'en', draft: true, data: { content: withoutIds(tpl.content.en) as never }, overrideAccess: true, req })
+        }
+        return Response.json({ id: page.id })
+      },
+    },
+    {
       // превью одного блока: /cms-api/pages/12/preview-block?block=<id блока>&locale=ru
       path: '/:id/preview-block',
       method: 'get',
@@ -93,6 +122,8 @@ export const Pages: CollectionConfig = {
           throw new APIError('Публиковать могут редактор и администратор. Сохраните черновик.', 403, undefined, true)
         }
         // путь страницы = путь родителя + символьный код
+        // у черновика адрес может быть ещё не задан или занят — тогда он пустой, ошибка будет только при публикации
+        const publishing = data._status === 'published'
         const slug = (data.slug ?? '').trim()
         const pid = parentId(data.parent ?? originalDoc?.parent)
         let parentPath = ''
@@ -102,7 +133,12 @@ export const Pages: CollectionConfig = {
           }
           const parent = await req.payload.findByID({ collection: 'pages', id: pid, depth: 0, draft: true, req, overrideAccess: true })
           parentPath = (parent.path as string) ?? ''
-          if (!slug) throw new APIError('У вложенной страницы должен быть символьный код', 400, undefined, true)
+          if (!slug) {
+            if (publishing) throw new APIError('У вложенной страницы должен быть символьный код', 400, undefined, true)
+            data.path = null
+            data.content = nameBlocks(data.content)
+            return data
+          }
         }
         data.path = [parentPath, slug].filter(Boolean).join('/')
         data.content = nameBlocks(data.content)
@@ -111,7 +147,8 @@ export const Pages: CollectionConfig = {
         if (originalDoc?.id) where.id = { not_equals: originalDoc.id }
         const { totalDocs } = await req.payload.count({ collection: 'pages', where, req, overrideAccess: true })
         if (totalDocs > 0) {
-          throw new APIError(`Адрес /${data.path}${data.path ? '/' : ''} уже занят другой страницей`, 400, undefined, true)
+          if (publishing) throw new APIError(`Адрес /${data.path}${data.path ? '/' : ''} уже занят другой страницей`, 400, undefined, true)
+          data.path = null
         }
         return data
       },
@@ -154,19 +191,27 @@ export const Pages: CollectionConfig = {
     ],
   },
   fields: [
+    { name: 'tools', type: 'ui', admin: { position: 'sidebar', components: { Field: '/components/PageTools#PageTools' } } },
     {
       type: 'tabs',
       tabs: [
         {
           label: 'Содержимое',
           fields: [
-            { name: 'title', label: 'Название', type: 'text', required: true, localized: true },
+            {
+              name: 'title',
+              label: 'Название',
+              type: 'text',
+              required: true,
+              localized: true,
+              hooks: { beforeDuplicate: [({ value }) => (value ? `${value} (копия)` : value)] },
+            },
             {
               name: 'content',
               label: 'Блоки',
               type: 'blocks',
               localized: true,
-              blocks: pageBlocks,
+              blocks: [...pageBlocks, SharedBlockRef],
               labels: { singular: 'блок', plural: 'Блоки' },
               admin: { initCollapsed: true },
             },
@@ -181,6 +226,8 @@ export const Pages: CollectionConfig = {
               type: 'text',
               index: true,
               admin: { description: 'Латиница, цифры и дефис. У главной страницы пусто.' },
+              // у копии страницы — свой адрес
+              hooks: { beforeDuplicate: [({ value }) => (value ? `${value}-copy` : value)] },
               validate: (value: string | null | undefined) =>
                 !value || /^[a-z0-9]+(-[a-z0-9]+)*$/.test(value) || 'Только строчная латиница, цифры и дефис',
             },

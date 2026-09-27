@@ -124,7 +124,10 @@ export const seoOf = (page: PageDoc, ctx: ToFrontCtx) => {
 }
 
 export const pageToFront = async (payload: Payload, page: PageDoc, locale: Locale) => {
-  const rows = (page.content ?? []).filter((r) => blockShapes[r.blockType])
+  // «Общие блоки» разворачиваются в своё содержимое
+  const { expandShared } = await import('../collections/Library')
+  const expanded = (await expandShared(payload, (page.content ?? []) as never, locale)) as unknown as BlockRow[]
+  const rows = expanded.filter((r) => blockShapes[r.blockType])
   const ctx = await buildCtx(
     payload,
     rows.map((r) => ({ shape: blockShapes[r.blockType], value: r })),

@@ -103,6 +103,29 @@ const importGlobal = async (payload: Payload, slug: 'header' | 'footer' | 'not-f
   payload.logger.info(`Настройки «${slug}» (${locale}) обновлены`)
 }
 
+/** Шаблоны страниц из тестовых страниц: отрасль, направление, услуга, проект. */
+const TEMPLATES = [
+  { path: 'industry', title: 'Отрасль', description: 'Hero отрасли, цифры, решения, кейсы, форма' },
+  { path: 'direction', title: 'Направление', description: 'Hero направления, услуги, преимущества, форма' },
+  { path: 'services/service-1', title: 'Услуга', description: 'Hero услуги, описание, этапы, стек, форма' },
+  { path: 'project', title: 'Проект', description: 'Hero проекта, задача, решение, результаты' },
+]
+
+const seedTemplates = async (payload: Payload) => {
+  const { withoutIds } = await import('../collections/Library')
+  for (const t of TEMPLATES) {
+    const exists = await payload.find({ collection: 'page-templates', where: { title: { equals: t.title } }, limit: 1, depth: 0 })
+    if (exists.docs.length) continue
+    const page = (await payload.find({ collection: 'pages', where: { path: { equals: t.path } }, locale: 'all' as 'ru', limit: 1, depth: 0 })).docs[0] as unknown as
+      | { content?: Record<string, unknown[]> }
+      | undefined
+    if (!page) continue
+    const doc = await payload.create({ collection: 'page-templates', locale: 'ru', data: { title: t.title, description: t.description, content: withoutIds(page.content?.ru ?? []) as never } })
+    if (page.content?.en?.length) await payload.update({ collection: 'page-templates', id: doc.id, locale: 'en', data: { content: withoutIds(page.content.en) as never } })
+    payload.logger.info(`Шаблон страницы «${t.title}» создан`)
+  }
+}
+
 const run = async () => {
   const payload = await getPayload({ config })
   for (const locale of ['ru', 'en'] as Locale[]) {
@@ -117,6 +140,7 @@ const run = async () => {
     await importGlobal(payload, 'popup-callback', popupCallbackShape, await readJson(`${prefix}popup/callback.json`), locale)
   }
   await importCollections(payload)
+  await seedTemplates(payload)
   const indexed = await reindexAll(payload)
   payload.logger.info(`Индекс поиска собран: ${indexed} документов`)
   payload.logger.info('Импорт завершён')

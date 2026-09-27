@@ -14,6 +14,7 @@ import { Projects, Publications } from './collections/Expertise'
 import { Forms } from './collections/Forms'
 import { Media } from './collections/Media'
 import { AuditLog, withAudit, withAuditGlobal } from './collections/AuditLog'
+import { PageTemplates, SharedBlocks } from './collections/Library'
 import { Pages } from './collections/Pages'
 import { Redirects } from './collections/Redirects'
 import { SearchIndex, SearchQueries } from './collections/Search'
@@ -41,7 +42,7 @@ if (process.env.NODE_ENV === 'production' && !isBuild && (process.env.PAYLOAD_SE
 /** Где работает типограф и чистка HTML: весь контент сайта. */
 const TEXT_COLLECTIONS = new Set([
   'pages', 'publications', 'projects', 'events', 'services', 'directions', 'subdirections', 'industries',
-  'vacancies', 'partners', 'offices', 'terms', 'forms',
+  'vacancies', 'partners', 'offices', 'terms', 'forms', 'page-templates', 'shared-blocks',
 ])
 /** Коллекции, которые попадают в поиск по сайту. */
 const SEARCHABLE = new Set(['pages', 'publications', 'vacancies'])
@@ -92,6 +93,8 @@ export default buildConfig({
   },
   collections: [
     Pages,
+    PageTemplates,
+    SharedBlocks,
     Publications,
     Projects,
     Events,
