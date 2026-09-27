@@ -180,6 +180,7 @@ export interface Config {
       'deliver-bitrix24': TaskDeliverBitrix24;
       'deliver-friendwork': TaskDeliverFriendwork;
       'cleanup-submissions': TaskCleanupSubmissions;
+      'revalidate-scheduled-blocks': TaskRevalidateScheduledBlocks;
       schedulePublish: TaskSchedulePublish;
       inline: {
         input: unknown;
@@ -13310,6 +13311,7 @@ export interface PayloadJob {
           | 'deliver-bitrix24'
           | 'deliver-friendwork'
           | 'cleanup-submissions'
+          | 'revalidate-scheduled-blocks'
           | 'schedulePublish';
         taskID: string;
         input?:
@@ -13350,6 +13352,7 @@ export interface PayloadJob {
         | 'deliver-bitrix24'
         | 'deliver-friendwork'
         | 'cleanup-submissions'
+        | 'revalidate-scheduled-blocks'
         | 'schedulePublish'
       )
     | null;
@@ -24215,6 +24218,14 @@ export interface TaskDeliverFriendwork {
  * via the `definition` "TaskCleanup-submissions".
  */
 export interface TaskCleanupSubmissions {
+  input?: unknown;
+  output?: unknown;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TaskRevalidate-scheduled-blocks".
+ */
+export interface TaskRevalidateScheduledBlocks {
   input?: unknown;
   output?: unknown;
 }
