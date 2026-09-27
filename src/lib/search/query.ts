@@ -19,14 +19,15 @@ export const RUBRICS: { id: string; ru: string; en: string; types: string[] }[] 
   { id: 'company', ru: 'О компании', en: 'About', types: ['company', 'project', 'other'] },
   { id: 'industry', ru: 'Отрасли', en: 'Industries', types: ['industry'] },
   { id: 'career', ru: 'Карьера', en: 'Career', types: ['career'] },
+  { id: 'vuln', ru: 'Уязвимости', en: 'Vulnerabilities', types: ['vuln'] },
 ]
 
 const TYPE_LABEL = Object.fromEntries(SEARCH_TYPES.map((t) => [t.value, t.label]))
 const TYPE_LABEL_EN: Record<string, string> = {
-  news: 'News', article: 'Article', journal: 'Journal', service: 'Service', company: 'About', industry: 'Industry', project: 'Project', career: 'Career', other: 'Page',
+  news: 'News', article: 'Article', journal: 'Journal', service: 'Service', company: 'About', industry: 'Industry', project: 'Project', career: 'Career', other: 'Page', vuln: 'Vulnerability',
 }
 const TYPE_LABEL_RU: Record<string, string> = {
-  news: 'Новость', article: 'Статья', journal: 'Журнал', service: 'Услуга', company: 'О компании', industry: 'Отрасль', project: 'Проект', career: 'Карьера', other: 'Страница',
+  news: 'Новость', article: 'Статья', journal: 'Журнал', service: 'Услуга', company: 'О компании', industry: 'Отрасль', project: 'Проект', career: 'Карьера', other: 'Страница', vuln: 'Уязвимость',
 }
 void TYPE_LABEL
 

@@ -1439,3 +1439,24 @@ a {
     border-radius: 6px;
   }
 }
+
+.jet-poll-results {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+
+  &__bar {
+    height: 8px;
+    border-radius: 4px;
+    background: var(--jet-gray-200);
+    overflow: hidden;
+    margin-top: 4px;
+
+    span {
+      display: block;
+      height: 100%;
+      background: var(--jet-blue);
+    }
+  }
+}

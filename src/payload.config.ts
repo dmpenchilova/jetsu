@@ -16,7 +16,11 @@ import { Media } from './collections/Media'
 import { AuditLog, withAudit, withAuditGlobal } from './collections/AuditLog'
 import { PageTemplates, SharedBlocks } from './collections/Library'
 import { NotFoundLog } from './collections/NotFoundLog'
+import { Awards, Clients, People } from './collections/Directory'
 import { Pages } from './collections/Pages'
+import { PollVotes, Polls } from './collections/Polls'
+import { Vulnerabilities } from './collections/Vulnerabilities'
+import { Maintenance } from './globals/maintenance'
 import { Redirects } from './collections/Redirects'
 import { SearchIndex, SearchQueries } from './collections/Search'
 import { SubmissionFiles, Submissions } from './collections/Submissions'
@@ -48,10 +52,11 @@ if (process.env.NODE_ENV === 'production' && !isBuild && (process.env.PAYLOAD_SE
 /** Где работает типограф и чистка HTML: весь контент сайта. */
 const TEXT_COLLECTIONS = new Set([
   'pages', 'publications', 'projects', 'events', 'services', 'directions', 'subdirections', 'industries',
-  'vacancies', 'partners', 'offices', 'terms', 'forms', 'page-templates', 'shared-blocks',
+  'vacancies', 'partners', 'offices', 'terms', 'forms', 'page-templates', 'shared-blocks', 'people', 'clients', 'awards',
+  'polls', 'vulnerabilities',
 ])
 /** Коллекции, которые попадают в поиск по сайту. */
-const SEARCHABLE = new Set(['pages', 'publications', 'vacancies'])
+const SEARCHABLE = new Set(['pages', 'publications', 'vacancies', 'vulnerabilities'])
 const withSearch = <T extends { slug: string; hooks?: { afterChange?: unknown[]; afterDelete?: unknown[] } }>(c: T): T => {
   if (!SEARCHABLE.has(c.slug)) return c
   const h = searchHooks(c.slug as 'pages')
@@ -112,6 +117,12 @@ export default buildConfig({
     Industries,
     Vacancies,
     Partners,
+    People,
+    Clients,
+    Awards,
+    Polls,
+    PollVotes,
+    Vulnerabilities,
     Offices,
     Terms,
     Media,
@@ -127,7 +138,7 @@ export default buildConfig({
   ].map((c) => withAudit(withWorkflow(withSearch(TEXT_COLLECTIONS.has(c.slug) ? withText(c, textHook) : c)))),
   // папки (пока только в медиатеке)
   folders: { browseByFolder: false },
-  globals: [...globals.map((g) => withText(g, globalTextHook)), FormSettings, TypographSettings, SeoSettings, SiteVariables].map(withAuditGlobal),
+  globals: [...globals.map((g) => withText(g, globalTextHook)), FormSettings, TypographSettings, SeoSettings, SiteVariables, Maintenance].map(withAuditGlobal),
   endpoints: [adminSearchEndpoint],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

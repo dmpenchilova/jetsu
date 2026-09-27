@@ -9,7 +9,7 @@ import { DEFAULT_ROBOTS, type SeoSettingsDoc } from '../globals/seoSettings'
 type Url = { loc: string; lastmod?: string; alternates?: { ru?: string; en?: string } }
 
 /** Разделы, которые собирает не конструктор, а списки из коллекций. */
-const LIST_PAGES = ['expertise', 'services', 'vacancies', 'internships', 'about/partners']
+const LIST_PAGES = ['expertise', 'services', 'vacancies', 'internships', 'about/partners', 'vuln']
 
 const settingsOf = async (payload: Payload) =>
   (await payload.findGlobal({ slug: 'seo-settings', depth: 0, overrideAccess: true }).catch(() => ({}))) as SeoSettingsDoc
@@ -17,7 +17,7 @@ const settingsOf = async (payload: Payload) =>
 const pathFor = (path: string, locale: 'ru' | 'en') => `${locale === 'en' ? '/en' : ''}/${path}${path ? '/' : ''}`.replace(/\/{2,}/g, '/')
 
 /** Все опубликованные записи коллекции с датой и наличием английской версии. */
-const published = async (payload: Payload, collection: 'pages' | 'publications' | 'vacancies', where: Where = {}) => {
+const published = async (payload: Payload, collection: 'pages' | 'publications' | 'vacancies' | 'vulnerabilities', where: Where = {}) => {
   const out: { doc: Record<string, unknown>; en: boolean }[] = []
   let page = 1
   for (;;) {
@@ -76,7 +76,7 @@ export const sitemapUrls = async (payload: Payload) => {
   for (const { doc, en } of await published(payload, 'vacancies')) {
     add(`${doc.kind === 'internship' ? 'internships' : 'vacancies'}/${doc.slug}`, doc.updatedAt, en)
   }
-  // без повторов (страница конструктора может совпасть с разделом-списком)
+  for (const { doc, en } of await published(payload, 'vulnerabilities')) add(`vuln/${doc.slug}`, doc.updatedAt, en)  // без повторов (страница конструктора может совпасть с разделом-списком)
   const seen = new Set<string>()
   return urls.filter((u) => (seen.has(u.loc) ? false : (seen.add(u.loc), true)))
 }

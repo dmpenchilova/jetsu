@@ -4,6 +4,7 @@ import { APIError } from 'payload'
 import { canPublish, hasRole, isLoggedIn } from '../access'
 import { pageBlocks } from '../blocks'
 import { SharedBlockRef, withoutIds } from './Library'
+import { PollBlock } from './Polls'
 import { previewUrl } from '../lib/preview'
 import { builderTag, revalidateFront } from '../lib/revalidate'
 import { autoRedirect } from './Redirects'
@@ -246,7 +247,7 @@ export const Pages: CollectionConfig = {
               label: 'Блоки',
               type: 'blocks',
               localized: true,
-              blocks: [...pageBlocks, SharedBlockRef],
+              blocks: [...pageBlocks, SharedBlockRef, PollBlock],
               labels: { singular: 'блок', plural: 'Блоки' },
               admin: { initCollapsed: true },
             },

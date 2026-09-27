@@ -79,6 +79,12 @@ export interface Config {
     industries: Industry;
     vacancies: Vacancy;
     partners: Partner;
+    people: Person;
+    clients: Client;
+    awards: Award;
+    polls: Poll;
+    'poll-votes': PollVote;
+    vulnerabilities: Vulnerability;
     offices: Office;
     terms: Term;
     media: Media;
@@ -116,6 +122,12 @@ export interface Config {
     industries: IndustriesSelect<false> | IndustriesSelect<true>;
     vacancies: VacanciesSelect<false> | VacanciesSelect<true>;
     partners: PartnersSelect<false> | PartnersSelect<true>;
+    people: PeopleSelect<false> | PeopleSelect<true>;
+    clients: ClientsSelect<false> | ClientsSelect<true>;
+    awards: AwardsSelect<false> | AwardsSelect<true>;
+    polls: PollsSelect<false> | PollsSelect<true>;
+    'poll-votes': PollVotesSelect<false> | PollVotesSelect<true>;
+    vulnerabilities: VulnerabilitiesSelect<false> | VulnerabilitiesSelect<true>;
     offices: OfficesSelect<false> | OfficesSelect<true>;
     terms: TermsSelect<false> | TermsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
@@ -152,6 +164,7 @@ export interface Config {
     'typograph-settings': TypographSetting;
     'seo-settings': SeoSetting;
     'site-variables': SiteVariable;
+    maintenance: Maintenance;
     'payload-jobs-stats': PayloadJobsStat;
   };
   globalsSelect: {
@@ -167,6 +180,7 @@ export interface Config {
     'typograph-settings': TypographSettingsSelect<false> | TypographSettingsSelect<true>;
     'seo-settings': SeoSettingsSelect<false> | SeoSettingsSelect<true>;
     'site-variables': SiteVariablesSelect<false> | SiteVariablesSelect<true>;
+    maintenance: MaintenanceSelect<false> | MaintenanceSelect<true>;
     'payload-jobs-stats': PayloadJobsStatsSelect<false> | PayloadJobsStatsSelect<true>;
   };
   locale: 'ru' | 'en';
@@ -1398,10 +1412,19 @@ export interface Page {
              * Потом блок сам пропадёт с сайта
              */
             showUntil?: string | null;
+            source?: ('manual' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Person)[] | null;
             tag?: string | null;
             title?: string | null;
-            person: {
-              name: string;
+            person?: {
+              name?: string | null;
               position?: string | null;
               img?: {
                 src?: (number | null) | Media;
@@ -1446,6 +1469,15 @@ export interface Page {
              * Потом блок сам пропадёт с сайта
              */
             showUntil?: string | null;
+            source?: ('manual' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Person)[] | null;
             tag?: string | null;
             title?: string | null;
             person?: {
@@ -2120,6 +2152,15 @@ export interface Page {
              * Потом блок сам пропадёт с сайта
              */
             showUntil?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Award)[] | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -2132,21 +2173,23 @@ export interface Page {
               desktop?: (number | null) | Media;
               type?: ('mixed' | 'image' | 'video') | null;
             };
-            items: {
-              title: string;
-              description?: string | null;
-              img: {
-                src: number | Media;
-                /**
-                 * Если пусто — берётся из медиатеки
-                 */
-                alt?: string | null;
-                tablet?: (number | null) | Media;
-                desktop?: (number | null) | Media;
-              };
-              url: string;
-              id?: string | null;
-            }[];
+            items?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  img: {
+                    src: number | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  url: string;
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'award';
@@ -2176,21 +2219,32 @@ export interface Page {
              * Потом блок сам пропадёт с сайта
              */
             showUntil?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Person)[] | null;
             title?: string | null;
-            items: {
-              title?: string | null;
-              name?: string | null;
-              img: {
-                src: number | Media;
-                /**
-                 * Если пусто — берётся из медиатеки
-                 */
-                alt?: string | null;
-                tablet?: (number | null) | Media;
-                desktop?: (number | null) | Media;
-              };
-              id?: string | null;
-            }[];
+            items?:
+              | {
+                  title?: string | null;
+                  name?: string | null;
+                  img: {
+                    src: number | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'team';
@@ -2471,6 +2525,15 @@ export interface Page {
              * Потом блок сам пропадёт с сайта
              */
             showUntil?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Client)[] | null;
             title?: string | null;
             subtitle: string;
             link?: {
@@ -4182,6 +4245,14 @@ export interface Page {
             blockName?: string | null;
             blockType: 'sharedBlock';
           }
+        | {
+            hidden?: boolean | null;
+            tag?: string | null;
+            ref: number | Poll;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'poll';
+          }
       )[]
     | null;
   /**
@@ -4791,6 +4862,56 @@ export interface Partner {
   createdAt: string;
 }
 /**
+ * Эксперты и руководители для блоков «Команда», «Лидер направления», «Остались вопросы»
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "people".
+ */
+export interface Person {
+  id: number;
+  name: string;
+  position?: string | null;
+  photo?: {
+    src?: (number | null) | Media;
+    /**
+     * Если пусто — берётся из медиатеки
+     */
+    alt?: string | null;
+    tablet?: (number | null) | Media;
+    desktop?: (number | null) | Media;
+  };
+  department?: string | null;
+  email?: string | null;
+  phone?: string | null;
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Для блока «Награды»: в автоматическом режиме — свежие сверху
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "awards".
+ */
+export interface Award {
+  id: number;
+  title: string;
+  description?: string | null;
+  year?: number | null;
+  url?: string | null;
+  img?: {
+    src?: (number | null) | Media;
+    /**
+     * Если пусто — берётся из медиатеки
+     */
+    alt?: string | null;
+    tablet?: (number | null) | Media;
+    desktop?: (number | null) | Media;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "offices".
  */
@@ -4818,6 +4939,22 @@ export interface Office {
         id?: string | null;
       }[]
     | null;
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Логотипы клиентов: светлый — для белого фона, тёмный — для синего
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "clients".
+ */
+export interface Client {
+  id: number;
+  title: string;
+  logoLight?: (number | null) | Media;
+  logoDark?: (number | null) | Media;
+  url?: string | null;
   order?: number | null;
   updatedAt: string;
   createdAt: string;
@@ -6012,10 +6149,19 @@ export interface SharedBlock {
              * Потом блок сам пропадёт с сайта
              */
             showUntil?: string | null;
+            source?: ('manual' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Person)[] | null;
             tag?: string | null;
             title?: string | null;
-            person: {
-              name: string;
+            person?: {
+              name?: string | null;
               position?: string | null;
               img?: {
                 src?: (number | null) | Media;
@@ -6060,6 +6206,15 @@ export interface SharedBlock {
              * Потом блок сам пропадёт с сайта
              */
             showUntil?: string | null;
+            source?: ('manual' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Person)[] | null;
             tag?: string | null;
             title?: string | null;
             person?: {
@@ -6734,6 +6889,15 @@ export interface SharedBlock {
              * Потом блок сам пропадёт с сайта
              */
             showUntil?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Award)[] | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -6746,21 +6910,23 @@ export interface SharedBlock {
               desktop?: (number | null) | Media;
               type?: ('mixed' | 'image' | 'video') | null;
             };
-            items: {
-              title: string;
-              description?: string | null;
-              img: {
-                src: number | Media;
-                /**
-                 * Если пусто — берётся из медиатеки
-                 */
-                alt?: string | null;
-                tablet?: (number | null) | Media;
-                desktop?: (number | null) | Media;
-              };
-              url: string;
-              id?: string | null;
-            }[];
+            items?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  img: {
+                    src: number | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  url: string;
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'award';
@@ -6790,21 +6956,32 @@ export interface SharedBlock {
              * Потом блок сам пропадёт с сайта
              */
             showUntil?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Person)[] | null;
             title?: string | null;
-            items: {
-              title?: string | null;
-              name?: string | null;
-              img: {
-                src: number | Media;
-                /**
-                 * Если пусто — берётся из медиатеки
-                 */
-                alt?: string | null;
-                tablet?: (number | null) | Media;
-                desktop?: (number | null) | Media;
-              };
-              id?: string | null;
-            }[];
+            items?:
+              | {
+                  title?: string | null;
+                  name?: string | null;
+                  img: {
+                    src: number | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'team';
@@ -7085,6 +7262,15 @@ export interface SharedBlock {
              * Потом блок сам пропадёт с сайта
              */
             showUntil?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Client)[] | null;
             title?: string | null;
             subtitle: string;
             link?: {
@@ -8792,6 +8978,32 @@ export interface SharedBlock {
   createdAt: string;
 }
 /**
+ * Вставляются на страницу блоком «Опрос». Один ответ с устройства, личные данные не собираются
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "polls".
+ */
+export interface Poll {
+  id: number;
+  question: string;
+  description?: string | null;
+  multiple?: boolean | null;
+  active?: boolean | null;
+  /**
+   * Потом показываются только итоги
+   */
+  until?: string | null;
+  options?:
+    | {
+        label: string;
+        id?: string | null;
+      }[]
+    | null;
+  showResults?: ('after' | 'never') | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * Готовые наборы блоков. Новую страницу из шаблона создают кнопкой в списке страниц; шаблон из готовой страницы — кнопкой «Сохранить как шаблон» в самой странице
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -9982,10 +10194,19 @@ export interface PageTemplate {
              * Потом блок сам пропадёт с сайта
              */
             showUntil?: string | null;
+            source?: ('manual' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Person)[] | null;
             tag?: string | null;
             title?: string | null;
-            person: {
-              name: string;
+            person?: {
+              name?: string | null;
               position?: string | null;
               img?: {
                 src?: (number | null) | Media;
@@ -10030,6 +10251,15 @@ export interface PageTemplate {
              * Потом блок сам пропадёт с сайта
              */
             showUntil?: string | null;
+            source?: ('manual' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Person)[] | null;
             tag?: string | null;
             title?: string | null;
             person?: {
@@ -10704,6 +10934,15 @@ export interface PageTemplate {
              * Потом блок сам пропадёт с сайта
              */
             showUntil?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Award)[] | null;
             tag?: string | null;
             title?: string | null;
             background?: {
@@ -10716,21 +10955,23 @@ export interface PageTemplate {
               desktop?: (number | null) | Media;
               type?: ('mixed' | 'image' | 'video') | null;
             };
-            items: {
-              title: string;
-              description?: string | null;
-              img: {
-                src: number | Media;
-                /**
-                 * Если пусто — берётся из медиатеки
-                 */
-                alt?: string | null;
-                tablet?: (number | null) | Media;
-                desktop?: (number | null) | Media;
-              };
-              url: string;
-              id?: string | null;
-            }[];
+            items?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  img: {
+                    src: number | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  url: string;
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'award';
@@ -10760,21 +11001,32 @@ export interface PageTemplate {
              * Потом блок сам пропадёт с сайта
              */
             showUntil?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Person)[] | null;
             title?: string | null;
-            items: {
-              title?: string | null;
-              name?: string | null;
-              img: {
-                src: number | Media;
-                /**
-                 * Если пусто — берётся из медиатеки
-                 */
-                alt?: string | null;
-                tablet?: (number | null) | Media;
-                desktop?: (number | null) | Media;
-              };
-              id?: string | null;
-            }[];
+            items?:
+              | {
+                  title?: string | null;
+                  name?: string | null;
+                  img: {
+                    src: number | Media;
+                    /**
+                     * Если пусто — берётся из медиатеки
+                     */
+                    alt?: string | null;
+                    tablet?: (number | null) | Media;
+                    desktop?: (number | null) | Media;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'team';
@@ -11055,6 +11307,15 @@ export interface PageTemplate {
              * Потом блок сам пропадёт с сайта
              */
             showUntil?: string | null;
+            source?: ('manual' | 'auto' | 'pick') | null;
+            /**
+             * Пусто — все
+             */
+            limit?: number | null;
+            /**
+             * Порядок на сайте — как здесь
+             */
+            pick?: (number | Client)[] | null;
             title?: string | null;
             subtitle: string;
             link?: {
@@ -13034,6 +13295,70 @@ export interface Vacancy {
   _status?: ('draft' | 'published') | null;
 }
 /**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "poll-votes".
+ */
+export interface PollVote {
+  id: number;
+  poll?: (number | null) | Poll;
+  options?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  voter?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Раздел сайта /vuln/: найденные специалистами уязвимости
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "vulnerabilities".
+ */
+export interface Vulnerability {
+  id: number;
+  title: string;
+  cve: string;
+  date: string;
+  state?: ('active' | 'fixed') | null;
+  vendor?: string | null;
+  product?: string | null;
+  cvss3?: number | null;
+  vector3?: string | null;
+  cvss2?: number | null;
+  vector2?: string | null;
+  description: string;
+  fix?: string | null;
+  workaround?: string | null;
+  foundBy?: string | null;
+  links?: {
+    press?: string | null;
+    github?: string | null;
+    mitre?: string | null;
+    bdu?: string | null;
+  };
+  /**
+   * Если пусто — title берётся из названия
+   */
+  seo?: {
+    title?: string | null;
+    description?: string | null;
+    keywords?: string | null;
+  };
+  /**
+   * Адрес: /vuln/<код>/
+   */
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
  * Всё, что отправили через формы сайта. Заявки старше срока хранения удаляются автоматически
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -13141,7 +13466,9 @@ export interface SearchIndex {
   id: number;
   source?: string | null;
   locale?: string | null;
-  type?: ('news' | 'article' | 'journal' | 'service' | 'company' | 'industry' | 'project' | 'career' | 'other') | null;
+  type?:
+    | ('news' | 'article' | 'journal' | 'service' | 'company' | 'industry' | 'project' | 'career' | 'vuln' | 'other')
+    | null;
   title?: string | null;
   text?: string | null;
   url?: string | null;
@@ -13425,6 +13752,30 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'partners';
         value: number | Partner;
+      } | null)
+    | ({
+        relationTo: 'people';
+        value: number | Person;
+      } | null)
+    | ({
+        relationTo: 'clients';
+        value: number | Client;
+      } | null)
+    | ({
+        relationTo: 'awards';
+        value: number | Award;
+      } | null)
+    | ({
+        relationTo: 'polls';
+        value: number | Poll;
+      } | null)
+    | ({
+        relationTo: 'poll-votes';
+        value: number | PollVote;
+      } | null)
+    | ({
+        relationTo: 'vulnerabilities';
+        value: number | Vulnerability;
       } | null)
     | ({
         relationTo: 'offices';
@@ -14387,6 +14738,9 @@ export interface PagesSelect<T extends boolean = true> {
               viewDevice?: T;
               showFrom?: T;
               showUntil?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               tag?: T;
               title?: T;
               person?:
@@ -14424,6 +14778,9 @@ export interface PagesSelect<T extends boolean = true> {
               viewDevice?: T;
               showFrom?: T;
               showUntil?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               tag?: T;
               title?: T;
               person?:
@@ -14936,6 +15293,9 @@ export interface PagesSelect<T extends boolean = true> {
               viewDevice?: T;
               showFrom?: T;
               showUntil?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               tag?: T;
               title?: T;
               background?:
@@ -14978,6 +15338,9 @@ export interface PagesSelect<T extends boolean = true> {
               viewDevice?: T;
               showFrom?: T;
               showUntil?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               title?: T;
               items?:
                 | T
@@ -15207,6 +15570,9 @@ export interface PagesSelect<T extends boolean = true> {
               viewDevice?: T;
               showFrom?: T;
               showUntil?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               title?: T;
               subtitle?: T;
               link?:
@@ -16441,6 +16807,15 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        poll?:
+          | T
+          | {
+              hidden?: T;
+              tag?: T;
+              ref?: T;
+              id?: T;
+              blockName?: T;
+            };
       };
   slug?: T;
   parent?: T;
@@ -17354,6 +17729,9 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               viewDevice?: T;
               showFrom?: T;
               showUntil?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               tag?: T;
               title?: T;
               person?:
@@ -17391,6 +17769,9 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               viewDevice?: T;
               showFrom?: T;
               showUntil?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               tag?: T;
               title?: T;
               person?:
@@ -17903,6 +18284,9 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               viewDevice?: T;
               showFrom?: T;
               showUntil?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               tag?: T;
               title?: T;
               background?:
@@ -17945,6 +18329,9 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               viewDevice?: T;
               showFrom?: T;
               showUntil?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               title?: T;
               items?:
                 | T
@@ -18174,6 +18561,9 @@ export interface PageTemplatesSelect<T extends boolean = true> {
               viewDevice?: T;
               showFrom?: T;
               showUntil?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               title?: T;
               subtitle?: T;
               link?:
@@ -20279,6 +20669,9 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               viewDevice?: T;
               showFrom?: T;
               showUntil?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               tag?: T;
               title?: T;
               person?:
@@ -20316,6 +20709,9 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               viewDevice?: T;
               showFrom?: T;
               showUntil?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               tag?: T;
               title?: T;
               person?:
@@ -20828,6 +21224,9 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               viewDevice?: T;
               showFrom?: T;
               showUntil?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               tag?: T;
               title?: T;
               background?:
@@ -20870,6 +21269,9 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               viewDevice?: T;
               showFrom?: T;
               showUntil?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               title?: T;
               items?:
                 | T
@@ -21099,6 +21501,9 @@ export interface SharedBlocksSelect<T extends boolean = true> {
               viewDevice?: T;
               showFrom?: T;
               showUntil?: T;
+              source?: T;
+              limit?: T;
+              pick?: T;
               title?: T;
               subtitle?: T;
               link?:
@@ -22877,6 +23282,131 @@ export interface PartnersSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "people_select".
+ */
+export interface PeopleSelect<T extends boolean = true> {
+  name?: T;
+  position?: T;
+  photo?:
+    | T
+    | {
+        src?: T;
+        alt?: T;
+        tablet?: T;
+        desktop?: T;
+      };
+  department?: T;
+  email?: T;
+  phone?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "clients_select".
+ */
+export interface ClientsSelect<T extends boolean = true> {
+  title?: T;
+  logoLight?: T;
+  logoDark?: T;
+  url?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "awards_select".
+ */
+export interface AwardsSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  year?: T;
+  url?: T;
+  img?:
+    | T
+    | {
+        src?: T;
+        alt?: T;
+        tablet?: T;
+        desktop?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "polls_select".
+ */
+export interface PollsSelect<T extends boolean = true> {
+  question?: T;
+  description?: T;
+  multiple?: T;
+  active?: T;
+  until?: T;
+  options?:
+    | T
+    | {
+        label?: T;
+        id?: T;
+      };
+  showResults?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "poll-votes_select".
+ */
+export interface PollVotesSelect<T extends boolean = true> {
+  poll?: T;
+  options?: T;
+  voter?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "vulnerabilities_select".
+ */
+export interface VulnerabilitiesSelect<T extends boolean = true> {
+  title?: T;
+  cve?: T;
+  date?: T;
+  state?: T;
+  vendor?: T;
+  product?: T;
+  cvss3?: T;
+  vector3?: T;
+  cvss2?: T;
+  vector2?: T;
+  description?: T;
+  fix?: T;
+  workaround?: T;
+  foundBy?: T;
+  links?:
+    | T
+    | {
+        press?: T;
+        github?: T;
+        mitre?: T;
+        bdu?: T;
+      };
+  seo?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        keywords?: T;
+      };
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "offices_select".
  */
 export interface OfficesSelect<T extends boolean = true> {
@@ -23710,6 +24240,24 @@ export interface SiteVariable {
   createdAt?: string | null;
 }
 /**
+ * Пока режим включён, посетители видят страницу «Ведутся работы» (сайт подхватывает изменение в течение 30 секунд). Превью черновиков из админки продолжает работать
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "maintenance".
+ */
+export interface Maintenance {
+  id: number;
+  enabled?: boolean | null;
+  /**
+   * Пусто — пока не выключите
+   */
+  until?: string | null;
+  title?: string | null;
+  text?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-jobs-stats".
  */
@@ -24165,6 +24713,19 @@ export interface SiteVariablesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "maintenance_select".
+ */
+export interface MaintenanceSelect<T extends boolean = true> {
+  enabled?: T;
+  until?: T;
+  title?: T;
+  text?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-jobs-stats_select".
  */
 export interface PayloadJobsStatsSelect<T extends boolean = true> {
@@ -24257,6 +24818,10 @@ export interface TaskSchedulePublish {
       | ({
           relationTo: 'vacancies';
           value: number | Vacancy;
+        } | null)
+      | ({
+          relationTo: 'vulnerabilities';
+          value: number | Vulnerability;
         } | null);
     global?: string | null;
     user?: {

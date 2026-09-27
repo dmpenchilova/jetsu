@@ -756,6 +756,52 @@ export const resolveBinding = async (payload: Payload, type: string, row: Doc, l
         return { title: d.title, ...(d.short ? { description: d.short } : {}), content }
       })
     }
+    case 'team': {
+      const docs = await pickOrAuto(payload, 'people', locale, row, async () => findAll(payload, 'people', locale, {}, 'order'))
+      const ctx = await imgs(docs, ['photo'])
+      return docs.map((d) => ({ ...(toFront(IMG, d.photo, ctx) ? { img: toFront(IMG, d.photo, ctx) } : {}), name: d.name, ...(d.position ? { title: d.position } : {}) }))
+    }
+    case 'leader':
+    case 'expert': {
+      const docs = await pickOrAuto(payload, 'people', locale, row, async () => [], 1)
+      const ctx = await imgs(docs, ['photo'])
+      const own = (row.person ?? {}) as Doc
+      // кнопка и телефон из блока остаются, данные человека — из справочника
+      return docs.slice(0, 1).map((d) => {
+        const person: Doc = { name: d.name }
+        const img = toFront(IMG, d.photo, ctx)
+        if (img) person.img = img
+        if (type === 'leader' && d.position) person.position = d.position
+        if (type === 'expert' && d.position) person.postion = d.position
+        if (type === 'expert' && (d.phone || own.phone)) person.phone = d.phone || own.phone
+        const btn = own.btn as Doc | undefined
+        if (btn?.title) person.btn = { title: btn.title, ...(btn.hash ? { hash: btn.hash } : {}) }
+        return person
+      })
+    }
+    case 'award': {
+      const docs = await pickOrAuto(payload, 'awards', locale, row, async () => findAll(payload, 'awards', locale, {}, '-year'))
+      const ctx = await imgs(docs, ['img'])
+      return docs.map((d) => {
+        const card: Doc = { title: d.title }
+        const img = toFront(IMG, d.img, ctx)
+        if (img) card.img = img
+        const desc = [d.description, d.year].filter(Boolean).join(' · ')
+        if (desc) card.description = desc
+        if (d.url) card.url = d.url
+        return card
+      })
+    }
+    case 'about': {
+      const docs = await pickOrAuto(payload, 'clients', locale, row, async () => findAll(payload, 'clients', locale, {}, 'order'), 12)
+      const ctx = await imgs(docs, ['logoLight', 'logoDark'])
+      return docs
+        .map((d) => {
+          const img = (toFront(IMG, d.logoDark, ctx) ?? toFront(IMG, d.logoLight, ctx)) as Doc | undefined
+          return img ? { ...img, alt: img.alt || d.title } : undefined
+        })
+        .filter(Boolean) as Doc[]
+    }
     case 'partners':
     case 'vendors': {
       const docs = await pickOrAuto(payload, 'partners', locale, row, async () => findAll(payload, 'partners', locale, {}, 'order'))

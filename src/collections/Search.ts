@@ -14,6 +14,7 @@ export const SEARCH_TYPES = [
   { label: 'Отрасли', value: 'industry' },
   { label: 'Проекты', value: 'project' },
   { label: 'Карьера', value: 'career' },
+  { label: 'Уязвимости', value: 'vuln' },
   { label: 'Другое', value: 'other' },
 ] as const
 

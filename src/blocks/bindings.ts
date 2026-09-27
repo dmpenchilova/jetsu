@@ -9,6 +9,8 @@ export type Binding = {
   /** что значит «автоматически»; если нет — доступен только выбор записей */
   auto?: string
   limit?: number
+  /** в блоке одна запись (например, эксперт), а не список */
+  single?: boolean
 }
 
 export const BINDINGS: Record<string, Binding> = {
@@ -22,6 +24,11 @@ export const BINDINGS: Record<string, Binding> = {
   offices: { prop: 'offices', collection: 'offices', auto: 'все офисы из раздела «Офисы»' },
   contacts: { prop: 'offices', collection: 'offices', auto: 'все офисы из раздела «Офисы»' },
   relatedServices: { prop: 'items', collection: 'services', auto: 'услуги по темам страницы', limit: 8 },
+  team: { prop: 'items', collection: 'people', auto: 'все сотрудники по порядку' },
+  leader: { prop: 'person', collection: 'people', single: true },
+  expert: { prop: 'person', collection: 'people', single: true },
+  award: { prop: 'items', collection: 'awards', auto: 'все награды, свежие сверху' },
+  about: { prop: 'companies', collection: 'clients', auto: 'логотипы всех клиентов по порядку', limit: 12 },
 }
 
 export type Source = 'manual' | 'auto' | 'pick'

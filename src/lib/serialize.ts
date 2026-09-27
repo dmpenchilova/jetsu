@@ -174,9 +174,33 @@ export const pageToFront = async (payload: Payload, page: PageDoc, locale: Local
     const binding = BINDINGS[block.type]
     if (!row || !binding) continue
     const items = await resolveBinding(payload, block.type, row, locale, topicsOf(page))
-    if (items !== undefined) block.data[binding.prop] = items
+    if (items !== undefined) {
+      if (binding.single) {
+        if (items.length) block.data[binding.prop] = items[0]
+      } else block.data[binding.prop] = items
+    }
   }
-  data.content = content
+  // опросы — отдельные блоки со своими данными; ставим их на свои места среди остальных
+  const polls = expanded.filter((r) => r.blockType === 'poll' && !r.hidden)
+  if (polls.length) {
+    const { pollToFront } = await import('../collections/Polls')
+    const pollBlocks = new Map<string, Record<string, unknown>>()
+    for (const r of polls) {
+      const id = r.ref && typeof r.ref === 'object' ? (r.ref as { id: number }).id : (r.ref as number)
+      const d = id ? await pollToFront(payload, id, locale, (r.tag as string) || undefined) : undefined
+      if (d) pollBlocks.set(String(r.id ?? ''), d)
+    }
+    const ordered: typeof content = []
+    const byUuid = new Map(content.map((b) => [b.uuid, b]))
+    for (const r of expanded) {
+      const uuid = String(r.id ?? '')
+      if (r.blockType === 'poll') {
+        const d = pollBlocks.get(uuid)
+        if (d) ordered.push({ type: 'poll', uuid, data: d })
+      } else if (byUuid.has(uuid)) ordered.push(byUuid.get(uuid)!)
+    }
+    data.content = ordered
+  } else data.content = content
   return { status: 'success', data }
 }
 

@@ -107,6 +107,30 @@ async function handleGet(req: Request, { params }: { params: Promise<{ path: str
   }
   if (path === 'redirects') return json({ status: 'success', data: await redirectsList(payload) })
 
+  // режим обслуживания (сайт спрашивает раз в 30 секунд)
+  if (path === 'maintenance') {
+    const { maintenanceState } = await import('@/globals/maintenance')
+    return json({ status: 'success', data: await maintenanceState(payload, locale) })
+  }
+
+  // итоги опроса
+  if (path.startsWith('poll/') && /^poll\/\d+$/.test(path)) {
+    const { pollResults } = await import('@/collections/Polls')
+    const id = Number(path.split('/')[1])
+    const poll = await payload.findByID({ collection: 'polls', id, depth: 0, overrideAccess: true }).catch(() => null)
+    if (!poll || (poll as { showResults?: string }).showResults === 'never') return notFound()
+    return json({ status: 'success', data: await pollResults(payload, id, locale) })
+  }
+
+  // уязвимости
+  if (path === 'vuln' || path.startsWith('vuln/')) {
+    const { vulnList, vulnPage } = await import('@/lib/vuln')
+    const slug = path.split('/')[1]
+    if (!slug) return json(await withSeo(payload, await vulnList(payload, locale, url.searchParams), 'vuln', locale))
+    const res = await vulnPage(payload, locale, slug)
+    return res ? json(await withSeo(payload, res, path, locale)) : notFound()
+  }
+
   if (path === 'common') {
     const [header, footer] = await Promise.all([
       payload.findGlobal({ slug: 'header', locale, depth: 0, overrideAccess: true }),
@@ -185,6 +209,18 @@ export async function POST(req: Request, { params }: { params: Promise<{ path: s
     return json({ status: 'success' })
   }
   const locale: Locale = body.lang === 'en' || url.searchParams.get('lang') === 'en' ? 'en' : 'ru'
+
+  // ответ на опрос
+  if (path === 'poll/vote') {
+    const payload = await getPayload({ config })
+    const { votePoll } = await import('@/collections/Polls')
+    const { clientIp, ipHash } = await import('@/lib/forms/guard')
+    const res = await votePoll(payload, body, ipHash(clientIp(req)), locale)
+    if ('error' in res && res.error) {
+      return json({ status: 'error', data: res }, res.error === 'closed' ? 409 : res.error === 'too many' ? 429 : 400)
+    }
+    return json({ status: 'success', data: res })
+  }
 
   if (path === 'preview') {
     const target = typeof body.hash === 'string' ? readPreviewHash(body.hash) : null

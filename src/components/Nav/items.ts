@@ -19,11 +19,16 @@ export const NAV_ITEMS: NavItem[] = [
 
   { group: 'Экспертиза', label: 'Публикации', href: '/admin/collections/publications', entity: c('publications'), icon: 'M4 5h16v14H4z M8 9h8 M8 13h8 M8 17h5' },
   { label: 'Проекты', href: '/admin/collections/projects', entity: c('projects'), icon: 'M4 8h16v11H4z M9 8V5h6v3' },
+  { label: 'Уязвимости', href: '/admin/collections/vulnerabilities', entity: c('vulnerabilities'), icon: 'M12 3l8 4v5c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V7z M12 8v5 M12 16h.01' },
+  { label: 'Опросы', href: '/admin/collections/polls', entity: c('polls'), icon: 'M5 20V10 M12 20V4 M19 20v-7' },
   { label: 'Мероприятия', href: '/admin/collections/events', entity: c('events'), icon: 'M4 6h16v14H4z M4 10h16 M9 3v4 M15 3v4' },
 
   { group: 'Контент', label: 'Услуги и решения', href: '/admin/collections/services', entity: c('services'), icon: 'M4 4h7v7H4z M13 4h7v7h-7z M4 13h7v7H4z M13 13h7v7h-7z' },
   { label: 'Карьера', href: '/admin/collections/vacancies', entity: c('vacancies'), icon: 'M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6 M17 11a3 3 0 1 0 0-6 M21 20c0-2.6-1.7-4.9-4-5.7' },
   { label: 'Партнёры', href: '/admin/collections/partners', entity: c('partners'), icon: 'M5 21V4h10v17 M15 9h4v12 M8 8h4 M8 12h4 M8 16h4 M3 21h18' },
+  { label: 'Сотрудники', href: '/admin/collections/people', entity: c('people'), icon: 'M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z M4 21c0-4 3.6-7 8-7s8 3 8 7' },
+  { label: 'Клиенты', href: '/admin/collections/clients', entity: c('clients'), icon: 'M3 7h18v13H3z M8 7V4h8v3' },
+  { label: 'Награды', href: '/admin/collections/awards', entity: c('awards'), icon: 'M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12z M8.5 14L7 22l5-3 5 3-1.5-8' },
   { label: 'Офисы', href: '/admin/collections/offices', entity: c('offices'), icon: 'M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z M12 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4z' },
 
   { group: 'Справочники', label: 'Теги и списки', href: '/admin/collections/terms', entity: c('terms'), icon: 'M3 12V4h8l10 10-8 8z M7.5 7.5h.01' },
@@ -48,6 +53,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Ошибки 404', href: '/admin/collections/not-found-log', entity: c('not-found-log'), icon: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z M9 9l6 6 M15 9l-6 6' },
   { label: 'Редиректы', href: '/admin/collections/redirects', entity: c('redirects'), icon: 'M4 7h12l-3-3 M16 7l-3 3 M20 17H8l3 3 M8 17l3-3' },
   { label: 'Переменные', href: '/admin/globals/site-variables', entity: g('site-variables'), icon: 'M8 4c-2 0-2 2-2 4s-2 4-2 4 2 0 2 4 0 4 2 4 M16 4c2 0 2 2 2 4s2 4 2 4-2 0-2 4 0 4-2 4' },
+  { label: 'Режим обслуживания', href: '/admin/globals/maintenance', entity: g('maintenance'), icon: 'M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z' },
   { label: 'Типограф', href: '/admin/globals/typograph-settings', entity: g('typograph-settings'), icon: 'M5 5h14 M12 5v14 M9 19h6' },
 
   { group: 'Разделы сайта', label: 'Центр экспертизы', href: '/admin/globals/expertise-page', entity: g('expertise-page'), icon: 'M12 3l2.5 6 6.5.5-5 4 1.5 6.5-5.5-3.5-5.5 3.5L9 13.5l-5-4L10.5 9z' },

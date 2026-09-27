@@ -135,11 +135,24 @@ const vacancyEntry = (doc: Doc, locale: Locale, lk: Lookups): Entry | null => {
   return { type: 'career', title, text: collectText(body).join(' '), url: urlOf(`${section}/${doc.slug}`, locale), tags, date: (doc.updatedAt as string) ?? null }
 }
 
-type Source = 'pages' | 'publications' | 'vacancies'
+const vulnEntry = (doc: Doc, locale: Locale): Entry | null => {
+  const title = titleText(doc.title)
+  if (!title || !doc.slug) return null
+  return {
+    type: 'vuln',
+    title: `${title}${doc.cve ? ` (${doc.cve})` : ''}`,
+    text: [doc.vendor, doc.product, doc.description, doc.fix, doc.workaround].map((v) => titleText(v)).filter(Boolean).join(' '),
+    url: urlOf(`vuln/${doc.slug}`, locale),
+    date: (doc.date as string) ?? null,
+  }
+}
+
+type Source = 'pages' | 'publications' | 'vacancies' | 'vulnerabilities'
 
 const entryOf = (collection: Source, doc: Doc, locale: Locale, lk: Lookups) => {
   if (collection === 'pages') return pageEntry(doc, locale)
   if (collection === 'publications') return publicationEntry(doc, locale, lk)
+  if (collection === 'vulnerabilities') return vulnEntry(doc, locale)
   return vacancyEntry(doc, locale, lk)
 }
 
@@ -195,7 +208,7 @@ export const reindexAll = async (payload: Payload) => {
   await payload.delete({ collection: 'search-index', where: { id: { exists: true } }, overrideAccess: true })
   const lookups = { ru: await loadLookups(payload, 'ru'), en: await loadLookups(payload, 'en') }
   let count = 0
-  for (const collection of ['pages', 'publications', 'vacancies'] as Source[]) {
+  for (const collection of ['pages', 'publications', 'vacancies', 'vulnerabilities'] as Source[]) {
     const res = await payload.find({ collection, where: { _status: { equals: 'published' } }, depth: 0, limit: 5000, pagination: false, overrideAccess: true, select: {} as never })
     for (const doc of res.docs as unknown as { id: number }[]) {
       await indexDoc(payload, collection, doc.id, lookups)

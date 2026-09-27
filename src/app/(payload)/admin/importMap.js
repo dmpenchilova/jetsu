@@ -6,6 +6,7 @@ import { TranslationCell as TranslationCell_4cdcb5cc9f929e87971f218a3ab24fc9 } f
 import { ReviewCell as ReviewCell_4cdcb5cc9f929e87971f218a3ab24fc9 } from '../../../components/Workflow'
 import { WorkflowPanel as WorkflowPanel_4cdcb5cc9f929e87971f218a3ab24fc9 } from '../../../components/Workflow'
 import { PagesFromTemplate as PagesFromTemplate_be484f34cf62d45d979187298e5cdb82 } from '../../../components/PagesFromTemplate'
+import { PollResults as PollResults_c3a12d2700b62c262772608f5e161f3b } from '../../../components/PollResults'
 import { MediaUsage as MediaUsage_f6650644f5d188bfe66735fac80447c8 } from '../../../components/MediaUsage'
 import { FolderTableCell as FolderTableCell_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 import { FolderField as FolderField_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
@@ -32,6 +33,7 @@ export const importMap = {
   "/components/Workflow#ReviewCell": ReviewCell_4cdcb5cc9f929e87971f218a3ab24fc9,
   "/components/Workflow#WorkflowPanel": WorkflowPanel_4cdcb5cc9f929e87971f218a3ab24fc9,
   "/components/PagesFromTemplate#PagesFromTemplate": PagesFromTemplate_be484f34cf62d45d979187298e5cdb82,
+  "/components/PollResults#PollResults": PollResults_c3a12d2700b62c262772608f5e161f3b,
   "/components/MediaUsage#MediaUsage": MediaUsage_f6650644f5d188bfe66735fac80447c8,
   "@payloadcms/next/rsc#FolderTableCell": FolderTableCell_f9c02e79a4aed9a3924487c0cd4cafb1,
   "@payloadcms/next/rsc#FolderField": FolderField_f9c02e79a4aed9a3924487c0cd4cafb1,

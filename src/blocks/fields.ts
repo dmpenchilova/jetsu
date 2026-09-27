@@ -364,8 +364,9 @@ export const buildBlock = (type: string, shape: Shape): Block => {
   const own = props
     .filter((p) => p.key !== 'hash' && p.key !== 'navTitle')
     .map((p) => (binding && p.key === binding.prop ? { ...p, required: false } : p))
+  // у «одиночных» привязок (эксперт) поля человека не прячутся: из них берутся кнопка и телефон
   const ownFields = objectFields(own, true).map((f) =>
-    binding && 'name' in f && f.name === binding.prop
+    binding && !binding.single && 'name' in f && f.name === binding.prop
       ? ({ ...f, admin: { ...(f.admin ?? {}), condition: (_: unknown, sibling: Record<string, unknown>) => !sibling?.source || sibling.source === 'manual' } } as Field)
       : f,
   )
