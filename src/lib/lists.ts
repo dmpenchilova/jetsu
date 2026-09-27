@@ -654,12 +654,12 @@ const topicScore = (d: Doc, topics?: PageTopics) => {
   return own.filter((x) => dirs.has(x)).length + ids(d.industries).map(String).filter((x) => inds.has(x)).length
 }
 
-/** Если у страницы заданы темы — записи по этим темам вперёд (или только они, когда их хватает). */
-const byTopics = (docs: Doc[], topics: PageTopics | undefined, min = 2) => {
+/** Если у страницы заданы темы — записи по этим темам идут первыми, остальные места добираются свежими записями. */
+const byTopics = (docs: Doc[], topics: PageTopics | undefined) => {
   if (!topics || (!topics.directions.length && !topics.industries.length)) return docs
   const scored = docs.map((d, i) => ({ d, i, s: topicScore(d, topics) }))
   const matched = scored.filter((x) => x.s > 0).sort((a, b) => b.s - a.s || a.i - b.i).map((x) => x.d)
-  return matched.length >= min ? matched : [...matched, ...docs.filter((d) => !matched.includes(d))]
+  return [...matched, ...docs.filter((d) => !matched.includes(d))]
 }
 
 export const resolveBinding = async (payload: Payload, type: string, row: Doc, locale: Locale, topics?: PageTopics): Promise<unknown[] | undefined> => {
@@ -839,7 +839,7 @@ export const resolveBinding = async (payload: Payload, type: string, row: Doc, l
       // автоматически — услуги тех направлений и отраслей, что указаны в темах страницы
       const docs = await pickOrAuto(payload, 'services', locale, row, async () => {
         if (!topics || (!topics.directions.length && !topics.industries.length)) return []
-        return byTopics(await findAll(payload, 'services', locale, {}, 'order'), topics, 1).filter((d) => topicScore(d, topics) > 0)
+        return byTopics(await findAll(payload, 'services', locale, {}, 'order'), topics).filter((d) => topicScore(d, topics) > 0)
       }, 8)
       return docs.map((s) => ({ title: s.title, ...(s.description ? { description: s.description } : {}), slug: s.slug }))
     }
