@@ -87,7 +87,12 @@ jobs:
           done
           curl -sf http://localhost:3001/cms-api/health || { cat server.log; exit 1; }
       - name: Тестовые данные
-        run: PAYLOAD_JOBS_AUTORUN=false npm run import:fixtures
+        run: |
+          PAYLOAD_JOBS_AUTORUN=false npm run import:fixtures > import.log 2>&1 || {
+            # ошибку показываем в сводке запуска, чтобы не открывать полный журнал
+            echo "::error title=Импорт тестовых данных::$(grep -v 'Файл не найден' import.log | tail -40 | sed ':a;N;$!ba;s/%/%25/g;s/\r//g;s/\n/%0A/g')"
+            exit 1
+          }
       - name: API отвечает
         run: |
           set -e
@@ -100,7 +105,9 @@ jobs:
           curl -s http://localhost:3001/api/robots | grep -q 'Disallow: /'
       - name: Журнал сервера
         if: failure()
-        run: tail -200 server.log
+        run: |
+          tail -200 server.log
+          echo "::error title=Журнал сервера::$(tail -40 server.log | sed ':a;N;$!ba;s/%/%25/g;s/\r//g;s/\n/%0A/g')"
 
   contract:
     name: Контракт с фронтом
