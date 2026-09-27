@@ -12,6 +12,8 @@ const SKIP_NAMES = new Set([
   'slug', 'code', 'url', 'href', 'link', 'hash', 'email', 'phone', 'path', 'sourcePath', 'filename', 'mimeType',
   'src', 'video', 'icon', 'color', 'variant', 'key', 'name', 'acceptedFileTypes', 'defaultValue', 'target', 'id',
   'blockName', 'robots', 'action', 'recipients', 'cc', 'search', 'summary', 'ipHash', 'embed', 'html', 'code',
+  // коды уязвимостей и векторы CVSS: дефис в CVE-2026-12345 не должен становиться тире
+  'cve', 'vector2', 'vector3',
 ])
 
 /** Похоже на адрес, почту или путь — не текст. */

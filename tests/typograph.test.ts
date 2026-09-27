@@ -51,4 +51,11 @@ describe('типограф', () => {
       expect(typograph(once)).toBe(once)
     }
   })
+  it('не трогает коды уязвимостей, даты и телефоны', () => {
+    expect(typograph('CVE-2026-31337 и BDU:2026-01234')).toContain('CVE-2026-31337')
+    expect(typograph('CVE-2026-31337 и BDU:2026-01234')).toContain('BDU:2026-01234')
+    expect(typograph('до 2026-08-12')).toContain('2026-08-12')
+    expect(typograph('звоните 8-800-555-35-35')).toContain('8-800-555-35-35')
+    expect(typograph('в 2019-2020 годах')).toContain('2019–2020')
+  })
 })
